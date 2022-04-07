@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+     @font-face {
+       font-family: NotoSans;
+       src: url({{ 'fonts/NotoSans/NotoSans-Regular.ttf' | asseturl }});
+     }
+     @font-face {
+       font-family: NotoSansBold;
+       src: url({{ 'fonts/NotoSans/NotoSans-Bold.ttf' | asseturl }});
+     }
+     @font-face {
+       font-family: NotoSansBlack;
+       src: url({{ 'fonts/NotoSans/NotoSans-Black.ttf' | asseturl }});
+     }
+
+     body {
+       background-color: #fcfdfb;
+       font-family: NotoSans;
+       margin: 0;
+     }
+     h1 {
+       font-size: 3em;
+       font-family: NotoSansBlack;
+     }
+     h2 {
+       font-size: 2.25em;
+       font-family: NotoSansBold;
+     }
+     a {
+       text-decoration: none;
+       color: green;
+     }
+     #site-header {
+       background-color: #f4f9f1;
+       padding: 0 2%;
+     }
+     #site-header ul {
+       list-style-type: none;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       //float: right;
+       display: inline;
+     }
+     #site-header li {
+       //float: left;
+       //text-align: center;
+       padding: 16px;
+       display: inline;
+     }
+     .shape {
+       position: absolute;
+       overflow: hidden;
+       height: 80px;
+       width: 100%;
+     }
+     .shape::before {
+       border-radius: 100%;
+       position: absolute;
+       //background: linear-gradient(#fbfcfa 0%, #f4f9f1 100%);
+       background: #f4f9f1;
+       right: -200px;
+       left: -200px;
+       top: -200px;
+       content: '';
+       bottom: 0;
+       z-index: -100;
+     }
+     #content {
+       margin: 0 auto;
+     }
+     #container {
+       background-color: #f4f9f1;
+       margin: 0;
+       //text-align: center;
+     }
+     #container * {
+       margin: 0;
+     }
+     #page-content {
+       margin: 2% auto;
+       width: 82vw;
+       border-radius: 13px;
+       background-color: white;
+       filter: drop-shadow(0 0 5px #e2e2e2);
+       padding: 1%;
+       //text-align: center;
+     }
+     .parent {
+       /*margin: 1rem;
+          padding: 2rem 2rem;
+          text-align: center;*/
+       display: flex;
+       justify-content: space-between;
+     }
+     .child {
+       //display: inline-block;
+       //vertical-align: middle;
+     }
+     #steps-container {
+       width: 82vw;
+       margin: 0 auto;
+     }
+     .step-text {
+       width: 50%;
+     }
+     .onion-url-container {
+       background-color: #e2f2dc;
+       display: inline-block;
+       padding: 1%;
+       border-radius: 10px;
+     }
+     .onion-url-container p {
+       color: darkgreen;
+       display: inline;
+     }
+     #download-button {
+       background-color: #52af2f;
+       color: white;
+       padding: 1.5%;
+       border-radius: 50px;
+     }
+     #onion-glyph-download {
+       height: 20px;
+       padding: 10px;
+       transform: translateY(13px);
+       filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
+     }
+     .onion-url-lock {
+       transform: translateY(4px);
+       filter: invert(39%) sepia(28%) saturate(6420%) hue-rotate(74deg) brightness(92%) contrast(93%);
+       height: 20px;
+       user-select: none;
+       -moz-user-select: none;
+       -khtml-user-select: none;
+       -webkit-user-select: none;
+       -o-user-select: none;
+     }
+
+    </style>
+  </head>
+  <body>
+    {% include 'macros/header.html' %}
+    <div id="content">
+      <div id="container" class="parent">
+        <div class="child" style="display: inline-block; margin-left: 10%; margin-top: 2%;">
+          <h1>{{ this.title }}</h1>
+          <div style="margin-top: 2%; margin-bottom: 2%;">
+            {{ this.subtitle }}
+          </div>
+          {% include 'macros/onion_url.html' %}
+        </div>
+        <div class="child" style="margin-right: 8%;">
+          <img src="{{ 'header-tor.png' | asseturl }}">
+        </div>
+      </div>
+      <div class="shape"></div>
+      <div id="page-content">
+        <h2>Circumvent Censorship with Tor</h2>
+        <p>Tor provides a way to browse the Internet anonymously, helping people avoid both censorship and surveillance. Tor Browser is just like any other browser you use - Chrome, Firefox, Safari, Yandex - except instead of exposing all your browsing behaviour to your Internet service provider and everyone else snooping on your traffic, it hides your traffic by encrypting it and letting it bounce through three random volunteer-run nodes (these nodes are also called "relays"). This process obfuscates who you are, where you are, and where you're going (i.e. which website you're visiting).</p>
+        <p>Tor is used by human rights defenders, activists, and people from all around the world who need to escape censorship and surveillance. To learn more about Tor and how it works, visit: <a href="tb-manual.torproject.org">tb-manual.torproject.org</a></p>
+      </div>
+      <div id="steps-container">
+        <div id="step1" class="parent">
+          <div class="child step-text">
+            <h2>Step 1: Download Tor Browser</h2>
+            <p>The safest and simplest way to download Tor Browser is from the official Tor Project website at <a href="https://www.torproject.org/downloada">https://www.torproject.org/download/</a>. For MacOS, you can download Tor Browser from the link below:</p>
+            <div style="margin-top: 2%; margin-bottom: 5%;">
+              <a href="https://www.torproject.org/download/" id="download-button"><img src="{{ 'onion-glyph.svg' | asseturl }}" id="onion-glyph-download">Download Tor Browser</a>
+            </div>
+            <p style="font-weight: bold; background: #f7f7f7; padding: 2%; border-radius: 5px;">Facing trouble downloading Tor Browser? V</p>
+          </div>
+          <div class="child">
+            <img src="{{ 'download-tor.png' | asseturl }}">
+          </div>
+        </div>
+        <div id="step2" class="parent">
+          <div class="child">
+            <img src="{{ 'connect-tor.png' | asseturl }}">
+          </div>
+          <div class="child step-text" style="width: 60%;">
+            <h2>Step 2: Connect to Tor</h2>
+            <p>When you run Tor Browser for the first time, you will see the Connect to Tor window. This offers you the option to either connect directly to the Tor network, or to configure Tor Browser for your connection. There's a checkbox which asks whether you always want to get automatically connected to the Tor network, if this is the case, check the box.</p>
+            <p style="font-weight: bold; background: #f7f7f7; padding: 2%; border-radius: 5px;">Facing trouble connecting to Tor? V</p>
+          </div>
+        </div>
+        <div id="step3" class="parent">
+          <div class="child step-text">
+            <h2>Step 3: Access the Onion Service</h2>
+            <p>Onion services (formerly known as "hidden services") as services (like websites) that are only accessible through the Tor network. Just like any other website, you will need to know the address of an onion service in order to connect to it. An onion address is a string of 56 mostly random letters and numbers, followed by ".onion". To learn more about Onion Services, visit: <a href="https://tb-manual.torproject.org/onion-services">https://tb-manual.torproject.org/onion-services</a></p>
+            <p>To access [service name] onion service, simply copy and paste the following URL onto Tor Browser:</p>
+            {% include 'macros/onion_url.html' %}
+          </div>
+          <div class="child">
+            <img src="{{ 'onion-services.png' | asseturl }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
