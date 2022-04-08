@@ -9,3 +9,103 @@ name = English (en)
 primary = yes
 url_prefix = /
 locale = en
+
+[alternatives.az]
+name = Azərbaycan dili (az)
+url_prefix = /az/
+locale = az
+
+[alternatives.bg]
+name = български (bg)
+url_prefix = /bg/
+locale = bg
+
+[alternatives.be]
+name = беларуская мова (be)
+url_prefix = /be/
+locale = be
+
+[alternatives.ce]
+name = Нохчийн мотт (ce)
+url_prefix = /ce/
+locale = ce
+
+[alternatives.crh]
+name = къырымтатар тили (crh)
+url_prefix = /crh/
+locale = crh
+
+[alternatives.fa]
+name =  (fa) ﻑﺍﺮﺳی
+url_prefix = /fa/
+locale = fa
+
+[alternatives.fa-AF]
+name = دری (fa-AF)
+url_prefix = /fa-AF/
+locale = fa-AF
+
+[alternatives.hu]
+name =  Magyar nyelv (hu)
+url_prefix = /hu/
+locale = hu
+
+[alternatives.hy]
+name = հայերեն (hy)
+url_prefix = /hy/
+locale = hy
+
+[alternatives.ka]
+name = ქართული ენა (ka)
+url_prefix = /ka/
+locale = ka
+
+[alternatives.kk]
+name = Kazakh (kk)
+url_prefix = /kk/
+locale = kk
+
+[alternatives.ky]
+name = Кыргыз тили (ky)
+url_prefix = /ky/
+locale = ky
+
+[alternatives.mk]
+name = македонски (mk)
+url_prefix = /mk/
+locale = mk
+
+[alternatives.ps]
+name = (ps) پښتو
+url_prefix = /ps/
+locale = ps
+
+[alternatives.ro]
+name = Română (ro)
+url_prefix = /ro/
+locale = ro
+
+[alternatives.ru]
+name = Русский (ru)
+url_prefix = /ru/
+locale = ru
+
+[alternatives.sq]
+name = shqip (sq)
+url_prefix = /sq/
+locale = sq
+
+[alternatives.tt]
+name = татар (tt)
+url_prefix = /tt/
+locale = tt
+
+[alternatives.uk]
+name = українська (uk)
+url_prefix = /uk/
+locale = uk
+
+[alternatives.uz]
+name = Oʻzbekcha (uz)
+url_prefix = /uz/
+locale = uz
