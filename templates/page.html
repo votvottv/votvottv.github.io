@@ -30,22 +30,22 @@
      }
      a {
        text-decoration: none;
-       color: green;
+       color: {{ envvars('ACCENT_COLOR') }};
+     }
+     p {
+       font-size: 1.25em;
      }
      #site-header {
-       background-color: #f4f9f1;
+       background-color: {{ envvars('CIRCLE_BG') }};
        padding: 0 2%;
      }
      #site-header ul {
        list-style-type: none;
        padding-top: 10px;
        padding-bottom: 10px;
-       //float: right;
        display: inline;
      }
      #site-header li {
-       //float: left;
-       //text-align: center;
        padding: 16px;
        display: inline;
      }
@@ -58,8 +58,7 @@
      .shape::before {
        border-radius: 100%;
        position: absolute;
-       //background: linear-gradient(#fbfcfa 0%, #f4f9f1 100%);
-       background: #f4f9f1;
+       background: {{ envvars('CIRCLE_BG') }};
        right: -200px;
        left: -200px;
        top: -200px;
@@ -69,9 +68,10 @@
      }
      #content {
        margin: 0 auto;
+       margin-bottom: 6%;
      }
      #container {
-       background-color: #f4f9f1;
+       background-color: {{ envvars('CIRCLE_BG') }};
        margin: 0;
        //text-align: center;
      }
@@ -84,8 +84,8 @@
        border-radius: 13px;
        background-color: white;
        filter: drop-shadow(0 0 5px #e2e2e2);
-       padding: 1%;
-       //text-align: center;
+       padding: 3%;
+       box-sizing: border-box;
      }
      .parent {
        /*margin: 1rem;
@@ -106,20 +106,22 @@
        width: 50%;
      }
      .onion-url-container {
-       background-color: #e2f2dc;
+       background-color: {{ envvars('ONION_URL_BG') }};
        display: inline-block;
        padding: 1%;
        border-radius: 10px;
      }
      .onion-url-container p {
-       color: darkgreen;
+       color: {{ envvars('ACCENT_COLOR') }};
        display: inline;
      }
-     #download-button {
-       background-color: #52af2f;
+     .button {
+       background-color: {{ envvars('ACCENT_COLOR') }};
        color: white;
        padding: 1.5%;
        border-radius: 50px;
+       box-shadow: 0 4px 10px {{ envvars('CIRCLE_BG') }};;
+       padding-right: 2.25%;
      }
      #onion-glyph-download {
        height: 20px;
@@ -129,7 +131,8 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(39%) sepia(28%) saturate(6420%) hue-rotate(74deg) brightness(92%) contrast(93%);
+       /*filter: invert(39%) sepia(28%) saturate(6420%) hue-rotate(74deg) brightness(92%) contrast(93%);*/
+       filter: {{ envvars('ONION_URL_LOCK_FILTER') }};
        height: 20px;
        user-select: none;
        -moz-user-select: none;
