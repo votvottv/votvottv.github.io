@@ -140,7 +140,54 @@
        -webkit-user-select: none;
        -o-user-select: none;
      }
-
+     #support-footer {
+       width: 100%;
+       background-color: white;
+       box-shadow: 0 -5px 5px #e2e2e2;
+       padding-top: 5%;
+       padding-bottom: 5%;
+     }
+     .chevron-down {
+       background-image: url({{ 'chevron-down-solid.svg' |asseturl }});
+       width: 20px;
+       height: 20px;
+       background-repeat: no-repeat;
+       float: right;
+     }
+     summary.no-marker {
+       list-style: none;
+     }
+     details[open] > summary > i.chevron-down {
+       transform: rotate(180deg);
+     }
+     .circle-bg {
+       display: inline-block;
+       width: 22%;
+       height: 47%;
+       position: absolute;
+       background-color: {{ envvars('CIRCLE_BG') }};
+       z-index: -1;
+       border-radius: 100%;
+     }
+     details.collapsible-text > summary {
+       font-weight: bold;
+       background: #f7f7f7;
+       padding: 2%;
+       border-radius: 5px;
+       font-size: 1.25em;
+       border: 1px solid rgba(0, 0, 0, 0.05);
+     }
+     details[open].collapsible-text > summary {
+       border-radius: 5px 5px 0 0;
+     }
+     details.collapsible-text {
+       border-radius: 5px;
+       border: 1px solid rgba(0, 0, 0, 0.05);
+     }
+     details.collapsible-text > div.details-container {
+       padding: 0 5%;
+       color: rgba(0, 0, 0, 0.54);
+     }
     </style>
   </head>
   <body>
