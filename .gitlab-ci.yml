@@ -7,3 +7,4 @@ include:
   - project: tpo/tpa/ci-templates
     file:
       - lektor.yml
+      - pages-deploy.yml
