@@ -1,0 +1,9 @@
+---
+variables:
+  STAGING_URL: sponsor123-landing-page.staging.torproject.net
+  #TRANSLATION_BRANCH: support-portal
+
+include:
+  - project: tpo/tpa/ci-templates
+    file:
+      - lektor.yml
