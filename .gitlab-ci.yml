@@ -2,10 +2,10 @@
 variables:
   STAGING_URL: sponsor123-landing-page.staging.torproject.net
   #TRANSLATION_BRANCH: support-portal
-  LEKTOR_CIRCLE_BG='#fdf4ec'
-  LEKTOR_ONION_URL_BG='#fbe6d5'
-  LEKTOR_ACCENT_COLOR='#ea6903'
-  LEKTOR_ONION_URL_LOCK_FILTER='invert(43%) sepia(95%) saturate(2236%) hue-rotate(4deg) brightness(97%) contrast(98%);'
+  LEKTOR_CIRCLE_BG: '#fdf4ec'
+  LEKTOR_ONION_URL_BG: '#fbe6d5'
+  LEKTOR_ACCENT_COLOR: '#ea6903'
+  LEKTOR_ONION_URL_LOCK_FILTER: 'invert(43%) sepia(95%) saturate(2236%) hue-rotate(4deg) brightness(97%) contrast(98%);'
 
 include:
   - project: tpo/tpa/ci-templates
