@@ -139,14 +139,13 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       /*filter: invert(39%) sepia(28%) saturate(6420%) hue-rotate(74deg) brightness(92%) contrast(93%);*/
        filter: {{ envvars('ONION_URL_LOCK_FILTER') }};
+       display: inline-block;
+       background-image: url({{ 'onion-site-lock.svg' | asseturl }});
+       width: 20px;
        height: 20px;
-       user-select: none;
-       -moz-user-select: none;
-       -khtml-user-select: none;
-       -webkit-user-select: none;
-       -o-user-select: none;
+       background-repeat: no-repeat;
+       background-size: contain;
      }
      #support-footer {
        width: 100%;
