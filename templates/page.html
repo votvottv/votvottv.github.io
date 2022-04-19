@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
      @font-face {
        font-family: NotoSans;
@@ -37,7 +38,7 @@
      }
      #site-header {
        background-color: {{ envvars('CIRCLE_BG') }};
-       padding: 0 2%;
+       padding: 0;
      }
      #site-header ul {
        list-style-type: none;
@@ -160,15 +161,6 @@
      details[open] > summary > i.chevron-down {
        transform: rotate(180deg);
      }
-     .circle-bg {
-       display: inline-block;
-       width: 400px;
-       height: 400px;
-       position: absolute;
-       background-color: {{ envvars('CIRCLE_BG') }};
-       z-index: -1;
-       border-radius: 100%;
-     }
      details.collapsible-text > summary {
        font-weight: bold;
        background: #f7f7f7;
@@ -188,14 +180,110 @@
        padding: 0 5%;
        color: rgba(0, 0, 0, 0.54);
      }
+     .onion-url-desktop {
+       display: none !important;
+       font-size: 1em;
+     }
+     .onion-url-desktop, .onion-url-mobile {
+       font-weight: bold;
+     }
      .social-button {
        margin-top: 2%; margin-bottom: 5%; display: inline; margin-right: 2%;
      }
      #footer-container {
        margin: 0 auto; text-align: center; width: 50vw;
      }
+     .onion-url-mobile {
+       font-size: 1.1em;
+     }
      #steps-container > div.parent:nth-child(2n) {
        flex-direction: row-reverse;
+     }
+     #nav-list {
+       background-color: {{ envvars('ONION_URL_BG') }};
+     }
+     #navigation-container > img {
+       padding: 0 2%;
+     }
+
+     @media (max-width: 1000px) {
+       .child > img {
+         width: 275px;
+       }
+       h1 {
+         font-size: 2em;
+       }
+       h2 {
+         font-size: 1.5em;
+       }
+       #footer-container {
+         width: 90vw;
+       }
+       #steps-container {
+         width: 90vw;
+       }
+       #nav-list {
+         display: block !important;
+         margin-bottom: 0;
+         margin-top: 0;
+         padding: 4% 0 0 0 !important;
+         height: 50px;
+       }
+       #nav-list > li {
+         margin: 0;
+         padding: 0;
+       }
+       #nav-list > li > span {
+         padding-top: 0 !important;
+         padding-bottom: 0 !important;
+         line-height: initial !important;
+       }
+       #language-select {
+         position: absolute;
+         top: 0;
+         right: 0;
+         margin-top: 2% !important;
+       }
+     }
+     @media (min-width: 1000px) {
+       .onion-url-desktop {
+         display: block !important;
+       }
+       .onion-url-mobile {
+         display: none !important;
+       }
+       .circle-bg {
+         display: inline-block;
+         width: 400px;
+         height: 400px;
+         position: absolute;
+         background-color: {{ envvars('CIRCLE_BG') }};
+         z-index: -1;
+         border-radius: 100%;
+       }
+       #nav-list {
+         background-color: rgba(0, 0, 0, 0);
+       }
+     }
+     @media(max-width: 400px) {
+       #steps-container > div.parent {
+         flex-direction: column-reverse !important;
+       }
+       .step-text {
+         width: 100%;
+       }
+       .social-button {
+         display: block;
+       }
+       .social-button:not(last-child) {
+         margin-bottom: 0;
+       }
+       .social-button:not(first-child) {
+         margin-top: 0;
+       }
+       #header-image {
+         display: none;
+       }
      }
     </style>
   </head>
@@ -211,7 +299,7 @@
           {% include 'macros/onion_url.html' %}
         </div>
         <div class="child" style="margin-right: 8%;">
-          <img src="{{ 'header-tor.png' | asseturl }}">
+          <img src="{{ 'header-tor.png' | asseturl }}" id="header-image">
         </div>
       </div>
       <div class="shape"></div>
