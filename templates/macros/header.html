@@ -15,10 +15,11 @@
    padding: 1% 15% 1% 1%;
    position: absolute;
    box-sizing: border-box;
-   right: 7%;
+   right: 5%;
    display: none;
    border-radius: 15px;
    z-index: 1;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.15);
  }
  .dropdown-item {
    display: block;
@@ -43,10 +44,10 @@
   <div id="navigation-container">
     <img src="{{ '/logo-temp.png'|asseturl }}">
     <ul id="nav-list">
-      <li><span>{{ _('Download') }}</span></li>
-      <li><span>{{ _('Connect') }}</span></li>
-      <li><span>{{ _('Access') }}</span></li>
-      <li><span>{{ _('Seek Support') }}</span></li>
+      <li><a href="#step1">{{ _('Download') }}</a></li>
+      <li><a href="#step2">{{ _('Connect') }}</a></li>
+      <li><a href="#step3">{{ _('Access') }}</a></li>
+      <li><a href="#support-footer">{{ _('Support') }}</a></li>
     </ul>
     <div id="language-select" onmouseleave="hideLanguageSelect()">
       <div class="button" style="border: none; width: 100%; padding: 25%;" onmouseover="showLanguageSelect()">English<i class="chevron-down"></i></button>
