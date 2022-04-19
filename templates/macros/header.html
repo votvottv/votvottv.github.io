@@ -29,6 +29,16 @@
  }
 </style>
 <script>
+ 'use strict';
+
+ let nextDisplay;
+ let languageDropdown;
+
+ window.addEventListener('load', () => {
+   nextDisplay = 'block';
+   languageDropdown = document.querySelector('#language-dropdown');
+ })
+
  function showLanguageSelect() {
    console.log('show');
    const dropdown = document.getElementById('language-dropdown');
@@ -38,6 +48,12 @@
    console.log('hide');
    const dropdown = document.getElementById('language-dropdown');
    dropdown.style.display = 'none';
+ }
+ function clickHandler() {
+   console.log('test');
+   let nextDisplay_ = window.getComputedStyle(languageDropdown).display;
+   languageDropdown.style.display = nextDisplay;
+   nextDisplay = nextDisplay_;
  }
 </script>
 <div id="site-header">
@@ -49,7 +65,7 @@
       <li><a href="#step3">{{ _('Access') }}</a></li>
       <li><a href="#support-footer">{{ _('Support') }}</a></li>
     </ul>
-    <div id="language-select" onmouseleave="hideLanguageSelect()">
+    <div id="language-select" onmouseleave="hideLanguageSelect()" onmousedown="clickHandler()">
       <div class="button" style="border: none; width: 100%; padding: 25%;" onmouseover="showLanguageSelect()">English<i class="chevron-down"></i></button>
       </div>
       <div id="language-dropdown">

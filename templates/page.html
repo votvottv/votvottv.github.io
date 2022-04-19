@@ -291,10 +291,26 @@
          margin-top: 0;
        }
        #header-image {
-         display: none;
+         display: none !important;
        }
        #nav-list {
          padding: 5% 0 5% 0 !important;
+       }
+       #container {
+         display: block;
+       }
+       #container > div.child:first-child {
+         display: block !important;
+         width: 90vw;
+         margin: 0 auto !important;
+         padding-top: 2%;
+       }
+       #page-content {
+         width: 90vw;
+       }
+       #language-dropdown {
+         width: 90vw;
+         padding: 15% 15% 15% 15%;
        }
      }
     </style>
