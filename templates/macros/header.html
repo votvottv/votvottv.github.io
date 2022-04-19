@@ -1,12 +1,61 @@
+<style>
+ #language-select {
+   float: right;
+   margin-top: 1%;
+   margin-right: 5%;
+   border: none;
+   padding-right: 2%;
+ }
+ #language-select i.chevron-down {
+   transform: translateX(75%);
+   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(258deg) brightness(104%) contrast(102%);
+ }
+ #language-dropdown {
+   background-color: white;
+   padding: 1% 15% 1% 1%;
+   position: absolute;
+   box-sizing: border-box;
+   right: 7%;
+   display: none;
+   border-radius: 15px;
+   z-index: 1;
+ }
+ .dropdown-item {
+   display: block;
+   text-decoration: none;
+   font-weight: bold;
+   color: black;
+ }
 </style>
+<script>
+ function showLanguageSelect() {
+   console.log('show');
+   const dropdown = document.getElementById('language-dropdown');
+   dropdown.style.display = 'block';
+ }
+ function hideLanguageSelect() {
+   console.log('hide');
+   const dropdown = document.getElementById('language-dropdown');
+   dropdown.style.display = 'none';
+ }
+</script>
 <div id="site-header">
   <div id="navigation-container">
     <img src="{{ '/logo-temp.png'|asseturl }}">
-    <ul>
+    <ul id="nav-list">
       <li><span>{{ _('Download') }}</span></li>
       <li><span>{{ _('Connect') }}</span></li>
       <li><span>{{ _('Access') }}</span></li>
       <li><span>{{ _('Seek Support') }}</span></li>
     </ul>
+    <div id="language-select" onmouseleave="hideLanguageSelect()">
+      <div class="button" style="border: none; width: 100%; padding: 25%;" onmouseover="showLanguageSelect()">English<i class="chevron-down"></i></button>
+      </div>
+      <div id="language-dropdown">
+        {% for alt in get_alts(this) %}
+        <a href="{{ '.'|url(alt=alt) }}" class="dropdown-item">{{ bag('alternatives', alt).language or alt|title }}</a>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </div>
