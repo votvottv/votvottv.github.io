@@ -196,6 +196,9 @@
        padding: 0 5%;
        color: rgba(0, 0, 0, 0.54);
      }
+     #steps-container > div.parent:nth-child(2n) {
+       flex-direction: row-reverse;
+     }
     </style>
   </head>
   <body>
@@ -224,103 +227,7 @@
         To learn more about Tor and how it works, visit the [Tor Browser Manual](https://tb-manual.torproject.org).')) }}
       </div>
       <div id="steps-container">
-        <div id="step1" class="parent">
-          <div class="child step-text">
-            <h2>{{ _('Step 1: Download Tor Browser') }}</h2>
-            {{ md(_('The safest and simplest way to download Tor Browser is from the official Tor Project website. For {operating system}, you can download Tor Browser from the link below:')) }}
-            <div style="margin-top: 2%; margin-bottom: 5%;">
-              <a href="https://www.torproject.org/download/" class="button"><img src="{{ 'onion-glyph.svg' | asseturl }}" id="onion-glyph-download">{{ _('Download Tor Browser') }}</a>
-            </div>
-            <details class="collapsible-text">
-              <summary class="no-marker">{{ _('Facing trouble downloading Tor Browser?') }}<i class="chevron-down"></i></summary>
-              <div class="details-container">
-              {{ md(_('There may be times when you cannot access the Tor Project website: for example, it could be blocked on your network.
-              If this happens, you can use one of the alternative download methods listed below.')) }}
-              {{ md(_('### Mirrors
-You can try downloading Tor Browser from one of the official mirrors, either through:
-https://tor.eff.org/
-http://tor.calyxinstitute.org/')) }}
-              {{ md(_('### GetTor
-If even the mirror sites are blocked, you can request to receive Tor Browser from GetTor.
-GetTor is a service that automatically responds to messages with links to the latest version of Tor Browser, hosted at a variety of locations, such as Dropbox, Google Drive and GitHub:
-- Step 1: Send an email to gettor@torproject.org, and in the body of the message simply write “windows”, “osx”, or “linux”, (without quotation marks) depending on your operating system.
-You can also add a language code to get Tor Browser on a language different than English.
-For example, to get links for downloading Tor Browser in Chinese (China) for Windows, send an email to gettor@torproject.org with the words "windows zh_CN" in it.
-- Step 2: GetTor will respond with an email containing links from which you can download the Tor Browser package, the cryptographic signature (needed for verifying the download), the fingerprint of the key used to make the signature, and the package’s checksum.
-You may be offered a choice of “32-bit” or “64-bit” software: this depends on the model of the computer you are using.')) }}
-              {{ md(_('You can also access documentation and other resources using the following mirrors:
-              Tor support portal: https://support.tor.invidious.site/
-              Tor Browser manual: https://tb-manual.tor.invidious.site/
-              Tor project blog: https://blog.tor.invidious.site/
-              Tor main website: https://tor.invidious.site/')) }}
-              </div>
-            </details>
-          </div>
-          <div class="child">
-            <div class="circle-bg"></div>
-            <img src="{{ 'download-tor.png' | asseturl }}">
-          </div>
-        </div>
-        <div id="step2" class="parent">
-          <div class="child">
-            <div class="circle-bg"></div>
-            <img src="{{ 'connect-tor.png' | asseturl }}">
-          </div>
-          <div class="child step-text" style="width: 60%;">
-            <h2>{{ _('Step 2: Connect to Tor') }}</h2>
-            <p>{{ _("When you run Tor Browser for the first time, you will see the Connect to Tor window.
-              This offers you the option to either connect directly to the Tor network, or to configure Tor Browser for your connection.
-              There's a checkbox which asks whether you always want to get automatically connected to the Tor network, if this is the case, check the box.") }}</p>
-            <p>{{ _('You should be able to start browsing the web using Tor Browser shortly after running the program, and clicking the “Connect” button if you are using it for the first time.') }}</p>
-            <details class="collapsible-text">
-              <summary style="font-weight: bold; background: #f7f7f7; padding: 2%; border-radius: 5px; font-size: 1.25em;" class="no-marker">Facing trouble connecting to Tor?<i class="chevron-down"></i></summary>
-              <div class="details-container">
-              {{ md(_('Direct access to the Tor network may sometimes be blocked by your Internet Service Provider or by a government.
-              Tor Browser includes some circumvention tools for getting around these blocks.
-              In such scenarios, simply configuring your browser to connect through a bridge should suffice. Bridges are simply relays that are private and harder to block.')) }}
-
-              {{ md(_('### Instructions on how to activate bridges for desktop:
-You can use a bridge in Tor Browser for desktop by going to: Settings > Tor > Bridges > Use a Bridge.
-              As of 22 December 2021, bridges bundled directly into Tor Browser are blocked in Russia.
-              Readers therefore need to request a bridge via one of the following ways:
-              Requesting a bridge from within Tor Browser on desktop [Settings > Tor > Bridges > Request a bridge from torproject.org > Solve the CAPTCHA]
-              Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser [Settings > Tor > Bridges > Provide a bridge]
-              Requesting a bridge via email: bridges@torproject.org; and then adding the bridges lines received manually via copy and paste in Tor Browser [Settings > Tor > Bridges > Provide a bridge]
-              Connecting through "Snowflake" from within Tor Browser [Settings > Tor > Bridges > Select a built-in bridge > Snowflake]')) }}
-
-              {{ md(_('### Instructions on how to activate bridges for Android:
-Readers can use a bridge on Android by going to: Settings icon > Config Bridge > Use a bridge.
-              In the case that bridges bundled directly into Tor Browser are blocked, readers need to request a bridge via one of the following ways:
-              Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser [Config Bridge > Provide a bridge I know]
-              Requesting a bridge via email: bridges@torproject.org; and then adding the bridges lines received manually via copy and paste in Tor Browser [Config Bridge > Provide a bridge I know]
-              Connecting through Snowflake from within Tor Browser [Config Bridge > Snowflake]')) }}
-
-              {{ md(_('### Instructions on how to activate bridges for iOS:
-Readers can use a bridge on iOS by going to: Onion icon when viewing a website > Bridge Configuration.
-              In the case that bridges bundled directly into Tor Browser are blocked, you can request a bridge via one of the following ways:
-              Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser [Bridge Configuration > Custom Bridges]
-              Requesting a bridge via email: bridges@torproject.org; and then adding the bridges lines received manually via copy and paste in Tor Browser [Bridge Configuration > Custom Bridges]
-              Connecting through Snowflake from within Tor Browser [Bridge Configuration > Snowflake]')) }}
-              </div>
-            </details>
-          </div>
-        </div>
-        <div id="step3" class="parent">
-          <div class="child step-text">
-            <h2>Step 3: Access the Onion Service</h2>
-            {{ md(_('Onion services (formerly known as "hidden services") are services (like websites) that are only accessible through the Tor network.
-            Just like any other website, you will need to know the address of an onion service in order to connect to it.
-            An onion address is a string of 56 mostly random letters and numbers, followed by ".onion".
-            To learn more about Onion Services, visit the [Tor Browser Manual](https://tb-manual.torproject.org/onion-services).')) }}
-
-            {{ md(_("To access {USAGM Service Name}'s onion service, simply copy and paste the following URL onto Tor Browser:")) }}
-            {% include 'macros/onion_url.html' %}
-          </div>
-          <div class="child">
-            <div class="circle-bg"></div>
-            <img src="{{ 'onion-services.png' | asseturl }}">
-          </div>
-        </div>
+        {{ this.sections }}
       </div>
     </div>
     {% include 'macros/footer.html' %}
