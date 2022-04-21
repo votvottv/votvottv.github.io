@@ -7,7 +7,6 @@
    padding-right: 2%;
  }
  #language-select i.chevron-down {
-   transform: translateX(75%);
    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(258deg) brightness(104%) contrast(102%);
  }
  #language-dropdown {
@@ -66,7 +65,8 @@
       <li><a href="#support-footer">{{ _('Support') }}</a></li>
     </ul>
     <div id="language-select" onmouseleave="hideLanguageSelect()" onmousedown="clickHandler()">
-      <div class="button" style="border: none; width: 100%; padding: 25%;" onmouseover="showLanguageSelect()">English<i class="chevron-down"></i></button>
+      <div class="button" style="border: none; width: 145px; height: 56px;" onmouseover="showLanguageSelect()">
+        <div style="padding-top: 12%; margin-right: 16px; margin-left: 24px;">English<i class="chevron-down"></i></div>
       </div>
       <div id="language-dropdown">
         {% for alt in get_alts(this) %}
