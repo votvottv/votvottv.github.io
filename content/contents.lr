@@ -21,12 +21,14 @@ id: step1
 title: Step 1: Download Tor Browser
 ----
 content:
-The safest and simplest way to download Tor Browser is from the official Tor Project website. For {operating system}, you can download Tor Browser from the link below:
+The safest and simplest way to download Tor Browser is from the official Tor Project website.
+For {operating system}, you can download Tor Browser from the link below:
 ----
 expand_title: Facing trouble downloading Tor Browser?
 ----
 expand:
-There may be times when you cannot access the Tor Project website: for example, it could be blocked on your network. If this happens, you can use one of the alternative download methods listed below.
+There may be times when you cannot access the Tor Project website: for example, it could be blocked on your network.
+If this happens, you can use one of the alternative download methods listed below.
 
 ### Mirrors
 
@@ -36,7 +38,8 @@ You can try downloading Tor Browser from one of the official mirrors, either thr
 
 ### GetTor
 
-If even the mirror sites are blocked, you can request to receive Tor Browser from GetTor. GetTor is a service that automatically responds to messages with links to the latest version of Tor Browser, hosted at a variety of locations, such as Dropbox, Google Drive and GitHub:
+If even the mirror sites are blocked, you can request to receive Tor Browser from GetTor.
+GetTor is a service that automatically responds to messages with links to the latest version of Tor Browser, hosted at a variety of locations, such as Dropbox, Google Drive and GitHub:
 
 - **Step 1**: Send an email to gettor@torproject.org, and in the body of the message simply write “windows”, “osx”, or “linux”, (without quotation marks) depending on your operating system. You can also add a language code to get Tor Browser on a language different than English. For example, to get links for downloading Tor Browser in Chinese (China) for Windows, send an email to gettor@torproject.org with the words "windows zh_CN" in it.
 
@@ -60,7 +63,9 @@ id: step2
 content:
 ## Step 2: Connect to Tor
 
-When you run Tor Browser for the first time, you will see the Connect to Tor window. This offers you the option to either connect directly to the Tor network, or to configure Tor Browser for your connection. There's a checkbox which asks whether you always want to get automatically connected to the Tor network, if this is the case, check the box.
+When you run Tor Browser for the first time, you will see the Connect to Tor window.
+This offers you the option to either connect directly to the Tor network, or to configure Tor Browser for your connection.
+There's a checkbox which asks whether you always want to get automatically connected to the Tor network, if this is the case, check the box.
 
 You should be able to start browsing the web using Tor Browser shortly after running the program, and clicking the “Connect” button if you are using it for the first time.
 ----
@@ -69,7 +74,8 @@ expand_title: Facing trouble connecting to Tor?
 expand:
 Direct access to the Tor network may sometimes be blocked by your Internet Service Provider or by a government.
 Tor Browser includes some circumvention tools for getting around these blocks.
-In such scenarios, simply configuring your browser to connect through a bridge should suffice. Bridges are simply relays that are private and harder to block.
+In such scenarios, simply configuring your browser to connect through a bridge should suffice.
+Bridges are simply relays that are private and harder to block.
 
 ### Instructions on how to activate bridges for desktop:
 
