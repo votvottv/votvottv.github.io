@@ -15,6 +15,10 @@
        font-family: NotoSansBlack;
        src: url({{ 'fonts/NotoSans/NotoSans-Black.ttf' | asseturl }});
      }
+     @font-face {
+       font-family: NotoSansSemiBold;
+       src: url({{ 'fonts/NotoSans/NotoSans-SemiBold.ttf' | asseturl }});
+     }
 
      body {
        background-color: #fcfdfb;
@@ -123,8 +127,9 @@
        color: white;
        padding: 1.5%;
        border-radius: 50px;
-       box-shadow: 0 4px 10px {{ envvars('CIRCLE_BG') }};;
+       box-shadow: 0 4px 10px {{ envvars('CIRCLE_BG') }};
        padding-right: 2.25%;
+       font-family: NotoSansSemibold;
      }
      #onion-glyph-download {
        height: 20px;
