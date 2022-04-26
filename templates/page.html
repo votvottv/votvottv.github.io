@@ -235,6 +235,15 @@
      .child.step-text details {
        margin-top: 32px;
      }
+     .circle-bg {
+       display: inline-block;
+       width: 275px;
+       height: 275px;
+       position: absolute;
+       background-color: {{ theme_color('BACKGROUND_COLOR', '1a') }};
+       z-index: -1;
+       border-radius: 100%;
+     }
 
      /* tablet */
      /* some of these rules aren't overriden on mobile, so they affect mobile too*/
@@ -307,13 +316,8 @@
          display: none !important;
        }
        .circle-bg {
-         display: inline-block;
          width: 400px;
          height: 400px;
-         position: absolute;
-         background-color: {{ theme_color('BACKGROUND_COLOR', '1a') }};
-         z-index: -1;
-         border-radius: 100%;
        }
      }
 
@@ -359,6 +363,11 @@
        /* center step images for mobile */
        #steps-container div.child > img {
          display: block;
+         margin: 0 auto;
+       }
+       .circle-bg {
+         left: 0;
+         right: 0;
          margin: 0 auto;
        }
      }
