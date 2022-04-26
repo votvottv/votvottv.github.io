@@ -2,6 +2,9 @@
   <div class="child step-text">
     <h2>{{ this.title }}</h2>
     {{ this.content }}
+    {% if this.html %}
+      {% include this.html %}
+    {% endif %}
     {% if this.expand %}
       <details class="collapsible-text">
         <summary class="no-marker">{{ this.expand_title }}<i class="chevron-down"></i></summary>
@@ -9,9 +12,6 @@
           {{ this.expand }}
         </div>
       </details>
-    {% endif %}
-    {% if this.html %}
-      {% include this.html %}
     {% endif %}
   </div>
   <div class="child">
