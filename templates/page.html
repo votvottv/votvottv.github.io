@@ -1,3 +1,4 @@
+{%- from 'macros/helpers.jinja2' import theme_color -%}
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,13 +36,13 @@
      }
      a {
        text-decoration: none;
-       color: {{ envvars('ACCENT_COLOR') }};
+       color: {{ theme_color('FOREGROUND_COLOR') }};
      }
      p {
        font-size: 18px;
      }
      #site-header {
-       background-color: {{ envvars('CIRCLE_BG') }};
+       background-color: {{ theme_color('FOREGROUND_COLOR', '13') }};
        padding: 0;
      }
      #site-header ul {
@@ -72,7 +73,7 @@
      .shape::before {
        border-radius: 100%;
        position: absolute;
-       background: {{ envvars('CIRCLE_BG') }};
+       background: {{ theme_color('FOREGROUND_COLOR', '13') }};
        right: -200px;
        left: -200px;
        top: -200px;
@@ -85,7 +86,7 @@
        margin-bottom: 6%;
      }
      #container {
-       background-color: {{ envvars('CIRCLE_BG') }};
+       background-color: {{ theme_color('FOREGROUND_COLOR', '13') }};
        margin: 0;
      }
      #container * {
@@ -116,21 +117,21 @@
        width: 50%;
      }
      .onion-url-container {
-       background-color: {{ envvars('ONION_URL_BG') }};
+       background-color: {{ theme_color('BACKGROUND_COLOR', '1a') }};
        display: inline-block;
        padding: 1%;
        border-radius: 10px;
        padding-right: 8px;
      }
      .onion-url-container p {
-       color: {{ envvars('ACCENT_COLOR') }};
+       color: {{ theme_color('FOREGROUND_COLOR') }};
        display: inline;
      }
      .button {
-       background-color: {{ envvars('ACCENT_COLOR') }};
+       background-color: {{ theme_color('BUTTON_COLOR') }};
        padding: 1.5%;
        border-radius: 50px;
-       box-shadow: 0 4px 10px {{ envvars('CIRCLE_BG') }};
+       box-shadow: 0 4px 10px {{ theme_color('BUTTON_COLOR', opacity='33') }};
        padding-right: 2.25%;
        font-family: NotoSansSemibold;
        height: 56px;
@@ -181,7 +182,7 @@
      }
      details.collapsible-text > summary {
        font-weight: bold;
-       background: #f7f7f7;
+       background-color: rgba(0, 0, 0, 0.03);
        padding: 2%;
        border-radius: 5px;
        font-size: 1.25em;
@@ -214,9 +215,6 @@
      }
      #steps-container > div.parent:nth-child(2n) {
        flex-direction: row-reverse;
-     }
-     #nav-list {
-       background-color: {{ envvars('ONION_URL_BG') }};
      }
      #navigation-container > img {
        padding: 0 2%;
@@ -262,6 +260,7 @@
          margin-top: 0;
          padding: 1% 0 1% 0 !important;
          justify-content: space-around;
+         background-color: {{ theme_color('BACKGROUND_COLOR', '26') }};
        }
        #nav-list > li {
          margin: 0;
@@ -279,7 +278,7 @@
          margin-top: 2% !important;
        }
        #nav-list li a {
-         color: {{ envvars('ACCENT_COLOR') }};
+         color: {{ theme_color('FOREGROUND_COLOR') }};
          font-weight: bolder;
        }
        h1 {
@@ -312,12 +311,9 @@
          width: 400px;
          height: 400px;
          position: absolute;
-         background-color: {{ envvars('CIRCLE_BG') }};
+         background-color: {{ theme_color('BACKGROUND_COLOR', '1a') }};
          z-index: -1;
          border-radius: 100%;
-       }
-       #nav-list {
-         background-color: rgba(0, 0, 0, 0);
        }
      }
 
