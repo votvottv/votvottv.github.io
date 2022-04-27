@@ -1,7 +1,7 @@
 ---
 variables:
-  STAGING_URL: sponsor123-landing-page.staging.torproject.net
-  #TRANSLATION_BRANCH: support-portal
+  #STAGING_URL: sponsor123-landing-page.staging.torproject.net
+  TRANSLATION_BRANCH: onion-support-landing-page
   LEKTOR_CIRCLE_BG: '#fdf4ec'
   LEKTOR_ONION_URL_BG: '#fbe6d5'
   LEKTOR_ACCENT_COLOR: '#ea6903'
