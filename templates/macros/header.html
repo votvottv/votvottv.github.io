@@ -1,10 +1,7 @@
 <style>
  #language-select {
-   float: right;
    margin-top: 1%;
-   margin-right: 5%;
    border: none;
-   padding-right: 2%;
  }
  #language-select i.chevron-down {
    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(258deg) brightness(104%) contrast(102%);
@@ -14,7 +11,7 @@
    padding: 1% 15% 1% 1%;
    position: absolute;
    box-sizing: border-box;
-   right: 5%;
+   right: 2%;
    display: none;
    border-radius: 15px;
    z-index: 1;
@@ -57,7 +54,9 @@
 </script>
 <div id="site-header">
   <div id="navigation-container">
-    <img src="{{ '/logo-temp.png'|asseturl }}">
+    <div id="site-logo" style="background: url({#{ '/logo-temp.png'|asseturl }#})">
+      <img src="{{ '/logo-temp.png'|asseturl }}">
+    </div>
     <ul id="nav-list">
       <li><a href="#step1">{{ _('Download') }}</a></li>
       <li><a href="#step2">{{ _('Connect') }}</a></li>
