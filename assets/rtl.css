@@ -40,6 +40,9 @@ div.parent div.child {
 .social-button img.rtl-show {
     display: inline-block;
 }
+#language-select {
+    left: 0;
+}
 #language-select .chevron-down {
     float: left;
     padding-right: 16px;
