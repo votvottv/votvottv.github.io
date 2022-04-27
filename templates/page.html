@@ -42,18 +42,24 @@
      p {
        font-size: 18px;
      }
+     #navigation-container {
+       display: flex;
+       justify-content: space-between;
+       padding: 0 2%;
+     }
      #site-header {
        background-color: {{ theme_color('FOREGROUND_COLOR', '13') }};
        padding: 0;
      }
-     #site-header ul {
+     #nav-list {
        list-style-type: none;
        padding-top: 10px;
        padding-bottom: 10px;
        display: inline;
        text-align: center;
        vertical-align: top !important;
-       padding-left: 14%;
+       //padding-left: 14%;
+       padding-left: 0;
      }
      #site-header li {
        padding: 16px;
@@ -89,6 +95,8 @@
      #container {
        background-color: {{ theme_color('FOREGROUND_COLOR', '13') }};
        margin: 0;
+       padding-left: 10%;
+       padding-right: 8%;
      }
      #container * {
        margin: 0;
@@ -146,6 +154,7 @@
        padding-right: 16px;
        padding-left: 16px;
        color: white;
+       display: inline-block;
      }
      .button:hover {
        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), {{ theme_color('BUTTON_COLOR') }};
@@ -161,10 +170,16 @@
      }
      #onion-glyph-download {
        height: 20px;
+       width: 20px;
        padding: 10px;
        padding-top: 5px;
        transform: translateY(13px);
        filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
+       background-size: contain;
+       display: inline-block;
+       background: url({{ 'onion-glyph.svg' | asseturl }});
+       background-size: contain;
+       background-repeat: no-repeat;
      }
      .onion-url-lock {
        transform: translateY(4px);
@@ -227,13 +242,12 @@
        margin-top: 2%; margin-bottom: 5%; display: inline; margin-right: 2%;
      }
      #footer-container {
-       margin: 0 auto; text-align: center; width: 50vw;
+       margin: 0 auto;
+       text-align: center;
+       width: 36vw;
      }
      #steps-container > div.parent:nth-child(2n) {
        flex-direction: row-reverse;
-     }
-     #navigation-container > img {
-       padding: 0 2%;
      }
      #footer-container > img:first-child {
        width: 175px;
@@ -259,6 +273,16 @@
        background-color: {{ theme_color('BACKGROUND_COLOR', '1a') }};
        z-index: -1;
        border-radius: 100%;
+     }
+     #site-intro {
+       display: inline-block;
+       margin-top: 2%;
+     }
+     #onion-glyph-download.rtl-show {
+       display: none;
+     }
+     .social-button img.rtl-show {
+       display: none;
      }
 
      /* tablet */
@@ -335,6 +359,11 @@
          width: 400px;
          height: 400px;
        }
+       #nav-list {
+         margin-top: 0;
+         padding-top: 0;
+         padding-right: 130px;
+       }
      }
 
      /* mobile */
@@ -388,19 +417,22 @@
        }
      }
     </style>
+    {% if bag('alternatives', this.alt).direction == 'text-right' %}
+      <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
+    {% endif %}
   </head>
   <body>
     {% include 'macros/header.html' %}
     <div id="content">
       <div id="container" class="parent">
-        <div class="child" style="display: inline-block; margin-left: 10%; margin-top: 2%;">
+        <div class="child" id="site-intro">
           <h1>{{ this.title }}</h1>
           <div style="margin-top: 2%; margin-bottom: 2%;">
             {{ this.subtitle }}
           </div>
           {% include 'macros/onion_url.html' %}
         </div>
-        <div class="child" style="margin-right: 8%;">
+        <div class="child">
           <img src="{{ 'header-tor.png' | asseturl }}" id="header-image">
         </div>
       </div>

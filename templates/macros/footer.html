@@ -1,14 +1,33 @@
+<style>
+ .social-button img {
+   height: 20px;
+   width: 20px;
+   padding: 10px;
+   padding-top: 10px;
+   padding-top: 10px;
+   padding-top: 5px;
+   transform: translateY(13px);
+   filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
+   background-size: contain;
+   display: inline-block;
+ }
+ #social-button-container {
+   display: flex;
+   justify-content: space-around;
+ }
+</style>
+
 <footer id="support-footer">
   <div id="footer-container">
     <img src="support-tor.png">
     <h2>{{ _("Need support?") }}</h2>
     <p>{{ _("If you need support with anything that has to do with Tor, the Tor support channel can be reached on Telegram. There's also a dedicated active forum where anyone can post a question, feedback, or concern.") }}</p>
-    <div>
+    <div id="social-button-container">
       <div class="social-button">
-        <a href="https://www.torproject.org/download/" class="button"><img src="{{ 'telegram-brands.svg' | asseturl }}" id="onion-glyph-download">{{ _('Get support on Telegram') }}</a>
+        <a href="https://www.torproject.org/download/" class="button"><img src="{{ 'telegram-brands.svg' | asseturl }}" class="rtl-hide">{{ _('Get support on Telegram') }}<img src="{{ 'telegram-brands.svg' | asseturl }}" class="rtl-show"></a>
       </div>
       <div class="social-button">
-        <a href="https://www.torproject.org/download/" class="button"><img src="{{ 'discourse-brands.svg' | asseturl }}" id="onion-glyph-download">{{ _('Visit the Tor Project forum') }}</a>
+        <a href="https://www.torproject.org/download/" class="button"><img src="{{ 'discourse-brands.svg' | asseturl }}" class="rtl-hide">{{ _('Visit the Tor Project forum') }}<img src="{{ 'discourse-brands.svg' | asseturl }}" class="rtl-show"></a>
       </div>
     </div>
 </footer>
