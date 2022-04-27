@@ -1,7 +1,5 @@
 ---
 variables:
-  STAGING_URL: sponsor123-landing-page.staging.torproject.net
-  #TRANSLATION_BRANCH: support-portal
   LEKTOR_FOREGROUND_COLOR: 'CF5C00'
   LEKTOR_BACKGROUND_COLOR: 'EA6903'
   LEKTOR_BUTTON_COLOR: 'EA6903'
