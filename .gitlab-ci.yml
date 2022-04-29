@@ -5,6 +5,7 @@ variables:
   LEKTOR_BACKGROUND_COLOR: 'EA6903'
   LEKTOR_BUTTON_COLOR: 'EA6903'
   LEKTOR_ONION_URL_LOCK_FILTER: 'invert(43%) sepia(95%) saturate(2236%) hue-rotate(4deg) brightness(97%) contrast(98%);'
+  LEKTOR_ONION_URL: 'https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion'
 
 include:
   - project: tpo/tpa/ci-templates
