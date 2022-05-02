@@ -20,10 +20,6 @@ div.parent div.child {
 .chevron-down {
     float: left;
 }
-#nav-list {
-    padding-left: 120px;
-    padding-right: 0px;
-}
 #onion-glyph-download.rtl-hide {
     display: none;
 }
