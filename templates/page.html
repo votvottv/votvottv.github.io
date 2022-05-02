@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{{ '/main.js' | asseturl }}"></script>
     <style>
      @font-face {
        font-family: NotoSans;
@@ -117,11 +118,17 @@
        width: 50%;
      }
      .onion-url-container {
-       background-color: {{ theme_color('BACKGROUND_COLOR', '1a') }};
+       background-color: {{ theme_color('BUTTON_COLOR', '1a') }};
        display: inline-block;
        padding: 1%;
        border-radius: 10px;
        padding-right: 8px;
+     }
+     .onion-url-container:hover {
+       background-color: {{ theme_color('BUTTON_COLOR', '40') }};
+     }
+     .onion-url-container:active {
+       background-color: {{ theme_color('BUTTON_COLOR', '66') }};
      }
      .onion-url-container p {
        color: {{ theme_color('FOREGROUND_COLOR') }};
@@ -319,7 +326,7 @@
      /* desktop */
      @media (min-width: 1000px) {
        .onion-url-desktop {
-         display: block !important;
+         display: inline-block !important;
        }
        .onion-url-mobile {
          display: none !important;
