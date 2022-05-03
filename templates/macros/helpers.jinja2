@@ -3,7 +3,7 @@
 {% endmacro %}
 
 {% macro theme_color(color_var, opacity='FF') %}
-  {% set hex_color = envvars(color_var).lstrip('#').rstrip(';') %}
+  {%- set hex_color = envvars(color_var).lstrip('#').rstrip(';') -%}
   {%- if not hex_color %}
     {{ error('environment variable ' + color_var + ' not set') }}
   {% elif hex_color|length != 6 %}
@@ -11,6 +11,5 @@
   {% elif opacity|int(base=16) > 255 or opacity|int(base=16) < 0 %}
     {{ error('opacity: ' + opacity + ' outside allowed values of 00-FF') }}
   {% endif -%}
-
-  {{ '#{hex_color}{opacity:x};'.format(hex_color=hex_color, opacity=opacity|int(base=16)) -}}
+  {{- '#{hex_color}{opacity:x};'.format(hex_color=hex_color, opacity=opacity|int(base=16)) -}}
 {% endmacro %}
