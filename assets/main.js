@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // hide onion URLs, show the "copy" text
   document.querySelectorAll('.onion-url-span').forEach(function(el) { el.style.display = 'none'; });
-  document.querySelectorAll('.onion-url-span-uncopied').forEach(function(el) { el.style.display = 'inline'; });
+  document.querySelectorAll('.onion-url-span-uncopied').forEach(function(el) { el.style.display = 'inline-block'; });
 
   document.querySelectorAll('.onion-url-desktop').forEach(function(onion_link) {
     onion_link.addEventListener('click', function(event) {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // bind `this` to a name so we can use it in the setTimeout callback
       let currentElement = this;
       let revert = function() {
-        uncopied_span.style.display = 'inline';
+        uncopied_span.style.display = 'inline-block';
         copied_span.style.display = 'none';
         onion_lock.style.display = '';
         currentElement.style.backgroundColor = original_bg;
