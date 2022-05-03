@@ -68,8 +68,8 @@
         <div style="padding-top: 12%; margin-right: 16px; margin-left: 24px;">English<i class="chevron-down"></i></div>
       </div>
       <div id="language-dropdown">
-        {% for alt in get_alts(this) %}
-        <a href="{{ '.'|url(alt=alt) }}" class="dropdown-item">{{ bag('alternatives', alt).language or alt|title }}</a>
+        {% for alt in site.config.iter_alternatives() %}
+          <a href="{{ '.'|url(alt=alt) }}" class="dropdown-item">{{ site.config.get_alternative(alt).name.en }}</a>
         {% endfor %}
       </div>
     </div>

@@ -427,7 +427,7 @@
        }
      }
     </style>
-    {% if bag('alternatives', this.alt).direction == 'text-right' %}
+    {% if this.alt in bag('alternatives', 'rtl') %}
       <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
     {% endif %}
   </head>
