@@ -20,10 +20,10 @@ div.parent div.child {
 .chevron-down {
     float: left;
 }
-#onion-glyph-download.rtl-hide {
+.onion-glyph-download.rtl-hide {
     display: none;
 }
-#onion-glyph-download.rtl-show {
+.onion-glyph-download.rtl-show {
     display: inline-block;
     margin-left: 16px;
 }

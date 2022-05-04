@@ -168,18 +168,19 @@
      a:hover {
        text-decoration: underline;
      }
-     #onion-glyph-download {
+     .onion-glyph-download {
        height: 20px;
        width: 20px;
        padding: 10px;
        padding-top: 5px;
-       transform: translateY(13px);
+       transform: translateY(11px);
        filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
        background-size: contain;
        display: inline-block;
        background: url({{ 'onion-glyph.svg' | asseturl }});
-       background-size: contain;
+       background-size: 24px;
        background-repeat: no-repeat;
+       background-position: center;
      }
      .onion-url-lock {
        transform: translateY(4px);
@@ -278,7 +279,7 @@
        display: inline-block;
        margin-top: 2%;
      }
-     #onion-glyph-download.rtl-show {
+     .onion-glyph-download.rtl-show {
        display: none;
      }
      .social-button img.rtl-show {
