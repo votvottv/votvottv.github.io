@@ -1,4 +1,25 @@
-#navigation-container {
+@font-face {
+    font-family: NotoKufiArabic;
+    src: url({{ 'fonts/NotoKufiArabic/NotoKufiArabic-Regular.ttf' | asseturl }});
+}
+@font-face {
+    font-family: NotoSansArabic;
+    src: url({{ 'fonts/NotoSansArabic/NotoSansArabic-Regular.ttf' | asseturl }});
+}
+
+body {
+    font-family: NotoSansArabic;
+}
+
+h1, h2 {
+    font-family: NotoKufiArabic;
+}
+
+.chevron-down {
+    float: left;
+}
+
+/*#navigation-container {
     flex-direction: row-reverse;
 }
 #container {
@@ -17,9 +38,7 @@ div.parent div.child {
 #steps-container > div.parent:nth-child(2n) {
     flex-direction: row;
 }
-.chevron-down {
-    float: left;
-}
+
 .onion-glyph-download.rtl-hide {
     display: none;
 }
@@ -46,4 +65,4 @@ div.parent div.child {
 #language-dropdown {
     right: unset !important;
     left: 2%;
-}
+}*/

@@ -438,7 +438,7 @@
       <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
     {% endif %}
   </head>
-  <body>
+  <body {% if this.alt in bag('alternatives', 'rtl') %}dir="RTL"{% endif %}>
     {% include 'macros/header.html' %}
     <div id="content">
       <div id="container" class="parent">
