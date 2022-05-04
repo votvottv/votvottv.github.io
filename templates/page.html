@@ -134,6 +134,12 @@
      }
      .onion-url-container:hover {
        background-color: {{ theme_color('BUTTON_COLOR', '40') }};
+
+       /* The .button:hover rule underlines the whitespace in the url container, we don't want that */
+       text-decoration: none !important;
+     }
+     .onion-url-container:hover span {
+       text-decoration: underline;
      }
      .onion-url-container:active {
        background-color: {{ theme_color('BUTTON_COLOR', '66') }};
