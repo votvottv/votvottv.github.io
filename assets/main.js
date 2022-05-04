@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.onion-url-span').forEach(function(el) { el.style.display = 'none'; });
   document.querySelectorAll('.onion-url-span-uncopied').forEach(function(el) { el.style.display = 'inline-block'; });
 
-  document.querySelectorAll('.onion-url-desktop').forEach(function(onion_link) {
+  document.querySelectorAll('.onion-url-desktop, .onion-url-mobile').forEach(function(onion_link) {
     onion_link.addEventListener('click', function(event) {
       event.preventDefault();
       navigator.clipboard.writeText(this.href);

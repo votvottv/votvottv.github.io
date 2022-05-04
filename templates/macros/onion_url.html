@@ -7,8 +7,10 @@
     <span class="onion-url-span-uncopied" style="display: none;">{{ _('Copy the onion address') }}</span>
     <span class="onion-url-span-copied" style="display: none; margin-top: 15px;">{{ _('Copied!') }}</span>
   </a>
-  <a href="{{ envvars('ONION_URL') }}" class="onion-url-mobile onion-url-container" style="padding: 2%;" data-urlbg="{{ envvars('BUTTON_COLOR') }}">
+  <a href="{{ envvars('ONION_URL') }}" class="onion-url-mobile onion-url-container" style="padding: 2%;" data-urlbg="{{ theme_color('BUTTON_COLOR').rstrip(';') }}">
     <i class="onion-url-lock"></i>
-    <span>{{ _('Visit the [Service Name] .onion site') }}</span>
+    <span class="onion-url-span">{{ _('Visit the [Service Name] .onion site') }}</span>
+    <span class="onion-url-span-uncopied" style="display: none; transform: translateY(-7px);">{{ _('Copy the onion address') }}</span>
+    <span class="onion-url-span-copied" style="display: none; margin-top: 7px;">{{ _('Copied!') }}</span>
   </a>
 </div>
