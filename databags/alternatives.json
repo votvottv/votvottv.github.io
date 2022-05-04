@@ -1,3 +1,13 @@
 {
-  "rtl": ["fa", "fa-AF", "ps"]
+  "rtl": [
+      "ar",
+      "az",
+      "ckb",
+      "fa",
+      "fa-AF",
+      "ku",
+      "prs",
+      "ps",
+      "ur"
+  ]
 }
