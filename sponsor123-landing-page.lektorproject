@@ -41,7 +41,7 @@ url_prefix = /fa/
 locale = fa
 
 [alternatives.fa-AF]
-name = دری (fa-AF)
+name = (fa-AF) دری
 url_prefix = /fa-AF/
 locale = fa-AF
 
