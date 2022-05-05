@@ -1,10 +1,10 @@
 @font-face {
     font-family: NotoKufiArabic;
-    src: url({{ 'fonts/NotoKufiArabic/NotoKufiArabic-Regular.ttf' | asseturl }});
+    src: url(./fonts/NotoKufiArabic/NotoKufiArabic-Regular.ttf);
 }
 @font-face {
     font-family: NotoSansArabic;
-    src: url({{ 'fonts/NotoSansArabic/NotoSansArabic-Regular.ttf' | asseturl }});
+    src: url(./fonts/NotoSansArabic/NotoSansArabic-Regular.ttf);
 }
 
 body {
