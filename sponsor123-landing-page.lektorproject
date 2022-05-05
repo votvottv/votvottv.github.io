@@ -36,7 +36,7 @@ url_prefix = /crh/
 locale = crh
 
 [alternatives.fa]
-name =  (fa) ﻑﺍﺮﺳی
+name =  (fa) فارسي
 url_prefix = /fa/
 locale = fa
 
