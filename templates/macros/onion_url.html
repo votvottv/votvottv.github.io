@@ -1,5 +1,5 @@
 {%- from 'macros/helpers.jinja2' import theme_color -%}
-<div>
+<div class="onion-url">
   {#- we can't use lektor variables in our JS, so we pass in the button color as a data attribute -#}
   <a href="{{ envvars('ONION_URL') }}" class="onion-url-desktop onion-url-container" style="padding: 2%;" data-urlbg="{{ theme_color('BUTTON_COLOR').rstrip(';') }}">
     <i class="onion-url-lock"></i>

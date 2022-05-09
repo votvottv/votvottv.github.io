@@ -140,7 +140,7 @@
        padding-right: 2.25%;
        font-family: NotoSansSemibold;
        height: 56px;
-       width: fit-content;
+       width: max-content;
        padding-right: 16px;
        padding-left: 16px;
        color: white;
@@ -207,7 +207,7 @@
        background-color: rgba(0, 0, 0, 0.03);
        padding: 2%;
        border-radius: 5px;
-       font-size: 1.25em;
+       font-size: 1em;
        border: 1px solid rgba(0, 0, 0, 0.05);
      }
      details[open].collapsible-text > summary {
@@ -279,10 +279,14 @@
        display: inline-block;
        transform: translateY(-7px);
      }
+     #download-tor-button {
+       margin-top: 2%;
+       margin-bottom: 5%;
+     }
 
      /* tablet */
      /* some of these rules aren't overriden on mobile, so they affect mobile too*/
-     @media (max-width: 1000px) {
+     @media (max-width: 999px) {
        .child > img {
          width: 275px;
        }
@@ -322,7 +326,7 @@
          position: absolute;
          top: 0;
          right: 0;
-         margin-top: 2% !important;
+         margin-top: 2.75% !important;
        }
        #nav-list li a, #nav-list-mobile li a {
          color: {{ theme_color('FOREGROUND_COLOR') }};
@@ -342,6 +346,12 @@
        }
        .button {
          font-size: 14px;
+       }
+       .social-button:first-child {
+         margin-right: 16px !important;
+       }
+       #social-button-container {
+         justify-content: center !important;
        }
      }
 
@@ -369,6 +379,18 @@
 
      /* mobile */
      @media(max-width: 575px) {
+       #download-tor-button {
+         text-align: center;
+       }
+       div.onion-url {
+         text-align: center;
+         padding-top: 16px;
+         padding-bottom: 16px;
+       }
+       #site-intro {
+         width: unset !important;
+         padding-top: 15% !important;
+       }
        #steps-container > div.parent {
          flex-direction: column-reverse !important;
        }
@@ -379,10 +401,10 @@
          display: block;
        }
        .social-button:not(last-child) {
-         margin-bottom: 0;
+         margin-bottom: 2%;
        }
-       .social-button:not(first-child) {
-         margin-top: 0;
+       #social-button-container {
+         flex-direction: column;
        }
        #header-image {
          display: none !important;
@@ -406,6 +428,9 @@
          width: 90vw;
          padding: 15% 15% 15% 15%;
        }
+       #language-select {
+         margin-top: 5% !important;
+       }
        /* center step images for mobile */
        #steps-container div.child > img {
          display: block;
@@ -419,7 +444,7 @@
      }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
-      <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
+    <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
     {% endif %}
   </head>
   <body {% if this.alt in bag('alternatives', 'rtl') %}dir="RTL"{% endif %}>

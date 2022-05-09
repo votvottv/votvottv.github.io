@@ -1,6 +1,6 @@
 <style>
  #language-select {
-   margin-top: 1%;
+   margin-top: 1.5%;
    border: none;
  }
  #language-select i.chevron-down {
@@ -22,6 +22,32 @@
    text-decoration: none;
    font-weight: bold;
    color: black;
+ }
+ #language-select-button {
+   border: none;
+   width: 145px;
+   height: 56px;
+ }
+ #language-select-text {
+   padding-top: 12%; margin-right: 16px; margin-left: 24px;
+ }
+
+ @media (max-width: 1000px) {
+   #language-select-button {
+     height: 48px;
+   }
+   #language-select-text {
+     padding-top: 10%;
+   }
+ }
+
+ @media (max-width: 575px) {
+   #language-select-button {
+     height: 40px;
+   }
+   #language-select-text {
+     padding-top: 7%;
+   }
  }
 </style>
 <script>
@@ -54,7 +80,7 @@
 </script>
 <div id="site-header">
   <div id="navigation-container">
-    <div id="site-logo" style="background: url({#{ '/logo-temp.png'|asseturl }#})">
+    <div id="site-logo">
       <img src="{{ '/logo-temp.png'|asseturl }}">
     </div>
     <ul id="nav-list">
@@ -64,8 +90,8 @@
       <li><a href="#support-footer">{{ _('Support') }}</a></li>
     </ul>
     <div id="language-select" onmouseleave="hideLanguageSelect()" onmousedown="clickHandler()">
-      <div class="button" style="border: none; width: 145px; height: 56px;" onmouseover="showLanguageSelect()">
-        <div style="padding-top: 12%; margin-right: 16px; margin-left: 24px;">English<i class="chevron-down"></i></div>
+      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()">
+        <div id="language-select-text">English<i class="chevron-down"></i></div>
       </div>
       <div id="language-dropdown">
         {% for alt in site.config.iter_alternatives() %}
