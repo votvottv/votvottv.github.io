@@ -279,6 +279,10 @@
        display: inline-block;
        transform: translateY(-7px);
      }
+     #download-tor-button {
+       margin-top: 2%;
+       margin-bottom: 5%;
+     }
 
      /* tablet */
      /* some of these rules aren't overriden on mobile, so they affect mobile too*/
@@ -375,6 +379,9 @@
 
      /* mobile */
      @media(max-width: 575px) {
+       #download-tor-button {
+         text-align: center;
+       }
        div.onion-url {
          text-align: center;
          padding-top: 16px;
@@ -437,7 +444,7 @@
      }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
-      <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
+    <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
     {% endif %}
   </head>
   <body {% if this.alt in bag('alternatives', 'rtl') %}dir="RTL"{% endif %}>
