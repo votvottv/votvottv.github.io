@@ -20,6 +20,13 @@ h1, h2 {
     transform: translateY(8px);
 }
 
+@media (max-width: 999px) {
+    #language-select {
+        right: unset;
+        left: 0;
+    }
+}
+
 /*#navigation-container {
     flex-direction: row-reverse;
 }
