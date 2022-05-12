@@ -1,0 +1,11 @@
+dist
+build
+.pytest_cache
+.coverage
+flymd*
+*.pyc
+*.pyo
+*.egg-info
+*~
+*#
+.#*
