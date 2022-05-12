@@ -17,6 +17,7 @@ h1, h2 {
 
 .chevron-down {
     float: left;
+    transform: translateY(8px);
 }
 
 /*#navigation-container {
