@@ -4,11 +4,11 @@ section_id: development
 ---
 color: primary
 ---
-title: Tips for Bypassing Blocking of [Service]
+title: Tips for Bypassing Blocking of {{ envvars('SERVICE_NAME') }}
 ---
 subtitle:
 
-Unable to access [service URL]?  
+Unable to access <{{ envvars('SERVICE_URL') }}>?  
 This page details how you can circumvent the censorship.
 ---
 sections:
@@ -117,7 +117,7 @@ Just like any other website, you will need to know the address of an onion servi
 An onion address is a string of 56 mostly random letters and numbers, followed by ".onion".
 To learn more about Onion Services, visit the [Tor Browser Manual](https://tb-manual.torproject.org/onion-services).
 
-To access {USAGM Service Name}'s onion service, simply copy and paste the following URL onto Tor Browser:
+To access {{ envvars('SERVICE_NAME') }}'s onion service, simply copy and paste the following URL onto Tor Browser:
 ----
 image: onion-services.png
 ----
