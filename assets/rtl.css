@@ -17,6 +17,14 @@ h1, h2 {
 
 .chevron-down {
     float: left;
+    transform: translateY(8px);
+}
+
+@media (max-width: 999px) {
+    #language-select {
+        right: unset;
+        left: 0;
+    }
 }
 
 /*#navigation-container {
