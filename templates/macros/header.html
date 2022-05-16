@@ -91,7 +91,7 @@
     </ul>
     <div id="language-select" onmouseleave="hideLanguageSelect()" onmousedown="clickHandler()">
       <div id="language-select-button" class="button" onmouseover="showLanguageSelect()">
-        <div id="language-select-text">English<i class="chevron-down"></i></div>
+        <div id="language-select-text">{{ site.config.get_alternative(this.alt).name.en.strip('(' + this.alt + ')').strip() }}<i class="chevron-down"></i></div>
       </div>
       <div id="language-dropdown">
         {% for alt in site.config.iter_alternatives() %}
