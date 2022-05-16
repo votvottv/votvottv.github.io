@@ -120,6 +120,11 @@ name = ភាសាខ្មែរ (km)
 url_prefix = /km/
 locale = km
 
+[alternatives.kmr]
+name = (kmr) کورمانجی
+url_prefix = /kmr/
+locale = kmr
+
 [alternatives.ko]
 name = 한국어 (ko)
 url_prefix = /ko/
@@ -161,7 +166,7 @@ url_prefix = /ps/
 locale = ps
 
 [alternatives.pt-PT]
-name = Português (pt-PT)
+name = Português
 url_prefix = /pt-PT/
 locale = pt-PT
 
