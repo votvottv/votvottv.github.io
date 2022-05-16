@@ -4,7 +4,8 @@ section_id: development
 ---
 color: primary
 ---
-title: Tips for Bypassing Blocking of {{ envvars('SERVICE_NAME') }}
+title:
+Tips for Bypassing Blocking of {{ envvars('SERVICE_NAME') }}
 ---
 subtitle:
 
