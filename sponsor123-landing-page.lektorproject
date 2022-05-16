@@ -10,25 +10,55 @@ primary = yes
 url_prefix = /
 locale = en
 
+[alternatives.am]
+name = አማርኛ (am)
+url_prefix = /am/
+locale = am
+
 [alternatives.az]
 name = Azərbaycan dili (az)
 url_prefix = /az/
 locale = az
 
-[alternatives.bg]
-name = български (bg)
-url_prefix = /bg/
-locale = bg
+[alternatives.ba]
+name =  Башҡортса (ba)
+url_prefix = /ba/
+locale = ba
 
 [alternatives.be]
 name = беларуская мова (be)
 url_prefix = /be/
 locale = be
 
+[alternatives.bg]
+name = български (bg)
+url_prefix = /bg/
+locale = bg
+
+[alternatives.bn]
+name = বাংলা ভাষা  (bn)
+url_prefix = /bn/
+locale = bn
+
+[alternatives.bo]
+name = ལྷ་སའི་སྐད་ (bo)
+url_prefix = /bo/
+locale = bo
+
+[alternatives.bs]
+name = bosanski (bs)
+url_prefix = /bs/
+locale = bs
+
 [alternatives.ce]
 name = Нохчийн мотт (ce)
 url_prefix = /ce/
 locale = ce
+
+[alternatives.ckb]
+name = (ckb) سۆرانی
+url_prefix = /ckb/
+locale = ckb
 
 [alternatives.crh]
 name = къырымтатар тили (crh)
@@ -45,6 +75,21 @@ name = (fa-AF) دری
 url_prefix = /fa-AF/
 locale = fa-AF
 
+[alternatives.fr]
+name = Français
+url_prefix = /fr/
+locale = fr
+
+[alternatives.ha]
+name =  Hausa (ha)
+url_prefix = /ha/
+locale = ha
+
+[alternatives.ht]
+name =  kreyòl (ht)
+url_prefix = /ht/
+locale = ht
+
 [alternatives.hu]
 name =  Magyar nyelv (hu)
 url_prefix = /hu/
@@ -54,6 +99,11 @@ locale = hu
 name = հայերեն (hy)
 url_prefix = /hy/
 locale = hy
+
+[alternatives.id]
+name = Indonesia (id)
+url_prefix = /id/
+locale = id
 
 [alternatives.ka]
 name = ქართული ენა (ka)
@@ -65,20 +115,65 @@ name = Kazakh (kk)
 url_prefix = /kk/
 locale = kk
 
+[alternatives.km]
+name = ភាសាខ្មែរ (km)
+url_prefix = /km/
+locale = km
+
+[alternatives.kmr]
+name = (kmr) کورمانجی
+url_prefix = /kmr/
+locale = kmr
+
+[alternatives.ko]
+name = 한국어 (ko)
+url_prefix = /ko/
+locale = ko
+
 [alternatives.ky]
 name = Кыргыз тили (ky)
 url_prefix = /ky/
 locale = ky
+
+[alternatives.ln]
+name =  Lingála (ln)
+url_prefix = /ln/
+locale = ln
+
+[alternatives.lo]
+name = ພາສາລາວ (lo)
+url_prefix = /lo/
+locale = lo
 
 [alternatives.mk]
 name = македонски (mk)
 url_prefix = /mk/
 locale = mk
 
+[alternatives.my]
+name = မြန်မာဘာသာ (my)
+url_prefix = /my/
+locale = my
+
+[alternatives.nd]
+name = isiNdebele (nd)
+url_prefix = /nd/
+locale = nd
+
 [alternatives.ps]
 name = (ps) پښتو
 url_prefix = /ps/
 locale = ps
+
+[alternatives.pt-PT]
+name = Português
+url_prefix = /pt-PT/
+locale = pt-PT
+
+[alternatives.rn]
+name = Ikirundi (rn)
+url_prefix = /rn/
+locale = rn
 
 [alternatives.ro]
 name = Română (ro)
@@ -90,10 +185,60 @@ name = Русский (ru)
 url_prefix = /ru/
 locale = ru
 
+[alternatives.rw]
+name = Kinyarwanda (rw)
+url_prefix = /rw/
+locale = rw
+
+[alternatives.sg]
+name = sängö (sg)
+url_prefix = /sg/
+locale = sg
+
+[alternatives.sh]
+name = ChiShona (sh)
+url_prefix = /sh/
+locale = sh
+
+[alternatives.so]
+name = Soomaali (so)
+url_prefix = /so/
+locale = so
+
 [alternatives.sq]
 name = shqip (sq)
 url_prefix = /sq/
 locale = sq
+
+[alternatives.sw]
+name = Kiswahili (sw)
+url_prefix = /sw/
+locale = sw
+
+[alternatives.tg]
+name = Тоҷикӣ (tg)
+url_prefix = /tg/
+locale = tg
+
+[alternatives.th]
+name =  ภาษาไทย (th)
+url_prefix = /th/
+locale = th
+
+[alternatives.ti]
+name =  ትግርኛ (ti)
+url_prefix = /ti/
+locale = ti
+
+[alternatives.tk]
+name = türkmençe (tk)
+url_prefix = /tk/
+locale = tk
+
+[alternatives.tr]
+name = Türkçe (tr)
+url_prefix = /tr/
+locale = tr
 
 [alternatives.tt]
 name = татар (tt)
@@ -105,7 +250,32 @@ name = українська (uk)
 url_prefix = /uk/
 locale = uk
 
+[alternatives.ur]
+name = (ur) اُردُو
+url_prefix = /ur/
+locale = ur
+
 [alternatives.uz]
 name = Oʻzbekcha (uz)
 url_prefix = /uz/
 locale = uz
+
+[alternatives.vi]
+name =  Tiếng Việt (vi)
+url_prefix = /vi/
+locale = vi
+
+[alternatives.wo]
+name =  Wolof (wo)
+url_prefix = /wo/
+locale = wo
+
+[alternatives.zh-CN]
+name = 简体中文 (zh-CN)
+url_prefix = /zh-CN/
+locale = zh-CN
+
+[alternatives.zh-TW]
+name = 正體字 (zh-TW)
+url_prefix = /zh-TW/
+locale = zh-TW
