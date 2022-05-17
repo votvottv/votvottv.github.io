@@ -79,28 +79,33 @@ In such scenarios, simply configuring your browser to connect through a bridge s
 Bridges are simply relays that are private and harder to block.
 
 ### Instructions on how to activate bridges for desktop:
-
-You can use a bridge in Tor Browser for desktop by going to: Settings > Tor > Bridges > Use a Bridge.
+You can use a bridge in Tor Browser for desktop by going to: Settings > Connection > Bridges > Select a Built-In Bridge.
 As of 22 December 2021, bridges bundled directly into Tor Browser are blocked in Russia.
+
 Readers therefore need to request a bridge via one of the following ways:
-Requesting a bridge from within Tor Browser on desktop [Settings > Tor > Bridges > Request a bridge from torproject.org > Solve the CAPTCHA]
-Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser [Settings > Tor > Bridges > Provide a bridge]
-Requesting a bridge via email: bridges@torproject.org; and then adding the bridges lines received manually via copy and paste in Tor Browser [Settings > Tor > Bridges > Provide a bridge]
-Connecting through "Snowflake" from within Tor Browser [Settings > Tor > Bridges > Select a built-in bridge > Snowflake]
+- Requesting a bridge from within Tor Browser on desktop: Settings > Connection > Bridges > Request a bridge from torproject.org > Solve the CAPTCHA
+- Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridge address received manually via copy and paste in Tor Browser: Settings > Connection > Bridges > Enter a bridge address you already know
+- Visit https://bridges.torproject.org/ and follow the instructions
+- Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridge address received manually via copy and paste in Tor Browser: Settings > Connection > Bridges > Enter a bridge address you already know
+- Connecting through "Snowflake" from within Tor Browser: Settings > Connection > Bridges > Select a built-in bridge > Snowflake
 
 ### Instructions on how to activate bridges for Android:
 Readers can use a bridge on Android by going to: Settings icon > Config Bridge > Use a bridge.
+
 In the case that bridges bundled directly into Tor Browser are blocked, readers need to request a bridge via one of the following ways:
-Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser [Config Bridge > Provide a bridge I know]
-Requesting a bridge via email: bridges@torproject.org; and then adding the bridges lines received manually via copy and paste in Tor Browser [Config Bridge > Provide a bridge I know]
-Connecting through Snowflake from within Tor Browser [Config Bridge > Snowflake]
+- Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser: Config Bridge > Provide a bridge I know
+- Visit https://bridges.torproject.org/ and follow the instructions
+- Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridges lines received manually via copy and paste in Tor Browser: Config Bridge > Provide a bridge I know
+- Connecting through Snowflake from within Tor Browser: Config Bridge > Snowflake
 
 ### Instructions on how to activate bridges for iOS:
 Readers can use a bridge on iOS by going to: Onion icon when viewing a website > Bridge Configuration.
+
 In the case that bridges bundled directly into Tor Browser are blocked, you can request a bridge via one of the following ways:
-Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser [Bridge Configuration > Custom Bridges]
-Requesting a bridge via email: bridges@torproject.org; and then adding the bridges lines received manually via copy and paste in Tor Browser [Bridge Configuration > Custom Bridges]
-Connecting through Snowflake from within Tor Browser [Bridge Configuration > Snowflake]
+- Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridges lines received manually via copy and paste in Tor Browser: Bridge Configuration > Custom Bridges
+- Visit https://bridges.torproject.org/ and follow the instructions
+- Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridges lines received manually via copy and paste in Tor Browser: Bridge Configuration > Custom Bridges
+- Connecting through Snowflake from within Tor Browser: Bridge Configuration > Snowflake
 ----
 image: connect-tor.png
 
