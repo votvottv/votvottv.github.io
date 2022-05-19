@@ -1,15 +1,23 @@
-{% macro error(error_message) %}
-  {{ None['Error: ' + error_message] }}
+{# shortcut macro to raise an exception from jinja #}
+{% macro exception(message) %}
+  {{ None['Error: ' + message] }}
 {% endmacro %}
 
-{% macro theme_color(color_var, opacity='FF') %}
+{# given an environment variable and an opacity, construct a hex color code for CSS #}
+{# parameters: #}
+{# color_var: an environment variable containing an RGB hex color. #}
+{#            the envvar *must* be prefixed with "LEKTOR_", but the color_var *must not* have this prefix. #}
+{#            ie `LEKTOR_COLOR=112233 ... lektor s` -> `theme_color('COLOR')` #}
+{# opacity: the opacity of the color, as an int or float representing a percent. #}
+{#          ie 20% -> `theme_color('COLOR', 20)` OR 7.5% -> `theme_color('COLOR', 7.5)` #}
+{% macro theme_color(color_var, opacity=100) %}
   {%- set hex_color = envvars(color_var).lstrip('#').rstrip(';') -%}
   {%- if not hex_color %}
-    {{ error('environment variable ' + color_var + ' not set') }}
+    {{ exception('environment variable ' + color_var + ' not set') }}
   {% elif hex_color|length != 6 %}
-    {{ error('hex color must be exactly 6 characters') }}
+    {{ exception('hex color must be exactly 6 characters') }}
   {% elif opacity|int(base=16) > 255 or opacity|int(base=16) < 0 %}
-    {{ error('opacity: ' + opacity + ' outside allowed values of 00-FF') }}
+    {{ exception('opacity: ' + opacity + ' outside allowed values of 00-FF') }}
   {% endif -%}
-  {{- '#{hex_color}{opacity:x};'.format(hex_color=hex_color, opacity=opacity|int(base=16)) -}}
+  {{- '#{hex_color}{opacity:x};'.format(hex_color=hex_color, opacity=(opacity / 100 * 255)|round|int) -}}
 {% endmacro %}
