@@ -76,13 +76,13 @@
        margin: 0 auto;
        margin-bottom: 6%;
      }
-     #container {
+     #header-container {
        background-color: {{ theme_color('FOREGROUND_COLOR', '13') }};
        margin: 0;
        padding-left: 10%;
        padding-right: 8%;
      }
-     #container * {
+     #header-container * {
        margin: 0;
      }
      #page-content {
@@ -361,7 +361,7 @@
        #social-button-container {
          justify-content: center !important;
        }
-       #container {
+       #header-container {
          padding-top: 7%;
          padding-bottom: 5%;
        }
@@ -427,10 +427,10 @@
        #nav-list-mobile {
          padding: 5% 0 5% 0 !important;
        }
-       #container {
+       #header-container {
          display: block;
        }
-       #container > div.child:first-child {
+       #header-container > div.child:first-child {
          display: block !important;
          width: 90vw;
          margin: 0 auto !important;
@@ -574,7 +574,7 @@
   <body {% if this.alt in bag('alternatives', 'rtl') %}dir="RTL"{% endif %}>
     {% include 'macros/header.html' %}
     <div id="content">
-      <div id="container" class="parent">
+      <div id="header-container" class="parent">
         <div class="child" id="site-intro">
           <h1>{{ this.title }}</h1>
           <div id="site-description">
