@@ -26,49 +26,6 @@ h1, h2 {
     }
 }
 
-/*#navigation-container {
-    flex-direction: row-reverse;
-}
-#container {
-    padding-right: 10%;
-    padding-left: 8%;
-}
-#page-content {
-    text-align: right;
-}
-.parent {
-    flex-direction: row-reverse;
-}
-div.parent div.child {
-    text-align: right;
-}
-#steps-container > div.parent:nth-child(2n) {
-    flex-direction: row;
-}
-
-.onion-glyph-download.rtl-hide {
-    display: none;
-}
-.onion-glyph-download.rtl-show {
-    display: inline-block;
-    margin-left: 16px;
-}
-#social-button-container {
-    flex-direction: row-reverse;
-}
-.social-button img.rtl-hide {
-    display: none;
-}
-.social-button img.rtl-show {
-    display: inline-block;
-}
-#language-select {
-    left: 0;
-}
-#language-select .chevron-down {
-    float: left;
-    padding-right: 16px;
-}*/
 #language-dropdown {
     right: unset !important;
     left: 2%;
