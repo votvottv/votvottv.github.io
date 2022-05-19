@@ -466,6 +466,106 @@
          font-size: 0.8em !important;
        }
      }
+
+     .social-button img {
+       height: 20px;
+       width: 20px;
+       padding: 10px;
+       padding-top: 10px;
+       padding-top: 10px;
+       padding-top: 5px;
+       transform: translateY(13px);
+       filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
+       background-size: contain;
+       display: inline-block;
+     }
+     #social-button-container {
+       display: flex;
+       justify-content: space-around;
+     }
+
+     #language-select {
+       margin-top: 1.5%;
+       border: none;
+     }
+     #language-select i.chevron-down {
+       filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(258deg) brightness(104%) contrast(102%);
+     }
+     #language-dropdown {
+       background-color: white;
+       padding: 1%;
+       position: absolute;
+       box-sizing: border-box;
+       right: 2%;
+       display: none;
+       border-radius: 15px;
+       z-index: 1;
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+     }
+     .dropdown-item {
+       display: block;
+       text-decoration: none;
+       font-weight: bold;
+       color: black;
+     }
+     #language-select-button {
+       border: none;
+       width: 145px;
+       height: 56px;
+     }
+     #language-select-text {
+       padding-top: 12%; margin-right: 16px; margin-left: 24px;
+     }
+
+     @media (max-width: 1000px) {
+       #language-select-button {
+         height: 48px;
+       }
+       #language-select-text {
+         padding-top: 10%;
+       }
+     }
+
+     @media (max-width: 575px) {
+       #language-select-button {
+         height: 40px;
+       }
+       #language-select-text {
+         padding-top: 7%;
+       }
+     }
+
+     #site-description {
+       margin-top: 2%;
+       margin-bottom: 2%;
+     }
+     #page-content h2 {
+       margin-top: 0;
+     }
+
+     .onion-url-desktop {
+       padding: 2%;
+     }
+     .onion-url-desktop .onion-url-span-uncopied {
+       display: none;
+     }
+     .onion-url-desktop .onion-url-span-copied {
+       display: none;
+       margin-top: 15px !important;
+     }
+
+     .onion-url-mobile {
+       padding: 2%;
+       width: max-content;
+     }
+     .onion-url-mobile .onion-url-span-uncopied {
+       display: none;
+       transform: translateY(-7px);
+     }
+     .onion-url-mobile .onion-url-span-copied {
+       display: none;
+       margin-top: 7px;
+     }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
     <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
@@ -477,7 +577,7 @@
       <div id="container" class="parent">
         <div class="child" id="site-intro">
           <h1>{{ this.title }}</h1>
-          <div style="margin-top: 2%; margin-bottom: 2%;">
+          <div id="site-description">
             {{ this.subtitle }}
           </div>
           {% include 'macros/onion_url.html' %}
@@ -488,7 +588,7 @@
       </div>
       <div class="shape"></div>
       <div id="page-content">
-        <h2 style="margin-top: 0;">{{ _('Circumvent Censorship with Tor') }}</h2>
+        <h2>{{ _('Circumvent Censorship with Tor') }}</h2>
         {{ md(_("Tor provides a way to browse the Internet anonymously, helping people **avoid both censorship and surveillance**. Tor Browser is just like any other browser you use - Chrome, Firefox, Safari, Yandex - except instead of exposing all your browsing behaviour to your Internet service provider and everyone else snooping on your traffic, it **hides your traffic** by encrypting it and letting it bounce through three random volunteer-run nodes (these nodes are also called \"relays\"). This process obfuscates who you are, where you are, and where you're going (i.e. which website you're visiting).")) }}
         {{ md(_('Tor is used by human rights defenders, activists, and people from all around the world who need to **escape censorship and surveillance**. To learn more about Tor and how it works, visit the [Tor Browser Manual](https://tb-manual.torproject.org).')) }}
       </div>
