@@ -87,7 +87,7 @@ Readers therefore need to request a bridge via one of the following ways:
 - Sending "/bridges" to the dedicated Telegram channel https://t.me/@GetBridgesBot and then adding the bridge address received manually via copy and paste in Tor Browser: Settings > Connection > Bridges > Enter a bridge address you already know
 - Visit https://bridges.torproject.org/ and follow the instructions
 - Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridge address received manually via copy and paste in Tor Browser: Settings > Connection > Bridges > Enter a bridge address you already know
-- Connecting through "Snowflake" from within Tor Browser: Settings > Connection > Bridges > Select a built-in bridge > Snowflake
+- Connecting through Snowflake from within Tor Browser: Settings > Connection > Bridges > Select a built-in bridge > Snowflake
 
 ### Instructions on how to activate bridges for Android:
 Readers can use a bridge on Android by going to: Settings icon > Config Bridge > Use a bridge.
