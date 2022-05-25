@@ -64,29 +64,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* language selection handlers */
-let nextDisplay;
 let languageDropdown;
 
-window.addEventListener('load', () => {
-  nextDisplay = 'block';
+window.addEventListener('load', function() {
   languageDropdown = document.querySelector('#language-dropdown');
 });
 
 function showLanguageSelect() {
-  console.log('show');
-  const dropdown = document.getElementById('language-dropdown');
-  dropdown.style.display = 'block';
+  languageDropdown.style.display = 'block';
 }
 function hideLanguageSelect() {
-  console.log('hide');
-  const dropdown = document.getElementById('language-dropdown');
-  dropdown.style.display = 'none';
+  languageDropdown.style.display = 'none';
 }
 function clickHandler() {
-  console.log('test');
-  let nextDisplay_ = window.getComputedStyle(languageDropdown).display;
-  languageDropdown.style.display = nextDisplay;
-  nextDisplay = nextDisplay_;
+  if (window.getComputedStyle(languageDropdown).display != 'block') {
+    languageDropdown.style.display = 'block';
+  } else {
+    languageDropdown.style.display = 'none';
+  }
 }
 
 // Set the "For your operating system" text to the user's actual OS name
