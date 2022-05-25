@@ -19,30 +19,30 @@ document.addEventListener('DOMContentLoaded', function() {
       // set up the button's style for the "copied" text
 
       // we want the button to stay the same size with the new text
-      let computedStyle = window.getComputedStyle(this);
+      var computedStyle = window.getComputedStyle(this);
       this.style.height = computedStyle.height;
       this.style.width = computedStyle.width;
 
       this.style.textAlign = 'center';
 
-      let uncopied_span = this.querySelector('.onion-url-span-uncopied');
+      var uncopied_span = this.querySelector('.onion-url-span-uncopied');
       uncopied_span.style.display = 'none';
 
-      let copied_span = this.querySelector('.onion-url-span-copied');
+      var copied_span = this.querySelector('.onion-url-span-copied');
       copied_span.style.display = 'inline-block';
 
-      let onion_lock = this.querySelector('.onion-url-lock');
+      var onion_lock = this.querySelector('.onion-url-lock');
       onion_lock.style.display = 'none';
 
       // set the background color
-      let original_bg = this.style.backgroundColor;
-      let original_color = this.style.color;
+      var original_bg = this.style.backgroundColor;
+      var original_color = this.style.color;
       this.style.backgroundColor = url_copied_bg;
       this.style.color = 'white';
 
       // bind `this` to a name so we can use it in the setTimeout callback
-      let currentElement = this;
-      let revert = function() {
+      var currentElement = this;
+      const revert = function() {
         uncopied_span.style.display = 'inline-block';
         copied_span.style.display = 'none';
         onion_lock.style.display = '';
@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+// Set the "For your operating system" text to the user's actual OS name
+window.addEventListener('DOMContentLoaded', function() {
   // maps a normalized navigator.platform substring to a user-friendly name
   // we'll iterate through the keys and check them as substrings
   const platformList = [
@@ -77,9 +78,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const osSpan = document.getElementById('os-span');
   const platform = navigator.platform.toLowerCase();
 
-  for (let name of platformList) {
+  // we're using an old-school for here to get as much browser compatibility as possible.
+  for (var index = 0; index < platformList.length; index++) {
+    var name = platformList[index];
     if (platform.includes(name)) {
-      osSpan.innerText = document.querySelector(`[data-os-name~=${name}]`).innerText;
+      osSpan.innerText = document.querySelector('[data-os-name~=' + name + ']').innerText;
       break;
     }
   }
