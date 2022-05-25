@@ -21,3 +21,17 @@
   {% endif -%}
   {{- '#{hex_color}{opacity:x};'.format(hex_color=hex_color, opacity=(opacity / 100 * 255)|round|int) -}}
 {% endmacro %}
+
+{# generate a series of invisible spans that contain the translated readable OS name. #}
+{# the data-os-name property ensures this is easily selectable from javascript. #}
+{# this macro exists to get the "For {your operating system}" text into translations, since we dont have a way to translate JS strings at runtime for this project #}
+{# parameters: #}
+{#     names dict[str, str]: a dict mapping a sequence of normalized platform names to user-readable names #}
+{# example: `os_names({ 'ipad iphone': 'iOS'})` #}
+{% macro os_names(names) %}
+  <div id="os-span-data">
+    {% for normalized_names, readable_name in names.items() %}
+      <span data-os-name="{{ normalized_names }}">{{ _('For {}'.format(readable_name)) }}</span>
+    {% endfor %}
+  </div>
+{% endmacro %}

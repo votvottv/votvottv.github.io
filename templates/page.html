@@ -1,4 +1,4 @@
-{%- from 'macros/helpers.jinja2' import theme_color -%}
+{%- from 'macros/helpers.jinja2' import os_names, theme_color -%}
 <!DOCTYPE html>
 <html>
   <head>
@@ -290,6 +290,9 @@
        margin-top: 2%;
        margin-bottom: 5%;
      }
+     #os-span-data {
+       display: none !important;
+     }
 
      /* tablet */
      /* some of these rules aren't overriden on mobile, so they affect mobile too*/
@@ -571,6 +574,14 @@
     {% endif %}
   </head>
   <body {% if this.alt in bag('alternatives', 'rtl') %}dir="RTL"{% endif %}>
+    {{ os_names({
+    'ipad': 'iOS',
+    'iphone': 'iOS',
+    'linux': 'Linux',
+    'x11': 'Linux',
+    'mac': 'Mac OS',
+    'windows': 'Windows'
+    }) }}
     {% include 'macros/header.html' %}
     <div id="content">
       <div id="header-container" class="parent">

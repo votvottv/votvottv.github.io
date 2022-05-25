@@ -88,3 +88,25 @@ function clickHandler() {
   languageDropdown.style.display = nextDisplay;
   nextDisplay = nextDisplay_;
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  // maps a normalized navigator.platform substring to a user-friendly name
+  // we'll iterate through the keys and check them as substrings
+  const platformList = [
+    'ipad',
+    'iphone',
+    'linux',
+    'x11',
+    'mac',
+    'windows',
+  ];
+  const osSpan = document.getElementById('os-span');
+  const platform = navigator.platform.toLowerCase();
+
+  for (let name of platformList) {
+    if (platform.includes(name)) {
+      osSpan.innerText = document.querySelector(`[data-os-name~=${name}]`).innerText;
+      break;
+    }
+  }
+});

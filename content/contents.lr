@@ -23,7 +23,7 @@ title: Step 1: Download Tor Browser
 ----
 content:
 The safest and simplest way to download Tor Browser is from the official Tor Project website.
-For {operating system}, you can download Tor Browser from the link below:
+<span id="os-span">For your operating system</span>, you can download Tor Browser from the link below:
 ----
 expand_title: Facing trouble downloading Tor Browser?
 ----
