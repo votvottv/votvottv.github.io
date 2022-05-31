@@ -86,7 +86,12 @@
      #header-container * {
        margin: 0;
      }
+     #header-container header {
+       max-width: 1200px;
+       margin: 0 auto;
+     }
      #page-content {
+       max-width: 1200px;
        margin: 2% auto;
        margin-bottom: 72px;
        width: 82vw;
@@ -103,6 +108,7 @@
      #steps-container {
        width: 82vw;
        margin: 0 auto;
+       max-width: 1200px;
      }
      #steps-container > .parent {
        margin-bottom: 72px;
@@ -244,6 +250,7 @@
        margin: 0 auto;
        text-align: center;
        width: 36vw;
+       max-width: 1200px;
      }
      #steps-container > div.parent:nth-child(2n) {
        flex-direction: row-reverse;
@@ -618,17 +625,19 @@
     }) }}
     {% include 'macros/header.html' %}
     <div id="content">
-      <div id="header-container" class="parent">
-        <div class="child" id="site-intro">
-          <h1>{{ this.title }}</h1>
-          <div id="site-description">
-            {{ this.subtitle }}
+      <div id="header-container">
+        <header class="parent">
+          <div class="child" id="site-intro">
+            <h1>{{ this.title }}</h1>
+            <div id="site-description">
+              {{ this.subtitle }}
+            </div>
+            {% include 'macros/onion_url.html' %}
           </div>
-          {% include 'macros/onion_url.html' %}
-        </div>
-        <div class="child">
-          <img src="{{ 'header-tor.png' | asseturl }}" id="header-image">
-        </div>
+          <div class="child">
+            <img src="{{ 'header-tor.png' | asseturl }}" id="header-image">
+          </div>
+        </header>
       </div>
       <div class="shape"></div>
       <div id="page-content">
