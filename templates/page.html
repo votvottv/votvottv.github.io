@@ -300,7 +300,6 @@
      #language-dropdown {
        overflow: auto;
        height: 70vh;
-       padding: 24px;
      }
      #site-logo > img {
        height: 56px;
@@ -515,7 +514,6 @@
      }
      #language-dropdown {
        background-color: white;
-       padding: 1%;
        position: absolute;
        box-sizing: border-box;
        right: 2%;
@@ -528,9 +526,20 @@
        display: block;
        text-decoration: none;
        color: black;
+       padding-left: 24px;
+       padding-right: 24px;
+     }
+     .dropdown-item:not(:first-child) {
+       padding-top: 10px;
+     }
+     .dropdown-item:first-child {
+       padding-top: 24px;
      }
      .dropdown-item:not(:last-child) {
-       padding-bottom: 20px;
+       padding-bottom: 10px;
+     }
+     .dropdown-item:last-child {
+       padding-bottom: 24px;
      }
      #language-select-button {
        border: none;
