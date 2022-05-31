@@ -30,6 +30,7 @@
 {# example: `os_names({ 'ipad iphone': 'iOS'})` #}
 {% macro os_names(names) %}
   <div id="os-span-data">
+    <span id="ios-browser-name">{{ _('Onion Browser') }}</span>
     {% for normalized_names, readable_name in names.items() %}
       <span data-os-name="{{ normalized_names }}">{{ _('For {}'.format(readable_name)) }}</span>
     {% endfor %}

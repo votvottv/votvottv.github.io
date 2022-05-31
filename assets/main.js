@@ -88,6 +88,9 @@ function clickHandler() {
 window.addEventListener('DOMContentLoaded', function() {
   // maps a normalized navigator.platform substring to a user-friendly name
   // we'll iterate through the keys and check them as substrings
+  const originalBrowserName = document.getElementById('browser-span').innerText;
+  const browserSpan = document.getElementById('browser-span');
+  const iOSBrowserName = document.getElementById('ios-browser-name').innerText;
   const platformList = [
     'ipad',
     'iphone',
@@ -96,6 +99,7 @@ window.addEventListener('DOMContentLoaded', function() {
     'mac',
     'windows',
   ];
+  const iOSPlatforms = ['ipad', 'iphone'];
   const osSpan = document.getElementById('os-span');
   const platform = navigator.platform.toLowerCase();
 
@@ -104,6 +108,12 @@ window.addEventListener('DOMContentLoaded', function() {
     var name = platformList[index];
     if (platform.includes(name)) {
       osSpan.innerText = document.querySelector('[data-os-name~=' + name + ']').innerText;
+
+      if (iOSPlatforms.includes(name)) {
+        browserSpan.innerText = iOSBrowserName;
+      } else {
+        browserSpan.innerText = originalBrowserName;
+      }
       break;
     }
   }
