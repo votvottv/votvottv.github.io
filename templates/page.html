@@ -141,11 +141,11 @@
      }
      .button {
        background-color: {{ theme_color('BUTTON_COLOR') }};
-       padding: 15px 24px;
-       border-radius: 50px;
+       padding: 0 24px 16px 24px;
+       border-radius: 100px;
        box-shadow: 2px 4px {{ theme_color('BUTTON_COLOR', opacity=20) }};
        font-family: NotoSansSemibold;
-       height: 56px;
+       height: 40px;
        width: max-content;
        color: white;
        display: inline-block;
@@ -319,6 +319,10 @@
      /* tablet */
      /* some of these rules aren't overriden on mobile, so they affect mobile too*/
      @media (max-width: 999px) {
+       .button {
+         height: 32px;
+         padding-bottom: 24px;
+       }
        .child > img {
          width: 275px;
        }
