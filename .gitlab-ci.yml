@@ -8,6 +8,7 @@ variables:
   LEKTOR_ONION_URL: 'https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion'
   LEKTOR_SERVICE_NAME: 'Service Name'
   LEKTOR_SERVICE_URL: 'https://service-url.website/'
+  LEKTOR_FAVICON: ''
 
 include:
   - project: tpo/tpa/ci-templates
