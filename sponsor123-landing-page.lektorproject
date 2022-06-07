@@ -15,6 +15,11 @@ name = አማርኛ (am)
 url_prefix = /am/
 locale = am
 
+[alternatives.ar]
+name = (ar) عربية
+url_prefix = /ar/
+locale = ar
+
 [alternatives.az]
 name = Azərbaycan dili (az)
 url_prefix = /az/
@@ -244,6 +249,11 @@ locale = tr
 name = татар (tt)
 url_prefix = /tt/
 locale = tt
+
+[alternatives.ug]
+name = (ug) ئۇيغۇر
+url_prefix = /ug/
+locale = ug
 
 [alternatives.uk]
 name = українська (uk)
