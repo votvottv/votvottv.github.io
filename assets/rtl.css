@@ -31,7 +31,7 @@ h1, h2 {
     left: 2%;
 }
 
-.onion-url-desktop {
+.onion-url-desktop, .onion-url-mobile {
     padding: 2%;
     padding-left: 24px;
 }
