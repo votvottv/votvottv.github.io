@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+# Provision the environment needed for building a Lektor site using
+# The Tor Projects's i18n and lego projects in a Debian-based system.
+#
+
+# Parameters
+DIRNAME="`dirname $0`"
+BASEPATH="$DIRNAME/../"
+
+# Check for sudo
+if [ "`whoami`" != "root" ]; then
+  SUDO="sudo"
+fi
+
+# Go to the repository folder
+cd $BASEPATH
+
+# Install system packages
+$SUDO apt-get update
+$SUDO DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends \
+  gettext python3-babel python3-pip git python3-inifile python3-dev python3-setuptools \
+  python3-venv python3-openssl python3-cryptography -y
+
+# Install python packages
+pip3 install babel
+pip3 install wheel
+pip3 install lektor
+
+# Include the i18n repository
+if [ ! -d "i18n" ]; then
+  git clone https://gitlab.torproject.org/tpo/translation.git i18n
+else
+  ( cd i18n &> /dev/null && git checkout onion-support-landing-page && git pull )
+fi
+
+# Include the lego repository
+#git clone https://gitlab.torproject.org/tpo/web/lego.git lego
+#cd lego && git submodule update --init --recursive && git checkout main && git pull origin main && cd ..
+git submodule update --init --recursive

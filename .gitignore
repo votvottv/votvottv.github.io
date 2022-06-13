@@ -9,7 +9,7 @@ public
 *.pyc
 __pycache__
 
-i18n/compiled
+i18n
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
