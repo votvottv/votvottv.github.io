@@ -45,7 +45,7 @@ git submodule update --init --recursive
 
 # Ensure a fresh i18n repository in place
 if [ ! -d "i18n" ]; then
-  git clone https://gitlab.torproject.org/tpo/translation.git i18n
+  git clone --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n
 else
   rm -rf i18n/_compiled && rm -f i18n/contents+*
   ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull )
