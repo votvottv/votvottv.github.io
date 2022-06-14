@@ -34,7 +34,7 @@ cd "$BASEPATH"
 
 # Cleanup
 echo "Cleaning up previous builds..."
-rm -f content/contents+*.lr
+find content -type f -name 'contents+*.lr' -delete
 #rm -rf public
 lektor clean --yes --output-path public || exit 1
 
