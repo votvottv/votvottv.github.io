@@ -30,7 +30,7 @@ if ! which lektor &> /dev/null; then
 fi
 
 # Ensure we're in the root repository folder
-cd $BASEPATH
+cd "$BASEPATH"
 
 # Cleanup
 echo "Cleaning up previous builds..."
