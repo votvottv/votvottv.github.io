@@ -19,6 +19,7 @@ if [ -e "$HOME/.local/bin/lektor" ]; then
   export PATH="$PATH:$HOME/.local/bin"
 fi
 
+# Check for Lektor
 if ! which lektor &> /dev/null; then
   echo "Please install lektor"
   exit 1
@@ -27,10 +28,16 @@ fi
 # Cleanup
 echo "Cleaning up previous builds..."
 rm -f content/contents+*.lr
-rm -rf i18n/_compiled && rm -f i18n/contents+*
-( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull )
 #rm -rf public
 lektor clean --yes --output-path public || exit 1
+
+# Ensure a fresh i18n repository in place
+if [ ! -d "i18n" ]; then
+  git clone https://gitlab.torproject.org/tpo/translation.git i18n
+else
+  rm -rf i18n/_compiled && rm -f i18n/contents+*
+  ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull )
+fi
 
 # Build
 echo "Building..."

@@ -13,9 +13,6 @@ if [ "`whoami`" != "root" ]; then
   SUDO="sudo"
 fi
 
-# Go to the repository folder
-cd $BASEPATH
-
 # Install system packages
 $SUDO apt-get update
 $SUDO DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends \
@@ -27,12 +24,8 @@ pip3 install babel
 pip3 install wheel
 pip3 install lektor
 
-# Include the i18n repository
-if [ ! -d "i18n" ]; then
-  git clone https://gitlab.torproject.org/tpo/translation.git i18n
-else
-  ( cd i18n &> /dev/null && git checkout onion-support-landing-page && git pull )
-fi
+# Go to the repository folder
+cd $BASEPATH
 
 # Include the lego repository
 #git clone https://gitlab.torproject.org/tpo/web/lego.git lego
