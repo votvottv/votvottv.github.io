@@ -1,5 +1,15 @@
 # Sponsor 123 Landing Page
 
+## Dependencies
+
+This project relies on [Lektor](https://www.getlektor.com/)
+and some dependencies detailed at the
+[TPA CI templates](https://gitlab.torproject.org/tpo/tpa/ci-templates) project.
+
+A [provision script](scripts/provision) is available as an example of dependency
+installation from a Debian stable system, and can be adapted to your own environment
+and needs.
+
 ## Building
 
 Several parts of the site are configured through environment variables during the lektor build. These variables are:
@@ -17,6 +27,8 @@ LEKTOR_FOREGROUND_COLOR=FF0000 LEKTOR_BACKGROUND_COLOR=FF7700 LEKTOR_BUTTON_COLO
 ```
 
 It's a long build command, but ideally would only be run by a script.
+An [example script](scripts/build) is provided which calls `lektor` after ensuring
+additional dependencies are installed.
 
 ## Adding a new RTL language
 
