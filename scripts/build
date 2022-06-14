@@ -3,6 +3,10 @@
 # Script to build the Landing Page.
 #
 
+# Parameters
+DIRNAME="`dirname $0`"
+BASEPATH="$DIRNAME/../"
+
 # Export environment variables
 export TRANSLATION_BRANCH="${TRANSLATION_BRANCH:-onion-support-landing-page}"
 export LEKTOR_FOREGROUND_COLOR="${LEKTOR_FOREGROUND_COLOR:-CF5C00}"
@@ -25,11 +29,19 @@ if ! which lektor &> /dev/null; then
   exit 1
 fi
 
+# Ensure we're in the root repository folder
+cd $BASEPATH
+
 # Cleanup
 echo "Cleaning up previous builds..."
 rm -f content/contents+*.lr
 #rm -rf public
 lektor clean --yes --output-path public || exit 1
+
+# Include the lego repository
+#git clone https://gitlab.torproject.org/tpo/web/lego.git lego
+#cd lego && git submodule update --init --recursive && git checkout main && git pull origin main && cd ..
+git submodule update --init --recursive
 
 # Ensure a fresh i18n repository in place
 if [ ! -d "i18n" ]; then

@@ -4,10 +4,6 @@
 # The Tor Projects's i18n and lego projects in a Debian-based system.
 #
 
-# Parameters
-DIRNAME="`dirname $0`"
-BASEPATH="$DIRNAME/../"
-
 # Check for sudo
 if [ "`whoami`" != "root" ]; then
   SUDO="sudo"
@@ -23,11 +19,3 @@ $SUDO DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends \
 pip3 install babel
 pip3 install wheel
 pip3 install lektor
-
-# Go to the repository folder
-cd $BASEPATH
-
-# Include the lego repository
-#git clone https://gitlab.torproject.org/tpo/web/lego.git lego
-#cd lego && git submodule update --init --recursive && git checkout main && git pull origin main && cd ..
-git submodule update --init --recursive
