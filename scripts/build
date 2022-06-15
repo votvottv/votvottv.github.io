@@ -6,6 +6,7 @@
 # Parameters
 DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
+BUILD="lektor build --output-path public"
 
 # Export environment variables
 export TRANSLATION_BRANCH="${TRANSLATION_BRANCH:-onion-support-landing-page}"
@@ -52,6 +53,7 @@ else
 fi
 
 # Build
+# The build command might fail in the first time, so we run it again if needed
 echo "Building..."
-lektor build --output-path public
+$BUILD || $BUILD
 exit $?
