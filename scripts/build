@@ -8,6 +8,11 @@ DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
 BUILD="lektor build --output-path public"
 
+# Environment file support
+if [ -e "$BASEPATH/.env" ]; then
+  source "$BASEPATH/.env"
+fi
+
 # Export environment variables
 export TRANSLATION_BRANCH="${TRANSLATION_BRANCH:-onion-support-landing-page}"
 export LEKTOR_FOREGROUND_COLOR="${LEKTOR_FOREGROUND_COLOR:-CF5C00}"
