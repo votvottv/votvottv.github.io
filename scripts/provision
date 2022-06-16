@@ -11,7 +11,11 @@ fi
 
 # Install system packages
 $SUDO apt-get update
-DEBIAN_FRONTEND=noninteractive $SUDO apt-get install --no-install-recommends \
+DEBIAN_FRONTEND=noninteractive $SUDO apt-get install --no-install-recommends -y \
   gettext python3-babel python3-pip git python3-inifile python3-dev python3-setuptools \
-  python3-venv python3-openssl python3-cryptography \
-  python3-babel python3-wheel lektor -y
+  python3-venv python3-openssl python3-cryptography #\
+  # The following packages may be available from Debian bullseye onwards
+  #python3-babel python3-wheel lektor
+
+# Install python packages
+pip install babel wheel lektor

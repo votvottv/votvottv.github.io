@@ -31,7 +31,7 @@ if ! which lektor &> /dev/null; then
 fi
 
 # Ensure we're in the root repository folder
-cd "$BASEPATH"
+cd "$BASEPATH" &> /dev/null
 
 # Cleanup
 echo "Cleaning up previous builds..."
@@ -40,13 +40,15 @@ rm -rf public
 #lektor clean --yes --output-path public || exit 1
 
 # Include the lego repository
-#git clone https://gitlab.torproject.org/tpo/web/lego.git lego
-#cd lego && git submodule update --init --recursive && git checkout main && git pull origin main && cd ..
-git submodule update --init --recursive
+if [ ! -d "lego" ]; then
+  git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego
+else
+  git submodule update --init --recursive --depth 1
+fi
 
 # Ensure a fresh i18n repository in place
 if [ ! -d "i18n" ]; then
-  git clone --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n
+  git clone --depth 1 --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n
 else
   rm -rf i18n/_compiled && rm -f i18n/contents+*
   ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull )
@@ -55,5 +57,7 @@ fi
 # Build
 # The build command might fail in the first time, so we run it again if needed
 echo "Building..."
-$BUILD || $BUILD
-exit $?
+for n in 1 2 3; do
+  echo "Starting build $n..."
+  $BUILD || exit 1
+done
