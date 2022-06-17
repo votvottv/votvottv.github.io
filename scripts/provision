@@ -20,4 +20,5 @@ DEBIAN_FRONTEND=noninteractive $SUDO apt-get install --no-install-recommends -y 
   #python3-babel python3-wheel lektor
 
 # Install python packages when not using those provided by Debian
-pip install babel wheel lektor
+# This might also be handled at the build script using a custom requirements.txt
+#pip install babel wheel lektor

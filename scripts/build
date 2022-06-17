@@ -24,16 +24,22 @@ export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Service Name}"
 export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
 export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
 
+# Install dependencies
+python3 -m venv venv
+source venv/bin/activate
+wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements.txt -O requirements.txt
+python3 -m pip install --require-hashes -r requirements.txt
+
 # Ensure we have an extended PATH if lektor is installed locally
-if [ -e "$HOME/.local/bin/lektor" ]; then
-  export PATH="$PATH:$HOME/.local/bin"
-fi
+#if [ -e "$HOME/.local/bin/lektor" ]; then
+#  export PATH="$PATH:$HOME/.local/bin"
+#fi
 
 # Check for Lektor
-if ! which lektor &> /dev/null; then
-  echo "Please install lektor"
-  exit 1
-fi
+#if ! which lektor &> /dev/null; then
+#  echo "Please install lektor"
+#  exit 1
+#fi
 
 # Ensure we're in the root repository folder
 cd "$BASEPATH" &> /dev/null
