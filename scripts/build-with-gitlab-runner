@@ -4,15 +4,25 @@
 # Makes the compiled page available at the ./public folder.
 #
 
-# Check
+# Parameters
+DIRNAME="`dirname $0`"
+BASEPATH="$DIRNAME/../"
+
+# Check for an existing GitLab Runner installation
 if ! which gitlab-runner &> /dev/null; then
   echo "Please install gitlab-runner first"
   exit 1
 fi
 
+# Ensure we're in the root repository folder
+cd "$BASEPATH" &> /dev/null
+
 # Do this hack while the following feature is not available at the installed
 # GitLab Runner: https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/3246
 cp .gitlab-ci-deployment.yml .gitlab-ci.yml
+
+# Ensure that the public folder exists
+mkdir -p public
 
 # Code to copy the artifact back to the working copy thanks to
 # https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2226#note_396408902
