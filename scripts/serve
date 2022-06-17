@@ -14,8 +14,12 @@ Handler = http.server.SimpleHTTPRequestHandler
 public  = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, 'public')
 
 if not os.path.exists(public):
-    print('No such folder ' + public)
-    exit(1)
+    try:
+        os.makedirs(public, mode=0o755)
+
+    except Exception:
+        print('No such folder ' + public)
+        exit(1)
 
 os.chdir(public)
 
