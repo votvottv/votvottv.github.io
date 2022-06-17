@@ -76,4 +76,9 @@ company-statistics-cache.el
 
 # anaconda-mode
 anaconda-mode/
+
+# Compiled localized content
 content/contents+*.lr
+
+# Environment file
+.env
