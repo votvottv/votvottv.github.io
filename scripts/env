@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+#
+# Setup the environment to build the Landing Page.
+# To be sourced from other scripts.
+#
+
+# Environment file support
+if [ -e "$BASEPATH/.env" ]; then
+  source "$BASEPATH/.env"
+fi
+
+# Export environment variables
+export TRANSLATION_BRANCH="${TRANSLATION_BRANCH:-onion-support-landing-page}"
+export LEKTOR_FOREGROUND_COLOR="${LEKTOR_FOREGROUND_COLOR:-FF0000}"
+export LEKTOR_BACKGROUND_COLOR="${LEKTOR_BACKGROUND_COLOR:-FF7700}"
+export LEKTOR_BUTTON_COLOR="${LEKTOR_BUTTON_COLOR:-3377FF}"
+export LEKTOR_ONION_URL_LOCK_FILTER="${LEKTOR_ONION_URL_LOCK_FILTER:-invert(57%) sepia(50%) saturate(5826%) hue-rotate(162deg) brightness(96%) contrast(101%);}"
+export LEKTOR_ONION_URL="${LEKTOR_ONION_URL:-https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion}"
+export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Service Name}"
+export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
+export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
+
+# Install dependencies
+python3 -m venv $BASEPATH/venv
+source $BASEPATH/venv/bin/activate
+wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements.txt -O requirements.txt
+python3 -m pip install --require-hashes -r requirements.txt
+
+# Ensure we have an extended PATH if lektor is installed locally
+#if [ -e "$HOME/.local/bin/lektor" ]; then
+#  export PATH="$PATH:$HOME/.local/bin"
+#fi
+
+# Check for Lektor
+#if ! which lektor &> /dev/null; then
+#  echo "Please install lektor"
+#  exit 1
+#fi
+
+# Ensure we're in the root repository folder
+cd "$BASEPATH" &> /dev/null
+
+# Cleanup
+echo "Cleaning up previous builds..."
+find content -type f -name 'contents+*.lr' -delete
+rm -rf public
+#lektor clean --yes --output-path public || exit 1
+
+# Include the lego repository
+if [ ! -d "lego" ]; then
+  git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego
+else
+  git submodule update --init --recursive --depth 1
+fi
+
+# Ensure a fresh i18n repository in place
+if [ ! -d "i18n" ]; then
+  git clone --depth 1 --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n
+else
+  rm -rf i18n/_compiled && rm -f i18n/contents+*
+  ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull )
+fi

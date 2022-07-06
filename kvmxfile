@@ -75,7 +75,7 @@ shared_folder_mountpoint="/srv/shared"
 #provision_command="/usr/local/share/kvmx/provision/debian/development"
 #provision_command="/usr/local/share/kvmx/provision/debian/trashman"
 #provision_command="/usr/local/share/kvmx/provision/debian/desktop-basic"
-provision_command="/usr/local/share/kvmx/provision/debian/development && /srv/shared/scripts/provision-gitlab-runner"
+provision_command="/usr/local/share/kvmx/provision/debian/development && /srv/shared/scripts/provision-gitlab-runner && /srv/shared/scripts/provision-docker-compose"
 
 # Startup command
 #startup_command="/path/to/custom/command"
@@ -137,7 +137,7 @@ xrandr="0"
 
 # Set additional hostfwd mappings
 #port_mapping="hostfwd=tcp:127.0.0.1:8080-:80,hostfwd=tcp:127.0.0.1:8443-:443"
-port_mapping="hostfwd=tcp:127.0.0.1:8080-:8080"
+port_mapping="hostfwd=tcp:127.0.0.1:5000-:5000"
 
 # Where the guest image is stored
 #image="$HOME/.local/share/kvmx/$VM/box.img"

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Wrapper around "lektor server".
+#
+
+# Parameters
+DIRNAME="`dirname $0`"
+BASEPATH="$DIRNAME/../"
+BUILD="lektor build --output-path public"
+
+# Setup the environment
+source $DIRNAME/env
+
+# Serve
+#
+# Address is bound to 0.0.0.0 so it works find inside a Docker container.
+# A better config would be desirable.
+lektor server -h 0.0.0.0

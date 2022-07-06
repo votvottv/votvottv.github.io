@@ -82,3 +82,9 @@ content/contents+*.lr
 
 # Environment file
 .env
+
+# Python virtual environment
+venv
+
+# Python requirements
+requirements.txt
