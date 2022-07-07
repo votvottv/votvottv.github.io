@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-# Script to build the Landing Page.
+# Script to build the Landing Page using
+# The Tor Projects's i18n and lego projects in a Debian-based system.
 #
 
 # Parameters

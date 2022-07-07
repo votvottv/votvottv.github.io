@@ -27,7 +27,8 @@ RUN groupadd -r -g ${CONTAINER_GID} ${APP} && \
 RUN chown -R ${APP}.${APP} ${APP_BASE}/${APP}
 USER ${APP}
 
-# Initial build
-#RUN ${APP_BASE}/${APP}/scripts/build
+# Initial build: useful to install the Python virtualenv
+# and also for deploying the image as-is.
+RUN ${APP_BASE}/${APP}/scripts/build
 
 ENTRYPOINT [ "scripts/server" ]

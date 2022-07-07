@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 #
-# Setup the environment to build the Landing Page.
+# Setup the Python environment to build the Landing Page.
 # To be sourced from other scripts.
 #
+
+# Parameters
+DIRNAME="`dirname $0`"
+BASEPATH="$DIRNAME/../"
+#VENV="${VENV:-$BASEPATH/venv}"
+VENV="${VENV:-$HOME/.virtualenvs/onion-support-landing-page}"
 
 # Environment file support
 if [ -e "$BASEPATH/.env" ]; then
@@ -21,8 +27,9 @@ export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
 export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
 
 # Install dependencies
-python3 -m venv $BASEPATH/venv
-source $BASEPATH/venv/bin/activate
+mkdir -p "$(dirname "$VENV")"
+python3 -m venv $VENV
+source $VENV/bin/activate
 wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements.txt -O requirements.txt
 python3 -m pip install --require-hashes -r requirements.txt
 

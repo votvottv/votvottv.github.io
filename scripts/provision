@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
-# Provision the environment needed for building a Lektor site using
-# The Tor Projects's i18n and lego projects in a Debian-based system.
+# Provision the system environment needed for building a Lektor site using
 #
 
 # Check for sudo

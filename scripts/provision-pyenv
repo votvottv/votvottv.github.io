@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# Installs GitLab Runner in a Debian system.
+#
+# This script is useful to set development environments for testing purposes,
+# especially inside virtual machines.
+#
+
+# Parameters
+PYENV_VERSION="${PYENV_VERSION:-3.8.13}"
+
+# Check for sudo
+if [ "`whoami`" != "root" ]; then
+  SUDO="sudo"
+fi
+
+# Build APT install command
+export DEBIAN_FRONTEND="noninteractive "
+export APT_INSTALL="$SUDO apt-get install -y"
+
+# Install using hoarder or using a custom procedure
+# https://git.fluxo.info/trashman/about/
+if which hoarder &> /dev/null; then
+  hoarder install pyenv
+else
+  $APT_INSTALL git make build-essential libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+  libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+  # Setup pyenv by cloning it's repository
+  if [ ! -d "$HOME/.pyenv" ]; then
+    git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+  else
+    ( cd $HOME/.pyenv && git pull )
+  fi
+
+  echo "Please configure your shell initialization script according to the PyEnv documentation"
+  echo "See https://github.com/pyenv/pyenv for details"
+fi
+
+# Install and enable the required Python version
+$HOME/.pyenv/bin/pyenv install $PYENV_VERSION
+$HOME/.pyenv/bin/pyenv global  $PYENV_VERSION

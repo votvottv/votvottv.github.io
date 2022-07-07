@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+#
+# Serve a site under the ./public folder.
+#
+# Useful for testing the results of a build process.
+#
+
+import os
+import http.server
+import socketserver
+
+PORT    = 5000
+Handler = http.server.SimpleHTTPRequestHandler
+public  = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, 'public')
+
+if not os.path.exists(public):
+    try:
+        os.makedirs(public, mode=0o755)
+
+    except Exception:
+        print('No such folder ' + public)
+        exit(1)
+
+os.chdir(public)
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("Serving at port", PORT)
+    httpd.serve_forever()
