@@ -96,7 +96,7 @@ Then proceed as usual:
     docker-compose up
 
 This should build the container image and bring a service container running
-`lektor server` with an HTTP server listening at [http://localhost:5000][].
+`lektor server` with a HTTP server listening at [http://localhost:5000][].
 
 [Docker]: https://docs.docker.com
 [Docker Compose]: https://docs.docker.com/compose

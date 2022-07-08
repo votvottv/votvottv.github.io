@@ -65,5 +65,5 @@ if [ ! -d "i18n" ]; then
   git clone --depth 1 --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n
 else
   rm -rf i18n/_compiled && rm -f i18n/contents+*
-  ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull )
+  ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull origin ${TRANSLATION_BRANCH} )
 fi

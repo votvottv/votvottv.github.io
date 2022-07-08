@@ -7,10 +7,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      # This needs a newer Docker Compose (>= 1.28)
+      #target: landing
     volumes:
       - .:/srv/sponsor123-landing-page
     ports:
       - "5000:5000"
+    entrypoint: "scripts/server"
     restart: always
     # This needs a newer Docker Compose (>= 1.28)
     #profiles: ["api", "all"]
