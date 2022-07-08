@@ -1,0 +1,19 @@
+# This CI configuration is used for landing page deployment in external GitLab
+# instances.
+#
+# To use it, go into the "CI/CD settings" of that repository and input
+# ".gitlab-ci-deployment.yml" in the "CI/CD configuration file" field under the
+# "General pipelines" section.
+---
+# Right now we're sticking to Python 3.8 due to dependency issues.
+image: python:3.8-bullseye
+
+pages:
+  script:
+    - scripts/provision
+    - scripts/build
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

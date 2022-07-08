@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# Installs GitLab Runner in a Debian system.
+#
+# This script is useful to set development environments for testing purposes,
+# especially inside virtual machines.
+#
+
+# Check for an existing GitLab Runner installation
+if which gitlab-runner &> /dev/null; then
+  echo "GitLab Runner already installed, skipping."
+  exit
+else
+  echo "Installing GitLab Runner..."
+fi
+
+# Check for sudo
+if [ "`whoami`" != "root" ]; then
+  SUDO="sudo"
+fi
+
+# Build APT install command
+export DEBIAN_FRONTEND="noninteractive "
+export APT_INSTALL="$SUDO apt-get install -y"
+
+# Ensure curl is installed
+$APT_INSTALL curl
+
+# Install GitLab Runner Debian repository
+# Please only run that in a dedicated virtual machine and for testing purposes!
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | $SUDO bash
+
+# Install Docker and GitLab Runner
+$APT_INSTALL docker.io gitlab-runner
+
+# Ensure the running user is part of the docker group
+if [ "`whoami`" != "root" ]; then
+  $SUDO sudo usermod -a -G docker `whoami`
+fi

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Installs Docker Compose in a Debian system.
+#
+# This script is useful to set development environments for testing purposes,
+# especially inside virtual machines.
+#
+
+# Check for sudo
+if [ "`whoami`" != "root" ]; then
+  SUDO="sudo"
+fi
+
+# Build APT install command
+export DEBIAN_FRONTEND="noninteractive "
+export APT_INSTALL="$SUDO apt-get install -y"
+
+# Ensure curl is installed
+$APT_INSTALL docker.io docker-compose docker-clean
+
+# Ensure the running user is part of the docker group
+if [ "`whoami`" != "root" ]; then
+  $SUDO sudo usermod -a -G docker `whoami`
+fi

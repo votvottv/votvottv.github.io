@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Script to build the Landing Page using
+# The Tor Projects's i18n and lego projects in a Debian-based system.
+#
+
+# Parameters
+DIRNAME="`dirname $0`"
+BASEPATH="$DIRNAME/../"
+BUILD="lektor build --output-path public"
+
+# Setup the environment
+source $DIRNAME/env
+
+# Build
+# The build command might fail in the first time, so we run it again if needed
+echo "Building..."
+for n in 1 2 3; do
+  echo "Starting build $n..."
+  $BUILD || exit 1
+done
