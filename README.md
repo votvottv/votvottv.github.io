@@ -98,6 +98,9 @@ Then proceed as usual:
 This should build the container image and bring a service container running
 `lektor server` with a HTTP server listening at [http://localhost:5000][].
 
+As an alternative, it's possible to use the [provided Dockerfile][Dockerfile]
+for serving a statically built landing page.
+
 [Docker]: https://docs.docker.com
 [Docker Compose]: https://docs.docker.com/compose
 [http://localhost:5000]: http://localhost:5000
