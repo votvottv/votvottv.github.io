@@ -3,8 +3,15 @@
 Onion Launchpad is a [Lego][] landing page template allowing projects to help
 users connect to their [Tor Onion Service][].
 
+The landing page offers [localized content][] about how to download the [Tor
+Browser][], connect to the Tor network an access an Onion Service.
+
+It's a statically built website that can be easily deployed.
+
 [Lego]: https://gitlab.torproject.org/tpo/web/lego
 [Tor Onion Service]: https://community.torproject.org/onion-services/
+[localized content]: https://gitlab.torproject.org/tpo/community/l10n/-/wikis/Localization-for-developers
+[Tor Browser]: https://tb-manual.torproject.org/
 
 ## Dependencies
 
@@ -20,55 +27,23 @@ and needs.
 
 ## Building
 
-Several parts of the site are configured through environment variables during the lektor build. These variables are:
+There are some documented ways in how to setup your development or deployment
+environment for this project:
 
-- `LEKTOR_FOREGROUND_COLOR`: This is the foreground/main site color in RGB hexadecimal format (`ffffff`)
-- `LEKTOR_BACKGROUND_COLOR`: This is the background/accent site color in RGB hexadecimal format
-- `LEKTOR_BUTTON_COLOR`: This is the button color in RGB hexadecimal format - it's the same as the foreground for RFERL, but none of the others
-- `LEKTOR_ONION_URL_LOCK_FILTER`: This is a CSS filter that converts a black SVG to a different color. You can calculate the filter using [this codepen tool](https://codepen.io/sosuke/pen/Pjoqqp)
-- `LEKTOR_ONION_URL`: This is the onion URL of the service
-- `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with additional assets to be cloned into `assets/custom`, allowing customizations such as the logo and favicon
-- `LEKTOR_FAVICON`: The favicon path relative to the `assets` folder, such as `/custom/my-logo.svg`
-- `LEKTOR_LOGO_PATH`: The logo path relative to the `assets` folder, such as `/custom/my-icon.png`
-
-An example build command would like something like the following:
-
-```
-LEKTOR_FOREGROUND_COLOR=FF0000 LEKTOR_BACKGROUND_COLOR=FF7700 LEKTOR_BUTTON_COLOR=3377FF LEKTOR_ONION_URL_LOCK_FILTER='invert(57%) sepia(50%) saturate(5826%) hue-rotate(162deg) brightness(96%) contrast(101%);' LEKTOR_ONION_URL='https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion' lektor b
-```
-
-It's a long build command, but ideally would only be run by a script.
-An [example script](scripts/build) is provided which calls `lektor` after ensuring
-additional dependencies are installed (see below).
-
-## Adding a new RTL language
-
-If you end up enabling translation support for a right-to-left (RTL) language, be sure to add the language's ISO 639-1/ISO 639-3 codes (add both if the language has both) to the `rtl` list in `databags/alternatives.json`:
-
-```json
-{
-    "rtl": [..., ISO 639 code here, ...]
-}
-```
-
-The `page.html` template uses this databag to decide if the page should be displayed as RTL. If your new RTL language isn't in the databag, it will be rendered "mirrored" to how it should be, like left-to-right languages are.
-
-## Developing
-
-There are some documented ways in how to setup your development environment for
-this project:
-
+0. Using a CI/CD system such as [GitLab CI/CD][].
 1. Using [Docker][] and [Docker Compose][].
 2. Using [GitLab Runner][].
 3. Using [PyEnv][].
 4. Setting up your environment manually.
 
-They are explained in the following sections, and of couse you can also proceed
+They are explained in the following sections, and of course you can also proceed
 with your own procedure if nothing else fits. They're tested with [Debian][]-like
 operating systems.
 
 The procedures can also be executed inside a virtual machine, preferably using
 [Debian][].
+
+[GitLab CI/CD]: https://docs.gitlab.com/ee/ci/
 
 ### Environment file
 
@@ -93,6 +68,15 @@ Also, number of helper scripts are available to aid development, testing and dep
   the `public/` folder.
 
 [Python]: https://www.python.org
+
+### Using a CI/CD system such as [GitLab CI/CD][]
+
+For [GitLab CI/CD][] we provide two configurations:
+
+1. [.gitlab-ci.yml][.gitlab-ci.yml]: the standard CI/CD used when the project
+   is hosted at https://gitlab.torproject.org.
+2. [.gitlab-ci-deployment.yml][.gitlab-ci-deployment.yml]: the CI/CD configuration
+   when the repository is hosted in other GitLab instances.
 
 ### Using [Docker][] and [Docker Compose][]
 
@@ -200,3 +184,53 @@ Make sure to:
 
 [Lektor]: https://www.getlektor.com
 [bash]: https://www.gnu.org/software/bash
+
+## Customizing
+
+Several parts of the site are configured through environment variables during
+the Lektor build. These variables are:
+
+- `LEKTOR_FOREGROUND_COLOR`: This is the foreground/main site color in RGB hexadecimal format (`ffffff`).
+- `LEKTOR_BACKGROUND_COLOR`: This is the background/accent site color in RGB hexadecimal format.
+- `LEKTOR_BUTTON_COLOR`: This is the button color in RGB hexadecimal format -
+                         it's the same as the foreground for RFERL, but none of the others.
+- `LEKTOR_ONION_URL_LOCK_FILTER`: This is a CSS filter that converts a black
+                                  SVG to a different color. You can calculate the filter using
+                                  [this codepen tool](https://codepen.io/sosuke/pen/Pjoqqp).
+- `LEKTOR_ONION_URL`: This is the onion URL of the service.
+- `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with
+                                 additional assets to be cloned into `assets/custom`, allowing customizations
+                                 such as the logo and favicon.
+- `LEKTOR_FAVICON`: The favicon path relative to the `assets` folder, such as `/custom/my-logo.svg`.
+- `LEKTOR_LOGO_PATH`: The logo path relative to the `assets` folder, such as `/custom/my-icon.png`.
+
+An example build command would like something like the following:
+
+```
+LEKTOR_FOREGROUND_COLOR=FF0000 \
+LEKTOR_BACKGROUND_COLOR=FF7700 \
+LEKTOR_BUTTON_COLOR=3377FF LEKTOR_ONION_URL_LOCK_FILTER='invert(57%) sepia(50%) saturate(5826%) hue-rotate(162deg) brightness(96%) contrast(101%);' \
+LEKTOR_ONION_URL='https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion' \
+LEKTOR_FAVICON='/custom/my-logo.svg' \
+LEKTOR_LOGO_PATH='/custom/my-icon.png' \
+lektor build
+```
+
+It's a long build command, but ideally would only be run by a script.
+See below for examples.
+
+## Adding a new RTL language
+
+If you end up enabling translation support for a right-to-left (RTL) language,
+be sure to add the language's ISO 639-1/ISO 639-3 codes (add both if the
+language has both) to the `rtl` list in `databags/alternatives.json`:
+
+```json
+{
+    "rtl": [..., ISO 639 code here, ...]
+}
+```
+
+The `page.html` template uses this databag to decide if the page should be
+displayed as RTL. If your new RTL language isn't in the databag, it will be
+rendered "mirrored" to how it should be, like left-to-right languages are.
