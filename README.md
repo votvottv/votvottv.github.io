@@ -27,6 +27,9 @@ Several parts of the site are configured through environment variables during th
 - `LEKTOR_BUTTON_COLOR`: This is the button color in RGB hexadecimal format - it's the same as the foreground for RFERL, but none of the others
 - `LEKTOR_ONION_URL_LOCK_FILTER`: This is a CSS filter that converts a black SVG to a different color. You can calculate the filter using [this codepen tool](https://codepen.io/sosuke/pen/Pjoqqp)
 - `LEKTOR_ONION_URL`: This is the onion URL of the service
+- `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with additional assets to be cloned into `assets/custom`, allowing customizations such as the logo and favicon
+- `LEKTOR_FAVICON`: The favicon path relative to the `assets` folder, such as `/custom/my-logo.svg`
+- `LEKTOR_LOGO_PATH`: The logo path relative to the `assets` folder, such as `/custom/my-icon.png`
 
 An example build command would like something like the following:
 

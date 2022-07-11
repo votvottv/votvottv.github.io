@@ -9,6 +9,8 @@ variables:
   LEKTOR_SERVICE_NAME: 'Onion Launchpad'
   LEKTOR_SERVICE_URL: 'https://service-url.website/'
   LEKTOR_FAVICON: ''
+  LEKTOR_LOGO_PATH: '/logo-default.png'
+  LEKTOR_ASSET_REPOSITORY_URL: ''
 
 include:
   - project: tpo/tpa/ci-templates
