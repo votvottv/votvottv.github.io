@@ -6,7 +6,7 @@ FROM python:3.8-bullseye AS landing
 MAINTAINER Silvio Rhatto <rhatto@torproject.org>
 
 # Basic project environment
-ENV APP="${COMPOSE_PROJECT_NAME:-sponsor123-landing-page}"
+ENV APP="${COMPOSE_PROJECT_NAME:-onion-launchpad}"
 ENV APP_BASE="/srv"
 ENV SHELL="/bin/bash"
 

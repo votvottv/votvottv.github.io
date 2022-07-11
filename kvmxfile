@@ -3,7 +3,7 @@
 #
 
 # Hostname
-hostname="sponsor123-landing-page"
+hostname="onion-launchpad"
 
 # Which base box you should use. Leave unconfigured to use kvmx-create instead.
 basebox="dev"

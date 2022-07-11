@@ -8,7 +8,7 @@
 DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
 #VENV="${VENV:-$BASEPATH/venv}"
-VENV="${VENV:-$HOME/.virtualenvs/onion-support-landing-page}"
+VENV="${VENV:-$HOME/.virtualenvs/onion-launchpad}"
 
 # Environment file support
 if [ -e "$BASEPATH/.env" ]; then
