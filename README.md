@@ -180,7 +180,7 @@ literally just a file exporting the `LEKTOR_*` environment variables:
 ```shell
 lektor-venv ()
 {
-    VENV="${VENV:-$HOME/.virtualenvs/onion-support-landing-page}
+    VENV="${VENV:-$HOME/.virtualenvs/onion-launchpad}
 
     [ -d "$VENV" ] && source "$VENV/bin/activate" && \
       echo 'virtualenv found in "$VENV" and activated' && return;
