@@ -1,7 +1,7 @@
 <div id="site-header">
   <div id="navigation-container">
     <div id="site-logo">
-      <img src="{{ '/logo-temp-rferl.svg'|asseturl }}">
+      <img src="{{ envvars('LOGO_PATH')|asseturl }}" alt="envvars('SERVICE_NAME')" title="envvars('SERVICE_NAME')">
     </div>
     <ul id="nav-list">
       <li><a href="#step1">{{ _('Download') }}</a></li>

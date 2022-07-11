@@ -26,6 +26,7 @@ export LEKTOR_ONION_URL="${LEKTOR_ONION_URL:-https://abcdefghijklmnopqrstuvwxyza
 export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Service Name}"
 export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
 export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
+export LEKTOR_LOGO_PATH="${LEKTOR_LOGO_PATH:-/logo-temp.png}"
 
 # Install dependencies
 mkdir -p "$(dirname "$VENV")"
