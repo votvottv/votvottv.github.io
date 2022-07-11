@@ -1,4 +1,10 @@
-# Sponsor 123 Landing Page
+# Onion Launchpad
+
+Onion Launchpad is a [Lego][] landing page template allowing projects to help
+users connect to their [Tor Onion Service][].
+
+[Lego]: https://gitlab.torproject.org/tpo/web/lego
+[Tor Onion Service]: https://community.torproject.org/onion-services/
 
 ## Dependencies
 
@@ -174,7 +180,7 @@ literally just a file exporting the `LEKTOR_*` environment variables:
 ```shell
 lektor-venv ()
 {
-    VENV="${VENV:-$HOME/.virtualenvs/onion-support-landing-page}
+    VENV="${VENV:-$HOME/.virtualenvs/onion-launchpad}
 
     [ -d "$VENV" ] && source "$VENV/bin/activate" && \
       echo 'virtualenv found in "$VENV" and activated' && return;

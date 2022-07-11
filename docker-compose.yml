@@ -3,14 +3,14 @@ version: '3'
 
 services:
   landing:
-    image: "sponsor123-landing-page/landing:0.1"
+    image: "onion-launchpad/page:0.1"
     build:
       context: .
       dockerfile: Dockerfile
       # This needs a newer Docker Compose (>= 1.28)
       #target: landing
     volumes:
-      - .:/srv/sponsor123-landing-page
+      - .:/srv/onion-launchpad
     ports:
       - "5000:5000"
     entrypoint: "scripts/server"
