@@ -9,6 +9,7 @@ DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
 #VENV="${VENV:-$BASEPATH/venv}"
 VENV="${VENV:-$HOME/.virtualenvs/onion-launchpad}"
+PYTHON="${PYTHON:-python3.8}"
 
 # Environment file support
 if [ -e "$BASEPATH/.env" ]; then
@@ -28,10 +29,10 @@ export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
 
 # Install dependencies
 mkdir -p "$(dirname "$VENV")"
-python3 -m venv $VENV
-source $VENV/bin/activate
-wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements.txt -O requirements.txt
-python3 -m pip install --require-hashes -r requirements.txt
+$PYTHON -m venv $VENV || exit 1
+source $VENV/bin/activate || exit 1
+wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements.txt -O requirements.txt || exit 1
+$PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 
 # Ensure we have an extended PATH if lektor is installed locally
 #if [ -e "$HOME/.local/bin/lektor" ]; then
@@ -55,15 +56,16 @@ rm -rf public
 
 # Include the lego repository
 if [ ! -d "lego" ]; then
-  git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego
+  git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego || exit 1
 else
-  git submodule update --init --recursive --depth 1
+  git submodule update --init --recursive --depth 1 || exit 1
 fi
 
 # Ensure a fresh i18n repository in place
 if [ ! -d "i18n" ]; then
-  git clone --depth 1 --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n
+  git clone --depth 1 --single-branch --branch=${TRANSLATION_BRANCH} https://gitlab.torproject.org/tpo/translation.git i18n || exit 1
 else
   rm -rf i18n/_compiled && rm -f i18n/contents+*
-  ( cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull --ff origin ${TRANSLATION_BRANCH} )
+  cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull --ff origin ${TRANSLATION_BRANCH} || exit 1
+  cd ..
 fi
