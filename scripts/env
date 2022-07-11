@@ -27,6 +27,7 @@ export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Service Name}"
 export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
 export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
 export LEKTOR_LOGO_PATH="${LEKTOR_LOGO_PATH:-/logo-temp.png}"
+export LEKTOR_ASSET_REPOSITORY_URL="${LEKTOR_ASSET_REPOSITORY_URL:-}"
 
 # Install dependencies
 mkdir -p "$(dirname "$VENV")"
@@ -69,4 +70,14 @@ else
   rm -rf i18n/_compiled && rm -f i18n/contents+*
   cd i18n &> /dev/null && git restore . && git checkout -q ${TRANSLATION_BRANCH} && git pull --ff origin ${TRANSLATION_BRANCH} || exit 1
   cd ..
+fi
+
+# Include an asset repository if available
+if [ ! -z "$LEKTOR_ASSET_REPOSITORY_URL" ]; then
+  if [ ! -d "assets/custom" ]; then
+    git clone --depth 1 "$LEKTOR_ASSET_REPOSITORY_URL" assets/custom || exit 1
+  else
+    cd assets/custom &> /dev/null && git restore . && git checkout -q main && git pull --ff origin main || exit 1
+    cd ../..
+  fi
 fi

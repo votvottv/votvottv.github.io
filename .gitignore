@@ -88,3 +88,6 @@ venv
 
 # Python requirements
 requirements.txt
+
+# Custom assets
+assets/custom
