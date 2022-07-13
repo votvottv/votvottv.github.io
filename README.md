@@ -211,8 +211,8 @@ LEKTOR_FOREGROUND_COLOR=FF0000 \
 LEKTOR_BACKGROUND_COLOR=FF7700 \
 LEKTOR_BUTTON_COLOR=3377FF LEKTOR_ONION_URL_LOCK_FILTER='invert(57%) sepia(50%) saturate(5826%) hue-rotate(162deg) brightness(96%) contrast(101%);' \
 LEKTOR_ONION_URL='https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion' \
-LEKTOR_FAVICON='/custom/my-logo.svg' \
-LEKTOR_LOGO_PATH='/custom/my-icon.png' \
+LEKTOR_FAVICON='/custom/my-icon.svg' \
+LEKTOR_LOGO_PATH='/custom/my-logo.png' \
 lektor build
 ```
 
