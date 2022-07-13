@@ -193,7 +193,7 @@ the Lektor build. These variables are:
 - `LEKTOR_FOREGROUND_COLOR`: This is the foreground/main site color in RGB hexadecimal format (`ffffff`).
 - `LEKTOR_BACKGROUND_COLOR`: This is the background/accent site color in RGB hexadecimal format.
 - `LEKTOR_BUTTON_COLOR`: This is the button color in RGB hexadecimal format -
-                         it's the same as the foreground for RFERL, but none of the others.
+                         might be the same as the foreground.
 - `LEKTOR_ONION_URL_LOCK_FILTER`: This is a CSS filter that converts a black
                                   SVG to a different color. You can calculate the filter using
                                   [this codepen tool](https://codepen.io/sosuke/pen/Pjoqqp).
@@ -201,8 +201,8 @@ the Lektor build. These variables are:
 - `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with
                                  additional assets to be cloned into `assets/custom`, allowing customizations
                                  such as the logo and favicon.
-- `LEKTOR_FAVICON`: The favicon path relative to the `assets` folder, such as `/custom/my-logo.svg`.
-- `LEKTOR_LOGO_PATH`: The logo path relative to the `assets` folder, such as `/custom/my-icon.png`.
+- `LEKTOR_FAVICON`: The favicon path relative to the `assets` folder, such as `/custom/my-icon.svg`.
+- `LEKTOR_LOGO_PATH`: The logo path relative to the `assets` folder, such as `/custom/my-logo.png`.
 
 An example build command would like something like the following:
 

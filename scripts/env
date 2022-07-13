@@ -25,7 +25,7 @@ export LEKTOR_ONION_URL_LOCK_FILTER="${LEKTOR_ONION_URL_LOCK_FILTER:-invert(57%)
 export LEKTOR_ONION_URL="${LEKTOR_ONION_URL:-https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion}"
 export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Service Name}"
 export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
-export LEKTOR_FAVICON="${LEKTOR_FAVICON}"
+export LEKTOR_FAVICON="${LEKTOR_FAVICON:-/favicon-default-32.png}"
 export LEKTOR_LOGO_PATH="${LEKTOR_LOGO_PATH:-/logo-default.svg}"
 export LEKTOR_ASSET_REPOSITORY_URL="${LEKTOR_ASSET_REPOSITORY_URL:-}"
 
