@@ -18,7 +18,7 @@ variables:
   LEKTOR_SERVICE_NAME: 'Onion Launchpad'
   LEKTOR_SERVICE_URL: 'https://service-url.website/'
   LEKTOR_FAVICON: '/favicon-default-32.png'
-  LEKTOR_LOGO_PATH: '/logo-default.svg'
+  LEKTOR_LOGO_PATH: '/onion-launchpad-logo-default-1.svg'
   LEKTOR_ASSET_REPOSITORY_URL: ''
 
 pages:
