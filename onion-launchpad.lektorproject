@@ -6,8 +6,12 @@ locale = en
 
 [alternatives.en]
 name = English (en)
-primary = yes
-url_prefix = /
+# Usually the prefix for the english version is the root ("/"), but this is a
+# highly localized site which might have a non-english version as the default
+# home page.
+#primary = yes
+#url_prefix = /
+url_prefix = /en
 locale = en
 
 [alternatives.am]
