@@ -13,6 +13,9 @@ BUILD="lektor build --output-path $OUTPUT_PATH"
 # Setup the environment
 source $DIRNAME/env
 
+# Pre-build script
+$DIRNAME/pre-build
+
 # Build
 # The build command might fail in the first time, so we run it again if needed
 echo "Building..."
@@ -26,8 +29,8 @@ done
 # This is not created by default, but it's better to have to make easier to
 # have a non-english default homepage (/index.html) in case english is not
 # set as the default language.
-mkdir $OUTPUT_PATH/en
-cp $OUTPUT_PATH/index.html $OUTPUT_PATH/en/
-
-# Update the /en page base so all relative links continue to work
-sed -i -e 's|<head>|<head>\n    <base href="../">|' $OUTPUT_PATH/en/index.html
+#mkdir $OUTPUT_PATH/en
+#cp $OUTPUT_PATH/index.html $OUTPUT_PATH/en/
+#
+## Update the /en page base so all relative links continue to work
+#sed -i -e 's|<head>|<head>\n    <base href="../">|' $OUTPUT_PATH/en/index.html

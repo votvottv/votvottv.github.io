@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Pre-build tasks for landing page compilation.
+#
+
+# Dependencies
+import os
+import configparser
+
+# Parameters
+basepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir) + os.sep
+inifile  = os.path.join(basepath, 'onion-launchpad.lektorproject')
+
+def prebuild():
+    """
+    Handle tasks prior to invoking Lektor.
+    """
+
+    # Check if the config file exists
+    if not os.path.exists(inifile):
+        return False
+
+    # Check environment variables
+    if 'LEKTOR_DEFAULT_LANGUAGE' in os.environ and \
+            os.environ['LEKTOR_DEFAULT_LANGUAGE'] != '' and \
+            os.environ['LEKTOR_DEFAULT_LANGUAGE'] != None:
+        default_lang = os.environ['LEKTOR_DEFAULT_LANGUAGE']
+    else:
+        default_lang = 'en'
+
+    # Check environment variables
+    if 'LEKTOR_AVAILABLE_LANGUAGES' in os.environ and \
+            os.environ['LEKTOR_AVAILABLE_LANGUAGES'] != '' and \
+            os.environ['LEKTOR_AVAILABLE_LANGUAGES'] != None:
+        available_langs = os.environ['LEKTOR_AVAILABLE_LANGUAGES'].split(' ')
+    else:
+        available_langs = []
+
+    # Check if we have anything to do (i.e, non-default configs to apply)
+    if default_lang == 'en' and len(available_langs) == 0:
+        return
+
+    # Load config
+    config = configparser.ConfigParser()
+    config.read(inifile)
+
+    # Build alternatives
+    alternatives = [ alternative for alternative in config.sections() if alternative[0:13] == 'alternatives.' ]
+
+    # Iterate
+    for alternative in alternatives:
+        lang_code = alternative[13:]
+
+        if len(available_langs) > 0 and lang_code not in available_langs:
+            config.remove_section(alternative)
+            continue
+
+        if lang_code == default_lang:
+            config.set(alternative, 'primary',    'yes')
+            config.set(alternative, 'url_prefix', '/')
+        else:
+            config.set(alternative, 'primary',    'no')
+            config.set(alternative, 'url_prefix', '/' + lang_code)
+
+    # Save
+    with open(inifile, 'w') as output:
+        config.write(output)
+
+if __name__ == "__main__":
+    prebuild()
