@@ -7,7 +7,8 @@
 # Parameters
 DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
-BUILD="lektor build --output-path public"
+OUTPUT_PATH="public"
+BUILD="lektor build --output-path $OUTPUT_PATH"
 
 # Setup the environment
 source $DIRNAME/env
@@ -19,3 +20,14 @@ for n in 1 2 3; do
   echo "Starting build $n..."
   $BUILD || exit 1
 done
+
+# Ensure that an /en page exists
+#
+# This is not created by default, but it's better to have to make easier to
+# have a non-english default homepage (/index.html) in case english is not
+# set as the default language.
+mkdir $OUTPUT_PATH/en
+cp $OUTPUT_PATH/index.html $OUTPUT_PATH/en/
+
+# Update the /en page base so all relative links continue to work
+sed -i -e 's|<head>|<head>\n    <base href="../">|' $OUTPUT_PATH/en/index.html
