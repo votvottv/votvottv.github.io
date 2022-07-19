@@ -9,6 +9,7 @@
       <li><a href="#step3">{{ _('Access') }}</a></li>
       <li><a href="#support-footer">{{ _('Support') }}</a></li>
     </ul>
+    {% if site.config.list_alternatives()|length > 1 %}
     <div id="language-select" onmouseleave="hideLanguageSelect()">
       <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
         <div id="language-select-text">{{ site.config.get_alternative(this.alt).name.en.strip('(' + this.alt + ')').strip() }}<i class="chevron-down"></i></div>
@@ -19,6 +20,7 @@
         {% endfor %}
       </div>
     </div>
+    {% endif %}
   </div>
   <ul id="nav-list-mobile">
     <li><a href="#step1">{{ _('Download') }}</a></li>
