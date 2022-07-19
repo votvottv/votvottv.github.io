@@ -50,8 +50,7 @@ def prebuild():
 
     # Iterate
     for alternative in alternatives:
-        alternative_len = len('alternatives.')
-        lang_code = alternative[alternative_len]
+        _, lang_code = alternative.split('.')
 
         if len(available_langs) > 0 and lang_code not in available_langs:
             config.remove_section(alternative)
