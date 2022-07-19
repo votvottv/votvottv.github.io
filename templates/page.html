@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{{ envvars('SERVICE_NAME') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="onion-location" content="{{ envvars('ONION_URL') }}">
     <script src="{{ '/main.js' | asseturl }}"></script>
     <link rel="stylesheet" href="{{ 'fonts.css' | asseturl }}">
     <link rel="icon" href="{{ envvars('FAVICON') | asseturl }}">
