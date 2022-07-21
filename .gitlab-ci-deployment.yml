@@ -13,7 +13,7 @@ variables:
   LEKTOR_FOREGROUND_COLOR: 'CF5C00'
   LEKTOR_BACKGROUND_COLOR: 'EA6903'
   LEKTOR_BUTTON_COLOR: 'EA6903'
-  LEKTOR_ONION_URL_LOCK_FILTER: 'invert(43%) sepia(95%) saturate(2236%) hue-rotate(4deg) brightness(97%) contrast(98%);'
+  LEKTOR_ONION_URL_LOCK_FILTER: 'CF5C00'
   LEKTOR_ONION_URL: 'https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion'
   LEKTOR_SERVICE_NAME: 'Onion Launchpad'
   LEKTOR_SERVICE_URL: 'https://service-url.website/'

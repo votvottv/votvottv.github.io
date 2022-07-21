@@ -386,8 +386,7 @@ def main(input_target: str, attempts: int = 5) -> None:
     else:
         lossMsg = 'The color is extremely off. Run it again!'
 
-    print(lossMsg)
-    print(best['filter'])
+    return best
 
 
 if __name__ == '__main__':
