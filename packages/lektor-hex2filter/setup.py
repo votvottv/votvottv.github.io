@@ -18,7 +18,7 @@ setup(
     author_email='kez@torproject.org',
     description=description,
     keywords='Lektor plugin',
-    license='MIT',
+    license='0BSD',
     long_description=readme,
     long_description_content_type='text/markdown',
     name='lektor-hex2filter',
