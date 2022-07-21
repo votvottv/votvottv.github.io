@@ -24,13 +24,10 @@ for n in 1 2 3; do
   $BUILD || exit 1
 done
 
-# Ensure that an /en page exists
+# Ensure that an subpage for the default language page exists
 #
-# This is not created by default, but it's better to have to make easier to
-# have a non-english default homepage (/index.html) in case english is not
-# set as the default language.
-#mkdir $OUTPUT_PATH/en
-#cp $OUTPUT_PATH/index.html $OUTPUT_PATH/en/
-#
-## Update the /en page base so all relative links continue to work
-#sed -i -e 's|<head>|<head>\n    <base href="../">|' $OUTPUT_PATH/en/index.html
+# This is not created by default but might be handy.
+# Needs an update in the page base so all relative links continue to work.
+mkdir "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE"
+cp "$OUTPUT_PATH/index.html" "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE"
+sed -i -e 's|<head>|<head>\n    <base href="../">|' "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE/index.html"
