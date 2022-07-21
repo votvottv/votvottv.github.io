@@ -46,7 +46,7 @@ def prebuild():
     config.read(inifile)
 
     # Build alternatives
-    alternatives = [ alternative for alternative in config.sections() if alternative.startsWith('alternatives.') ]
+    alternatives = [ alternative for alternative in config.sections() if alternative.startswith('alternatives.') ]
 
     # Iterate
     for alternative in alternatives:
