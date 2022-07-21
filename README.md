@@ -196,7 +196,7 @@ the Lektor build. These variables are:
                          might be the same as the foreground.
 - `LEKTOR_ONION_URL_LOCK_FILTER`: This is a CSS filter that converts a black
                                   SVG to a different color. You can calculate the filter using
-                                  [this codepen tool](https://codepen.io/sosuke/pen/Pjoqqp).
+                                  the `scripts/generate-filter.py` script in this repository.
 - `LEKTOR_ONION_URL`: This is the onion URL of the service.
 - `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with
                                  additional assets to be cloned into `assets/custom`, allowing customizations
@@ -209,7 +209,8 @@ An example build command would like something like the following:
 ```
 LEKTOR_FOREGROUND_COLOR=FF0000 \
 LEKTOR_BACKGROUND_COLOR=FF7700 \
-LEKTOR_BUTTON_COLOR=3377FF LEKTOR_ONION_URL_LOCK_FILTER='invert(57%) sepia(50%) saturate(5826%) hue-rotate(162deg) brightness(96%) contrast(101%);' \
+LEKTOR_BUTTON_COLOR=3377FF \
+LEKTOR_ONION_URL_LOCK_FILTER='invert(57%) sepia(50%) saturate(5826%) hue-rotate(162deg) brightness(96%) contrast(101%);' \
 LEKTOR_ONION_URL='https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion' \
 LEKTOR_FAVICON='/custom/my-icon.svg' \
 LEKTOR_LOGO_PATH='/custom/my-logo.png' \
