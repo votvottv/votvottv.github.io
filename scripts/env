@@ -28,6 +28,8 @@ export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
 export LEKTOR_FAVICON="${LEKTOR_FAVICON:-/favicon-default-32.png}"
 export LEKTOR_LOGO_PATH="${LEKTOR_LOGO_PATH:-/onion-launchpad-logo-default-1.svg}"
 export LEKTOR_ASSET_REPOSITORY_URL="${LEKTOR_ASSET_REPOSITORY_URL:-}"
+export LEKTOR_DEFAULT_LANGUAGE="${LEKTOR_DEFAULT_LANGUAGE:-en}"
+export LEKTOR_AVAILABLE_LANGUAGES="${LEKTOR_AVAILABLE_LANGUAGES:-}"
 
 # Install dependencies
 mkdir -p "$(dirname "$VENV")"

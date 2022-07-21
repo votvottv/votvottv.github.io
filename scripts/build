@@ -7,10 +7,14 @@
 # Parameters
 DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
-BUILD="lektor build --output-path public"
+OUTPUT_PATH="public"
+BUILD="lektor build --output-path $OUTPUT_PATH"
 
 # Setup the environment
 source $DIRNAME/env
+
+# Pre-build script
+$DIRNAME/pre-build
 
 # Build
 # The build command might fail in the first time, so we run it again if needed
@@ -19,3 +23,11 @@ for n in 1 2 3; do
   echo "Starting build $n..."
   $BUILD || exit 1
 done
+
+# Ensure that an subpage for the default language page exists
+#
+# This is not created by default but might be handy.
+# Needs an update in the page base so all relative links continue to work.
+mkdir "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE"
+cp "$OUTPUT_PATH/index.html" "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE"
+sed -i -e 's|<head>|<head>\n    <base href="../">|' "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE/index.html"
