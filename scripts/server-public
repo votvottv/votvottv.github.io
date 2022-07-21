@@ -13,6 +13,18 @@ PORT    = 5000
 Handler = http.server.SimpleHTTPRequestHandler
 public  = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, 'public')
 
+class MyTCPServer(socketserver.TCPServer):
+    """
+    Avoid the "Address already in use" issue by using SO_REUSEADDR.
+
+    https://stackoverflow.com/questions/10085996/shutdown-socketserver-serve-forever-in-one-thread-python-application
+    https://stackoverflow.com/questions/6380057/python-binding-socket-address-already-in-use/18858817
+    """
+    def server_bind(self):
+        import socket
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.socket.bind(self.server_address)
+
 if not os.path.exists(public):
     try:
         os.makedirs(public, mode=0o755)
@@ -23,6 +35,6 @@ if not os.path.exists(public):
 
 os.chdir(public)
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
+with MyTCPServer(("", PORT), Handler) as httpd:
     print("Serving at port", PORT)
     httpd.serve_forever()
