@@ -184,7 +184,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: {{ envvars('ONION_URL_LOCK_FILTER').lstrip('filter:').rstrip(';') }};
+       {{ generate_filter(envvars('ONION_URL_LOCK_FILTER')) }}
        display: inline-block;
        background-image: url({{ 'onion-site-lock.svg' | asseturl }});
        width: 32px;

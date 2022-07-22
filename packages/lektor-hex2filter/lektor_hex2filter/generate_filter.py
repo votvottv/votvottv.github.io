@@ -21,8 +21,10 @@ import math
 import random
 import re
 import sys
-from typing import overload, List, Optional, Union
-from typing_extensions import TypedDict
+from typing import overload, List, Optional, Union, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from typing_extensions import TypedDict
 
 # XXX: Most of this code was uncommented when it was ported, and remains uncommented. There's a lot
 # XXX: of math here, and figuring out/documenting how it works is left as an exercise to the reader
@@ -40,14 +42,16 @@ HELP_TEXT = '''usage: python generate-filter.py [--help] <hex_color>
 # as int and float are used interchangeably in this code
 Num = Union[int, float]
 
-HSL = TypedDict('HSL', {'h': Num, 's': Num, 'l': Num})
 
-SolvedResult = TypedDict('SolvedResult', {'values': List[Num], 'loss': Num, 'filter': str})
+if TYPE_CHECKING:
+    HSL = TypedDict('HSL', {'h': Num, 's': Num, 'l': Num})
 
-IntermediateSolvedResult = TypedDict('IntermediateSolvedResult', {
-    'values': List[Num],
-    'loss': Num,
-})
+    SolvedResult = TypedDict('SolvedResult', {'values': List[Num], 'loss': Num, 'filter': str})
+
+    IntermediateSolvedResult = TypedDict('IntermediateSolvedResult', {
+        'values': List[Num],
+        'loss': Num,
+    })
 
 
 class Color:
@@ -162,7 +166,7 @@ class Color:
         self.g = self.clamp((value + self.g / 255 * (1 - 2 * value)) * 255)
         self.b = self.clamp((value + self.b / 255 * (1 - 2 * value)) * 255)
 
-    def hsl(self) -> HSL:
+    def hsl(self) -> 'HSL':
         # Code taken from https://stackoverflow.com/a/9493060/2688027, licensed under CC BY-SA.
         r = self.r / 255
         g = self.g / 255
@@ -215,7 +219,7 @@ class Solver:
         self.targetHSL = target.hsl()
         self.reusedColor = Color(0, 0, 0)
 
-    def solve(self) -> SolvedResult:
+    def solve(self) -> 'SolvedResult':
         result = self.solveNarrow(self.solveWide())
         return {
             'values': result['values'],
@@ -223,12 +227,12 @@ class Solver:
             'filter': self.css(result['values']),
         }
 
-    def solveWide(self) -> IntermediateSolvedResult:
+    def solveWide(self) -> 'IntermediateSolvedResult':
         A = 5
         c = 15
         a = [60, 180, 18000, 600, 1.2, 1.2]
 
-        best: IntermediateSolvedResult = {'values': [], 'loss': math.inf}
+        best: 'IntermediateSolvedResult' = {'values': [], 'loss': math.inf}
         i = 0
         while best['loss'] > 25 and i < 3:
             i += 1
@@ -241,8 +245,8 @@ class Solver:
 
     def solveNarrow(
         self,
-        wide: IntermediateSolvedResult
-    ) -> IntermediateSolvedResult:
+        wide: 'IntermediateSolvedResult'
+    ) -> 'IntermediateSolvedResult':
         A: Num = wide['loss']
         c = 2
         A1 = A + 1
@@ -256,7 +260,7 @@ class Solver:
         c: Num,
         values: List[Num],
         iters: int
-    ) -> IntermediateSolvedResult:
+    ) -> 'IntermediateSolvedResult':
         alpha = 1
         gamma = 0.16666666666666666
 
@@ -358,7 +362,7 @@ def hexToRgb(hex_: str) -> Optional[List[int]]:
         return None
 
 
-def main(input_target: str, attempts: int = 5) -> None:
+def main(input_target: str, attempts: int = 5) -> 'SolvedResult':
     rgb = hexToRgb(input_target)
 
     if rgb is None:
@@ -386,8 +390,7 @@ def main(input_target: str, attempts: int = 5) -> None:
     else:
         lossMsg = 'The color is extremely off. Run it again!'
 
-    print(lossMsg)
-    print(best['filter'])
+    return best
 
 
 if __name__ == '__main__':
