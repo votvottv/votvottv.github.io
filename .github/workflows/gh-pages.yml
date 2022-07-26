@@ -56,6 +56,10 @@ jobs:
         run: |
           apt-get update && apt-get install -y rsync
 
+      - name: Disable Jekyll
+        run: |
+          touch public/.nojekyll
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
