@@ -1,0 +1,76 @@
+# This CI configuration is used for landing page deployment in external GitHub
+# instances.
+---
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+env:
+  TRANSLATION_BRANCH: onion-support-landing-page
+  LEKTOR_FOREGROUND_COLOR: ${{ secrets.LEKTOR_FOREGROUND_COLOR }}
+  LEKTOR_BACKGROUND_COLOR: ${{ secrets.LEKTOR_BACKGROUND_COLOR }}
+  LEKTOR_BUTTON_COLOR: ${{ secrets.LEKTOR_BUTTON_COLOR }}
+  LEKTOR_ONION_URL_LOCK_FILTER: ${{ secrets.LEKTOR_ONION_URL_LOCK_FILTER }}
+  LEKTOR_ONION_URL: ${{ secrets.LEKTOR_ONION_URL }}
+  LEKTOR_SERVICE_NAME: ${{ secrets.LEKTOR_SERVICE_NAME }}
+  LEKTOR_SERVICE_URL: ${{ secrets.LEKTOR_SERVICE_URL }}
+  LEKTOR_FAVICON: ${{ secrets.LEKTOR_FAVICON }}
+  LEKTOR_LOGO_PATH: ${{ secrets.LEKTOR_LOGO_PATH }}
+  LEKTOR_ASSET_REPOSITORY_URL: ${{ secrets.LEKTOR_ASSET_REPOSITORY_URL }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    container:
+      # Right now we're sticking to Python 3.8 due to dependency issues.
+      image: python:3.8-bullseye
+
+    concurrency:
+      group: ci-${{ github.ref }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 1
+
+      - name: Provision
+        run: scripts/provision
+
+      - name: Build
+        run: scripts/build
+
+      #
+      # GitHub Action: Deploy to GitHub Pages
+      # https://github.com/marketplace/actions/deploy-to-github-pages
+      #
+      - name: Install rsync
+        run: |
+          apt-get update && apt-get install -y rsync
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+
+      #
+      # GitHub Action: GitHub Pages action
+      # https://github.com/marketplace/actions/github-pages-action
+      #
+      #- name: Deploy
+      #  uses: peaceiris/actions-gh-pages@v3
+      #  # If you're changing the branch from main,
+      #  # also change the `main` in `refs/heads/main`
+      #  # below accordingly.
+      #  if: ${{ github.ref == 'refs/heads/main' }}
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    publish_dir: ./build
