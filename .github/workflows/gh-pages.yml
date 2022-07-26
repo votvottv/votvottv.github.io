@@ -59,7 +59,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: public
 
       #
       # GitHub Action: GitHub Pages action
