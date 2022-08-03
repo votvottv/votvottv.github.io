@@ -34,6 +34,10 @@ def prebuild():
             os.environ['LEKTOR_AVAILABLE_LANGUAGES'] != '' and \
             os.environ['LEKTOR_AVAILABLE_LANGUAGES'] != None:
         available_langs = os.environ['LEKTOR_AVAILABLE_LANGUAGES'].split(' ')
+
+        # Make sure that english is always present, since it is used as the base language
+        if 'en' not in available_langs:
+            available_langs.append('en')
     else:
         available_langs = []
 
