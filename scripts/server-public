@@ -25,16 +25,27 @@ class MyTCPServer(socketserver.TCPServer):
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.socket.bind(self.server_address)
 
-if not os.path.exists(public):
-    try:
-        os.makedirs(public, mode=0o755)
+    def handle_error(self, request, client_address):
+        print(request)
 
-    except Exception:
-        print('No such folder ' + public)
-        exit(1)
+def serve():
+    if not os.path.exists(public):
+        try:
+            os.makedirs(public, mode=0o755)
 
-os.chdir(public)
+        except Exception:
+            print('No such folder ' + public)
+            exit(1)
 
-with MyTCPServer(("", PORT), Handler) as httpd:
-    print("Serving at port", PORT)
-    httpd.serve_forever()
+    os.chdir(public)
+
+    with MyTCPServer(("", PORT), Handler) as httpd:
+        try:
+            print("Serving at port", PORT)
+            httpd.serve_forever()
+
+        except KeyboardInterrupt:
+            httpd.shutdown()
+
+if __name__ == "__main__":
+    serve()
