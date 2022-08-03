@@ -204,6 +204,8 @@ the Lektor build. These variables are:
 - `LEKTOR_LOGO_PATH`: The logo path relative to the `assets` folder, such as `/custom/my-logo.png`.
 - `LEKTOR_DEFAULT_LANGUAGE`: The default language of the site, such as `en`.
 - `LEKTOR_AVAILABLE_LANGUAGES`: Limit the available languages to a subset, such as `en am ar`.
+                                Please note that english will always be enabled, even if not explicitly configured,
+                                since it works as a base language for all other translations.
 
 An example build command would like something like the following:
 
