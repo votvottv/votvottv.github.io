@@ -8,10 +8,13 @@ Browser][], connect to the Tor network an access an Onion Service.
 
 It's a statically built website that can be easily deployed.
 
+Check the [Live Demo][]!
+
 [Lego]: https://gitlab.torproject.org/tpo/web/lego
 [Tor Onion Service]: https://community.torproject.org/onion-services/
 [localized content]: https://gitlab.torproject.org/tpo/community/l10n/-/wikis/Localization-for-developers
 [Tor Browser]: https://tb-manual.torproject.org/
+[Live Demo]: https://tpo.pages.torproject.net/onion-services/onion-launchpad/
 
 ## Dependencies
 
@@ -197,6 +200,8 @@ the Lektor build. These variables are:
 - `LEKTOR_ONION_URL_LOCK_FILTER`: This is the color of the lock icon next to the onion URL in RGB
                                 hexadecimal format (ffffff) or (fff).
 - `LEKTOR_ONION_URL`: This is the onion URL of the service.
+- `LEKTOR_SERVICE_NAME`: This sets the service name / project title.
+- `LEKTOR_SERVICE_URL`: Sets the regular (i.e, the non-onion) URL for the service.
 - `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with
                                  additional assets to be cloned into `assets/custom`, allowing customizations
                                  such as the logo and favicon.
