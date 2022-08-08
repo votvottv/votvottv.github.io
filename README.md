@@ -197,6 +197,8 @@ the Lektor build. These variables are:
 - `LEKTOR_ONION_URL_LOCK_FILTER`: This is the color of the lock icon next to the onion URL in RGB
                                 hexadecimal format (ffffff) or (fff).
 - `LEKTOR_ONION_URL`: This is the onion URL of the service.
+- `LEKTOR_SERVICE_NAME`: This sets the service name / project title.
+- `LEKTOR_SERVICE_URL`: Sets the regular (i.e, the non-onion) URL for the service.
 - `LEKTOR_ASSET_REPOSITORY_URL`: The URL of a public Git repository with
                                  additional assets to be cloned into `assets/custom`, allowing customizations
                                  such as the logo and favicon.
