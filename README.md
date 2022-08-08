@@ -8,10 +8,13 @@ Browser][], connect to the Tor network an access an Onion Service.
 
 It's a statically built website that can be easily deployed.
 
+Check the [Live Demo][]!
+
 [Lego]: https://gitlab.torproject.org/tpo/web/lego
 [Tor Onion Service]: https://community.torproject.org/onion-services/
 [localized content]: https://gitlab.torproject.org/tpo/community/l10n/-/wikis/Localization-for-developers
 [Tor Browser]: https://tb-manual.torproject.org/
+[Live Demo]: https://tpo.pages.torproject.net/onion-services/onion-launchpad/
 
 ## Dependencies
 
