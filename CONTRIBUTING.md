@@ -1,6 +1,4 @@
-============================================================
 # Tor Project Code of Conduct
-============================================================
 
 **Statement of Intent:**
 
@@ -21,9 +19,7 @@ produce an outcome which is fairer, and aligned with our values. We understand
 that keeping a living document relevant and “patched” involves sustained
 effort.
 
-============================================================
 ## 0. Summary: Don't be a jerk. Be awesome instead.
-============================================================
 
 The Tor community should be a good place where people are glad to be.
 
@@ -48,9 +44,7 @@ The Tor community should be a good place where people are glad to be.
     questions or concerns. Public key:
     https://trac.torproject.org/projects/tor/wiki/org/CommunityCouncil#Contact
 
-============================================================
 ## 1. Purpose
-============================================================
 
 A primary goal of the Tor community is to be inclusive of many different
 contributors. We want to include contributors from the most varied and diverse
@@ -72,9 +66,7 @@ our community, as well as the consequences for unacceptable behavior.
 We invite all those who participate in The Tor Project to help us create safe
 and positive experiences for everyone.
 
-============================================================
 ## 2. Be your best self
-============================================================
 
 The following behaviors are expected and requested of all community members:
 
@@ -101,9 +93,7 @@ The following behaviors are expected and requested of all community members:
 
   * Respect the privacy of your fellow community members.
 
-============================================================
 ## 3. Unacceptable behaviors
-============================================================
 
 The following behaviors are unacceptable within our community:
 
@@ -177,9 +167,7 @@ The following behaviors are unacceptable within our community:
 
   * Advocating for, or encouraging, any of the above behavior.
 
-============================================================
 ## 4. Unacceptable behavior has consequences
-============================================================
 
 We will not tolerate unacceptable behavior from any community member. We will
 not make exceptions for sponsors and those with decision-making authority.
@@ -190,9 +178,7 @@ Anyone asked by another community member to stop unacceptable behavior is
 expected to comply immediately. Please don't step in on someone else's behalf
 without their consent.
 
-============================================================
 ## 5. Where to go for help
-============================================================
 
 The Community Council is an elected body of Tor Core Contributors who can
 assist with intra-community conflict resolution. Community Council policies and
@@ -210,9 +196,7 @@ affected council member will recuse themselves. They will not be involved in
 any discussion or documentation of the incident. More about the Community
 Council can be found in the guidelines [2].
 
-============================================================
 ## 6. What to do if you witness unacceptable behavior
-============================================================
 
 If you are subject to or witness unacceptable behavior, or have any other
 concerns, please notify the Community Council as soon as possible. You can
@@ -228,9 +212,7 @@ harm, except in situations where there is a threat of imminent danger or harm
 to anyone. More information about the Community Council's incident reporting
 and response policies can be found on their wiki [1].
 
-============================================================
 ## 7. What the person reporting a violation can expect
-============================================================
 
 The Community Council prioritizes the safety and well-being of any person who
 feels that they have been harmed or may be in danger of being harmed. Anyone
@@ -240,9 +222,7 @@ the incident does not require an immediate resolution, then a written report
 can be shared with the Community Council in an encrypted format. The next steps
 in an incident response will vary on a case-by-case basis.
 
-============================================================
 ## 8. How the Community Council responds to incidents
-============================================================
 
 If a community member engages in unacceptable behavior, the Community Council
 may take any action they deem appropriate, including but not limited to a
@@ -250,9 +230,7 @@ warning, informal mediation, temporary ban or permanent expulsion from the
 community. Any actions and decisions by the Community Council may be appealed
 by following the appeals process in the Community Council Guidelines [1].
 
-============================================================
 ## 9. Scope of this document
-============================================================
 
 This code of conduct covers all community participants:
 
@@ -275,9 +253,7 @@ members. As members of the Tor community, we support and follow this Code while
 we are working on Tor, and take care not to undermine it in the rest of our
 time.
 
-============================================================
 ## 10. License and attribution
-============================================================
 
 This code of conduct is shared under a Creative Commons CC-BY-SA 4.0
 International license.
