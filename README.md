@@ -1,20 +1,16 @@
 # Onion Launchpad
 
-Onion Launchpad is a [Lego][] landing page template allowing projects to help
-users connect to their [Tor Onion Service][].
+The Onion Launchpad is a customizable [lego](https://gitlab.torproject.org/tpo/web/lego) landing page for organizations and individuals to advertise their onion addresses to their audiences. The landing page is easy to navigate and describes to users how to connect to an Onion Service.
 
-The landing page offers [localized content][] about how to download the [Tor
-Browser][], connect to the Tor network an access an Onion Service.
+The landing page offers [localized](https://www.transifex.com/otf/tor-onion-support/dashboard/) content about how to download [Tor Browser](https://www.torproject.org/download/), connect to the Tor network, and access an Onion Service.
 
 It's a statically built website that can be easily deployed.
 
-Check the [Live Demo][]!
+Check the [**live demo**](https://tpo.pages.torproject.net/onion-services/onion-launchpad/)!
 
-[Lego]: https://gitlab.torproject.org/tpo/web/lego
-[Tor Onion Service]: https://community.torproject.org/onion-services/
-[localized content]: https://gitlab.torproject.org/tpo/community/l10n/-/wikis/Localization-for-developers
-[Tor Browser]: https://tb-manual.torproject.org/
-[Live Demo]: https://tpo.pages.torproject.net/onion-services/onion-launchpad/
+- More on Onion Services: https://community.torproject.org/onion-services/
+- Localization at Tor: https://gitlab.torproject.org/tpo/community/l10n/-/wikis/Localization-for-developers
+- Tor Browser manual: https://tb-manual.torproject.org/
 
 ## Dependencies
 
