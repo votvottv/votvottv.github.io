@@ -11,6 +11,8 @@ variables:
   LEKTOR_FAVICON: '/favicon-default-32.png'
   LEKTOR_LOGO_PATH: '/onion-launchpad-logo-default-1.svg'
   LEKTOR_ASSET_REPOSITORY_URL: ''
+  LEKTOR_DEFAULT_LANGUAGE: ''
+  LEKTOR_AVAILABLE_LANGUAGES: ''
 
 include:
   - project: tpo/tpa/ci-templates
