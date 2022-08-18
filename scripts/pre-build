@@ -56,16 +56,18 @@ def prebuild():
     for alternative in alternatives:
         _, lang_code = alternative.split('.')
 
-        if len(available_langs) > 0 and lang_code not in available_langs:
-            config.remove_section(alternative)
-            continue
+        # Not doing this due to this issue:
+        # https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/issues/38
+        #if len(available_langs) > 0 and lang_code not in available_langs:
+        #    config.remove_section(alternative)
+        #    continue
 
         if lang_code == default_lang:
             config.set(alternative, 'primary',    'yes')
             config.set(alternative, 'url_prefix', '/')
         else:
-            config.set(alternative, 'primary',    'no')
-            config.set(alternative, 'url_prefix', '/' + lang_code)
+            #config.set(alternative, 'primary',    'no')
+            config.set(alternative,  'url_prefix', '/' + lang_code + '/')
 
     # Save
     with open(inifile, 'w') as output:
