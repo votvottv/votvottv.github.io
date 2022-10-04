@@ -9,7 +9,7 @@ Tips for Bypassing Blocking of {{ envvars('SERVICE_NAME') }}
 ---
 subtitle:
 
-Unable to access <{{ envvars('SERVICE_URL') }}>?  
+Unable to access [{{ envvars('SERVICE_URL')|replace('https://', '')|trim('/') }}]({{ envvars('SERVICE_URL') }})?
 This page details how you can circumvent the censorship.
 ---
 sections:
