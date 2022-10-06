@@ -27,7 +27,7 @@ Se the site name:
 
 2. For each language you want the site name to be translated, set a
    corresponding `LEKTOR_SERVICE_NAME_${LANG_CODE}` environment variable, where
-   `$LANG_CODE` format is hyphenized and uppercase (`PT_PT` instead of `pt-PT`).
+   `$LANG_CODE` format is hyphenized and in uppercase (`PT_PT` instead of `pt-PT`).
 
 The exact place to set these variables depends on your setup, such as an `.env`
 file of in a build script;
