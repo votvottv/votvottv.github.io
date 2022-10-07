@@ -14,6 +14,10 @@ class ServiceNamePlugin(Plugin):
     name        = 'Service Name'
     description = u'A plugin that gets a localized site service name from environment variables.'
 
-    def on_process_template_context(self, context, **extra):
-        config                  = self.get_config()
-        context['service_name'] = ServiceNameEnv(config).service_name
+    #def on_process_template_context(self, context, **extra):
+    #    config                  = self.get_config()
+    #    context['service_name'] = ServiceNameEnv(config).service_name
+
+    def on_setup_env(self, **extra):
+        config = self.get_config()
+        self.env.jinja_env.globals.update({"service_name": ServiceNameEnv(config).service_name})
