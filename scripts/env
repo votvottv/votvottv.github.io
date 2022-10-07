@@ -53,6 +53,10 @@ $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 #  exit 1
 #fi
 
+# Ensure all plugins are installed
+# See tpo/onion-services/onion-launchpad#53
+lektor plugins reinstall
+
 # Ensure we're in the root repository folder
 cd "$BASEPATH" &> /dev/null
 
