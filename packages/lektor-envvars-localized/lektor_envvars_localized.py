@@ -7,7 +7,12 @@ class EnvvarsLocalizedEnv(LektorEnv):
         default_name_var = self.prefix + variable
         custom_name_var  = default_name_var + '_' + alt.replace('-', '_').upper()
 
-        return self.env(custom_name_var, self.env(default_name_var, ''))
+        value = self.env(custom_name_var, '')
+
+        if value == '': then
+            value = self.env(self.env(default_name_var, '')
+
+        return value
 
 
 class EnvvarsLocalizedPlugin(Plugin):
