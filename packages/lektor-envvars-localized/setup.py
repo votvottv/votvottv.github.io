@@ -9,7 +9,7 @@ with io.open('README.md', 'rt', encoding="utf8") as f:
 
 _description_re = re.compile(r'description\s+=\s+(?P<description>.*)')
 
-with open('lektor_service_name.py', 'rb') as f:
+with open('lektor_envvars_localized.py', 'rb') as f:
     description = str(ast.literal_eval(_description_re.search(
         f.read().decode('utf-8')).group(1)))
 
@@ -21,9 +21,9 @@ setup(
     license='MIT',
     long_description=readme,
     long_description_content_type='text/markdown',
-    name='lektor-service-name',
+    name='lektor-envvars-localized',
     packages=find_packages(),
-    py_modules=['lektor_service_name'],
+    py_modules=['lektor_envvars_localized'],
     # url='[link to your repository]',
     version='0.1',
     classifiers=[
@@ -32,7 +32,7 @@ setup(
     ],
     entry_points={
         'lektor.plugins': [
-            'service-name = lektor_service_name:ServiceNamePlugin',
+            'envvars-localized = lektor_envvars_localized:EnvvarsLocalizedPlugin',
         ]
     }
 )

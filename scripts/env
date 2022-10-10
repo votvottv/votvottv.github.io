@@ -89,6 +89,7 @@ for lang_code in `ls -1 i18n/contents+* | grep -v '~' | sed -e 's|i18n/contents+
   variable_name="LEKTOR_SERVICE_NAME_$lang_code"
 
   if [ ! -z "${!variable_name}" ]; then
+    echo "Exporting ${variable_name} with value ${!variable_name}..."
     export $variable_name="${!variable_name}"
   fi
 done
@@ -102,3 +103,7 @@ if [ ! -z "$LEKTOR_ASSET_REPOSITORY_URL" ]; then
     cd ../..
   fi
 fi
+
+# Print the env, useful for debugging
+echo "Current environment:"
+env | sort
