@@ -54,7 +54,7 @@ $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 #fi
 
 # Ensure a fresh lektor cache
-#rm -rf ~/.cache/lektor
+rm -rf ~/.cache/lektor
 
 # Ensure all plugins are reinstalled
 #lektor plugins reinstall
