@@ -103,3 +103,7 @@ if [ ! -z "$LEKTOR_ASSET_REPOSITORY_URL" ]; then
     cd ../..
   fi
 fi
+
+# Print the env, useful for debugging
+echo "Current environment:"
+env | sort
