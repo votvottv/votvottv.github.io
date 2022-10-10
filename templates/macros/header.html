@@ -4,7 +4,7 @@
       {#- attempt to use a localized logo, fallback to the default if a localized logo doesn't exist #}
       {%- set logo_path = envvars('LOGO_PATH') %}
       {%- set localized_logo_path = logo_path|replace('_en.', '_' + this.alt + '.')|trim('/')|asseturl %}
-      <img src="{{ localized_logo_path or logo_path|asseturl }}" alt="{{ service_name(this.alt) }}" title="{{ service_name(this.alt) }}">
+      <img src="{{ localized_logo_path or logo_path|asseturl }}" alt="{{ envvars_localized('SERVICE_NAME', this.alt) }}" title="{{ envvars_localized('SERVICE_NAME', this.alt) }}">
     </div>
     <ul id="nav-list">
       <li><a href="#step1">{{ _('Download') }}</a></li>
