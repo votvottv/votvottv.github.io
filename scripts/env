@@ -53,6 +53,12 @@ $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 #  exit 1
 #fi
 
+# Ensure a fresh lektor cache
+rm -rf ~/.cache/lektor
+
+# Ensure all plugins are reinstalled
+#lektor plugins reinstall
+
 # Ensure we're in the root repository folder
 cd "$BASEPATH" &> /dev/null
 
