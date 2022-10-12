@@ -34,7 +34,9 @@ setup(
     description=description,
     # this is brekaing the lektor plugin install process for some reason
     # extras_require={"dev": dev_require},
-    install_requires=["Lektor"],
+    # this breaks GitLab CI
+    # see https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/merge_requests/48#note_2841133
+    #install_requires=["Lektor"],
     keywords="Lektor plugin static-site jinja jinja2",
     license="BSD-3-Clause",
     long_description=readme,

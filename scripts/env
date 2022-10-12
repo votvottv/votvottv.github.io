@@ -53,6 +53,12 @@ $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 #  exit 1
 #fi
 
+# Ensure a fresh lektor cache
+rm -rf ~/.cache/lektor
+
+# Ensure all plugins are reinstalled
+#lektor plugins reinstall
+
 # Ensure we're in the root repository folder
 cd "$BASEPATH" &> /dev/null
 
@@ -78,6 +84,16 @@ else
   cd ..
 fi
 
+# Ensure any per-language service name environment variable is exported
+for lang_code in `ls -1 i18n/contents+* | grep -v '~' | sed -e 's|i18n/contents+||' -e 's|.po$||' | xargs | tr '-' '_' | tr '[:lower:]' '[:upper:]'`; do
+  variable_name="LEKTOR_SERVICE_NAME_$lang_code"
+
+  if [ ! -z "${!variable_name}" ]; then
+    echo "Exporting ${variable_name} with value ${!variable_name}..."
+    export $variable_name="${!variable_name}"
+  fi
+done
+
 # Include an asset repository if available
 if [ ! -z "$LEKTOR_ASSET_REPOSITORY_URL" ]; then
   if [ ! -d "assets/custom" ]; then
@@ -87,3 +103,7 @@ if [ ! -z "$LEKTOR_ASSET_REPOSITORY_URL" ]; then
     cd ../..
   fi
 fi
+
+# Print the env, useful for debugging
+echo "Current environment:"
+env | sort
