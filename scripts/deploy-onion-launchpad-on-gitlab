@@ -1,0 +1,324 @@
+#!/usr/bin/env python3
+#
+# Deploy Onion Launchpad as a GitLab repository.
+#
+
+import gitlab
+import os
+import argparse
+import configparser
+import time
+
+from pathlib import Path
+
+# Defaults
+defaults = {
+    'import_url'           : 'https://gitlab.torproject.org/tpo/onion-services/onion-launchpad.git',
+    'ci_config_path'       : '.gitlab-ci-deployment.yml',
+    'project_description'  : 'Landing Page',
+    'schedule_description' : 'Weekly build',
+    'schedule_cron'        : '0 8 * * 1',
+}
+
+class OnionLaunchpadGitlabDeployer():
+    """
+    Deployer for Onion Launchpad into GitLab repositories.
+    """
+
+    def __init__(self, args):
+        # Save arguments
+        self.args = args
+
+        # Load config file
+        if os.path.exists(args.config_file):
+            self.config = configparser.ConfigParser()
+
+            self.log("Loading config file {}...".format(args.config_file))
+            self.config.read(args.config_file)
+
+        else:
+            raise FileNotFoundError('No such file ' + args.config_file)
+
+        # Instantiate
+        self.gl = gitlab.Gitlab.from_config(
+                self.config.get('main', 'instance'),
+                [args.gitlab_config],
+                )
+
+        # Enable debugging
+        #self.gl.enable_debug()
+
+        # Authenticate
+        self.log('Authenticating on {}...'.format(self.config.get('main', 'instance')))
+        self.gl.auth()
+
+    def log(self, message, level='info'):
+        """Log wrapper"""
+
+        print('[' + level + '] ' + str(message))
+
+    def create_group(self):
+        """
+        Create the group
+
+        This may not work depending on the GitLab instance.
+        See https://gitlab.com/gitlab-org/gitlab/-/issues/244345#note_1021388399
+        """
+
+        group_path = self.config.get('main', 'group_path')
+        group_name = self.config.get('main', 'group_name')
+        results    = self.gl.groups.list(
+                        search=group_path,
+                        )
+
+        self.log("Checking if group {} exists...".format(group_name))
+
+        # Check if the group exist
+        if len(results) > 0:
+            for result in results:
+                if result.path == group_path:
+                    self.group      = self.gl.groups.get(result.id)
+                    self.group.name = group_name
+
+                    self.log("Group {} exists, updating...".format(group_name))
+                    self.group.save()
+
+                    return
+
+        self.log("Creating group {}...".format(group_name))
+
+        self.group = self.gl.groups.create({
+                'name': group_name,
+                'path': group_path,
+                })
+
+    def create_project(self):
+        """Create the project"""
+
+        project_path = self.config.get('main', 'project_path')
+        project_name = self.config.get('main', 'project_name')
+        results      = self.gl.projects.list(
+                        search=project_path,
+                        )
+
+        params = {
+                'path'                   : project_path,
+                'name'                   : project_name,
+                'ci_config_path'         : self.config.get('main', 'ci_config_path',      fallback=defaults['ci_config_path']),
+                'description'            : self.config.get('main', 'project_description', fallback=defaults['project_description']),
+                'builds_access_level'    : 'enabled',
+                'repository_access_level': 'enabled',
+                'visibility'             : 'public',
+                }
+
+        self.log("Checking if project {} exists...".format(project_name))
+
+        # Check if the project exists
+        if len(results) > 0:
+            for result in results:
+                if result.path == project_path:
+                    self.project = self.gl.projects.get(result.id)
+
+                    #self.log("Project {} exists, updating...".format(project_name))
+
+                    ## Not supported on python-gitlab from Debian Bullseye
+                    #for item in params:
+                    #    self.project[item] = params[item]
+
+                    # Alternative
+                    #self.project.update(new_data=params)
+
+                    self.project.save()
+
+                    return
+
+        params['namespace_id'] = self.group.id
+        params['import_url']   = self.config.get('main', 'import_url', fallback=defaults['import_url'])
+
+        self.log("Creating project {}...".format(project_name))
+
+        self.project = self.gl.projects.create(params)
+
+    def set_license(self):
+        """Set license"""
+
+        self.log("Setting project license...")
+        self.project.set_license(self.config.get('main', 'license', fallback=''))
+
+    def set_variables(self):
+        """Set CI/CD variables"""
+
+        if not self.config.has_section('variables'):
+            return
+
+        current = self.project.variables.list()
+
+        for variable in self.config.items('variables'):
+            (key, value) = variable
+            key          = key.upper()
+            found        = False
+
+            for existing in current:
+                if getattr(existing, 'key') == key:
+                    found = True
+                    break
+
+            if found:
+                self.log("Updating variable {}...".format(key))
+                self.project.variables.update(key, {"value": value})
+
+                continue
+
+            self.log("Setting variable {}...".format(key))
+            self.project.variables.create({
+                'key'   : key,
+                'value' : value,
+                })
+
+    def schedule(self):
+        """Configure scheduled Onion Launchpad builds"""
+
+        cron        = self.config.get('main', 'schedule_cron',        fallback=defaults['schedule_cron'])
+        description = self.config.get('main', 'schedule_description', fallback=defaults['schedule_description'])
+        results     = self.project.pipelineschedules.list()
+
+        # Check if the schedule exists
+        if len(results) > 0:
+            for result in results:
+                if result.cron == cron:
+                    self.log('Updating scheduled pipeline {} to run at {}...'.format(description, cron))
+
+                    sched             = self.project.pipelineschedules.get(result.id)
+                    sched.description = description
+
+                    sched.save()
+
+                    return
+
+        self.log('Scheduling pipeline {} to run at {}...'.format(description, cron))
+
+        sched = self.project.pipelineschedules.create({
+            'ref'        : 'main',
+            'description': description,
+            'cron'       : cron,
+            })
+
+    def get_or_create_trigger(self):
+        """
+        Get or create a Pipeline Trigger
+
+        See https://python-gitlab.readthedocs.io/en/stable/gl_objects/pipelines_and_jobs.html?highlight=pipeline#triggers
+        """
+
+        trigger_decription = 'my_trigger_id'
+
+        for t in self.project.triggers.list():
+            if t.description == trigger_decription:
+                return t
+
+        return self.project.triggers.create({'description': trigger_decription})
+
+    def build(self):
+        """
+        Build Onion Launchpad
+
+        See https://python-gitlab.readthedocs.io/en/stable/gl_objects/pipelines_and_jobs.html?highlight=pipeline#triggers
+        """
+
+        self.log('Triggering a pipeline run...')
+
+        trigger  = self.get_or_create_trigger()
+        pipeline = self.project.trigger_pipeline('main', trigger.token, variables={})
+
+        while pipeline.finished_at is None:
+            pipeline.refresh()
+            time.sleep(10)
+            self.log('Pipeline still running...')
+
+        trigger.delete()
+
+    def launch(self):
+        """Launch!"""
+
+        try:
+            self.create_group()
+            self.create_project()
+            self.set_variables()
+            self.schedule()
+            self.build()
+            #self.set_license()
+
+        except gitlab.exceptions.GitlabHttpError as e:
+            self.log(e, 'error')
+
+            return False
+
+        except Exception as e:
+            self.log(e, 'error')
+
+            return False
+
+def cmdline():
+    """Process from CLI"""
+
+    epilog = """Invocation examples:
+
+      deploy-onion-launchpad-on-gitlab myproject.ini
+      deploy-onion-launchpad-on-gitlab --gitlab-config ~/.python-gitlab.cfg myproject.ini
+    """
+
+    epilog += """\nConfiguration example (INI file format):
+
+        # Basic group and project information
+        [main]
+        instance     = mygitlab
+        group_name   = My Group
+        group_path   = my-group
+        project_name = Landing Page
+        project_path = my-group.gitlab.io
+
+        # CI/CD variables
+        [variables]
+        LEKTOR_FOREGROUND_COLOR      = FF0000
+        LEKTOR_BACKGROUND_COLOR      = FF7700
+        LEKTOR_BUTTON_COLOR          = 3377FF
+        LEKTOR_ONION_URL_LOCK_FILTER = FF0000
+        LEKTOR_ONION_URL             = https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion
+        LEKTOR_SERVICE_NAME          = Service Name
+        LEKTOR_SERVICE_URL           = https://service-url.website
+        LEKTOR_FAVICON               = /favicon-default-32.png
+        LEKTOR_LOGO_PATH             = /onion-launchpad-logo-default-1.svg
+        LEKTOR_DEFAULT_LANGUAGE      = en
+        LEKTOR_AVAILABLE_LANGUAGES   = en es
+    """
+
+    description = 'Deploy Onion Launchpad as a GitLab repository'
+    parser      = argparse.ArgumentParser(
+                    description=description,
+                    epilog=epilog,
+                    formatter_class=argparse.RawDescriptionHelpFormatter,
+                  )
+
+    parser.add_argument(
+            '-g',
+            '--gitlab-config',
+            dest='gitlab_config',
+            default=os.path.join(Path.home(), '.python-gitlab.cfg'),
+            help='Configuration file with GitLab authentication in the python-gitlab format. Default: %(default)s',
+            )
+
+    parser.add_argument(
+            'config_file',
+            help='Config file with deployment options',
+            )
+
+    args = parser.parse_args()
+
+    return args
+
+if __name__ == "__main__":
+    args   = cmdline()
+    pad    = OnionLaunchpadGitlabDeployer(args)
+    status = pad.launch()
+
+    exit(int(not status))
