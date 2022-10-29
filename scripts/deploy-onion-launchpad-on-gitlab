@@ -57,12 +57,12 @@ class OnionLaunchpadGitlabDeployer():
 
         print('[' + level + '] ' + str(message))
 
-    def create_group(self):
+    def manage_group(self):
         """
-        Create the group
+        Manage the group
 
-        This may not work depending on the GitLab instance.
-        See https://gitlab.com/gitlab-org/gitlab/-/issues/244345#note_1021388399
+        Currently does not support group creation due to
+        https://gitlab.com/gitlab-org/gitlab/-/issues/244345#note_1021388399
         """
 
         group_path = self.config.get('main', 'group_path')
@@ -84,6 +84,9 @@ class OnionLaunchpadGitlabDeployer():
                     self.group.save()
 
                     return
+
+        # Group creation is currently unsupported
+        raise Exception('No such group {}, please creating it manually. Aborting.'.format(group_path))
 
         self.log("Creating group {}...".format(group_name))
 
@@ -241,7 +244,7 @@ class OnionLaunchpadGitlabDeployer():
         """Launch!"""
 
         try:
-            self.create_group()
+            self.manage_group()
             self.create_project()
             self.set_variables()
             self.schedule()
