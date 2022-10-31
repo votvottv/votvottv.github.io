@@ -31,10 +31,13 @@ class OnionLaunchpadGitlabDeployer():
 
         # Load config file
         if os.path.exists(args.config_file):
-            self.config = configparser.ConfigParser()
+            if os.path.isfile(args.config_file):
+                self.config = configparser.ConfigParser()
 
-            self.log("Loading config file {}...".format(args.config_file))
-            self.config.read(args.config_file)
+                self.log("Loading config file {}...".format(args.config_file))
+                self.config.read(args.config_file)
+            else:
+                raise IsADirectoryError('Not a file: ' + args.config_file)
 
         else:
             raise FileNotFoundError('No such file ' + args.config_file)
