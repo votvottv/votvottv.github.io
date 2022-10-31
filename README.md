@@ -224,6 +224,50 @@ lektor build
 It's a long build command, but ideally would only be run by a script.
 See below for examples.
 
+## Deploying
+
+### GitLab deployments
+
+The `deploy-onion-launchpad-on-gitlab` allows for a semi-automated deployment
+procedure.
+
+#### Installation
+
+0. Setup a GitLab account for the deployments. Make sure that this account is
+   validated to run CI/CD jobs.
+1. [Setup GitLab authentication][] for this account.
+2. Install [python-gitlab](https://python-gitlab.readthedocs.io).
+   For Debian, the package is [python3-gitlab](https://tracker.debian.org/pkg/python-gitlab).
+3. [Configure python-gitlab][] by creating a `~/.python-gitlab.cfg` file.
+
+[Setup GitLab authentication]: https://docs.gitlab.com/ee/api/#authentication
+[Configure python-gitlab]: https://python-gitlab.readthedocs.io/en/stable/cli-usage.html?highlight=configuration#configuration-files
+
+#### Configuration
+
+Copy from the example provided by [Onion Launchpad][]:
+
+    cp /path/to/onion-launchpad/configs/deploy/onion-launchpad-test.gitlab.io.ini gitlab/$somesite.ini
+
+Or copy from an existing configuration:
+
+    cp gitlab/$agency/$someothersite.ini gitlab/$somesite.ini
+
+Then ajust the settings:
+
+    $EDITOR gitlab/$somesite.ini
+
+#### Deployment
+
+First, manually create a new group on GitLab. Due to [abuse in the automated
+group creation][], this step cannot be automated.
+
+Then use the GitLab deployment script provided by [Onion Launchpad][]:
+
+    /path/to/onion-launchpad/scripts/deploy-onion-launchpad-on-gitlab gitlab/$somesite.ini
+
+[abuse in the automated group creation]: https://gitlab.com/gitlab-org/gitlab/-/issues/244345#note_1021388399
+
 ## Adding a new RTL language
 
 If you end up enabling translation support for a right-to-left (RTL) language,

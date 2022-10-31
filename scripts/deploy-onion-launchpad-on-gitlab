@@ -36,6 +36,7 @@ class OnionLaunchpadGitlabDeployer():
 
                 self.log("Loading config file {}...".format(args.config_file))
                 self.config.read(args.config_file)
+
             else:
                 raise IsADirectoryError('Not a file: ' + args.config_file)
 
