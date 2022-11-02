@@ -116,6 +116,7 @@ class OnionLaunchpadGitlabDeployer():
                 'builds_access_level'    : 'enabled',
                 'repository_access_level': 'enabled',
                 'visibility'             : 'public',
+                'pages_access_level'     : 'public',
                 }
 
         self.log("Checking if project {} exists...".format(project_name))
