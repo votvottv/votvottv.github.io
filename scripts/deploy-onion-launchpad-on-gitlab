@@ -127,7 +127,7 @@ class OnionLaunchpadGitlabDeployer():
                 if result.namespace['path'] == self.config.get('main', 'group_path') and result.path == project_path:
                     self.project = self.gl.projects.get(result.id)
 
-                    self.log("Project {} exists.")
+                    self.log("Project {} exists."format(project_name))
 
                     # Not supported on python-gitlab from Debian Bullseye
                     #self.log("Project {} exists, updating...".format(project_name))
