@@ -44,7 +44,6 @@ fi
 mkdir -p "$(dirname "$VENV")"
 $PYTHON -m venv $VENV || exit 1
 source $VENV/bin/activate || exit 1
-wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements-envvars.txt -O requirements.txt || exit 1
 
 $PYTHON -m pip install --require-hashes -r lego/lektor-requirements.txt || exit 1
 $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
