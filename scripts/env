@@ -31,15 +31,21 @@ export LEKTOR_ASSET_REPOSITORY_URL="${LEKTOR_ASSET_REPOSITORY_URL:-}"
 export LEKTOR_DEFAULT_LANGUAGE="${LEKTOR_DEFAULT_LANGUAGE:-en}"
 export LEKTOR_AVAILABLE_LANGUAGES="${LEKTOR_AVAILABLE_LANGUAGES:-}"
 
+# Include the lego repository
+if [ ! -d "lego" ]; then
+  git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego || exit 1
+else
+  git submodule update --init --recursive --depth 1 || exit 1
+fi
+
 # Install dependencies
 # In the future we may phase away from venv,
 # see https://gitlab.torproject.org/tpo/tpa/ci-templates/-/commit/9850b8deb1d5813a5d6e25d2d0ffb7684ac42bf0
 mkdir -p "$(dirname "$VENV")"
 $PYTHON -m venv $VENV || exit 1
 source $VENV/bin/activate || exit 1
-wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements.txt -O requirements.txt || exit 1
-wget https://gitlab.torproject.org/tpo/tpa/ci-templates/-/raw/main/lektor-requirements-envvars.txt -O- >> requirements.txt || exit 1
 
+$PYTHON -m pip install --require-hashes -r lego/lektor-requirements.txt || exit 1
 $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 
 # Ensure we have an extended PATH if lektor is installed locally
@@ -67,13 +73,6 @@ echo "Cleaning up previous builds..."
 find content -type f -name 'contents+*.lr' -delete
 rm -rf public
 #lektor clean --yes --output-path public || exit 1
-
-# Include the lego repository
-if [ ! -d "lego" ]; then
-  git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego || exit 1
-else
-  git submodule update --init --recursive --depth 1 || exit 1
-fi
 
 # Ensure a fresh i18n repository in place
 if [ ! -d "i18n" ]; then
