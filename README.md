@@ -388,3 +388,6 @@ Conclusions:
 2. If the scenario is only general censorship, accessing landing pages using
    HTTPS usually won't add any additional harm to the user and the trade-off is
    smaller.
+
+[Onion Service]: https://community.torproject.org/onion-services
+[collateral freedom]: https://bypass.censorship.guide/user/index.html
