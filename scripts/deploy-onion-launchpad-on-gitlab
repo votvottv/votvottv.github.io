@@ -73,6 +73,7 @@ class OnionLaunchpadGitlabDeployer():
         group_name = self.config.get('main', 'group_name')
         results    = self.gl.groups.list(
                         search=group_path,
+                        owned=True,
                         )
 
         self.log("Checking if group {} exists...".format(group_name))
@@ -106,6 +107,7 @@ class OnionLaunchpadGitlabDeployer():
         project_name = self.config.get('main', 'project_name')
         results      = self.gl.projects.list(
                         search=project_path,
+                        owned=True,
                         )
 
         params = {
@@ -311,7 +313,7 @@ def cmdline():
                   )
 
     parser.add_argument(
-            '-g',
+            '-c',
             '--gitlab-config',
             dest='gitlab_config',
             default=os.path.join(Path.home(), '.python-gitlab.cfg'),
