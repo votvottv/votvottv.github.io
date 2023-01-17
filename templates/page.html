@@ -615,6 +615,16 @@
        display: none;
        margin-top: 7px;
      }
+
+     .consent-banner {
+       display: none;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       padding: 1em;
+       position: fixed;
+       background-color: {{ theme_color('BACKGROUND_COLOR') }};
+     }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
     <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
@@ -656,5 +666,58 @@
       </div>
     </div>
     {% include 'macros/footer.html' %}
+
+    {% if envvars('ANALYTICS') == '1' %}
+    <div class="consent-banner page-content">
+        {{ md(_("Is it ok to track your page visits and record your language and user agent?")) }}
+
+        <input id="consent" type="checkbox">
+        <label for="consent">{{ md(_("OK")) }}</label>
+
+        <input id="consent-cancel" type="checkbox">
+        <label for="consent-cancel">{{ md(_("Cancel")) }}</label>
+    </div>
+
+    <script>
+      function loadMatomo() {
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u='{{ envvars('ANALYTICS_BACKEND') }}';
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId',     '{{ envvars('ANALYTICS_SITE_ID') }}']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      }
+
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const consent = document.getElementById('consent')
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Ensure it's unchecked
+      consent.checked = false
+
+      consent.onchange = () => {
+        if (consent.checked) {
+          banner.style.display = 'none'
+
+          //console.log('Initializing analytics...')
+
+          loadMatomo()
+        }
+      }
+
+      cancel.onchange = () => {
+        if (cancel.checked) {
+          banner.style.display = 'none'
+        }
+      }
+
+      // Always the banner
+      banner.style.display = 'block'
+    </script>
+    {% endif %}
   </body>
 </html>

@@ -22,6 +22,9 @@ variables:
   LEKTOR_ASSET_REPOSITORY_URL: ''
   LEKTOR_DEFAULT_LANGUAGE: ''
   LEKTOR_AVAILABLE_LANGUAGES: ''
+  LEKTOR_ANALYTICS: ''
+  LEKTOR_ANALYTICS_BACKEND: 'http://localhost:8080/ci/cleaninsights.php'
+  LEKTOR_ANALYTICS_SITE_ID: '1'
 
 pages:
   script:
