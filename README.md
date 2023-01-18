@@ -408,7 +408,7 @@ Onion Launchpad supports a basic analytics gathering based on [Matomo][]:
    attackers to discover user's IP addresses). ___Or even better: leave the
    backend behind an Onion Service___.
 4. There is also a [consent UX][] informing users what and how it's
-   collected, and asking for authorization. No cookies should reside in the
+   collected, and asking for authorization. No cookies reside in the
    client machine.
 
 It's also worth noting that adversaries could attack the analytics system by:
@@ -433,4 +433,5 @@ The analytics functionality is controlled by these environment variables:
 * `LEKTOR_ANALYTICS_SITE_ID`: should be set to the Matomo `siteId` configured
    in the backend.
 
-[Matomo]: https://matomo.org.
+[Matomo]: https://matomo.org
+[consent UX]: https://okthanks.com/blog/2021/5/14/clean-consent-ux
