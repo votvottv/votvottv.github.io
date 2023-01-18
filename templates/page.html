@@ -671,11 +671,8 @@
     <div class="consent-banner page-content">
         {{ md(_("Is it ok to track your page visits and record your language and user agent?")) }}
 
-        <input id="consent" type="checkbox">
-        <label for="consent">{{ md(_("OK")) }}</label>
-
-        <input id="consent-cancel" type="checkbox">
-        <label for="consent-cancel">{{ md(_("Cancel")) }}</label>
+        <a class="button" id="consent-ok">{{ md(_("OK")) }}</a>
+        <a class="button" id="consent-cancel">{{ md(_("Cancel")) }}</a>
     </div>
 
     <script>
@@ -693,29 +690,20 @@
       }
 
       const banner  = document.getElementsByClassName('consent-banner')[0]
-      const consent = document.getElementById('consent')
+      const consent = document.getElementById('consent-ok')
       const cancel  = document.getElementById('consent-cancel')
 
-      // Ensure it's unchecked
-      consent.checked = false
+      consent.onclick = () => {
+        banner.style.display = 'none'
 
-      consent.onchange = () => {
-        if (consent.checked) {
-          banner.style.display = 'none'
-
-          //console.log('Initializing analytics...')
-
-          loadMatomo()
-        }
+        loadMatomo()
       }
 
-      cancel.onchange = () => {
-        if (cancel.checked) {
-          banner.style.display = 'none'
-        }
+      cancel.onclick = () => {
+        banner.style.display = 'none'
       }
 
-      // Always the banner
+      // Always display the banner
       banner.style.display = 'block'
     </script>
     {% endif %}
