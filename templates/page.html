@@ -678,12 +678,19 @@
     <script>
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
+
+        // See https://developer.matomo.org/api-reference/tracking-javascript
         _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
+        //_paq.push(['enableLinkTracking']);
+        _paq.push(['disablePerformanceTracking']);
+        _paq.push(['setDoNotTrack', true]);
+
         (function() {
           var u='{{ envvars('ANALYTICS_BACKEND') }}';
+
           _paq.push(['setTrackerUrl', u+'matomo.php']);
           _paq.push(['setSiteId',     '{{ envvars('ANALYTICS_SITE_ID') }}']);
+
           var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
           g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
         })();
