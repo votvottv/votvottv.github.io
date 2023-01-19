@@ -437,9 +437,9 @@ The analytics functionality is controlled by these environment variables:
    in the backend.
 * `LEKTOR_ANALYTICS_LINK_TRACKING`: when set to 1, activates Matomo's
   `enableLinkTracking` setting, otherwise keep it off.
-* `LEKTOR_ANALYTICS_BROWSER_DETECTION`: when set to 1, activates Matomo's
-  `enableBrowserFeatureDetection`, otherwise `disableBrowserFeatureDetection`
-  is enforced. You might want to turn this on if your Matomo backend is too
+* `LEKTOR_ANALYTICS_BROWSER_DETECTION`: when set to 1, use Matomo's
+  browser feature detection, otherwise enforces `disableBrowserFeatureDetection`.
+  You might want to turn this on if your Matomo backend is too
   old, since [disabling of browser detection was implemented only recently][].
 
 Check Matomo's [JavaScript Tracking Client][] documentation for details.

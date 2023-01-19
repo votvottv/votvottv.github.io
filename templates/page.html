@@ -704,9 +704,7 @@
         _paq.push(['enableLinkTracking']);
         {% endif %}
 
-        {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
-        _paq.push(['enableBrowserFeatureDetection']);
-        {% else %}
+        {% if envvars('ANALYTICS_BROWSER_DETECTION') != '1' %}
         _paq.push(['disableBrowserFeatureDetection']);
         {% endif %}
 
