@@ -720,8 +720,19 @@
         banner.style.display = 'none'
       }
 
-      // Always display the banner
-      banner.style.display = 'block'
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Always display the banner except if Do Not Track is enabled
+      // We're respecting the DNT setting even if it's deprecated
+      //
+      // For more info, check https://en.wikipedia.org/wiki/Do_Not_Track
+      //                      https://developer.mozilla.org/en-US/docs/Web/API/navigator/doNotTrack
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
     </script>
     {% endif %}
   </body>
