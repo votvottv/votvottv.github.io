@@ -676,10 +676,10 @@
     </div>
 
     <script>
+      // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
 
-        // See https://developer.matomo.org/api-reference/tracking-javascript
         _paq.push(['trackPageView']);
 
         {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
