@@ -432,6 +432,14 @@ The analytics functionality is controlled by these environment variables:
   `https://myanalytics.example.org/matomo.php`.
 * `LEKTOR_ANALYTICS_SITE_ID`: should be set to the Matomo `siteId` configured
    in the backend.
+* `LEKTOR_ANALYTICS_LINK_TRACKING`: when set to 1, activates Matomo's
+  `enableLinkTracking` setting, otherwise keep it off.
+* `LEKTOR_ANALYTICS_BROWSER_DETECTION`: when set to 1, activates Matomo's
+  `enableBrowserFeatureDetection`, otherwise `disableBrowserFeatureDetection`
+  is enforced.
+
+Check Matomo's [JavaScript Tracking Client][] documentation for details.
 
 [Matomo]: https://matomo.org
 [consent UX]: https://okthanks.com/blog/2021/5/14/clean-consent-ux
+[JavaScript Tracking Client]: https://developer.matomo.org/api-reference/tracking-javascript

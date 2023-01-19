@@ -681,7 +681,17 @@
 
         // See https://developer.matomo.org/api-reference/tracking-javascript
         _paq.push(['trackPageView']);
-        //_paq.push(['enableLinkTracking']);
+
+        {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
+        _paq.push(['enableLinkTracking']);
+        {% endif %}
+
+        {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
+        _paq.push(['enableBrowserFeatureDetection']);
+        {% else %}
+        _paq.push(['disableBrowserFeatureDetection']);
+        {% endif %}
+
         _paq.push(['disablePerformanceTracking']);
         _paq.push(['setDoNotTrack', true]);
 
