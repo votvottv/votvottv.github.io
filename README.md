@@ -410,6 +410,9 @@ Onion Launchpad supports a basic analytics gathering based on [Matomo][]:
 4. There is also a [consent UX][] informing users what and how it's
    collected, and asking for authorization. No cookies reside in the
    client machine.
+5. The analytics collection is bypassed entirely if the [Do Not Track][]
+   configuration is set. Onion Launchpad respects this setting
+   [even if it's considered deprecated][].
 
 It's also worth noting that adversaries could attack the analytics system by:
 
@@ -443,5 +446,7 @@ Check Matomo's [JavaScript Tracking Client][] documentation for details.
 
 [Matomo]: https://matomo.org
 [consent UX]: https://okthanks.com/blog/2021/5/14/clean-consent-ux
+[Do Not Track]: https://en.wikipedia.org/wiki/Do_Not_Track
+[even if it's considered deprecated]: https://developer.mozilla.org/en-US/docs/Web/API/navigator/doNotTrack
 [JavaScript Tracking Client]: https://developer.matomo.org/api-reference/tracking-javascript
 [disabling of browser detection was implemented only recently]: https://github.com/matomo-org/matomo/pull/18599
