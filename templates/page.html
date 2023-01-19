@@ -669,7 +669,25 @@
 
     {% if envvars('ANALYTICS') == '1' %}
     <div class="consent-banner page-content">
-        {{ md(_("Is it ok to track your page visits and record your language and user agent?")) }}
+        {{ md(_("Is it OK to collect the following information of your visit?")) }}
+
+        <ul>
+          <li>
+            {{ md(_("Page visits.")) }}
+          </li>
+
+          {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
+          <li>
+            {{ md(_("Download and link activity.")) }}
+          </li>
+          {% endif %}
+
+          {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
+          <li>
+            {{ md(_("Browser information.")) }}
+          </li>
+          {% endif %}
+        </ul>
 
         <a class="button" id="consent-ok">{{ md(_("OK")) }}</a>
         <a class="button" id="consent-cancel">{{ md(_("Cancel")) }}</a>
