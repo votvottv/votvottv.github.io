@@ -86,8 +86,5 @@ content/contents+*.lr
 # Python virtual environment
 venv
 
-# Python requirements
-requirements.txt
-
 # Custom assets
 assets/custom
