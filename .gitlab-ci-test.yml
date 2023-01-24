@@ -13,7 +13,7 @@ variables:
   LEKTOR_BACKGROUND_COLOR: 'EA6903'
   LEKTOR_BUTTON_COLOR: 'EA6903'
   LEKTOR_ONION_URL_LOCK_FILTER: 'CF5C00'
-  LEKTOR_ONION_URL: 'https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion'
+  LEKTOR_ONION_URL: 'https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz2345.onion'
   LEKTOR_SERVICE_NAME: 'Onion Launchpad'
   LEKTOR_SERVICE_URL: 'https://service-url.website/'
   LEKTOR_FAVICON: '/favicon-default-32.png'
