@@ -18,12 +18,12 @@ fi
 
 # Export environment variables
 export TRANSLATION_BRANCH="${TRANSLATION_BRANCH:-onion-support-landing-page}"
-export LEKTOR_FOREGROUND_COLOR="${LEKTOR_FOREGROUND_COLOR:-FF0000}"
-export LEKTOR_BACKGROUND_COLOR="${LEKTOR_BACKGROUND_COLOR:-FF7700}"
-export LEKTOR_BUTTON_COLOR="${LEKTOR_BUTTON_COLOR:-3377FF}"
-export LEKTOR_ONION_URL_LOCK_FILTER="${LEKTOR_ONION_URL_LOCK_FILTER:-FF0000}"
-export LEKTOR_ONION_URL="${LEKTOR_ONION_URL:-https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion}"
-export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Service Name}"
+export LEKTOR_FOREGROUND_COLOR="${LEKTOR_FOREGROUND_COLOR:-CF5C00}"
+export LEKTOR_BACKGROUND_COLOR="${LEKTOR_BACKGROUND_COLOR:-EA6903}"
+export LEKTOR_BUTTON_COLOR="${LEKTOR_BUTTON_COLOR:-EA6903}"
+export LEKTOR_ONION_URL_LOCK_FILTER="${LEKTOR_ONION_URL_LOCK_FILTER:-CF5C00}"
+export LEKTOR_ONION_URL="${LEKTOR_ONION_URL:-https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz2345.onion}"
+export LEKTOR_SERVICE_NAME="${LEKTOR_SERVICE_NAME:-Onion Launchpad}"
 export LEKTOR_SERVICE_URL="${LEKTOR_SERVICE_URL:-https://service-url.website/}"
 export LEKTOR_FAVICON="${LEKTOR_FAVICON:-/favicon-default-32.png}"
 export LEKTOR_LOGO_PATH="${LEKTOR_LOGO_PATH:-/onion-launchpad-logo-default-1.svg}"
