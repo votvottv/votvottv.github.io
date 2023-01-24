@@ -617,6 +617,16 @@
        display: none;
        margin-top: 7px;
      }
+
+     .consent-banner {
+       display: none;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       padding: 1em;
+       position: fixed;
+       background-color: {{ theme_color('BACKGROUND_COLOR') }};
+     }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
     <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
@@ -658,5 +668,88 @@
       </div>
     </div>
     {% include 'macros/footer.html' %}
+
+    {% if envvars('ANALYTICS') == '1' %}
+    <div class="consent-banner page-content">
+        {{ md(_("Is it OK to collect the following information of your visit?")) }}
+
+        <ul>
+          <li>
+            {{ md(_("Page visits.")) }}
+          </li>
+
+          {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
+          <li>
+            {{ md(_("Download and link activity.")) }}
+          </li>
+          {% endif %}
+
+          {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
+          <li>
+            {{ md(_("Browser information.")) }}
+          </li>
+          {% endif %}
+        </ul>
+
+        <a class="button" id="consent-ok">{{ md(_("Yes")) }}</a>
+        <a class="button" id="consent-cancel">{{ md(_("No")) }}</a>
+    </div>
+
+    <script>
+      // See https://developer.matomo.org/api-reference/tracking-javascript
+      function loadMatomo() {
+        var _paq = window._paq = window._paq || [];
+
+        _paq.push(['trackPageView']);
+
+        {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
+        _paq.push(['enableLinkTracking']);
+        {% endif %}
+
+        {% if envvars('ANALYTICS_BROWSER_DETECTION') != '1' %}
+        _paq.push(['disableBrowserFeatureDetection']);
+        {% endif %}
+
+        _paq.push(['disablePerformanceTracking']);
+        _paq.push(['setDoNotTrack', true]);
+
+        (function() {
+          var u='{{ envvars('ANALYTICS_BACKEND') }}';
+
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId',     '{{ envvars('ANALYTICS_SITE_ID') }}']);
+
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      }
+
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const consent = document.getElementById('consent-ok')
+      const cancel  = document.getElementById('consent-cancel')
+
+      consent.onclick = () => {
+        banner.style.display = 'none'
+
+        loadMatomo()
+      }
+
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Always display the banner except if Do Not Track is enabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+    {% endif %}
   </body>
 </html>
