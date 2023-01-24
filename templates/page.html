@@ -627,6 +627,10 @@
        position: fixed;
        background-color: {{ theme_color('BACKGROUND_COLOR') }};
      }
+
+     .consent-banner a p {
+       margin-top: 15px;
+     }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
     <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
