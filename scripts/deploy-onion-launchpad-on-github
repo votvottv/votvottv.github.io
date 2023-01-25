@@ -170,12 +170,6 @@ class OnionLaunchpadGithubDeployer():
 
         self.repository.edit(**params)
 
-    def test(self):
-        """Quick tests, just in case"""
-
-        for repo in self.github.get_user().get_repos():
-            self.log(repo.name)
-
     def launch(self):
         """Launch!"""
 
