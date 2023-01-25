@@ -91,7 +91,7 @@ class OnionLaunchpadGitlabDeployer():
                     return
 
         # Group creation is currently unsupported
-        raise Exception('No such group {}, please creating it manually. Aborting.'.format(group_path))
+        raise Exception('No such group {}, please create it manually. Aborting.'.format(group_path))
 
         self.log("Creating group {}...".format(group_name))
 
@@ -276,8 +276,8 @@ def cmdline():
 
     epilog = """Invocation examples:
 
-      deploy-onion-launchpad-on-gitlab myproject.ini
-      deploy-onion-launchpad-on-gitlab --gitlab-config ~/.python-gitlab.cfg myproject.ini
+      {basename} myproject.ini
+      {basename} --gitlab-config ~/.python-gitlab.cfg myproject.ini
     """
 
     epilog += """\nConfiguration example (INI file format):
@@ -296,7 +296,7 @@ def cmdline():
         LEKTOR_BACKGROUND_COLOR      = FF7700
         LEKTOR_BUTTON_COLOR          = 3377FF
         LEKTOR_ONION_URL_LOCK_FILTER = FF0000
-        LEKTOR_ONION_URL             = https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion
+        LEKTOR_ONION_URL             = https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz2345.onion
         LEKTOR_SERVICE_NAME          = Service Name
         LEKTOR_SERVICE_URL           = https://service-url.website
         LEKTOR_FAVICON               = /favicon-default-32.png
