@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+#
+# Deploy Onion Launchpad as a GitHub repository.
+#
+
+import os
+import argparse
+import configparser
+import time
+
+from pathlib import Path
+
+from github import Github
+
+# Defaults
+defaults = {
+    'import_url'          : 'https://gitlab.torproject.org/tpo/onion-services/onion-launchpad.git',
+    'project_description' : 'Landing Page',
+}
+
+class OnionLaunchpadGithubDeployer():
+    """
+    Deployer for Onion Launchpad into GitHub repositories.
+    """
+
+    def __init__(self, args):
+        # Save arguments
+        self.args = args
+
+        # Load config file
+        self.config = self.load_config(args.config_file)
+
+        # Instantiate GitHub
+        assert self.instantiate_github() is not False
+
+    def log(self, message, level='info'):
+        """Log wrapper"""
+
+        print('[' + level + '] ' + str(message))
+
+    def load_config(self, file):
+        """Load a config file"""
+
+        if os.path.exists(file):
+            if os.path.isfile(file):
+                config = configparser.ConfigParser()
+
+                self.log("Loading config file {}...".format(file))
+                config.read(file)
+
+                return config
+
+            else:
+                raise IsADirectoryError('Not a file: ' + file)
+
+        else:
+            raise FileNotFoundError('No such file ' + file)
+
+    def instantiate_github(self):
+        """Instantiate the GitHub object"""
+
+        # Load GitHub config file
+        self.github_config = self.load_config(args.github_config)
+
+        if self.config.has_option('main', 'instance'):
+            instance = self.config.get('main', 'instance')
+        else:
+            return False
+
+        # Build the GitHub options object
+        github_options = { k: v for k, v in self.github_config.items(instance) }
+
+        # Cast int options
+        for param in [ 'timeout', 'per_page', 'retry', 'pool_size' ]:
+            if param in github_options:
+                github_options[param] = int(github_options[param])
+
+        # Cast boolean options
+        for param in [ 'verify' ]:
+            if param in github_options:
+                github_options[param] = bool(github_options[param])
+
+        # Instantiate
+        self.github = Github(**github_options)
+
+    def launch(self):
+        """Launch!"""
+
+        try:
+            # FIXME
+            # Test
+            for repo in self.github.get_user().get_repos():
+                print(repo.name)
+
+            # FIXME
+            pass
+
+        except Exception as e:
+            self.log(e, 'error')
+
+            return False
+
+def cmdline():
+    """Process from CLI"""
+
+    epilog = """Invocation examples:
+
+      {basename} myproject.ini
+      {basename} --github-config ~/.pygithub.cfg myproject.ini
+    """
+
+    epilog += """\nGitHub configuration example (INI file format):
+
+        # See https://pygithub.readthedocs.io/en/latest/github.html
+        [mygithub]
+        # Mandatory parameters
+        login_or_token = MY-LOGIN-OR-ACCESS-TOKEN
+
+        # Optional endpoint parameters
+        password       = PASSWORD
+        base_url       = https://api.github.com
+
+        # Optional client parameters
+        timeout        = 15
+        user_agent     = 'PyGithub/Python'
+        per_page       = 30
+        verify         = True
+
+        # Optional connection parameters
+        # See https://requests.readthedocs.io/en/latest/api/#requests.adapters.HTTPAdapter
+        retry          = 10
+        pool_size      = 10 # Needs a newer PyGithub
+    """
+
+    epilog += """\nConfiguration example (INI file format):
+
+        # Basic group and project information
+        [main]
+        instance          = mygithub
+        organization_name = My Group
+        organization_path = my-group
+        repository_name   = Landing Page
+        repository_path   = my-group.gitlab.io
+
+        # Deployment secrets
+        [variables]
+        LEKTOR_FOREGROUND_COLOR      = FF0000
+        LEKTOR_BACKGROUND_COLOR      = FF7700
+        LEKTOR_BUTTON_COLOR          = 3377FF
+        LEKTOR_ONION_URL_LOCK_FILTER = FF0000
+        LEKTOR_ONION_URL             = https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz2345.onion
+        LEKTOR_SERVICE_NAME          = Service Name
+        LEKTOR_SERVICE_URL           = https://service-url.website
+        LEKTOR_FAVICON               = /favicon-default-32.png
+        LEKTOR_LOGO_PATH             = /onion-launchpad-logo-default-1.svg
+        LEKTOR_DEFAULT_LANGUAGE      = en
+        LEKTOR_AVAILABLE_LANGUAGES   = en es
+    """
+
+    description = 'Deploy Onion Launchpad as a GitHub repository'
+    parser      = argparse.ArgumentParser(
+                    description=description,
+                    epilog=epilog,
+                    formatter_class=argparse.RawDescriptionHelpFormatter,
+                  )
+
+    parser.add_argument(
+            '-c',
+            '--github-config',
+            dest='github_config',
+            default=os.path.join(Path.home(), '.pygithub.cfg'),
+            help='Configuration file with GitHub authentication. Default: %(default)s',
+            )
+
+    parser.add_argument(
+            'config_file',
+            help='Config file with deployment options',
+            )
+
+    args = parser.parse_args()
+
+    return args
+
+if __name__ == "__main__":
+    args   = cmdline()
+    pad    = OnionLaunchpadGithubDeployer(args)
+    status = pad.launch()
+
+    exit(int(not status))
