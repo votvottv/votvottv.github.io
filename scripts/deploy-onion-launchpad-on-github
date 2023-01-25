@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 
 from github import Github
-from github.GithubException import UnknownObjectException
+from github.GithubException import UnknownObjectException, GithubException
 
 # Defaults
 defaults = {
@@ -84,20 +84,91 @@ class OnionLaunchpadGithubDeployer():
         # Instantiate
         self.github = Github(**github_options)
 
-    def get_organization(self):
+    def manage_organization(self):
         """Get the configured organization"""
 
         try:
-            name         = self.config.get('main', 'organization_path')
-            organization = self.github.get_organization(name)
+            path         = self.config.get('main', 'organization_path')
+            organization = self.github.get_organization(path)
 
         except UnknownObjectException as e:
             if e.status == 404:
-                raise Exception('No such organization {}, please create it manually. Aborting.'.format(name))
+                raise Exception('No such organization {}, please create it manually. Aborting.'.format(path))
 
             raise e
 
-        return organization
+        self.log("Organization {} exists, updating...".format(path))
+
+        try:
+
+            self.organization = organization
+            name              = self.config.get('main', 'organization_name')
+
+            self.organization.edit(description=name)
+
+        except UnknownObjectException as e:
+            if e.status == 404:
+                raise Exception('Could not update organization {}. '.format(path)              +
+                                'Please make sure you are '.format(path)                       +
+                                'part of this group and have the "admin:org" OAuth scope set ' +
+                                'for the current access token. Aborting.')
+
+            raise e
+
+    def create_repository(self):
+        """Create the repository"""
+
+        repository_path = self.config.get('main', 'repository_path')
+        repository_name = self.config.get('main', 'repository_name')
+        license         = self.config.get('main', 'license', fallback='')
+        params          = {
+                        'name'            : repository_path,
+                        'description'     : repository_name,
+                        #'visibility'     : 'public', # May need a newer PyGithub
+                        'private'         : False,
+                        'has_issues'      : False,
+                        'has_projects'    : False,
+                        'has_wiki'        : False,
+                        'has_downloads'   : False,
+                        }
+
+        try:
+            self.log("Checking if repository {} exists...".format(repository_name))
+
+            result = self.organization.get_repo(repository_path)
+
+        except UnknownObjectException as e:
+            if e.status == 404:
+                self.log("Creating repository {}...".format(repository_name))
+
+                params['auto_init']    = False
+                #params['is_template'] = False, # May need a newer PyGithub
+
+                if license != '':
+                    params['license_template'] = license,
+
+                try:
+                    self.repository = self.organization.create_repo(**params)
+
+                except GithubException as e:
+                    if e.status == 403:
+                        raise Exception('Could not create repository {}. '.format(repository_path) +
+                                        'Please make sure you are part '                           +
+                                        'of the group {} '.format(self.organization.name)          +
+                                        'and have the "repo" OAuth scope set for the '             +
+                                        'current access token. Aborting.')
+                    raise e
+
+                return
+
+            else:
+                raise e
+
+        self.log("Repository {} exists.".format(repository_name))
+
+        self.repository = result
+
+        self.repository.edit(**params)
 
     def test(self):
         """Quick tests, just in case"""
@@ -109,9 +180,8 @@ class OnionLaunchpadGithubDeployer():
         """Launch!"""
 
         try:
-            organization = self.get_organization()
-
-            print(organization)
+            self.manage_organization()
+            self.create_repository()
 
         except Exception as e:
             self.log(e, 'error')
