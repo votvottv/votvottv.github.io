@@ -170,12 +170,26 @@ class OnionLaunchpadGithubDeployer():
 
         self.repository.edit(**params)
 
+    def set_secrets(self):
+        """Set CI/CD variables"""
+
+        if not self.config.has_section('variables'):
+            return
+
+        for variable in self.config.items('variables'):
+            (key, value) = variable
+            key          = key.upper()
+
+            self.log("Setting variable {}...".format(key))
+            self.repository.create_secret(key, value)
+
     def launch(self):
         """Launch!"""
 
         try:
             self.manage_organization()
             self.create_repository()
+            self.set_secrets()
 
         except Exception as e:
             self.log(e, 'error')
