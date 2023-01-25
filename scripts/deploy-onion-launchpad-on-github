@@ -11,6 +11,7 @@ import time
 from pathlib import Path
 
 from github import Github
+from github.GithubException import UnknownObjectException
 
 # Defaults
 defaults = {
@@ -83,17 +84,34 @@ class OnionLaunchpadGithubDeployer():
         # Instantiate
         self.github = Github(**github_options)
 
+    def get_organization(self):
+        """Get the configured organization"""
+
+        try:
+            name         = self.config.get('main', 'organization_path')
+            organization = self.github.get_organization(name)
+
+        except UnknownObjectException as e:
+            if e.status == 404:
+                raise Exception('No such organization {}, please create it manually. Aborting.'.format(name))
+
+            raise e
+
+        return organization
+
+    def test(self):
+        """Quick tests, just in case"""
+
+        for repo in self.github.get_user().get_repos():
+            self.log(repo.name)
+
     def launch(self):
         """Launch!"""
 
         try:
-            # FIXME
-            # Test
-            for repo in self.github.get_user().get_repos():
-                print(repo.name)
+            organization = self.get_organization()
 
-            # FIXME
-            pass
+            print(organization)
 
         except Exception as e:
             self.log(e, 'error')
