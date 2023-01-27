@@ -219,6 +219,42 @@ class OnionLaunchpadGithubDeployer():
         self.log('Populating remote repository...')
         self.remote.push(refspec=refspec)
 
+    def configure_pages(self):
+        """Configure GitHub pages"""
+
+        # Pages configuration is currently unsupported by PyGithub
+        # So we'll do it manually.
+        # See https://github.com/PyGithub/PyGithub/issues/2037
+        #     https://docs.github.com/en/rest/pages?apiVersion=2022-11-28#update-information-about-a-github-pages-site
+        import requests, json
+
+        instance          = self.config.get('main', 'instance')
+        organization_path = self.config.get('main', 'organization_path')
+        repository_path   = self.config.get('main', 'repository_path')
+        token             = self.github_config.get(instance, 'login_or_token')
+        api_version       = '2022-11-28'
+
+        url = "https://api.github.com/repos/{}/{}/pages".format(
+                organization_path,
+                repository_path)
+
+        data = {
+                'source': {
+                    'branch': 'gh-pages',
+                    'path'  : '/',
+                    },
+                }
+
+        headers = {
+                'Accept'               : 'application/vnd.github+json',
+                'Authorization'        : 'Bearer {}'.format(token),
+                'X-GitHub-Api-Version' : api_version,
+                }
+
+        self.log('Configuring GitHub Pages...')
+
+        response = requests.put(url, data=json.dumps(data), headers=headers)
+
     def launch(self):
         """Launch!"""
 
@@ -227,6 +263,7 @@ class OnionLaunchpadGithubDeployer():
             self.create_repository()
             self.set_secrets()
             self.populate()
+            self.configure_pages()
 
         except Exception as e:
             self.log(e, 'error')
