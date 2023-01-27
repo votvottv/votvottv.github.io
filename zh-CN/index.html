@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>VotVot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="onion-location" content="https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion">
+    <script src="../main.js?h=8d0955fd"></script>
+    <link rel="stylesheet" href="../fonts.css?h=dc7b7e35">
+    <link rel="icon" href="">
+    <style>
+     body {
+       background-color: #fcfdfb;
+       font-family: NotoSans;
+       margin: 0;
+     }
+     h1 {
+       font-size: 44px;
+       font-family: NotoSansBlack;
+     }
+     h2 {
+       font-size: 30px;
+       font-family: NotoSansBold;
+     }
+     a {
+       text-decoration: none;
+       color: #BB5402ff;;
+     }
+     p {
+       font-size: 18px;
+     }
+     #navigation-container {
+       display: flex;
+       justify-content: space-between;
+       padding: 0 2%;
+     }
+     #site-header {
+       background-color: #BB540213;;
+       padding: 0;
+     }
+     #nav-list, #nav-list-mobile {
+       list-style-type: none;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       display: inline;
+       text-align: center;
+       vertical-align: top !important;
+       //padding-left: 14%;
+       padding-left: 0;
+     }
+     #site-header li {
+       padding: 16px;
+       display: inline;
+       list-style-type: none;
+     }
+     #site-header li a {
+       color: black;
+       line-height: 90px;
+       padding: 5px 15px;
+     }
+     .shape {
+       position: absolute;
+       overflow: hidden;
+       height: 80px;
+       width: 100%;
+     }
+     .shape::before {
+       border-radius: 100%;
+       position: absolute;
+       background: #BB540213;;
+       right: -200px;
+       left: -200px;
+       top: -200px;
+       content: '';
+       bottom: 0;
+       z-index: -100;
+     }
+     #content {
+       margin: 0 auto;
+       margin-bottom: 6%;
+     }
+     #header-container {
+       background-color: #BB540213;;
+       margin: 0;
+       padding-left: 10%;
+       padding-right: 8%;
+     }
+     #header-container * {
+       margin: 0;
+     }
+     #header-container header {
+       max-width: 1200px;
+       margin: 0 auto;
+     }
+     #page-content {
+       max-width: 1200px;
+       margin: 2% auto;
+       margin-bottom: 72px;
+       width: 82vw;
+       border-radius: 13px;
+       background-color: white;
+       box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+       padding: 3% 5%;
+       box-sizing: border-box;
+     }
+     .parent {
+       display: flex;
+       justify-content: space-between;
+     }
+     #steps-container {
+       width: 82vw;
+       margin: 0 auto;
+       max-width: 1200px;
+     }
+     #steps-container > .parent {
+       margin-bottom: 72px;
+     }
+     .step-text {
+       width: 50%;
+     }
+     .onion-url-container {
+       background-color: #EA69031a;;
+       display: inline-block;
+       padding: 1%;
+       border-radius: 10px;
+       padding-right: 8px;
+     }
+     .onion-url-container:hover {
+       background-color: #EA690340;;
+
+       /* The .button:hover rule underlines the whitespace in the url container, we don't want that */
+       text-decoration: none !important;
+     }
+     .onion-url-container:hover span {
+       text-decoration: underline;
+     }
+     .onion-url-container:active {
+       background-color: #EA690366;;
+     }
+     .onion-url-container p {
+       color: #BB5402ff;;
+       display: inline;
+     }
+     .button {
+       background-color: #EA6903ff;;
+       padding: 0 24px 16px 24px;
+       border-radius: 100px;
+       box-shadow: 2px 4px #EA690333;;
+       font-family: NotoSansSemibold;
+       height: 40px;
+       width: max-content;
+       color: white;
+       display: inline-block;
+     }
+     .button:hover {
+       background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #EA6903ff;;
+     }
+     .button:active {
+       background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #EA6903ff;;
+     }
+     .button a {
+       color: white;
+     }
+     a:hover {
+       text-decoration: underline;
+     }
+     a.button:hover {
+       text-decoration: none;
+     }
+     .onion-glyph-download {
+       height: 20px;
+       width: 20px;
+       padding: 10px;
+       padding-top: 5px;
+       transform: translateY(11px);
+       filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
+       background-size: contain;
+       display: inline-block;
+       background: url(../onion-glyph.svg?h=5a504140);
+       background-size: 24px;
+       background-repeat: no-repeat;
+       background-position: center;
+     }
+     .onion-url-lock {
+       transform: translateY(4px);
+       filter: invert(50%) sepia(11%) saturate(2426%) hue-rotate(326deg) brightness(97%) contrast(103%);
+       display: inline-block;
+       background-image: url(../onion-site-lock.svg?h=b66d07d8);
+       width: 32px;
+       height: 32px;
+       background-repeat: no-repeat;
+       background-size: contain;
+     }
+     #support-footer {
+       width: 100%;
+       background-color: white;
+       box-shadow: 0 0 30px #0000001a;
+       padding-top: 5%;
+       padding-bottom: 5%;
+     }
+     .chevron-down {
+       background-image: url(../chevron-down-solid.svg?h=0eb05d49);
+       width: 20px;
+       height: 20px;
+       background-repeat: no-repeat;
+       float: right;
+     }
+     summary.no-marker {
+       list-style: none;
+     }
+     details[open] > summary > i.chevron-down {
+       transform: rotate(180deg);
+     }
+     details.collapsible-text > summary {
+       font-weight: bold;
+       background-color: rgba(0, 0, 0, 0.03);
+       padding: 2%;
+       border-radius: 5px;
+       font-size: 1em;
+       border: 1px solid rgba(0, 0, 0, 0.05);
+     }
+     details[open].collapsible-text > summary {
+       border-radius: 5px 5px 0 0;
+     }
+     details.collapsible-text {
+       border-radius: 5px;
+       border: 1px solid rgba(0, 0, 0, 0.05);
+     }
+     details.collapsible-text > summary:hover {
+       background-color: rgba(0, 0, 0, 0.09);
+       cursor: pointer;
+     }
+     details.collapsible-text > summary:active {
+       background-color: rgba(0, 0, 0, 0.15);
+     }
+     details.collapsible-text > div.details-container {
+       padding: 0 5%;
+       color: rgba(0, 0, 0, 0.54);
+     }
+     .onion-url-desktop {
+       display: none !important;
+       font-size: 1em;
+     }
+     .onion-url-desktop, .onion-url-mobile {
+       font-weight: bold;
+       font-size: 16px;
+       padding: 2%;
+       padding-right: 24px;
+     }
+     .social-button {
+       margin-top: 2%; margin-bottom: 5%; display: inline; margin-right: 2%;
+     }
+     #footer-container {
+       margin: 0 auto;
+       text-align: center;
+       width: 36vw;
+       max-width: 1200px;
+     }
+     #steps-container > div.parent:nth-child(2n) {
+       flex-direction: row-reverse;
+     }
+     #footer-container > img:first-child {
+       width: 175px;
+       height: 175px;
+     }
+     .details-container li {
+       font-size: 18px;
+     }
+     .details-container h3 {
+       font-weight: bold;
+     }
+     .child.step-text h2 {
+       margin-bottom: 16px;
+     }
+     .child.step-text details {
+       margin-top: 32px;
+     }
+     .circle-bg {
+       display: inline-block;
+       width: 275px;
+       height: 275px;
+       position: absolute;
+       background-color: #EA69031a;;
+       z-index: -1;
+       border-radius: 100%;
+     }
+     #site-intro {
+       display: inline-block;
+       margin-top: 2%;
+     }
+     .onion-glyph-download.rtl-show {
+       display: none;
+     }
+     .social-button img.rtl-show {
+       display: none;
+     }
+     .onion-url-desktop span {
+       display: inline-block;
+       transform: translateY(-7px);
+     }
+     #download-tor-button {
+       margin-top: 2%;
+       margin-bottom: 5%;
+     }
+     #os-span-data {
+       display: none !important;
+     }
+     #language-select:hover #language-dropdown {
+       display: block;
+     }
+     #language-dropdown {
+       overflow: auto;
+       max-height: 70vh;
+     }
+     #site-logo > img {
+       height: 66px;
+       padding-top: 20px;
+     }
+     .dropdown-item:hover {
+       background-color: #EA690340;;
+     }
+
+     /* tablet */
+     /* some of these rules aren't overriden on mobile, so they affect mobile too*/
+     @media (max-width: 999px) {
+       .button {
+         height: 32px;
+         padding-bottom: 24px;
+       }
+       .child > img {
+         width: 275px;
+       }
+       h1 {
+         font-size: 2em;
+       }
+       h2 {
+         font-size: 1.5em;
+       }
+       #footer-container {
+         width: 90vw;
+       }
+       #steps-container {
+         width: 90vw;
+       }
+       #nav-list {
+         display: none;
+       }
+       #nav-list-mobile {
+         margin-bottom: 0;
+         margin-top: 0;
+         padding: 3% 0 3% 0 !important;
+         justify-content: space-around;
+         background-color: #EA690326;;
+         display: block;
+       }
+       #nav-list > li, #nav-list-mobile > li  {
+         margin: 0;
+         padding: 0;
+       }
+       #nav-list > li > a, #nav-list-mobile > li > a {
+         padding-top: 0 !important;
+         padding-bottom: 0 !important;
+         line-height: initial !important;
+       }
+       #language-select {
+         position: absolute;
+         top: 0;
+         right: 0;
+         margin-top: 1.5% !important;
+         margin-right: 26px;
+       }
+       #language-select-button {
+         height: 48px;
+         padding-left: 20px;
+         padding-right: 24px;
+         padding-bottom: 0;
+       }
+       #language-select-text {
+           padding-top: 15px;
+       }
+       #nav-list li a, #nav-list-mobile li a {
+         color: #BB5402ff;;
+         font-weight: bolder;
+       }
+       h1 {
+         font-size: 32px;
+       }
+       h2 {
+         font-size: 28px;
+       }
+       h3 {
+         font-size: 18px;
+       }
+       p {
+         font-size: 16px;
+       }
+       .button {
+         font-size: 14px;
+       }
+       .social-button:first-child {
+         margin-right: 16px !important;
+       }
+       #social-button-container {
+         justify-content: center !important;
+       }
+       #header-container {
+         padding-top: 7%;
+         padding-bottom: 5%;
+       }
+       .details-container li {
+         font-size: 16px;
+       }
+       #site-logo > img {
+         padding-top: 10px;
+         padding-bottom: 10px;
+       }
+     }
+
+     /* desktop */
+     @media (min-width: 1000px) {
+       .onion-url-desktop {
+         display: inline-block !important;
+       }
+       .onion-url-mobile {
+         display: none !important;
+       }
+       .circle-bg {
+         width: 400px;
+         height: 400px;
+       }
+       #nav-list {
+         margin-top: 0;
+         padding-top: 0;
+         display: flex !important;
+       }
+       #nav-list-mobile {
+         display: none;
+       }
+       #site-logo > img {
+         height: 96px;
+       }
+     }
+
+     /* mobile */
+     @media(max-width: 650px) {
+       #download-tor-button {
+         text-align: center;
+       }
+       div.onion-url {
+         text-align: center;
+         padding-top: 16px;
+         padding-bottom: 16px;
+       }
+       #site-intro {
+         width: unset !important;
+         padding-top: 15% !important;
+       }
+       #steps-container > div.parent {
+         flex-direction: column-reverse !important;
+       }
+       .step-text {
+         width: 100%;
+       }
+       .social-button {
+         display: block;
+       }
+       .social-button:not(last-child) {
+         margin-bottom: 2%;
+       }
+       #social-button-container {
+         flex-direction: column;
+       }
+       #header-image {
+         display: none !important;
+       }
+       #header-container {
+         display: block;
+       }
+       #header-container > div.child:first-child {
+         display: block !important;
+         width: 90vw;
+         margin: 0 auto !important;
+         padding-top: 2%;
+       }
+       #page-content {
+         width: 90vw;
+       }
+       #language-dropdown {
+         width: 90vw;
+         padding: 15% 15% 15% 15%;
+       }
+       #language-select {
+         margin-top: 3.5% !important;
+       }
+       #language-select-button {
+         height: 40px;
+       }
+       #language-select-text {
+         padding-top: 12px !important;
+       }
+       /* center step images for mobile */
+       #steps-container div.child > img {
+         display: block;
+         margin: 0 auto;
+       }
+       .circle-bg {
+         left: 0;
+         right: 0;
+         margin: 0 auto;
+       }
+       .details-container li {
+         font-size: 14px;
+       }
+       p {
+         font-size: 14px;
+       }
+       summary {
+         font-size: 0.8em !important;
+       }
+       #site-logo > img {
+         padding-top: 10px;
+         padding-bottom: 10px;
+       }
+       #nav-list-mobile {
+         padding: 5% 0 5% 0 !important;
+       }
+     }
+
+     .social-button img {
+       height: 20px;
+       width: 20px;
+       padding: 10px;
+       padding-top: 10px;
+       padding-top: 10px;
+       padding-top: 5px;
+       transform: translateY(13px);
+       filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(246deg) brightness(105%) contrast(101%);
+       background-size: contain;
+       display: inline-block;
+     }
+     #social-button-container {
+       display: flex;
+       justify-content: space-around;
+     }
+
+     #language-select {
+       margin-top: 1%;
+       border: none;
+     }
+     #language-select i.chevron-down {
+       filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(258deg) brightness(104%) contrast(102%);
+       width: 19px;
+       margin-right: 2px;
+     }
+     #language-dropdown {
+       background-color: white;
+       position: absolute;
+       box-sizing: border-box;
+       right: 2%;
+       display: none;
+       border-radius: 15px;
+       z-index: 1;
+       box-shadow: 0 0 20px 0 rgba(0,0,0, .2);
+     }
+     .dropdown-item {
+       display: block;
+       text-decoration: none;
+       color: black;
+       padding-left: 24px;
+       padding-right: 24px;
+     }
+     .dropdown-item:not(:first-child) {
+       padding-top: 10px;
+     }
+     .dropdown-item:first-child {
+       padding-top: 24px;
+     }
+     .dropdown-item:not(:last-child) {
+       padding-bottom: 10px;
+     }
+     .dropdown-item:last-child {
+       padding-bottom: 24px;
+     }
+     #language-select-button {
+       border: none;
+       width: 100px;
+     }
+     #language-select-text {
+       padding-top: 17px;
+     }
+
+     #site-description {
+       margin-top: 2%;
+       margin-bottom: 2%;
+     }
+     #page-content h2 {
+       margin-top: 0;
+     }
+
+     .onion-url-desktop .onion-url-span-uncopied {
+       display: none;
+     }
+     .onion-url-desktop .onion-url-span-copied {
+       display: none;
+       margin-top: 15px !important;
+     }
+
+     .onion-url-mobile {
+       width: max-content;
+     }
+     .onion-url-mobile .onion-url-span-uncopied {
+       display: none;
+       transform: translateY(-7px);
+     }
+     .onion-url-mobile .onion-url-span-copied {
+       display: none;
+       margin-top: 7px;
+     }
+
+     .consent-banner {
+       display: none;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       padding: 1em;
+       position: fixed;
+       background-color: #EA6903ff;;
+     }
+    </style>
+    
+  </head>
+  <body >
+    
+  <div id="os-span-data">
+    <span id="ios-browser-name">洋葱浏览器</span>
+    
+      <span data-os-name="ipad">iOS 用户</span>
+    
+      <span data-os-name="iphone">iOS 用户</span>
+    
+      <span data-os-name="linux">Linux 用户</span>
+    
+      <span data-os-name="x11">Linux 用户</span>
+    
+      <span data-os-name="mac">Mac OS 用户</span>
+    
+      <span data-os-name="windows">Windows 用户</span>
+    
+  </div>
+
+    <div id="site-header">
+  <div id="navigation-container">
+    <div id="site-logo">
+      <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
+    </div>
+    <ul id="nav-list">
+      <li><a href="#step1">下载</a></li>
+      <li><a href="#step2">连接</a></li>
+      <li><a href="#step3">访问</a></li>
+      <li><a href="#support-footer">支持</a></li>
+    </ul>
+    
+    <div id="language-select" onmouseleave="hideLanguageSelect()">
+      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+        <div id="language-select-text">简体中文<i class="chevron-down"></i></div>
+      </div>
+      <div id="language-dropdown">
+        
+        
+
+        
+          <a href="../" class="dropdown-item">English (en)</a>
+        
+          <a href="../am/" class="dropdown-item">አማርኛ (am)</a>
+        
+          <a href="../ar/" class="dropdown-item">(ar) عربية</a>
+        
+          <a href="../az/" class="dropdown-item">Azərbaycan dili (az)</a>
+        
+          <a href="../ba/" class="dropdown-item">Башҡортса (ba)</a>
+        
+          <a href="../be/" class="dropdown-item">беларуская мова (be)</a>
+        
+          <a href="../bg/" class="dropdown-item">български (bg)</a>
+        
+          <a href="../bn/" class="dropdown-item">বাংলা ভাষা  (bn)</a>
+        
+          <a href="../bo/" class="dropdown-item">ལྷ་སའི་སྐད་ (bo)</a>
+        
+          <a href="../bs/" class="dropdown-item">bosanski (bs)</a>
+        
+          <a href="../ce/" class="dropdown-item">Нохчийн мотт (ce)</a>
+        
+          <a href="../ckb/" class="dropdown-item">(ckb) سۆرانی</a>
+        
+          <a href="../crh/" class="dropdown-item">къырымтатар тили (crh)</a>
+        
+          <a href="../fa/" class="dropdown-item">(fa) فارسي</a>
+        
+          <a href="../fa-AF/" class="dropdown-item">(fa-AF) دری</a>
+        
+          <a href="../fr/" class="dropdown-item">Français</a>
+        
+          <a href="../ha/" class="dropdown-item">Hausa (ha)</a>
+        
+          <a href="../ht/" class="dropdown-item">kreyòl (ht)</a>
+        
+          <a href="../hu/" class="dropdown-item">Magyar nyelv (hu)</a>
+        
+          <a href="../hy/" class="dropdown-item">հայերեն (hy)</a>
+        
+          <a href="../id/" class="dropdown-item">Indonesia (id)</a>
+        
+          <a href="../ka/" class="dropdown-item">ქართული ენა (ka)</a>
+        
+          <a href="../kk/" class="dropdown-item">Kazakh (kk)</a>
+        
+          <a href="../km/" class="dropdown-item">ភាសាខ្មែរ (km)</a>
+        
+          <a href="../kmr/" class="dropdown-item">(kmr) کورمانجی</a>
+        
+          <a href="../ko/" class="dropdown-item">한국어 (ko)</a>
+        
+          <a href="../ky/" class="dropdown-item">Кыргыз тили (ky)</a>
+        
+          <a href="../ln/" class="dropdown-item">Lingála (ln)</a>
+        
+          <a href="../lo/" class="dropdown-item">ພາສາລາວ (lo)</a>
+        
+          <a href="../mk/" class="dropdown-item">македонски (mk)</a>
+        
+          <a href="../my/" class="dropdown-item">မြန်မာဘာသာ (my)</a>
+        
+          <a href="../nd/" class="dropdown-item">isiNdebele (nd)</a>
+        
+          <a href="../ps/" class="dropdown-item">(ps) پښتو</a>
+        
+          <a href="../pt-PT/" class="dropdown-item">Português</a>
+        
+          <a href="../rn/" class="dropdown-item">Ikirundi (rn)</a>
+        
+          <a href="../ro/" class="dropdown-item">Română (ro)</a>
+        
+          <a href="../ru/" class="dropdown-item">Русский (ru)</a>
+        
+          <a href="../rw/" class="dropdown-item">Kinyarwanda (rw)</a>
+        
+          <a href="../sg/" class="dropdown-item">sängö (sg)</a>
+        
+          <a href="../sh/" class="dropdown-item">ChiShona (sh)</a>
+        
+          <a href="../so/" class="dropdown-item">Soomaali (so)</a>
+        
+          <a href="../sq/" class="dropdown-item">shqip (sq)</a>
+        
+          <a href="../sw/" class="dropdown-item">Kiswahili (sw)</a>
+        
+          <a href="../tg/" class="dropdown-item">Тоҷикӣ (tg)</a>
+        
+          <a href="../th/" class="dropdown-item">ภาษาไทย (th)</a>
+        
+          <a href="../ti/" class="dropdown-item">ትግርኛ (ti)</a>
+        
+          <a href="../tk/" class="dropdown-item">türkmençe (tk)</a>
+        
+          <a href="../tr/" class="dropdown-item">Türkçe (tr)</a>
+        
+          <a href="../tt/" class="dropdown-item">татар (tt)</a>
+        
+          <a href="../ug/" class="dropdown-item">(ug) ئۇيغۇر</a>
+        
+          <a href="../uk/" class="dropdown-item">українська (uk)</a>
+        
+          <a href="../ur/" class="dropdown-item">(ur) اُردُو</a>
+        
+          <a href="../uz/" class="dropdown-item">Oʻzbekcha (uz)</a>
+        
+          <a href="../vi/" class="dropdown-item">Tiếng Việt (vi)</a>
+        
+          <a href="../wo/" class="dropdown-item">Wolof (wo)</a>
+        
+          <a href="./" class="dropdown-item">简体中文 (zh-CN)</a>
+        
+          <a href="../zh-TW/" class="dropdown-item">正體字 (zh-TW)</a>
+        
+      </div>
+    </div>
+    
+  </div>
+  <ul id="nav-list-mobile">
+    <li><a href="#step1">下载</a></li>
+    <li><a href="#step2">连接</a></li>
+    <li><a href="#step3">访问</a></li>
+    <li><a href="#support-footer">支持</a></li>
+  </ul>
+</div>
+    <div id="content">
+      <div id="header-container">
+        <header class="parent">
+          <div class="child" id="site-intro">
+            <h1>Tips for Bypassing Blocking of VotVot</h1>
+            <div id="site-description">
+              <p>无法访问 <a href="https://votvot.tv">votvot.tv</a>?
+本页详细介绍了如何规避审查制度。</p>
+
+            </div>
+            <div class="onion-url"><a href="https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-desktop onion-url-container" data-urlbg="#EA6903ff">
+    <i class="onion-url-lock"></i>
+    <span class="onion-url-span">https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion</span>
+    <span class="onion-url-span-uncopied">复制洋葱地址</span>
+    <span class="onion-url-span-copied">已复制！</span>
+  </a>
+  <a href="https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-mobile onion-url-container" data-urlbg="#EA6903ff">
+    <i class="onion-url-lock"></i>
+    <span class="onion-url-span">访问 [Service Name] .onion 网站</span>
+    <span class="onion-url-span-uncopied">复制洋葱地址</span>
+    <span class="onion-url-span-copied">已复制！</span>
+  </a>
+</div>
+          </div>
+          <div class="child">
+            <img src="../header-tor.png?h=14e4d965" id="header-image">
+          </div>
+        </header>
+      </div>
+      <div class="shape"></div>
+      <div id="page-content">
+        <h2>利用 Tor 规避审查制度</h2>
+        <p>Tor 提供了一种匿名浏览互联网的方式，帮助人们<strong>规避审查和监视</strong>。Tor 浏览器就像您使用的任何其他浏览器--Chrome，Firefox，Safari，Yandex--只是它不会将你的所有浏览行为暴露给您的互联网服务提供商和其他窥探你流量的人，而是通过加密您的流量并让它通过三个随机的志愿者运行的节点（这些节点也被称为 "中继"）来<strong>隐藏您的流量</strong>。这个过程混淆了您是谁，您在哪里，以及您要去哪里（即您正在访问的网站）。</p>
+
+        <p>世界各地的人权捍卫者、活动家和需要<strong>规避审查和监视</strong>的人都在使用 Tor。要了解更多关于 Tor 以及它如何运行的信息，请访问 [Tor 浏览器手册]（<a href="https://tb-manual.torproject.org）。">https://tb-manual.torproject.org）。</a></p>
+
+      </div>
+      <div id="steps-container">
+        <div id="step1" class="parent">
+  <div class="child step-text">
+    <h2>步骤 1：下载 Tor 浏览器</h2>
+    <p>要获取 Tor 浏览器，最安全且简便的方式就是从 Tor 项目官网下载。
+<span id="os-span">对于您的操作系统</span>，您可以从以下链接下载 <span id="browser-span">Tor 浏览器</span>。</p>
+
+    
+      <div id="download-tor-button">
+  <a href="https://www.torproject.org/download/" class="button"><i class="onion-glyph-download rtl-hide"></i>下载 Tor 浏览器<i class="onion-glyph-download rtl-show"></i></a>
+</div>
+    
+    
+      <details class="collapsible-text">
+        <summary class="no-marker">在下载 Tor 浏览器时遇到了问题？<i class="chevron-down"></i></summary>
+        <div class="details-container">
+          <p>在某些情况下您可能无法成功访问 Tor 项目的官方网站：例如您所在的网络会屏蔽该网站。
+如果您遭遇到类似情况的话，可以利用下列几种不同的方式获取 Tor 浏览器。</p>
+<h3>镜像</h3>
+<p>您可以尝试在其中一个官方镜像中下载 Tor 浏览器，或者通过：</p>
+<ul>
+<li><a href="https://tor.eff.org/">https://tor.eff.org/</a></li>
+<li><a href="http://tor.calyxinstitute.org/">http://tor.calyxinstitute.org/</a></li>
+</ul>
+<h3>GetTor</h3>
+<p>如果连镜像网站都被屏蔽了，您可以要求从 GetTor 获取 Tor 浏览器。
+GetTor 是一项能自动回复带有最新版本 Tor 浏览器链接的信息的服务，这些链接托管在不同地点，如 Dropbox、Google Drive 和 GitHub：</p>
+<ul>
+<li><p><strong>第1步</strong>：发送电子邮件到 gettor@torproject.org，并在邮件正文中写上“windows”、“osx”或“linux”，（不带引号）以上内容取决于根据你的操作系统。你也可以添加一个语言代码，以便获取非英语语言的 Tor 浏览器。例如，要获得在中文（中国）系统语言的 Windows 系统上下载 Tor 浏览器的链接，请发送电子邮件到 gettor@torproject.org ，并在其中写上“windows zh_CN”。</p>
+</li>
+<li><p><strong>第2步</strong>：GetTor将回复一封电子邮件，其中包含您可以从中下载 Tor 浏览器安装包的链接、加密签名（验证下载所需）、用于进行签名的密钥的指纹以及安装包的校验和。您可能会被要求选择 "32位 "或 "64位 "软件：这取决于您使用的电脑型号。</p>
+</li>
+</ul>
+<p>您还可以通过以下镜像访问文件和其他资源：</p>
+<ul>
+<li><a href="https://support.tor.invidious.site/">Tor 支持门户</a></li>
+<li><a href="https://tb-manual.tor.invidious.site/">Tor 浏览器手册</a></li>
+<li><a href="https://blog.tor.invidious.site/">Tor Project 博客</a></li>
+<li><a href="https://tor.invidious.site/">Tor 主页</a></li>
+</ul>
+
+        </div>
+      </details>
+    
+  </div>
+  <div class="child">
+    <div class="circle-bg"></div>
+    <img src="../download-tor.png?h=b9322ba0">
+  </div>
+</div>
+
+<div id="step2" class="parent">
+  <div class="child step-text">
+    <h2></h2>
+    <h2>第2步：连接到Tor</h2>
+<p>当您首次运行 Tor 浏览器时，您会看到连接到Tor网络窗口。
+这向您提供直接连接至 Tor 网络，或为您的连接配置 Tor 浏览器的选项。
+这个窗口中有复选框，可以让您选择是否在每次启动时自动连接 Tor 网络。</p>
+<p>理论上来说，当 Tor 浏览器启动后您应该可以直接开始浏览网页，若是首次启动的话只需要再点击“连接”按钮即可开始上网。</p>
+
+    
+    
+      <details class="collapsible-text">
+        <summary class="no-marker">在连接到 Tor 时遇到了问题？<i class="chevron-down"></i></summary>
+        <div class="details-container">
+          <p>您的互联网服务提供商或政府有时可能会阻止直接访问 Tor 网络。
+Tor 浏览器内置一些绕过这些封锁的规避工具。
+在这种情况下，只需将浏览器配置为通过网桥连接就足够了。
+网桥只是难以被屏蔽的私有中继。</p>
+<h3>关于如何激活桌面版网桥的说明：</h3>
+<p>你可以在 Tor 浏览器的桌面上使用一个网桥，方法是：设置 &gt; 连接 &gt; 网桥 &gt; 选择内置网桥。
+截至2021年12月22日，直接捆绑在 Tor 浏览器中的网桥在俄罗斯被屏蔽。</p>
+<p>因此，读者需要通过以下之一的途径来申请网桥：</p>
+<ul>
+<li>从桌面上的 Tor 浏览器中请求一个网桥：设置 &gt; 连接 &gt; 网桥 &gt; 从 torproject.org 请求一个网桥 &gt; 解开验证码</li>
+<li>发送“/bridges”到专门的 Telegram 频道<a href="https://t.me/GetBridgesBot">@GetBridgesBot</a>，然后在 Tor 浏览器中通过复制和粘贴手动添加收到的网桥地址。设置 &gt; 连接 &gt; 网桥 &gt; 输入一个你已经知道的网桥地址</li>
+<li>请访问 <a href="https://bridges.torproject.org/，并按照指示操作">https://bridges.torproject.org/，并按照指示操作</a></li>
+<li>通过电子邮件申请网桥：bridges@torproject.org 从 Gmail 或 Riseup 电子邮箱地址；然后通过复制和粘贴在Tor浏览器中手动添加收到的网桥地址。设置 &gt; 连接 &gt; 网桥 &gt; 输入一个您已经知道的网桥地址</li>
+<li>从 Tor 浏览器内通过 Snowflake 连接：设置 &gt; 连接 &gt; 网桥 &gt; 选择一个内置网桥 &gt; Snowflake</li>
+</ul>
+<h3>有关 Android 用户如何激活网桥的说明：</h3>
+<p>读者可以在 Android 上使用网桥，方法如下：设置图标 &gt; 配置网桥 &gt; 使用网桥。</p>
+<p>在内置于 Tor 浏览器中的网桥被屏蔽的情况下，读者需要通过以下方式之一申请网桥：</p>
+<ul>
+<li>发送“/bridges”到专门的 Telegram 频道<a href="https://t.me/GetBridgesBot">@GetBridgesBot</a>，然后在 Tor 浏览器中通过复制和粘贴手动添加收到的网桥地址：配置网桥 &gt;提供一个我已经知道的网桥地址</li>
+<li>请访问 <a href="https://bridges.torproject.org/，并按照指示操作">https://bridges.torproject.org/，并按照指示操作</a></li>
+<li>通过电子邮件申请网桥：bridges@torproject.org 从 Gmail 或 Riseup 电子邮箱地址；然后通过复制和粘贴在 Tor 浏览器中手动添加收到的网桥地址。配置网桥 &gt; 提供一个我已经知道的网桥地址</li>
+<li>从 Tor 浏览器内通过 Snowflake 连接：配置网桥 &gt; Snowflake</li>
+</ul>
+<h3>有关 iOS 用户如何激活网桥的说明：</h3>
+<p>读者可以在 iOS 上使用网桥，方法如下：浏览网站时显示的洋葱图标 &gt; 网桥配置。</p>
+<p>在内置于 Tor 浏览器中的网桥被屏蔽的情况下，你可以通过以下方式之一申请网桥：</p>
+<ul>
+<li>发送“/bridges”到专门的 Telegram 频道<a href="https://t.me/GetBridgesBot">@GetBridgesBot</a>，然后在 Tor 浏览器中通过复制和粘贴手动添加收到的网桥地址：网桥配置 &gt; 自定义网桥</li>
+<li>请访问 <a href="https://bridges.torproject.org/，并按照指示操作">https://bridges.torproject.org/，并按照指示操作</a></li>
+<li>通过电子邮件申请网桥：bridges@torproject.org 从 Gmail 或 Riseup 电子邮箱地址；然后通过复制和粘贴在Tor浏览器中手动添加收到的网桥地址。网桥配置 &gt; 自定义网桥</li>
+<li>从 Tor 浏览器内通过 Snowflake 连接：网桥配置 &gt; Snowflake</li>
+</ul>
+
+        </div>
+      </details>
+    
+  </div>
+  <div class="child">
+    <div class="circle-bg"></div>
+    <img src="../connect-tor.png?h=550e4b7e">
+  </div>
+</div>
+
+<div id="step3" class="parent">
+  <div class="child step-text">
+    <h2></h2>
+    <h2>第3步：访问洋葱服务</h2>
+<p>洋葱服务（旧称“隐身服务”）是一种只能透过 Tor 网络访问（像网站）的服务。
+就像任何其他网站一样，你需要知道洋葱服务的网址，以便连接到它。
+洋葱地址是一个主要由 56 位随机字母和数字组成的字符串，并以".onion"结尾。
+要了解有关洋葱服务的更多信息，请访问 [Tor 浏览器手册]（<a href="https://tb-manual.torproject.org/onion-services）。">https://tb-manual.torproject.org/onion-services）。</a></p>
+<p>To access VotVot's onion service, simply copy and paste the following URL onto Tor Browser:</p>
+
+    
+      <div class="onion-url"><a href="https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-desktop onion-url-container" data-urlbg="#EA6903ff">
+    <i class="onion-url-lock"></i>
+    <span class="onion-url-span">https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion</span>
+    <span class="onion-url-span-uncopied">复制洋葱地址</span>
+    <span class="onion-url-span-copied">已复制！</span>
+  </a>
+  <a href="https://votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-mobile onion-url-container" data-urlbg="#EA6903ff">
+    <i class="onion-url-lock"></i>
+    <span class="onion-url-span">访问 [Service Name] .onion 网站</span>
+    <span class="onion-url-span-uncopied">复制洋葱地址</span>
+    <span class="onion-url-span-copied">已复制！</span>
+  </a>
+</div>
+    
+    
+  </div>
+  <div class="child">
+    <div class="circle-bg"></div>
+    <img src="../onion-services.png?h=4bae6936">
+  </div>
+</div>
+      </div>
+    </div>
+    <footer id="support-footer">
+  <div id="footer-container">
+    <img src="../support-tor.png?h=ef2d9d24">
+    <h2>需要帮助？</h2>
+    <p>如果您需要与 Tor 有关的任何帮助，您可以在 Telegram 上找到 Tor 帮助频道。与此同时还设有一个专门的活跃论坛，任何人都可以在那里提问、反馈或关注。</p>
+    <div id="social-button-container">
+      <div class="social-button">
+        <a href="https://t.me/TorProjectSupportBot" class="button"><img src="../telegram-brands.svg?h=fb54983f" class="rtl-hide">Telegram: @TorProjectSupportBot<img src="../telegram-brands.svg?h=fb54983f" class="rtl-show"></a>
+      </div>
+      <div class="social-button">
+        <a href="https://signal.me/#p/+17787431312" class="button"><img src="../signal.svg?h=e6cdd02a" class="rtl-hide">Signal: +1 778-743-1312<img src="../signal.svg?h=e6cdd02a" class="rtl-show"></a>
+      </div>
+      </div>
+      <div class="social-button">
+        <a href="https://forum.torproject.net/" class="button"><img src="../discourse-brands.svg?h=3587ce10" class="rtl-hide">Tor Project 论坛<img src="../discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
+      </div>
+      <div class="social-button">
+        <a href="mailto:frontdesk@torproject.org" class="button"><img src="../mail.svg?h=63bb0054" class="rtl-hide">frontdesk@torproject.org<img src="../mail.svg?h=63bb0054" class="rtl-show"></a>
+      </div>
+    </div>
+</footer>
+
+    
+  </body>
+</html>

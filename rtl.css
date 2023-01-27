@@ -1,0 +1,37 @@
+@font-face {
+    font-family: NotoKufiArabic;
+    src: url(./fonts/NotoKufiArabic/NotoKufiArabic-Regular.ttf);
+}
+@font-face {
+    font-family: NotoSansArabic;
+    src: url(./fonts/NotoSansArabic/NotoSansArabic-Regular.ttf);
+}
+
+body {
+    font-family: NotoSansArabic;
+}
+
+h1, h2 {
+    font-family: NotoKufiArabic;
+}
+
+.chevron-down {
+    float: left;
+}
+
+@media (max-width: 999px) {
+    #language-select {
+        right: unset;
+        left: 0;
+    }
+}
+
+#language-dropdown {
+    right: unset !important;
+    left: 2%;
+}
+
+.onion-url-desktop, .onion-url-mobile {
+    padding: 2%;
+    padding-left: 24px;
+}
