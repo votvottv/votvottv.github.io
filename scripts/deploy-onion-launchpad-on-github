@@ -13,6 +13,11 @@ from pathlib import Path
 from github import Github
 from github.GithubException import UnknownObjectException, GithubException
 
+from git import Repo, Remote, RemoteProgress, GitCommandError
+
+# Parameters
+basepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir) + os.sep
+
 # Defaults
 defaults = {
     'import_url'          : 'https://gitlab.torproject.org/tpo/onion-services/onion-launchpad.git',
@@ -183,6 +188,37 @@ class OnionLaunchpadGithubDeployer():
             self.log("Setting variable {}...".format(key))
             self.repository.create_secret(key, value)
 
+    def populate(self):
+        """Populate the repository with the Onion Launchpad codebase"""
+
+        # This is hardcoded for now
+        base_url = 'git@github.com:'
+        refspec  = 'main:main'
+
+        self.log('Setting up repository remote...')
+
+        organization_path = self.config.get('main', 'organization_path')
+        repository_path   = self.config.get('main', 'repository_path')
+        remote_name       = organization_path + '_' + repository_path
+        remote_url        = base_url + organization_path + '/' + repository_path + '.git'
+        self.repo         = Repo(basepath)
+
+        try:
+            self.remote = self.repo.create_remote(remote_name, remote_url)
+
+        except GitCommandError as e:
+            # Maybe the remote already exists
+            self.remote = Remote(self.repo, remote_name)
+
+            assert self.remote.exists()
+
+            self.remote.set_url(remote_url)
+
+        assert self.remote.exists()
+
+        self.log('Populating remote repository...')
+        self.remote.push(refspec=refspec)
+
     def launch(self):
         """Launch!"""
 
@@ -190,6 +226,7 @@ class OnionLaunchpadGithubDeployer():
             self.manage_organization()
             self.create_repository()
             self.set_secrets()
+            self.populate()
 
         except Exception as e:
             self.log(e, 'error')
