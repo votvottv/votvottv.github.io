@@ -255,6 +255,18 @@ class OnionLaunchpadGithubDeployer():
 
         response = requests.put(url, data=json.dumps(data), headers=headers)
 
+    def build(self):
+        """Build Onion Launchpad"""
+
+        # This is hardcoded for now
+        ref           = 'main'
+        workflow_name = 'GitHub Pages' # This is defined at ../.github/gh-pages.yml
+
+        for workflow in self.repository.get_workflows():
+            if workflow.name == workflow_name:
+                self.log('Triggering a page build...')
+                workflow.create_dispatch(ref)
+
     def launch(self):
         """Launch!"""
 
@@ -264,6 +276,7 @@ class OnionLaunchpadGithubDeployer():
             self.set_secrets()
             self.populate()
             self.configure_pages()
+            self.build()
 
         except Exception as e:
             self.log(e, 'error')
