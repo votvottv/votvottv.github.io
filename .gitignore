@@ -88,3 +88,6 @@ venv
 
 # Custom assets
 assets/custom
+
+# GitHub access configuration
+.pygithub.cfg

@@ -1,0 +1,22 @@
+#
+# Sample configuration for GitHub deployments using PyGithub.
+#
+
+# See https://pygithub.readthedocs.io/en/latest/github.html
+[github]
+login_or_token = login-or-token
+
+# Optional endpoint parameters
+#password       = PASSWORD
+#base_url       = https://api.github.com
+
+# Optional client parameters
+timeout         = 15
+user_agent      = 'PyGithub/Python'
+per_page        = 30
+verify          = True
+
+# Optional connection parameters
+# See https://requests.readthedocs.io/en/latest/api/#requests.adapters.HTTPAdapter
+retry          = 10
+#pool_size     = 10 # Needs a newer PyGithub
