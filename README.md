@@ -441,6 +441,10 @@ The analytics functionality is controlled by these environment variables:
   browser feature detection, otherwise enforces `disableBrowserFeatureDetection`.
   You might want to turn this on if your Matomo backend is too
   old, since [disabling of browser detection was implemented only recently][].
+* `LEKTOR_ANALYTICS_PRIVACY_POLICY_URL`: an URL for the privacy policy, as per
+  [best practices on analytics gathering][].
+* `LEKTOR_ANALYTICS_BACKGROUND_COLOR`: the background color for the [consent UX][],
+  in hexadecimal format (`ffffff`).
 
 Check Matomo's [JavaScript Tracking Client][] documentation for details.
 
@@ -450,3 +454,4 @@ Check Matomo's [JavaScript Tracking Client][] documentation for details.
 [even if it's considered deprecated]: https://developer.mozilla.org/en-US/docs/Web/API/navigator/doNotTrack
 [JavaScript Tracking Client]: https://developer.matomo.org/api-reference/tracking-javascript
 [disabling of browser detection was implemented only recently]: https://github.com/matomo-org/matomo/pull/18599
+[best practices on analytics gathering]: https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/
