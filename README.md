@@ -278,7 +278,7 @@ procedure on GitHub.
 #### Installation
 
 0. Setup a GitHub account for the deployments.
-1. [Setup GitHub access token][] for this account.
+1. [Setup GitHub access token][] for this account with the `repo` and `admin:org` scopes..
 2. Install [PyGithub][] (the Debian package is [pygithub][]) and [GitPython][]
    ([python3-git][] Debian package).
 3. Create a `~/.pygithub.cfg` file. Use the the provided [.pygithub.cfg.sample][] as example.
