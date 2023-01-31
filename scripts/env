@@ -36,6 +36,13 @@ export LEKTOR_ANALYTICS_SITE_ID="${LEKTOR_ANALYTICS_SITE_ID:-}"
 export LEKTOR_ANALYTICS_LINK_TRACKING="${LEKTOR_ANALYTICS_LINK_TRACKING:-}"
 export LEKTOR_ANALYTICS_BROWSER_DETECTION="${LEKTOR_ANALYTICS_BROWSER_DETECTION:-}"
 
+# Set safe directory
+# See https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/issues/74
+if [ "$ONION_LAUNCHPAD_SET_SAFE_DIRECTORY" == "1" ]; then
+  echo "Ensuring $(pwd) is listed as a Git safe directory..."
+  git config --global --add safe.directory "$(pwd)"
+fi
+
 # Include the lego repository
 if [ ! -d "lego" ]; then
   git clone --depth 1 https://gitlab.torproject.org/tpo/web/lego.git lego || exit 1
