@@ -117,7 +117,7 @@ class OnionLaunchpadGitlabDeployer():
                 'description'            : self.config.get('main', 'project_description', fallback=defaults['project_description']),
                 'builds_access_level'    : 'enabled',
                 'repository_access_level': 'enabled',
-                'visibility'             : 'public',
+                'visibility'             : 'private',
                 'pages_access_level'     : 'public',
                 'public_builds'          : False,
                 }
@@ -130,18 +130,21 @@ class OnionLaunchpadGitlabDeployer():
                 if result.namespace['path'] == self.config.get('main', 'group_path') and result.path == project_path:
                     self.project = self.gl.projects.get(result.id)
 
-                    self.log("Project {} exists.".format(project_name))
+                    self.log("Project {} exists, updating...".format(project_name))
 
-                    # Not supported on python-gitlab from Debian Bullseye
-                    #self.log("Project {} exists, updating...".format(project_name))
-                    #
-                    #for item in params:
-                    #    self.project[item] = params[item]
-
-                    # Alternative
-                    #self.project.update(new_data=params)
+                    for item in params:
+                        setattr(self.project, item, params[item])
 
                     self.project.save()
+
+                    # Try to set group visibility after setting project visibility
+                    try:
+                        self.group.visibility = 'private'
+                        self.group.save()
+
+                    except:
+                        self.log('Could not change group visibility to private. ' + \
+                                 'It may happen that this group have other public repositories', 'error')
 
                     return
 
@@ -243,11 +246,14 @@ class OnionLaunchpadGitlabDeployer():
         trigger  = self.get_or_create_trigger()
         pipeline = self.project.trigger_pipeline('main', trigger.token, variables={})
 
-        while pipeline.finished_at is None:
-            pipeline.refresh()
-            time.sleep(10)
-            self.log('Pipeline still running...')
+        # Wait for the pipeline to run and then remove the trigger
+        #while pipeline.finished_at is None:
+        #    pipeline.refresh()
+        #    time.sleep(10)
+        #    self.log('Pipeline still running...')
 
+        # Sleep a little while and then remove the trigger
+        time.sleep(2)
         trigger.delete()
 
     def launch(self):
