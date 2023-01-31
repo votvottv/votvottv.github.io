@@ -642,6 +642,12 @@
      #consent-ok {
        margin-right: 20px;
      }
+
+     #consent-cancel {
+       background-color: inherit;
+       box-shadow: inherit;
+       color: {{ theme_color('FOREGROUND_COLOR') }};
+     }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
     <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
