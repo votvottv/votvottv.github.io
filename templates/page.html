@@ -625,7 +625,28 @@
        bottom: 0;
        padding: 1em;
        position: fixed;
-       background-color: {{ theme_color('BACKGROUND_COLOR') }};
+       background-color: {{ theme_color('ANALYTICS_BACKGROUND_COLOR') }};
+       margin: 2% auto;
+       width: 92vw;
+       border-radius: 13px;
+     }
+
+     .consent-banner a p {
+       margin-top: 15px;
+     }
+
+     .consent-buttons {
+       float: right;
+     }
+
+     #consent-ok {
+       margin-right: 20px;
+     }
+
+     #consent-cancel {
+       background-color: inherit;
+       box-shadow: inherit;
+       color: {{ theme_color('FOREGROUND_COLOR') }};
      }
     </style>
     {% if this.alt in bag('alternatives', 'rtl') %}
@@ -675,24 +696,28 @@
 
         <ul>
           <li>
-            {{ md(_("Page visits.")) }}
+            {{ md(_("The pages you visit.")) }}
           </li>
 
           {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
           <li>
-            {{ md(_("Download and link activity.")) }}
+            {{ md(_("Which links you click, including download links.")) }}
           </li>
           {% endif %}
 
           {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
           <li>
-            {{ md(_("Browser information.")) }}
+            {{ md(_("Information about the browser you're using.")) }}
           </li>
           {% endif %}
         </ul>
 
-        <a class="button" id="consent-ok">{{ md(_("Yes")) }}</a>
-        <a class="button" id="consent-cancel">{{ md(_("No")) }}</a>
+        {{ md(_("To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our [full privacy policy](" + envvars_localized('ANALYTICS_PRIVACY_POLICY_URL', this.alt) + ")")) }}
+
+        <div class="consent-buttons">
+          <a class="button" id="consent-ok">{{ md(_("Accept")) }}</a>
+          <a class="button" id="consent-cancel">{{ md(_("Decline")) }}</a>
+        </div>
     </div>
 
     <script>
