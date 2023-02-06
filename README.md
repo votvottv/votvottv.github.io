@@ -238,10 +238,12 @@ procedure on GitLab.
 1. [Setup GitLab authentication][] for this account.
 2. Install [python-gitlab](https://python-gitlab.readthedocs.io).
    For Debian, the package is [python3-gitlab](https://tracker.debian.org/pkg/python-gitlab).
-3. [Configure python-gitlab][] by creating a `~/.python-gitlab.cfg` file.
+3. [Configure python-gitlab][] by creating a `~/.python-gitlab.cfg` file. Use the provided
+   [.python-gitlab.cfg.sample][] as example.
 
 [Setup GitLab authentication]: https://docs.gitlab.com/ee/api/#authentication
 [Configure python-gitlab]: https://python-gitlab.readthedocs.io/en/stable/cli-usage.html?highlight=configuration#configuration-files
+[.python-gitlab.cfg.sample]: configs/deploy/.python-gitlab.cfg.sample
 
 #### Configuration
 
