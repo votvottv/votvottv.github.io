@@ -91,3 +91,6 @@ assets/custom
 
 # GitHub access configuration
 .pygithub.cfg
+
+# GitLab access configuration
+.python-gitlab.cfg
