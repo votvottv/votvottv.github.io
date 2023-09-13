@@ -41,7 +41,7 @@ ENTRYPOINT ["scripts/server"]
 # This reduces the image size, but without this folder the container startup
 # will take longer when running in development mode ("lektor server") as the
 # ENTRYPOINT.
-#RUN rm -rf /home/${APP}/.virtualenvs/onion-support-landing-page
+#RUN rm -rf /home/${APP}/.virtualenvs/onion-launchpad
 
 FROM landing AS apache
 
