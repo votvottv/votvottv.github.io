@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(37%) sepia(72%) saturate(7500%) hue-rotate(31deg) brightness(98%) contrast(102%);
+       filter: invert(47%) sepia(34%) saturate(2452%) hue-rotate(19deg) brightness(99%) contrast(101%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -755,7 +755,7 @@
   <div class="child step-text">
     <h2>1-қадам: Tor браузерін жүктеп алыңыз</h2>
     <p>Tor браузерін жүктеп алудың ең қауіпсіз және оңай жолы - Tor Project веб-сайтынан жүктеп алу.
-<span id="os-span">Операциялық жүйеңіз үшін</span> <span id="browser-span">Tor браузерін</span> төмендегі сілтеме бойынша жүктеп ала аласыз:</p>
+<span id="os-span">For your operating system</span>, you can download <span id="browser-span">Tor Browser</span> from the link below:</p>
 
     
       <div id="download-tor-button">
@@ -820,33 +820,33 @@ Tor браузерінде осы бұғаттауларды айналып өт
 Мұндай сценарийлерде браузерді көпір арқылы қосылу үшін жай ғана конфигурациялау жеткілікті.
 Көпірлер — бұл бұғаттауға қиынырақ болатын жеке ретрансляторлар.</p>
 <h3>Жұмыс үстелі үшін көпірлерді белсендіру туралы нұсқаулар:</h3>
-<p>Келе тармаққа өту арқылы жұмыс үстелі үшін Tor браузеріндегі көпірді пайдалана аласыз: Параметрлер &gt; Байланыс &gt; Көпірлер &gt; Кіріктірілген көпірді таңдау.
+<p>You can use a bridge in Tor Browser for desktop by going to: Settings &gt; Connection &gt; Bridges &gt; Select a Built-In Bridge.
 2021 жылдың 22 желтоқсанындағы жағдай бойынша, Ресейде Tor браузеріне тікелей орнатылған көпірлер бұғатталған.</p>
 <p>Сондықтан, оқырмандар көпірді келесі жолдардың бірі арқылы сұрауы керек:</p>
 <ul>
-<li>Жұмыс үстеліндегі Tor браузерінен көпірді сұрау: Параметрлер &gt; Байланыс &gt; Көпірлер &gt; torproject.org сайтынан көпір сұрау &gt; КАПЧА тексеруінен өту </li>
+<li>Requesting a bridge from within Tor Browser on desktop: Settings &gt; Connection &gt; Bridges &gt; Request a bridge from torproject.org &gt; Solve the CAPTCHA</li>
 <li>Telegram арнасына <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> «/bridges» пәрменін жіберу және содан кейін Tor браузерінде көшіріп қою арқылы қолмен алынған көпір мекенжайын қосу: Параметрлер &gt; Байланыс &gt; Көпірлер &gt; Өзіңіз білетін көпір мекенжайын енгізіңіз</li>
 <li><a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> бетіне өтіп, нұсқаулықтарды орындаңыз</li>
 <li>Эл. пошта арқылы көпір сұрау: bridges@torproject.org (Gmail немесе Riseup эл. пошта мекенжайы арқылы); содан кейін Tor браузерінде көшіріп қою арқылы қолмен алынған көпір мекенжайын қосыңыз: Параметрлер &gt; Байланыс &gt; Көпірлер &gt; Білетін көпір мекенжайын енгізіңіз</li>
-<li>Tor браузерінен Snowflake арқылы қосылу: Параметрлер &gt; Байланыс &gt; Көпірлер &gt; Кіріктірілген көпірді таңдаңыз &gt; Snowflake</li>
+<li>Connecting through Snowflake from within Tor Browser: Settings &gt; Connection &gt; Bridges &gt; Select a built-in bridge &gt; Snowflake</li>
 </ul>
 <h3>Android үшін көпірлерді іске қосу туралы нұсқаулар:</h3>
 <p>Оқырмандар Android жүйесінде көпірді келесіге өту арқылы пайдалана алады: Параметрлер белгішесі &gt; Көпір конфигурациясы &gt; Көпірді пайдалану.</p>
 <p>Tor браузеріне тікелей біріктірілген көпірлер бұғатталған жағдайда, оқырмандар келесі жолдардың бірімен көпір сұратуы керек:</p>
 <ul>
-<li>Telegram арнасына <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> «/bridges» пәрменін жіберу және содан кейін Tor браузерінде көшіріп қою арқылы қолмен алынған көпір жолдарын қосу: Көпірді конфигурациялау &gt; Мен білетін көпірді ұсыну</li>
+<li>Sending "/bridges" to the dedicated Telegram channel <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> and then adding the bridges lines received manually via copy and paste in Tor Browser: Config Bridge &gt; Provide a bridge I know</li>
 <li><a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> бетіне өтіп, нұсқаулықтарды орындаңыз</li>
-<li>Эл. пошта арқылы көпір сұрау: bridges@torproject.org (Gmail немесе Riseup эл. пошта мекенжайынан); содан кейін Tor браузерінде көшіріп қою арқылы қолмен алынған көпір жолдарын қосыңыз: Көпір конфигурациясы &gt; Мен білетін көпірді ұсыну</li>
-<li>Tor браузерінен Snowflake арқылы қосылу: Көпір конфигурациясы &gt; Snowflake</li>
+<li>Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridges lines received manually via copy and paste in Tor Browser: Config Bridge &gt; Provide a bridge I know</li>
+<li>Connecting through Snowflake from within Tor Browser: Config Bridge &gt; Snowflake</li>
 </ul>
 <h3>iOS жүйесіне арналған көпірлерді белсендіру туралы нұсқаулар:</h3>
 <p>Оқырмандар iOS жүйесінде көпірді келесі тармаққа өту арқылы пайдалана алады: Вебсайтты қарау кезінде пияз белгішесі &gt; Көпір конфигурациясы.</p>
 <p>Tor браузеріне тікелей біріктірілген көпірлер бұғатталған жағдайда, көпірді келесі жолдардың бірімен сұратуға болады:</p>
 <ul>
-<li>Telegram арнасына <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> «/bridges» пәрменін жіберу және содан кейін Tor браузерінде көшіріп қою арқылы қолмен алынған көпір жолдарын қосу: Көпір конфигурациясы &gt; Реттелетін көпірлер</li>
+<li>Sending "/bridges" to the dedicated Telegram channel <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> and then adding the bridges lines received manually via copy and paste in Tor Browser: Bridge Configuration &gt; Custom Bridges</li>
 <li><a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> бетіне өтіп, нұсқаулықтарды орындаңыз</li>
-<li>Эл. пошта арқылы көпір сұрау: bridges@torproject.org (Gmail немесе Riseup эл. пошта мекенжайынан); содан кейін Tor браузерінде көшіріп қою арқылы қолмен алынған көпір жолдарын қосу: Көпір конфигурациясы &gt; Реттелетін көпірлер</li>
-<li>Tor браузерінен Snowflake арқылы қосылу: Көпір конфигурациясы &gt; Snowflake</li>
+<li>Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridges lines received manually via copy and paste in Tor Browser: Bridge Configuration &gt; Custom Bridges</li>
+<li>Connecting through Snowflake from within Tor Browser: Bridge Configuration &gt; Snowflake</li>
 </ul>
 
         </div>
@@ -867,7 +867,7 @@ Tor браузерінде осы бұғаттауларды айналып өт
 Кез-келген басқа веб-сайт сияқты, оған қосылу үшін сіз оnion қызметінің мекенжайын білуіңіз керек.
 Оnion мекенжайы негізінен 56 кездейсоқ әріптер мен сандардан тұратын жол болып табылады, ал оның соңынан «.onion» деп жазылады.
 Onion қызметтері туралы көбірек білу үшін <a href="https://tb-manual.torproject.org/onion-services">Tor браузерінің нұсқаулығы</a> бөліміне өтіңіз.</p>
-<p>VotVot onion қызметіне қол жеткізу үшін, жай ғана келесі URL мекенжайын көшіріп, Tor шолғышына қойыңыз:</p>
+<p>To access VotVot's onion service, simply copy and paste the following URL onto Tor Browser:</p>
 
     
       <div class="onion-url"><a href="https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-desktop onion-url-container" data-urlbg="#EA6903ff">
@@ -908,7 +908,7 @@ Onion қызметтері туралы көбірек білу үшін <a href
       </div>
 
       <div class="social-button">
-        <a href="https://forum.torproject.net/" class="button"><img src="../discourse-brands.svg?h=3587ce10" class="rtl-hide">Tor жобасы форумы<img src="../discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
+        <a href="https://forum.torproject.net/" class="button"><img src="../discourse-brands.svg?h=3587ce10" class="rtl-hide">Tor Project forum<img src="../discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
       </div>
 
       <div class="social-button">

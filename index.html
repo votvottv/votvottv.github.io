@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(37%) sepia(72%) saturate(7500%) hue-rotate(31deg) brightness(98%) contrast(102%);
+       filter: invert(47%) sepia(34%) saturate(2452%) hue-rotate(19deg) brightness(99%) contrast(101%);
        display: inline-block;
        background-image: url(onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -755,7 +755,7 @@
   <div class="child step-text">
     <h2>Шаг 1: Скачать Tor Browser</h2>
     <p>Самый безопасный и простой способ скачать Tor Browser - это с официального сайта Tor Project.
-<span id="os-span">Для вашей операционной системы</span> вы можете скачать <span id="browser-span">Tor Browser</span> по ссылке ниже:</p>
+<span id="os-span">For your operating system</span>, you can download <span id="browser-span">Tor Browser</span> from the link below:</p>
 
     
       <div id="download-tor-button">
@@ -820,33 +820,33 @@ Tor Browser включает в себя инструменты обхода э�
 В таких случаях достаточно настроить браузер для подключения к сети Tor через мост.
 Мосты - это просто ретрансляторы, которые не публикуются в открытом списке узлов Tor, и их труднее заблокировать.</p>
 <h3>Инструкция по настройке мостов для персонального компьютера:</h3>
-<p>В Tor Browser для персонального компьютера мост можно установить в меню Настройки &gt; Подключение &gt; Мосты &gt; Выбрать встроенный мост.
+<p>You can use a bridge in Tor Browser for desktop by going to: Settings &gt; Connection &gt; Bridges &gt; Select a Built-In Bridge.
 По состоянию на 22 декабря 2021 года в России заблокированы встроенные в Tor Browser мосты.</p>
 <p>Поэтому пользователям необходимо получить мост одним из следующих способов:</p>
 <ul>
-<li>Запросить мост из Tor Browser: Настройки &gt; Подключение &gt; Мосты &gt; Запрос моста у torproject.org &gt; ввести CAPTCHA</li>
+<li>Requesting a bridge from within Tor Browser on desktop: Settings &gt; Connection &gt; Bridges &gt; Request a bridge from torproject.org &gt; Solve the CAPTCHA</li>
 <li>Отправить команду "/bridges" в Telegram-бот <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a>; затем копировать полученный адрес моста в Tor Browser: Настройки &gt; Подключение &gt; Мосты &gt; Добавить мост вручную</li>
 <li>Перейти на сайт <a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> и следовать инструкциям</li>
 <li>Запросить мост по электронной почте: bridges@torproject.org с адреса электронной почты Gmail или Riseup; затем копировать адрес моста в Tor Browser: Настройки &gt; Подключение &gt; Мосты &gt; Добавить мост вручную</li>
-<li>Выполнить подключение через Snowflake из браузера Tor: Настройки &gt; Подключение &gt; Мосты &gt; Выбрать встроенный мост &gt; Snowflake</li>
+<li>Connecting through Snowflake from within Tor Browser: Settings &gt; Connection &gt; Bridges &gt; Select a built-in bridge &gt; Snowflake</li>
 </ul>
 <h3>Инструкция по настройке мостов для Android:</h3>
 <p>Включить мост на Android можно через меню: Настройки (значок) &gt; Конфигурация моста &gt; Использовать мост.</p>
 <p>В случае блокировки встроенных в Tor Browser мостов пользователям необходимо получить мост одним из следующих способов:</p>
 <ul>
-<li>Отправить команду "/bridges" в Telegram-бот <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a>; затем копировать полученный адрес моста в Tor Browser: Конфигурация моста &gt; Указать мост</li>
+<li>Sending "/bridges" to the dedicated Telegram channel <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> and then adding the bridges lines received manually via copy and paste in Tor Browser: Config Bridge &gt; Provide a bridge I know</li>
 <li>Перейти на сайт <a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> и следовать инструкциям</li>
-<li>Запросить мост по электронной почте: bridges@torproject.org с адреса электронной почты Gmail или Riseup; затем копировать адрес моста в Tor Browser: Конфигурация моста &gt; Указать мост</li>
-<li>Подключение через Snowflake из Tor Browser: Конфигурация моста &gt; Snowflake</li>
+<li>Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridges lines received manually via copy and paste in Tor Browser: Config Bridge &gt; Provide a bridge I know</li>
+<li>Connecting through Snowflake from within Tor Browser: Config Bridge &gt; Snowflake</li>
 </ul>
 <h3>Инструкция по настройке мостов для iOS:</h3>
 <p>Включить мост на iOS можно через меню: Значок Onion &gt; Конфигурация моста.</p>
 <p>В случае блокировки встроенных в Tor Browser мостов пользователям необходимо получить мост одним из следующих способов:</p>
 <ul>
-<li>Отправить команду "/bridges" в Telegram-бот <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a>; затем копировать полученный адрес моста в Tor Browser: Конфигурация моста &gt; Пользовательские мосты</li>
+<li>Sending "/bridges" to the dedicated Telegram channel <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> and then adding the bridges lines received manually via copy and paste in Tor Browser: Bridge Configuration &gt; Custom Bridges</li>
 <li>Перейти на сайт <a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> и следовать инструкциям</li>
-<li>Запросить мост по электронной почте: bridges@torproject.org с адреса электронной почты Gmail или Riseup; затем копировать адрес моста в Tor Browser: Конфигурация моста &gt; Пользовательские мосты</li>
-<li>Подключение через Snowflake из Tor Browser: Конфигурация моста &gt; Snowflake</li>
+<li>Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridges lines received manually via copy and paste in Tor Browser: Bridge Configuration &gt; Custom Bridges</li>
+<li>Connecting through Snowflake from within Tor Browser: Bridge Configuration &gt; Snowflake</li>
 </ul>
 
         </div>
@@ -867,7 +867,7 @@ Tor Browser включает в себя инструменты обхода э�
 Как и в случае любого другого веб-сайта для подключения к onion-ресурсу необходимо знать его адрес.
 Адрес onion-ресурса - это строка из 56 в основном случайных букв и цифр, за которой следует ".onion".
 Более подробную информацию об Onion-ресурсах можно найти в <a href="https://tb-manual.torproject.org/onion-services">Руководстве пользователя Tor Browser</a>.</p>
-<p>Чтобы получить доступ к onion-ресурсу VotVot, просто скопируйте и вставьте следующий URL-адрес в Tor Browser:</p>
+<p>To access VotVot's onion service, simply copy and paste the following URL onto Tor Browser:</p>
 
     
       <div class="onion-url"><a href="https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-desktop onion-url-container" data-urlbg="#EA6903ff">
@@ -908,7 +908,7 @@ Tor Browser включает в себя инструменты обхода э�
       </div>
 
       <div class="social-button">
-        <a href="https://forum.torproject.net/" class="button"><img src="discourse-brands.svg?h=3587ce10" class="rtl-hide">Форум Tor Project<img src="discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
+        <a href="https://forum.torproject.net/" class="button"><img src="discourse-brands.svg?h=3587ce10" class="rtl-hide">Tor Project forum<img src="discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
       </div>
 
       <div class="social-button">
