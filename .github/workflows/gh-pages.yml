@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 env:
-  TRANSLATION_BRANCH: onion-support-landing-page
+  TRANSLATION_BRANCH: onion-launchpad
   ONION_LAUNCHPAD_SET_SAFE_DIRECTORY: 1
   LEKTOR_FOREGROUND_COLOR: ${{ secrets.LEKTOR_FOREGROUND_COLOR }}
   LEKTOR_BACKGROUND_COLOR: ${{ secrets.LEKTOR_BACKGROUND_COLOR }}
