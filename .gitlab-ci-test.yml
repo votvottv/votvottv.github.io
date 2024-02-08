@@ -5,7 +5,7 @@
 # "General pipelines" section.
 ---
 # Right now we're sticking to Python 3.8 due to dependency issues.
-image: python:3.8-bullseye
+image: python:3.11-bullseye
 
 variables:
   TRANSLATION_BRANCH: onion-launchpad

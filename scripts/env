@@ -9,7 +9,7 @@ DIRNAME="`dirname $0`"
 BASEPATH="$DIRNAME/../"
 #VENV="${VENV:-$BASEPATH/venv}"
 VENV="${VENV:-$HOME/.virtualenvs/onion-launchpad}"
-PYTHON="${PYTHON:-python3.8}"
+PYTHON="${PYTHON:-python3}"
 
 # Environment file support
 if [ -e "$BASEPATH/.env" ]; then
