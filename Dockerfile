@@ -2,7 +2,7 @@
 # Dockerfile for Landing Pages development.
 #
 
-FROM python:3.8-bullseye AS landing
+FROM python:3.11-bullseye AS landing
 MAINTAINER Silvio Rhatto <rhatto@torproject.org>
 
 # Basic project environment
