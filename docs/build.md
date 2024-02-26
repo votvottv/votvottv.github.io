@@ -46,10 +46,13 @@ Also, number of helper scripts are available to aid development, testing and dep
 
 For [GitLab CI/CD][] we provide two configurations:
 
-1. [.gitlab-ci.yml][.gitlab-ci.yml]: the standard CI/CD used when the project
+1. [.gitlab-ci.yml][]: the standard CI/CD used when the project
    is hosted at https://gitlab.torproject.org.
-2. [.gitlab-ci-deployment.yml][.gitlab-ci-deployment.yml]: the CI/CD configuration
+2. [.gitlab-ci-deployment.yml][]: the CI/CD configuration
    when the repository is hosted in other GitLab instances.
+
+[.gitlab-ci.yml]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.gitlab-ci.yml
+[.gitlab-ci-deployment.yml]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.gitlab-ci-deployment.yml
 
 ## Using [Docker][] and [Docker Compose][]
 
@@ -74,7 +77,7 @@ for serving a statically built landing page.
 ## Using [GitLab Runner][]
 
 The [GitLab Runner][] approach is aimed to test the [CI configuration for
-deployment](.gitlab-ci-deployment.yml) directly through a [GitLab Runner][]
+deployment][] directly through a [GitLab Runner][]
 instance locally installed in your computer.
 
 Install [GitLab Runner][] according to the [docs](https://docs.gitlab.com/runner/install/)
@@ -92,6 +95,7 @@ listens on [http://localhost:5000][]:
 
 [GitLab Runner]: https://docs.gitlab.com/runner
 [provision-gitlab-runner]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision-gitlab-runner
+[CI configuration for deployment]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.gitlab-ci-deployment.yml
 
 ## Using [PyEnv][]
 
@@ -130,7 +134,7 @@ required [Python][] version and/or you already have your own [Lektor][]
 workflow.
 
 First install the required [Python][] version, whose exact number can be found
-in the [Dockerfile][] or at the [.gitlab-ci-deployment][] file.
+in the [Dockerfile][] or at the [.gitlab-ci-deployment.yml][] file.
 
 A suggested way is running this command sequence:
 
@@ -161,4 +165,3 @@ Make sure to:
 [Lektor]: https://www.getlektor.com
 [bash]: https://www.gnu.org/software/bash
 [Dockerfile]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/Dockerfile
-[.gitlab-ci-deployment]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.gitlab-ci-deployment.yml
