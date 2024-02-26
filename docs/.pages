@@ -1,0 +1,9 @@
+nav:
+ - Intro: README.md
+ - Installing: install.md
+ - Building: build.md
+ - Customizing: customize.md
+ - Localization: l10n.md
+ - Deploying: deploy.md
+ - Security: security.md
+ - Analytics: analytics.md
