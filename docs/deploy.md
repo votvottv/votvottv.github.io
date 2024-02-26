@@ -34,6 +34,8 @@ Then ajust the settings:
 
     $EDITOR gitlab/$somesite.ini
 
+[Onion Launchpad]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad
+
 ### Deployment
 
 First, manually create a new group on GitLab. Due to [abuse in the automated
