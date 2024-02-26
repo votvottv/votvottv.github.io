@@ -42,5 +42,6 @@ docs:
     - git submodule update --init --recursive --depth 1
     - vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
     - vendors/onion-mkdocs/scripts/onion-mkdocs-build
-  paths:
-    - public
+  artifacts:
+    paths:
+      - public
