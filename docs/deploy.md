@@ -17,7 +17,7 @@ procedure on GitLab.
 
 [Setup GitLab authentication]: https://docs.gitlab.com/ee/api/#authentication
 [Configure python-gitlab]: https://python-gitlab.readthedocs.io/en/stable/cli-usage.html?highlight=configuration#configuration-files
-[.python-gitlab.cfg.sample]: configs/deploy/.python-gitlab.cfg.sample
+[.python-gitlab.cfg.sample]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/configs/deploy/.python-gitlab.cfg.sample
 
 ### Configuration
 
@@ -64,7 +64,7 @@ procedure on GitHub.
 [pygithub]: https://tracker.debian.org/pygithub
 [GitPython]: https://gitpython.readthedocs.io/en/stable/index.html
 [python3-git]: https://tracker.debian.org/python-git
-[.pygithub.cfg.sample]: configs/deploy/.pygithub.cfg.sample
+[.pygithub.cfg.sample]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/configs/deploy/.pygithub.cfg.sample
 
 ### Configuration
 

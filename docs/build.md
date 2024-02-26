@@ -78,7 +78,7 @@ deployment](.gitlab-ci-deployment.yml) directly through a [GitLab Runner][]
 instance locally installed in your computer.
 
 Install [GitLab Runner][] according to the [docs](https://docs.gitlab.com/runner/install/)
-or using the provided [provision-gitlab-runner](scripts/provision-gitlab-runner) script.
+or using the provided [provision-gitlab-runner][] script.
 
 Then proceed running the corresponding build script:
 
@@ -91,19 +91,20 @@ listens on [http://localhost:5000][]:
     scripts/server-public
 
 [GitLab Runner]: https://docs.gitlab.com/runner
+[provision-gitlab-runner]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision-gitlab-runner
 
 ## Using [PyEnv][]
 
 Another approach is to use [PyEnv][] to setup your environment with the required
 [Python][] version needed to build the landing page.
 
-The [provision-pyenv](scripts/provision-pyenv) script has an example in how to
-do that, which should run after the [provision](scripts/provision) script:
+The [provision-pyenv][] script has an example in how to
+do that, which should run after the [provision script][].
 
     scripts/provision
     scripts/provision-pyenv
 
-Then you can simply use the provided [build](scripts/build) script:
+Then you can simply use the provided [build script][]:
 
     scripts/build
 
@@ -118,6 +119,9 @@ folder, but that can be customized with the `$VENV` shell environment variable.
 
 [PyEnv]: https://github.com/pyenv/pyenv
 [virtualenv]: https://docs.python.org/3/library/venv.html
+[provision-pyenv]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision-pyenv
+[provision script]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision
+[build script]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/build
 
 ## Setting up your environment manually
 
@@ -126,8 +130,7 @@ required [Python][] version and/or you already have your own [Lektor][]
 workflow.
 
 First install the required [Python][] version, whose exact number can be found
-in the [Dockerfile](Dockerfile) or at the [.gitlab-ci-deployment](.gitlab-ci-deployment)
-file.
+in the [Dockerfile][] or at the [.gitlab-ci-deployment][] file.
 
 A suggested way is running this command sequence:
 
@@ -157,3 +160,5 @@ Make sure to:
 
 [Lektor]: https://www.getlektor.com
 [bash]: https://www.gnu.org/software/bash
+[Dockerfile]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/Dockerfile
+[.gitlab-ci-deployment]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.gitlab-ci-deployment.yml
