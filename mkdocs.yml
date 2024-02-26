@@ -1,0 +1,21 @@
+#
+# Onion MkDocs configuration
+#
+
+# Inherit the base config
+# See https://github.com/mkdocs/mkdocs/blob/master/docs/user-guide/configuration.md#configuration-inheritance
+#     https://github.com/mkdocs/mkdocs/blob/master/docs/user-guide/configuration.md#alternate-syntax
+INHERIT: vendors/onion-mkdocs/onion-mkdocs.yml
+
+# Folders
+site_dir: public/docs
+
+# Site parameters
+site_name: Onion Launchpad
+repo_url : https://gitlab.torproject.org/tpo/onion-services/onion-launchpad
+site_url : https://tpo.pages.torproject.net/onion-services/onion-launchpad
+edit_uri : ''
+
+plugins:
+  awesome-pages:
+    collapse_single_pages: true
