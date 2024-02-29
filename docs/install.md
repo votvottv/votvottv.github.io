@@ -2,9 +2,12 @@
 
 ## Getting the code
 
-The Onion Launchpad codebase can be obtained by running the following command:
+The Onion Launchpad codebase can be obtained directly from the [repository][]
+by running the following command:
 
     git clone --recursive https://gitlab.torproject.org/tpo/onion-services/onion-launchpad.git
+
+[repository]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad
 
 ## Dependencies
 
