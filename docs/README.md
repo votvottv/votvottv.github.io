@@ -2,7 +2,7 @@
 
 ![](assets/screenshot.png "Onion Launchpad")
 
-Onion Launchpad is a customizable landing page for organizations and
+[Onion Launchpad][] is a customizable landing page for organizations and
 individuals to advertise their onion addresses to their audiences. The landing
 page is easy to navigate and describes to users how to connect to an Onion
 Service.
@@ -18,6 +18,7 @@ It's a statically built website that can be easily deployed.
 * [Localization at Tor](https://gitlab.torproject.org/tpo/community/l10n/-/wikis/Localization-for-developers).
 * [Tor Browser manual](https://tb-manual.torproject.org/).
 
+[Onion Launchpad]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad
 [lego]: https://gitlab.torproject.org/tpo/web/lego
 [localized]: https://hosted.weblate.org/projects/tor/onion-launchpad/
 [Tor Browser]: https://www.torproject.org/download/
