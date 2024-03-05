@@ -1,8 +1,8 @@
 # extra dependencies for lektor-envvars
 
-environs==10.3.0 \
-    --hash=sha256:cc421ddb143fa30183568164755aa113a160e555cd19e97e664c478662032c24 \
-    --hash=sha256:feeaf28f17fd0499f9cd7c0fcf408c6d82c308e69e335eb92d09322fc9ed8138
+environs==11.0.0 \
+    --hash=sha256:069727a8f73d8ba8d033d3cd95c0da231d44f38f1da773bf076cef168d312ee8 \
+    --hash=sha256:e0bcfd41c718c07a7db422f9109e490746450da38793fe4ee197f397b9343435
     # via lektor-envvars
 
 marshmallow==3.21.0 \
