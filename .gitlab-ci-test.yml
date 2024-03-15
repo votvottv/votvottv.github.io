@@ -38,11 +38,11 @@ pages:
 
 docs:
   image: debian:bookworm
-  stage: pages
+  stage: build
   artifacts:
     expire_in: 1 week
   needs:
-    - job: build
+    - job: pages
       artifacts: true
   script:
     - apt-get update

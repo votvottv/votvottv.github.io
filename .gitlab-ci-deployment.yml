@@ -41,7 +41,7 @@ pages:
 
 docs:
   image: debian:bookworm
-  stage: pages
+  stage: build
   artifacts:
     expire_in: 1 week
   needs:
