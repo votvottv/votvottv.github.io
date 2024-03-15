@@ -135,8 +135,8 @@ jobs:
       - name: Provision Docs
         #run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
         run: >
+          vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build && \
           cd vendors/onion-mkdocs && \
-          scripts/onion-mkdocs-provision-build && \
           pipenv install importlib-metadata
 
       - name: Docs
