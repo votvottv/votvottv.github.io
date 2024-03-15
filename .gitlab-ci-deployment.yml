@@ -65,6 +65,10 @@ pages:
   needs:
     - job: docs
       artifacts: true
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - echo "Deploying to GitLab Pages."
   artifacts:
     expire_in: 1 week
     paths:
