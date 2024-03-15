@@ -29,6 +29,7 @@ variables:
   LEKTOR_ANALYTICS_BACKGROUND_COLOR: 'FCEDE1'
 
 pages:
+  stage: build
   script:
     - scripts/provision
     - scripts/build
