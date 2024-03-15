@@ -45,7 +45,7 @@ docs:
   image: debian:bookworm
   stage: build
   needs:
-    - job: pages
+    - job: build
       artifacts: true
   script:
     - apt-get update
