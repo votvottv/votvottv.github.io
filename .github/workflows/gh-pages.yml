@@ -125,11 +125,9 @@ jobs:
         run: scripts/build
 
       - name: Provision Docs
-        run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
-
-      - name: Install python3-importlib-metadata
-        run: |
-          apt-get update && apt-get install -y python3-importlib-metadata
+        run: >
+          vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build && \
+          PIPENV_PIPFILE=vendor/onion-mkdocs/Pipfile pipenv install importlib-metadata
 
       - name: Docs
         run: vendors/onion-mkdocs/scripts/onion-mkdocs-build
