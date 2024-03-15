@@ -124,6 +124,12 @@ jobs:
       - name: Build
         run: scripts/build
 
+      - name: Provision Docs
+        - vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
+
+      - name: Docs
+        - vendors/onion-mkdocs/scripts/onion-mkdocs-build
+
       #
       # GitHub Action: Deploy to GitHub Pages
       # https://github.com/marketplace/actions/deploy-to-github-pages
