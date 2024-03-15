@@ -1,0 +1,21 @@
+:root {
+  --md-primary-fg-color:        #7D4698;
+  --md-primary-fg-color--light: #7D4698;
+  --md-primary-fg-color--dark:  #7D4698;
+}
+
+.wy-menu-vertical li a {
+  color: #fff!important;
+}
+
+.wy-menu-vertical li.current a {
+  color: #000!important;
+}
+
+.wy-nav-content {
+  max-width: 100%;
+}
+
+.wy-side-nav-search {
+  background-color: inherit;
+}
