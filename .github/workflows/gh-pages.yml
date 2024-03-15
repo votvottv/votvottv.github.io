@@ -124,20 +124,8 @@ jobs:
       - name: Build
         run: scripts/build
 
-      # Dependency importlib-metadata was removed for Python >= 3.10, but
-      # somewhow the Python shipped by the python:3.11-bullseye still makes
-      # MkDocs to require it.
-      #
-      # Details at
-      #
-      #   https://github.com/mkdocs/mkdocs/issues/2958
-      #   https://github.com/mkdocs/mkdocs/pull/2959
       - name: Provision Docs
-        #run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
-        run: >
-          vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build && \
-          cd vendors/onion-mkdocs && \
-          pipenv install importlib-metadata
+        run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
 
       - name: Docs
         run: vendors/onion-mkdocs/scripts/onion-mkdocs-build
