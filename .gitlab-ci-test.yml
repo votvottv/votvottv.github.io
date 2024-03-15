@@ -28,20 +28,21 @@ variables:
   LEKTOR_ANALYTICS_PRIVACY_POLICY_URL: ''
   LEKTOR_ANALYTICS_BACKGROUND_COLOR: 'FCEDE1'
 
-pages:
+build:
   stage: build
   script:
     - scripts/provision
     - scripts/build
   artifacts:
+    expire_in: 1 week
     paths:
       - public
+  only:
+    - main
 
 docs:
   image: debian:bookworm
   stage: build
-  artifacts:
-    expire_in: 1 week
   needs:
     - job: pages
       artifacts: true
@@ -53,5 +54,17 @@ docs:
     - vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
     - vendors/onion-mkdocs/scripts/onion-mkdocs-build
   artifacts:
+    expire_in: 1 week
+    paths:
+      - public
+
+pages:
+  stage: build
+  image: debian:bookworm
+  needs:
+    - job: docs
+      artifacts: true
+  artifacts:
+    expire_in: 1 week
     paths:
       - public

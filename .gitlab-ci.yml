@@ -30,8 +30,6 @@ include:
 docs:
   image: debian:bookworm
   stage: build
-  artifacts:
-    expire_in: 1 week
   needs:
     - job: build
       artifacts: true
@@ -43,5 +41,6 @@ docs:
     - vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
     - vendors/onion-mkdocs/scripts/onion-mkdocs-build
   artifacts:
+    expire_in: 1 week
     paths:
       - public
