@@ -125,10 +125,10 @@ jobs:
         run: scripts/build
 
       - name: Provision Docs
-        - vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
+        run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
 
       - name: Docs
-        - vendors/onion-mkdocs/scripts/onion-mkdocs-build
+        run: vendors/onion-mkdocs/scripts/onion-mkdocs-build
 
       #
       # GitHub Action: Deploy to GitHub Pages
