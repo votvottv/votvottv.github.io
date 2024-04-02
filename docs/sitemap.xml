@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/analytics/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/build/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/customize/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/deploy/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/install/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/l10n/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tpo.pages.torproject.net/onion-services/onion-launchpad/security/</loc>
-         <lastmod>2024-04-01</lastmod>
+         <lastmod>2024-04-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
