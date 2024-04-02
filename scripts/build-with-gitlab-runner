@@ -26,7 +26,7 @@ mkdir -p public
 
 # Code to copy the artifact back to the working copy thanks to
 # https://gitlab.com/gitlab-org/gitlab-runner/-/issues/2226#note_396408902
-gitlab-runner exec docker pages \
+gitlab-runner exec docker build \
   --docker-volumes $(pwd)/public:/public \
   --post-build-script "rm -rf /public/* && cp -R public/* /public && chown -R $(id -u):$(id -g) /public"
 
