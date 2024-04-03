@@ -1,5 +1,7 @@
 # Analytics
 
+## Support
+
 Onion Launchpad supports a basic analytics gathering based on [Matomo][]:
 
 1. The feature is *disabled* by default, and enabled only if some environment
@@ -12,13 +14,16 @@ Onion Launchpad supports a basic analytics gathering based on [Matomo][]:
    HTTPS proxy without IP logging (and without passing the source IP to the
    backend, so if there's any backend vulnerability it won't be possible to
    attackers to discover user's IP addresses). ___Or even better: leave the
-   backend behind an Onion Service___.
+   backend behind an Onion Service___, and expose only the frontend proxies
+   through public-accessible IP addresses.
 4. There is also a [consent UX][] informing users what and how it's
    collected, and asking for authorization. No cookies reside in the
    client machine.
 5. The analytics collection is bypassed entirely if the [Do Not Track][]
    configuration is set. Onion Launchpad respects this setting
    [even if it's considered deprecated][].
+
+## Security
 
 It's also worth noting that adversaries could attack the analytics system by:
 
@@ -31,6 +36,8 @@ It's also worth noting that adversaries could attack the analytics system by:
    order to send access data.
 3. DDoS'ing the analytics backend.
 4. Exploiting vulnerabilities in the backend to extract data.
+
+## Setting up
 
 The analytics functionality is controlled by these environment variables:
 
@@ -47,8 +54,8 @@ The analytics functionality is controlled by these environment variables:
   browser feature detection, otherwise enforces `disableBrowserFeatureDetection`.
   You might want to turn this on if your Matomo backend is too
   old, since [disabling of browser detection was implemented only recently][].
-* `LEKTOR_ANALYTICS_PRIVACY_POLICY_URL`: an URL for the privacy policy, as per
-  [best practices on analytics gathering][].
+* `LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT`: the contact information for the
+  privacy policy, as per [best practices on analytics gathering][].
 * `LEKTOR_ANALYTICS_BACKGROUND_COLOR`: the background color for the [consent UX][],
   in hexadecimal format (`ffffff`).
 

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %} | {{ _("Privacy Policy") }}{% endblock %}
+
+{% block content %}
+      <div class="shape"></div>
+      <div id="page-content">
+        <h2>{{ _('Privacy Policy') }}</h2>
+        {{ md(_("We are using Clean Insights to gather simple analytics from this landing page, the purpose of which is to improve the website based on insights gained from visits and usage patterns.")) }}
+        <h3>{{ _("Data collection") }}</h3>
+
+        <ul>
+          <li>{{ _("We collect and aggregate page visit data to count how many people visit this website, and which countries they come from. There's no way for us to tell who you are from this data, we cannot tie your visit one day to another visit you make on a different day.") }}</li>
+
+          <li><emph>{{ _("While Clean Insights does not gather IP addresses, we must note that your IP address may be collected by this website's provider depending on where it's hosted.") }}</emph>
+          </li>
+        </ul>
+
+        <h3>{{ _("Data retention") }}</h3>
+
+        <ul>
+          <li>{{ _("Since the data collected is limited to page visits, we retain this data indefinitely on our servers.") }}
+          </li>
+
+          <li><emph>{{ _("Do note that if this website's provider does indeed collect IP addresses and other personally identifiable data, then this data's retention depends on the hosting provider's data protection policy.") }}</emph>
+          </li>
+        </ul>
+
+        {% if envvars('ANALYTICS_PRIVACY_POLICY_CONTACT') != '' %}
+        <h3>{{ _("Contact") }}</h3>
+
+        <ul>
+          <li>{{ _("If you have any questions with regards to the above, please contact:") }} {{ envvars('ANALYTICS_PRIVACY_POLICY_CONTACT') }}
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+{% endblock %}
