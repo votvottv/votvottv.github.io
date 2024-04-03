@@ -55,11 +55,22 @@ The analytics functionality is controlled by these environment variables:
   You might want to turn this on if your Matomo backend is too
   old, since [disabling of browser detection was implemented only recently][].
 * `LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT`: the contact information for the
-  privacy policy, as per [best practices on analytics gathering][].
+  privacy policy, as per [best practices on analytics gathering][]. It can
+  be an e-mail address or URL.
 * `LEKTOR_ANALYTICS_BACKGROUND_COLOR`: the background color for the [consent UX][],
   in hexadecimal format (`ffffff`).
 
 Check Matomo's [JavaScript Tracking Client][] documentation for details.
+
+## Privacy Policy
+
+Onion Launchpad comes with a [hard-coded Privacy Policy text][] following the
+[best practices on analytics gathering][] and ready to be used with [Clean
+Insights][].
+
+Currently there's no way to customize this policy, and we recommend that
+you use a [Clean Insights][] instance if you plan to collect analytics
+in a way that respects the user's privacy.
 
 [Matomo]: https://matomo.org
 [consent UX]: https://okthanks.com/blog/2021/5/14/clean-consent-ux
@@ -68,3 +79,5 @@ Check Matomo's [JavaScript Tracking Client][] documentation for details.
 [JavaScript Tracking Client]: https://developer.matomo.org/api-reference/tracking-javascript
 [disabling of browser detection was implemented only recently]: https://github.com/matomo-org/matomo/pull/18599
 [best practices on analytics gathering]: https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/
+[hard-coded Privacy Policy text]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/content/policy/contents.lr
+[Clean Insights]: https://cleaninsights.org
