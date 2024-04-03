@@ -3,26 +3,25 @@
 {% block title %} | {{ this.title }}{% endblock %}
 
 {% block content %}
-      <div class="shape"></div>
       <div id="page-content">
         <h2>{{ this.title }}</h2>
 
-        {{ this.intro }}
+        {{ md(this.intro) }}
 
         <h3>{{ this.collection }}</h3>
 
         <ul>
-          <li>{{ this.collection_visits }}</li>
+          <li>{{ md(this.collection_visits) }}</li>
 
-          <li><emph>{{ this.collection_ip }}</emph></li>
+          <li>{{ md(this.collection_ip) }}</li>
         </ul>
 
         <h3>{{ this.retention }}</h3>
 
         <ul>
-          <li>{{ this.retention_period }}</li>
+          <li>{{ md(this.retention_period) }}</li>
 
-          <li><emph>{{ this.retention_ip }}</emph></li>
+          <li>{{ md(this.retention_ip) }}</li>
         </ul>
 
         {% if envvars('ANALYTICS_PRIVACY_POLICY_CONTACT') != '' %}

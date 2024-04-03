@@ -54,9 +54,12 @@
         </div>
         {% endif %}
       </div>
+
+      {% if self.nav_list() %}
       <ul id="nav-list-mobile">
         {{ self.nav_list() }}
       </ul>
+      {% endif %}
     </div>
 
     <div id="content">
