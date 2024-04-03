@@ -1,0 +1,71 @@
+{%- from 'macros/helpers.jinja2' import os_names, theme_color -%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ envvars_localized('SERVICE_NAME', this.alt) }}{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="onion-location" content="{{ envvars('ONION_URL') }}">
+    <script src="{{ '/main.js' | asseturl }}"></script>
+    <link rel="stylesheet" href="{{ 'fonts.css' | asseturl }}">
+    <link rel="icon" href="{{ envvars('FAVICON') | asseturl }}">
+    {% include 'macros/style.html' %}
+    {% if this.alt in bag('alternatives', 'rtl') %}
+    <link rel="stylesheet" href="{{ 'rtl.css' | asseturl }}">
+    {% endif %}
+  </head>
+  <body {% if this.alt in bag('alternatives', 'rtl') %}dir="RTL"{% endif %}>
+    {{ os_names({
+    'ipad': 'iOS',
+    'iphone': 'iOS',
+    'linux': 'Linux',
+    'x11': 'Linux',
+    'mac': 'Mac OS',
+    'windows': 'Windows'
+    }) }}
+
+    <div id="site-header">
+      <div id="navigation-container">
+        <div id="site-logo">
+          {#- attempt to use a localized logo, fallback to the default if a localized logo doesn't exist #}
+          {%- set logo_path = envvars('LOGO_PATH') %}
+          {%- set localized_logo_path = logo_path|replace('_en.', '_' + this.alt + '.')|trim('/')|asseturl %}
+          <img src="{{ localized_logo_path or logo_path|asseturl }}" alt="{{ envvars_localized('SERVICE_NAME', this.alt) }}" title="{{ envvars_localized('SERVICE_NAME', this.alt) }}">
+        </div>
+        <ul id="nav-list">
+          {% block nav_list %}{% endblock %}
+        </ul>
+        {% if site.config.list_alternatives()|length > 1 %}
+        <div id="language-select" onmouseleave="hideLanguageSelect()">
+          <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+            <div id="language-select-text">{{ site.config.get_alternative(this.alt).name.en.strip('(' + this.alt + ')').strip() }}<i class="chevron-down"></i></div>
+          </div>
+          <div id="language-dropdown">
+            {% if envvars('AVAILABLE_LANGUAGES').strip() != '' %}
+              {%- set available_langs = envvars('AVAILABLE_LANGUAGES').strip().split(' ') %}
+            {% else %}
+              {%- set available_langs = site.config.iter_alternatives() %}
+            {% endif %}
+
+            {% for alt in available_langs %}
+              <a href="{{ '.'|url(alt=alt) }}" class="dropdown-item">{{ site.config.get_alternative(alt).name.en }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if self.nav_list() %}
+      <ul id="nav-list-mobile">
+        {{ self.nav_list() }}
+      </ul>
+      {% endif %}
+    </div>
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+    {% include 'macros/footer.html' %}
+    {% block footer %}{% endblock %}
+  </body>
+</html>
