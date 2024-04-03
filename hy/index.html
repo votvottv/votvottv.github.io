@@ -8,7 +8,7 @@
     <script src="../main.js?h=8d0955fd"></script>
     <link rel="stylesheet" href="../fonts.css?h=dc7b7e35">
     <link rel="icon" href="">
-    <style>
+        <style>
      body {
        background-color: #fcfdfb;
        font-family: NotoSans;
@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(73%) saturate(7500%) hue-rotate(28deg) brightness(104%) contrast(103%);
+       filter: invert(40%) sepia(27%) saturate(2424%) hue-rotate(3deg) brightness(105%) contrast(95%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -677,43 +677,53 @@
     
   </div>
 
+
     <div id="site-header">
-  <div id="navigation-container">
-    <div id="site-logo">
-      <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
-    </div>
-    <ul id="nav-list">
+      <div id="navigation-container">
+        <div id="site-logo">
+          <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
+        </div>
+        <ul id="nav-list">
+          
       <li><a href="#step1">Ներբեռնել</a></li>
       <li><a href="#step2">Միացնել</a></li>
       <li><a href="#step3">Հասանելիություն</a></li>
       <li><a href="#support-footer">Աջակցություն</a></li>
-    </ul>
-    
-    <div id="language-select" onmouseleave="hideLanguageSelect()">
-      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
-        <div id="language-select-text">հայերեն<i class="chevron-down"></i></div>
-      </div>
-      <div id="language-dropdown">
-        
-        
 
+        </ul>
         
-          <a href="../en/" class="dropdown-item">English (en)</a>
-        
-          <a href="../" class="dropdown-item">Русский (ru)</a>
+        <div id="language-select" onmouseleave="hideLanguageSelect()">
+          <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+            <div id="language-select-text">հայերեն<i class="chevron-down"></i></div>
+          </div>
+          <div id="language-dropdown">
+            
+            
+
+            
+              <a href="../en/" class="dropdown-item">English (en)</a>
+            
+              <a href="../" class="dropdown-item">Русский (ru)</a>
+            
+          </div>
+        </div>
         
       </div>
+
+      
+      <ul id="nav-list-mobile">
+        
+      <li><a href="#step1">Ներբեռնել</a></li>
+      <li><a href="#step2">Միացնել</a></li>
+      <li><a href="#step3">Հասանելիություն</a></li>
+      <li><a href="#support-footer">Աջակցություն</a></li>
+
+      </ul>
+      
     </div>
-    
-  </div>
-  <ul id="nav-list-mobile">
-    <li><a href="#step1">Ներբեռնել</a></li>
-    <li><a href="#step2">Միացնել</a></li>
-    <li><a href="#step3">Հասանելիություն</a></li>
-    <li><a href="#support-footer">Աջակցություն</a></li>
-  </ul>
-</div>
+
     <div id="content">
+      
       <div id="header-container">
         <header class="parent">
           <div class="child" id="site-intro">
@@ -742,7 +752,9 @@
           </div>
         </header>
       </div>
+
       <div class="shape"></div>
+
       <div id="page-content">
         <h2>Շրջանցել ցենզուրան Tor-ի միջոցով</h2>
         <p>Tor-ը հնարավորություն է ընձեռնում համացանցում անոնիմ կերպով տեղաշարժվելու, օգնելով մարդկանց <strong>խուսափել թե՛ գրաքննությունից, թե՛ գաղտնալսվելուց</strong>։ Tor-ը նման է ցանկացած այլ բրաուզերի, ինչպիսիք են՝ Chrome-ը, Firefox-ը, Safari-ն կամ Yandex-ը, մեկ տարբերությամբ՝ այն թաքցնում է ձեր օնլայն անցուդարձը և համանցից օգտվելու նախասիրությունները կապի օպերատորներից և ցանկացած այլ անձանցից, ովքեր կփորձեն հետևել ձեզ ինտերնետում։ Այն <strong>գաղտնի է պահում ձեր տվյալների հոսքը</strong>, ծածկագրելով և անցկացնելով այն երեք պատահական ընտրված, կամավորների կողմից ղեկավարվող nod-երով (այս nod-երը կոչվում են նաև relay-ներ՝ հաղորդիչներ)։ Տվյալ պրոցեսը խճճում և թաքցնում է ձեր ինքնությունը, գտնվելու վայրը և շարժը (օրինակ՝ ինչ կայքեր եք դուք այցելում)։</p>
@@ -750,6 +762,7 @@
         <p>Մարդու իրավունքի պաշտպանները, ակտիվիստները և այլոք, ում անհրաժեշտ է <strong>խուսափել գրաքննությունից կամ գաղտնալսումից</strong>, օգտվում են Tor-ից։ Tor-ի մասին ավելի մանրամասն տեղեկատվություն կգտնեք այստեղ՝ <a href="https://tb-manual.torproject.org">Tor Browser Manual</a>:</p>
 
       </div>
+
       <div id="steps-container">
         <div id="step1" class="parent">
   <div class="child step-text">
@@ -892,6 +905,7 @@ Onion ծառայությունների մասին ավելին իմանալու 
   </div>
 </div>
       </div>
+
     </div>
     <footer id="support-footer">
   <div id="footer-container">
@@ -921,7 +935,8 @@ Onion ծառայությունների մասին ավելին իմանալու 
     </div>
   </div>
 </footer>
-
     
+        
+
   </body>
 </html>

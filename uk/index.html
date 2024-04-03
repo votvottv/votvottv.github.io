@@ -8,7 +8,7 @@
     <script src="../main.js?h=8d0955fd"></script>
     <link rel="stylesheet" href="../fonts.css?h=dc7b7e35">
     <link rel="icon" href="">
-    <style>
+        <style>
      body {
        background-color: #fcfdfb;
        font-family: NotoSans;
@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(73%) saturate(7500%) hue-rotate(28deg) brightness(104%) contrast(103%);
+       filter: invert(40%) sepia(27%) saturate(2424%) hue-rotate(3deg) brightness(105%) contrast(95%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -677,43 +677,53 @@
     
   </div>
 
+
     <div id="site-header">
-  <div id="navigation-container">
-    <div id="site-logo">
-      <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
-    </div>
-    <ul id="nav-list">
+      <div id="navigation-container">
+        <div id="site-logo">
+          <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
+        </div>
+        <ul id="nav-list">
+          
       <li><a href="#step1">Завантажити</a></li>
       <li><a href="#step2">Зʼєднатися</a></li>
       <li><a href="#step3">Доступ</a></li>
       <li><a href="#support-footer">Підтримка</a></li>
-    </ul>
-    
-    <div id="language-select" onmouseleave="hideLanguageSelect()">
-      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
-        <div id="language-select-text">українська<i class="chevron-down"></i></div>
-      </div>
-      <div id="language-dropdown">
-        
-        
 
+        </ul>
         
-          <a href="../en/" class="dropdown-item">English (en)</a>
-        
-          <a href="../" class="dropdown-item">Русский (ru)</a>
+        <div id="language-select" onmouseleave="hideLanguageSelect()">
+          <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+            <div id="language-select-text">українська<i class="chevron-down"></i></div>
+          </div>
+          <div id="language-dropdown">
+            
+            
+
+            
+              <a href="../en/" class="dropdown-item">English (en)</a>
+            
+              <a href="../" class="dropdown-item">Русский (ru)</a>
+            
+          </div>
+        </div>
         
       </div>
+
+      
+      <ul id="nav-list-mobile">
+        
+      <li><a href="#step1">Завантажити</a></li>
+      <li><a href="#step2">Зʼєднатися</a></li>
+      <li><a href="#step3">Доступ</a></li>
+      <li><a href="#support-footer">Підтримка</a></li>
+
+      </ul>
+      
     </div>
-    
-  </div>
-  <ul id="nav-list-mobile">
-    <li><a href="#step1">Завантажити</a></li>
-    <li><a href="#step2">Зʼєднатися</a></li>
-    <li><a href="#step3">Доступ</a></li>
-    <li><a href="#support-footer">Підтримка</a></li>
-  </ul>
-</div>
+
     <div id="content">
+      
       <div id="header-container">
         <header class="parent">
           <div class="child" id="site-intro">
@@ -742,7 +752,9 @@
           </div>
         </header>
       </div>
+
       <div class="shape"></div>
+
       <div id="page-content">
         <h2>Обхід цензури з Tor</h2>
         <p>Tor надає спосіб анонімного перегляду інтернету, допомагаючи людям <strong>уникати як цензури, так і стеження</strong>. Вебоглядач Tor такий же, як і будь-який інший вебоглядач, який ви використовуєте, – Chrome, Firefox, Safari, Yandex – за винятком того, що замість розкриття даних про перегляд інтернету вашому провайдеру інтернету та всім іншим, хто стежить за вашим трафіком, він <strong>приховує ваш трафік</strong> шляхом його шифрування та перенаправляє його через три випадкові вузли, якими керують добровольці (ці вузли також називаються «ретранслятори»). Цей процес приховує, хто ви, де ви перебуваєте і куди заходите (тобто який вебсайт відвідуєте).</p>
@@ -750,6 +762,7 @@
         <p>Tor використовують правозахисники, активісти та люди з усього світу, яким потрібно <strong>уникнути цензури та спостереження</strong>. Щоб дізнатися більше про Tor і як він працює, відвідайте <a href="https://tb-manual.torproject.org">Посібник оглядача Tor</a>.</p>
 
       </div>
+
       <div id="steps-container">
         <div id="step1" class="parent">
   <div class="child step-text">
@@ -892,6 +905,7 @@ GetTor — це сервіс, який автоматично відповіда
   </div>
 </div>
       </div>
+
     </div>
     <footer id="support-footer">
   <div id="footer-container">
@@ -921,7 +935,8 @@ GetTor — це сервіс, який автоматично відповіда
     </div>
   </div>
 </footer>
-
     
+        
+
   </body>
 </html>

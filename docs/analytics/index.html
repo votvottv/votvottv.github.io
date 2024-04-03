@@ -400,6 +400,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -409,6 +420,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy Policy
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -434,6 +500,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Privacy Policy
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -448,6 +558,7 @@
 
 
 <h1 id="analytics">Analytics<a class="headerlink" href="#analytics" title="Permanent link">&para;</a></h1>
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
 <p>Onion Launchpad supports a basic analytics gathering based on <a href="https://matomo.org">Matomo</a>:</p>
 <ol>
 <li>The feature is <em>disabled</em> by default, and enabled only if some environment
@@ -460,7 +571,8 @@
    HTTPS proxy without IP logging (and without passing the source IP to the
    backend, so if there's any backend vulnerability it won't be possible to
    attackers to discover user's IP addresses). <strong><em>Or even better: leave the
-   backend behind an Onion Service</em></strong>.</li>
+   backend behind an Onion Service</em></strong>, and expose only the frontend proxies
+   through public-accessible IP addresses.</li>
 <li>There is also a <a href="https://okthanks.com/blog/2021/5/14/clean-consent-ux">consent UX</a> informing users what and how it's
    collected, and asking for authorization. No cookies reside in the
    client machine.</li>
@@ -468,6 +580,7 @@
    configuration is set. Onion Launchpad respects this setting
    <a href="https://developer.mozilla.org/en-US/docs/Web/API/navigator/doNotTrack">even if it's considered deprecated</a>.</li>
 </ol>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
 <p>It's also worth noting that adversaries could attack the analytics system by:</p>
 <ol>
 <li>Intercepting DNS Queries in the form of <code>myanalytics.example.org</code> that may
@@ -482,6 +595,7 @@
 <li>DDoS'ing the analytics backend.</li>
 <li>Exploiting vulnerabilities in the backend to extract data.</li>
 </ol>
+<h2 id="setting-up">Setting up<a class="headerlink" href="#setting-up" title="Permanent link">&para;</a></h2>
 <p>The analytics functionality is controlled by these environment variables:</p>
 <ul>
 <li><code>LEKTOR_ANALYTICS</code>: when set to <code>1</code>, enables the analytics collection.</li>
@@ -497,12 +611,20 @@
   browser feature detection, otherwise enforces <code>disableBrowserFeatureDetection</code>.
   You might want to turn this on if your Matomo backend is too
   old, since <a href="https://github.com/matomo-org/matomo/pull/18599">disabling of browser detection was implemented only recently</a>.</li>
-<li><code>LEKTOR_ANALYTICS_PRIVACY_POLICY_URL</code>: an URL for the privacy policy, as per
-  <a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>.</li>
+<li><code>LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT</code>: the contact information for the
+  privacy policy, as per <a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>. It can
+  be an e-mail address or URL.</li>
 <li><code>LEKTOR_ANALYTICS_BACKGROUND_COLOR</code>: the background color for the <a href="https://okthanks.com/blog/2021/5/14/clean-consent-ux">consent UX</a>,
   in hexadecimal format (<code>ffffff</code>).</li>
 </ul>
 <p>Check Matomo's <a href="https://developer.matomo.org/api-reference/tracking-javascript">JavaScript Tracking Client</a> documentation for details.</p>
+<h2 id="privacy-policy">Privacy Policy<a class="headerlink" href="#privacy-policy" title="Permanent link">&para;</a></h2>
+<p>Onion Launchpad comes with a <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/content/policy/contents.lr">hard-coded Privacy Policy text</a> following the
+<a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a> and ready to be used with <a href="https://cleaninsights.org">Clean
+Insights</a>.</p>
+<p>Currently there's no way to customize this policy, and we recommend that
+you use a <a href="https://cleaninsights.org">Clean Insights</a> instance if you plan to collect analytics
+in a way that respects the user's privacy.</p>
 
 
 

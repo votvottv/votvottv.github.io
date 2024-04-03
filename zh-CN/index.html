@@ -8,7 +8,7 @@
     <script src="../main.js?h=8d0955fd"></script>
     <link rel="stylesheet" href="../fonts.css?h=dc7b7e35">
     <link rel="icon" href="">
-    <style>
+        <style>
      body {
        background-color: #fcfdfb;
        font-family: NotoSans;
@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(73%) saturate(7500%) hue-rotate(28deg) brightness(104%) contrast(103%);
+       filter: invert(40%) sepia(27%) saturate(2424%) hue-rotate(3deg) brightness(105%) contrast(95%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -677,43 +677,53 @@
     
   </div>
 
+
     <div id="site-header">
-  <div id="navigation-container">
-    <div id="site-logo">
-      <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
-    </div>
-    <ul id="nav-list">
+      <div id="navigation-container">
+        <div id="site-logo">
+          <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
+        </div>
+        <ul id="nav-list">
+          
       <li><a href="#step1">下载</a></li>
       <li><a href="#step2">连接</a></li>
       <li><a href="#step3">访问</a></li>
       <li><a href="#support-footer">支持</a></li>
-    </ul>
-    
-    <div id="language-select" onmouseleave="hideLanguageSelect()">
-      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
-        <div id="language-select-text">简体中文<i class="chevron-down"></i></div>
-      </div>
-      <div id="language-dropdown">
-        
-        
 
+        </ul>
         
-          <a href="../en/" class="dropdown-item">English (en)</a>
-        
-          <a href="../" class="dropdown-item">Русский (ru)</a>
+        <div id="language-select" onmouseleave="hideLanguageSelect()">
+          <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+            <div id="language-select-text">简体中文<i class="chevron-down"></i></div>
+          </div>
+          <div id="language-dropdown">
+            
+            
+
+            
+              <a href="../en/" class="dropdown-item">English (en)</a>
+            
+              <a href="../" class="dropdown-item">Русский (ru)</a>
+            
+          </div>
+        </div>
         
       </div>
+
+      
+      <ul id="nav-list-mobile">
+        
+      <li><a href="#step1">下载</a></li>
+      <li><a href="#step2">连接</a></li>
+      <li><a href="#step3">访问</a></li>
+      <li><a href="#support-footer">支持</a></li>
+
+      </ul>
+      
     </div>
-    
-  </div>
-  <ul id="nav-list-mobile">
-    <li><a href="#step1">下载</a></li>
-    <li><a href="#step2">连接</a></li>
-    <li><a href="#step3">访问</a></li>
-    <li><a href="#support-footer">支持</a></li>
-  </ul>
-</div>
+
     <div id="content">
+      
       <div id="header-container">
         <header class="parent">
           <div class="child" id="site-intro">
@@ -742,7 +752,9 @@
           </div>
         </header>
       </div>
+
       <div class="shape"></div>
+
       <div id="page-content">
         <h2>利用 Tor 规避审查制度</h2>
         <p>Tor 提供了一种匿名浏览互联网的方式，帮助人们<strong>规避审查和监视</strong>。Tor 浏览器就像您使用的任何其他浏览器--Chrome，Firefox，Safari，Yandex--只是它不会将你的所有浏览行为暴露给您的互联网服务提供商和其他窥探你流量的人，而是通过加密您的流量并让它通过三个随机的志愿者运行的节点（这些节点也被称为 "中继"）来<strong>隐藏您的流量</strong>。这个过程混淆了您是谁，您在哪里，以及您要去哪里（即您正在访问的网站）。</p>
@@ -750,6 +762,7 @@
         <p>世界各地的人权捍卫者、活动家和需要<strong>规避审查和监视</strong>的人都在使用 Tor。要了解更多关于 Tor 以及它如何运行的信息，请访问 <a href="https://tb-manual.torproject.org">Tor 浏览器手册</a>。</p>
 
       </div>
+
       <div id="steps-container">
         <div id="step1" class="parent">
   <div class="child step-text">
@@ -892,6 +905,7 @@ Tor 浏览器内置一些绕过这些封锁的规避工具。
   </div>
 </div>
       </div>
+
     </div>
     <footer id="support-footer">
   <div id="footer-container">
@@ -921,7 +935,8 @@ Tor 浏览器内置一些绕过这些封锁的规避工具。
     </div>
   </div>
 </footer>
-
     
+        
+
   </body>
 </html>

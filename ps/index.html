@@ -8,7 +8,7 @@
     <script src="../main.js?h=8d0955fd"></script>
     <link rel="stylesheet" href="../fonts.css?h=dc7b7e35">
     <link rel="icon" href="">
-    <style>
+        <style>
      body {
        background-color: #fcfdfb;
        font-family: NotoSans;
@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(73%) saturate(7500%) hue-rotate(28deg) brightness(104%) contrast(103%);
+       filter: invert(40%) sepia(27%) saturate(2424%) hue-rotate(3deg) brightness(105%) contrast(95%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -679,43 +679,53 @@
     
   </div>
 
+
     <div id="site-header">
-  <div id="navigation-container">
-    <div id="site-logo">
-      <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
-    </div>
-    <ul id="nav-list">
+      <div id="navigation-container">
+        <div id="site-logo">
+          <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
+        </div>
+        <ul id="nav-list">
+          
       <li><a href="#step1">ډانلوډ</a></li>
       <li><a href="#step2">نښلول</a></li>
       <li><a href="#step3">لاسرسی</a></li>
       <li><a href="#support-footer">ملاتړ</a></li>
-    </ul>
-    
-    <div id="language-select" onmouseleave="hideLanguageSelect()">
-      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
-        <div id="language-select-text">پښتو<i class="chevron-down"></i></div>
-      </div>
-      <div id="language-dropdown">
-        
-        
 
+        </ul>
         
-          <a href="../en/" class="dropdown-item">English (en)</a>
-        
-          <a href="../" class="dropdown-item">Русский (ru)</a>
+        <div id="language-select" onmouseleave="hideLanguageSelect()">
+          <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+            <div id="language-select-text">پښتو<i class="chevron-down"></i></div>
+          </div>
+          <div id="language-dropdown">
+            
+            
+
+            
+              <a href="../en/" class="dropdown-item">English (en)</a>
+            
+              <a href="../" class="dropdown-item">Русский (ru)</a>
+            
+          </div>
+        </div>
         
       </div>
+
+      
+      <ul id="nav-list-mobile">
+        
+      <li><a href="#step1">ډانلوډ</a></li>
+      <li><a href="#step2">نښلول</a></li>
+      <li><a href="#step3">لاسرسی</a></li>
+      <li><a href="#support-footer">ملاتړ</a></li>
+
+      </ul>
+      
     </div>
-    
-  </div>
-  <ul id="nav-list-mobile">
-    <li><a href="#step1">ډانلوډ</a></li>
-    <li><a href="#step2">نښلول</a></li>
-    <li><a href="#step3">لاسرسی</a></li>
-    <li><a href="#support-footer">ملاتړ</a></li>
-  </ul>
-</div>
+
     <div id="content">
+      
       <div id="header-container">
         <header class="parent">
           <div class="child" id="site-intro">
@@ -744,7 +754,9 @@
           </div>
         </header>
       </div>
+
       <div class="shape"></div>
+
       <div id="page-content">
         <h2>په Tor سره د سانسور مخنیوی وکړئ</h2>
         <p>Tor خلکو ته یوه داسې لاره ورکوي څو وکولای شي انټرنېټ په ناپیژانده توګه سره وګوري او له خلکو سره مرسته کوي <strong>چې له دواړو سانسور او څارنې نه مخنیوی وکړي</strong>. د Tor براوزر کټ مټ د نورو براوزرانو په څېر ده لکه کروم، فایرفاکس، سفاري، یاندیکس- چې په دې سره ستاسې د براوزر ټول کړه وړه د دې پر ځای چې ستاسې د انټرنېټي خدماتو وړاندې کوونکي ته په اختیار کې ورکړي او ستاسې ترافیک تر څارنې لاندې ولري، <strong>ستاسې د انټرنېټ ترافیک په یوه کوډ سره پټوي</strong> چې د دریو ناڅاپي داوطلبانه نوډونو په مټ یې دفاع کوي (چې دغو نوډونو ته «ریلي» هم وايي). دغه بهیر د دې لامل ګرځي تر څو هېڅوک پوه نه شي چې تاسې څوک یاست، چېرې یاست او چېرې ځئ (یعنې له کومې وېب پانې نه لیدنه کوئ).</p>
@@ -752,6 +764,7 @@
         <p>له Tor څخه د بشر د حقونو مدافعان، فعالان او د نړۍ له ګوټ ګوټ نه هغه خلک کار اخلي کوم چې له <strong>سانسور او څارنې څخه ځانونه باسي</strong>. د دې لپاره چې د Tor په اړه لا ډېر زده کړو او دا چې هغه څرنګه کار کوي، نو د <a href="https://tb-manual.torproject.org">Tor د براوزر لارښود کتاب</a> ته ورشئ.</p>
 
       </div>
+
       <div id="steps-container">
         <div id="step1" class="parent">
   <div class="child step-text">
@@ -894,6 +907,7 @@ GetTor هغه سرویس دی چې په اتومات ډول لینک لرونک�
   </div>
 </div>
       </div>
+
     </div>
     <footer id="support-footer">
   <div id="footer-container">
@@ -923,7 +937,8 @@ GetTor هغه سرویس دی چې په اتومات ډول لینک لرونک�
     </div>
   </div>
 </footer>
-
     
+        
+
   </body>
 </html>

@@ -8,7 +8,7 @@
     <script src="../main.js?h=8d0955fd"></script>
     <link rel="stylesheet" href="../fonts.css?h=dc7b7e35">
     <link rel="icon" href="">
-    <style>
+        <style>
      body {
        background-color: #fcfdfb;
        font-family: NotoSans;
@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(73%) saturate(7500%) hue-rotate(28deg) brightness(104%) contrast(103%);
+       filter: invert(40%) sepia(27%) saturate(2424%) hue-rotate(3deg) brightness(105%) contrast(95%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -679,43 +679,53 @@
     
   </div>
 
+
     <div id="site-header">
-  <div id="navigation-container">
-    <div id="site-logo">
-      <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
-    </div>
-    <ul id="nav-list">
+      <div id="navigation-container">
+        <div id="site-logo">
+          <img src="../custom/rferl/logo_votvot_en.svg?h=66561b55" alt="VotVot" title="VotVot">
+        </div>
+        <ul id="nav-list">
+          
       <li><a href="#step1">بارگیری</a></li>
       <li><a href="#step2">اتصال</a></li>
       <li><a href="#step3">دسترسی</a></li>
       <li><a href="#support-footer">پشتیبانی</a></li>
-    </ul>
-    
-    <div id="language-select" onmouseleave="hideLanguageSelect()">
-      <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
-        <div id="language-select-text">فارسي<i class="chevron-down"></i></div>
-      </div>
-      <div id="language-dropdown">
-        
-        
 
+        </ul>
         
-          <a href="../en/" class="dropdown-item">English (en)</a>
-        
-          <a href="../" class="dropdown-item">Русский (ru)</a>
+        <div id="language-select" onmouseleave="hideLanguageSelect()">
+          <div id="language-select-button" class="button" onmouseover="showLanguageSelect()" onmousedown="clickHandler()">
+            <div id="language-select-text">فارسي<i class="chevron-down"></i></div>
+          </div>
+          <div id="language-dropdown">
+            
+            
+
+            
+              <a href="../en/" class="dropdown-item">English (en)</a>
+            
+              <a href="../" class="dropdown-item">Русский (ru)</a>
+            
+          </div>
+        </div>
         
       </div>
+
+      
+      <ul id="nav-list-mobile">
+        
+      <li><a href="#step1">بارگیری</a></li>
+      <li><a href="#step2">اتصال</a></li>
+      <li><a href="#step3">دسترسی</a></li>
+      <li><a href="#support-footer">پشتیبانی</a></li>
+
+      </ul>
+      
     </div>
-    
-  </div>
-  <ul id="nav-list-mobile">
-    <li><a href="#step1">بارگیری</a></li>
-    <li><a href="#step2">اتصال</a></li>
-    <li><a href="#step3">دسترسی</a></li>
-    <li><a href="#support-footer">پشتیبانی</a></li>
-  </ul>
-</div>
+
     <div id="content">
+      
       <div id="header-container">
         <header class="parent">
           <div class="child" id="site-intro">
@@ -744,7 +754,9 @@
           </div>
         </header>
       </div>
+
       <div class="shape"></div>
+
       <div id="page-content">
         <h2>با Tor سانسور را دور بزنید</h2>
         <p>Tor راهی را برای مرور اینترنت به صورت ناشناس ارائه می‌دهد و به مردم کمک می‌کند <strong>از سانسور و نظارت</strong> اجتناب کنند. مرورگر Tor مانند هر مرورگر دیگری است که استفاده می‌کنید - Chrome، Firefox، Safari، Yandex - با این تفاوت که به جای قرار دادن رفتار وبگردی شما، در اختیار شرکت ارائه‌دهندهٔ خدمات اینترنت شما و همهٔ افراد دیگری که ترافیک شما را زیر نظر می‌گیرند، این مرورگر با رمزگذاری و گذر دادن ترافیک شما از سه گرهٔ تصادفی که به صورت داوطلبانه اجرا می‌شوند <strong>ترافیک شما را پنهان می‌کند</strong> (این گره‌ها «رله» نیز نامیده می‌شوند). این فرآیند هویت، مکان و مقصد شما (یعنی وب‌سایت‌هایی که از آن‌ها دیدن می‌کنید) را برای دیگران مبهم می‌کند.</p>
@@ -752,6 +764,7 @@
         <p>Tor مورد استفادهٔ مدافعان حقوق بشر، کنش‌گران، و افرادی از سراسر جهان است که می‌خواهند <strong>از سانسور و نظارت بگریزند</strong>. برای کسب اطلاعات بیشتر در مورد Tor و نحوهٔ عملکرد آن، از <a href="https://tb-manual.torproject.org">راهنمای مرورگر Tor</a> دیدن کنید.</p>
 
       </div>
+
       <div id="steps-container">
         <div id="step1" class="parent">
   <div class="child step-text">
@@ -894,6 +907,7 @@ GetTor خدمتیست که با پیوندهایی به جدیدترین نگا�
   </div>
 </div>
       </div>
+
     </div>
     <footer id="support-footer">
   <div id="footer-container">
@@ -923,7 +937,8 @@ GetTor خدمتیست که با پیوندهایی به جدیدترین نگا�
     </div>
   </div>
 </footer>
-
     
+        
+
   </body>
 </html>
