@@ -29,7 +29,7 @@
         <h3>{{ this.contact }}</h3>
 
         <ul>
-          <li>{{ md(this.contact_directions + ' <' + envvars('ANALYTICS_PRIVACY_POLICY_CONTACT') + '>') }}.</li>
+          <li>{{ md(this.contact_directions + ' <' + envvars('ANALYTICS_PRIVACY_POLICY_CONTACT') + '>' + '.') }}</li>
         </ul>
         {% endif %}
       </div>
