@@ -11,6 +11,10 @@ The landing page is based on [lego][] and offers [localized][] content about
 how to download [Tor Browser][], connect to the Tor network, and access an
 Onion Service.
 
+[Onion Launchpad][] is useful both as a censorship circumvention tool and as a
+landing portal for onion-only sites that needs to include documentation for
+their users about how to get access.
+
 It's a statically built website that can be easily deployed.
 
 * Check the **[live demo][]**!
