@@ -38,10 +38,12 @@ done
 # Restore the project file
 mv $PROJECT_FILE.backup $PROJECT_FILE
 
-# Ensure that an subpage for the default language page exists
+# Ensure that all subpages for the default language exists
 #
 # This is not created by default but might be handy.
-# Needs an update in the page base so all relative links continue to work.
-mkdir "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE"
-cp "$OUTPUT_PATH/index.html" "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE"
-sed -i -e 's|<head>|<head>\n    <base href="../">|' "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE/index.html"
+# Needs an update in each page's base href so all relative links continue to work.
+find content -name contents.lr | sed -e 's/^content//' -e 's/contents.lr//' | while read path; do
+  mkdir -p "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE/$path"
+  cp "$OUTPUT_PATH/$path/index.html" "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE/$path"
+  sed -i -e 's|<head>|<head>\n    <base href="../">|' "$OUTPUT_PATH/$LEKTOR_DEFAULT_LANGUAGE/$path/index.html"
+done
