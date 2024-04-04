@@ -29,14 +29,14 @@ for n in 1 2 3; do
 
   if [ "$?" != "0" ]; then
     # Restore the project file
-    cp $PROJECT_FILE.backup $PROJECT_FILE
+    mv $PROJECT_FILE.backup $PROJECT_FILE
 
     exit 1
   fi
 done
 
 # Restore the project file
-cp $PROJECT_FILE.backup $PROJECT_FILE
+mv $PROJECT_FILE.backup $PROJECT_FILE
 
 # Ensure that an subpage for the default language page exists
 #
