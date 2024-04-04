@@ -322,6 +322,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Customizing
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -331,6 +342,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-customizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      General customizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics-customizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics customizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-language-customizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-language customizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset customization
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -436,6 +511,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-customizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      General customizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics-customizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics customizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-language-customizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-language customizations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asset-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asset customization
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -451,14 +579,29 @@
 
 <h1 id="customizing">Customizing<a class="headerlink" href="#customizing" title="Permanent link">&para;</a></h1>
 <p>Several parts of the site are configured through environment variables during
-the Lektor build. These variables are:</p>
+the Lektor build.</p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>The following command exemplifies how environment variables can be passed to
+Onion Launchpad at build time:</p>
+<div class="highlight"><pre><span></span><code>LEKTOR_FOREGROUND_COLOR=FF0000 \
+LEKTOR_BACKGROUND_COLOR=FF7700 \
+LEKTOR_BUTTON_COLOR=3377FF \
+LEKTOR_ONION_URL_LOCK_FILTER=FF0000 \
+LEKTOR_ONION_URL=&#39;https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz123d.onion&#39; \
+LEKTOR_FAVICON=&#39;/custom/my-icon.svg&#39; \
+LEKTOR_LOGO_PATH=&#39;/custom/my-logo.png&#39; \
+lektor build
+</code></pre></div>
+<p>It's a long build command, but ideally would only be run by a script.</p>
+<h2 id="general-customizations">General customizations<a class="headerlink" href="#general-customizations" title="Permanent link">&para;</a></h2>
+<p>Some of these variables are:</p>
 <ul>
-<li><code>LEKTOR_FOREGROUND_COLOR</code>: This is the foreground/main site color in RGB hexadecimal format (<code>ffffff</code>).</li>
+<li><code>LEKTOR_FOREGROUND_COLOR</code>: This is the foreground/main site color in RGB hexadecimal format (<code>FFFFFF</code>).</li>
 <li><code>LEKTOR_BACKGROUND_COLOR</code>: This is the background/accent site color in RGB hexadecimal format.</li>
 <li><code>LEKTOR_BUTTON_COLOR</code>: This is the button color in RGB hexadecimal format -
                          might be the same as the foreground.</li>
 <li><code>LEKTOR_ONION_URL_LOCK_FILTER</code>: This is the color of the lock icon next to the onion URL in RGB
-                                hexadecimal format (ffffff) or (fff).</li>
+                                hexadecimal format (<code>FFFFFF</code>) or (<code>FFF</code>).</li>
 <li><code>LEKTOR_ONION_URL</code>: This is the onion URL of the service.</li>
 <li><code>LEKTOR_SERVICE_NAME</code>: This sets the service name / project title.</li>
 <li><code>LEKTOR_SERVICE_URL</code>: Sets the regular (i.e, the non-onion) URL for the service.</li>
@@ -469,21 +612,47 @@ the Lektor build. These variables are:</p>
 <li><code>LEKTOR_LOGO_PATH</code>: The logo path relative to the <code>assets</code> folder, such as <code>/custom/my-logo.png</code>.</li>
 <li><code>LEKTOR_DEFAULT_LANGUAGE</code>: The default language of the site, such as <code>en</code>.</li>
 <li><code>LEKTOR_AVAILABLE_LANGUAGES</code>: Limit the available languages to a subset, such as <code>en am ar</code>.
-                                Please note that english will always be enabled, even if not explicitly configured,
+                                Please note that English will always be enabled, even if not explicitly configured,
                                 since it works as a base language for all other translations.</li>
 </ul>
-<p>An example build command would like something like the following:</p>
-<div class="highlight"><pre><span></span><code>LEKTOR_FOREGROUND_COLOR=FF0000 \
-LEKTOR_BACKGROUND_COLOR=FF7700 \
-LEKTOR_BUTTON_COLOR=3377FF \
-LEKTOR_ONION_URL_LOCK_FILTER=FF0000 \
-LEKTOR_ONION_URL=&#39;https://abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz1234.onion&#39; \
-LEKTOR_FAVICON=&#39;/custom/my-icon.svg&#39; \
-LEKTOR_LOGO_PATH=&#39;/custom/my-logo.png&#39; \
-lektor build
-</code></pre></div>
-<p>It's a long build command, but ideally would only be run by a script.
-See below for examples.</p>
+<h2 id="analytics-customizations">Analytics customizations<a class="headerlink" href="#analytics-customizations" title="Permanent link">&para;</a></h2>
+<p>Analytic-related variables are documented in a <a href="../analytics/">specific section</a>.</p>
+<h2 id="per-language-customizations">Per-language customizations<a class="headerlink" href="#per-language-customizations" title="Permanent link">&para;</a></h2>
+<p>The following settings can be applied in a per-language basis:</p>
+<ul>
+<li><code>LEKTOR_SERVICE_NAME</code>: you can fine tune the service name using per-language
+  environment variables, like the following:<ul>
+<li><code>LEKTOR_SERVICE_NAME_EN</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_ES</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_FA_AF</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_FA</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_FR</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_RU</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_ZH_CN</code>.</li>
+<li><code>LEKTOR_SERVICE_NAME_ZH_TW</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="asset-customization">Asset customization<a class="headerlink" href="#asset-customization" title="Permanent link">&para;</a></h2>
+<p>As stated earlier, <code>LEKTOR_ASSET_REPOSITORY_URL</code> allows specifying public Git
+repository with assets like logos and icons.</p>
+<p>Localized assets can be automatically used by Onion Launchpad if they follow
+the naming convention where the language code is the last field in the file
+name, separated by underscores, like this:</p>
+<pre><code>some_file_name_${LANG_CODE}.svg
+</code></pre>
+<p>where <code>${LANG_CODE}</code> is one of the language codes specified in the <code>LEKTOR_AVAILABLE_LANGUAGES</code>
+variable.</p>
+<p>Example:</p>
+<ul>
+<li><code>LEKTOR_AVAILABLE_LANGUAGES="en am ar"</code>.</li>
+<li><code>LEKTOR_LOGO_PATH="/custom/my-logo.png"</code>.</li>
+<li><code>LEKTOR_ASSET_REPOSITORY_URL="https://git.example.org/onion-launchpad-assets.git"</code>.</li>
+<li>Localized logo files: <code>custom/my-logo_am.png</code> and <code>custom/my-logo_ar.png</code> hosted
+  at the Git repository pointed by <code>LEKTOR_ASSET_REPOSITORY_URL</code>.</li>
+</ul>
+<p>Onion Launchpad always defaults to the main logo defined by <code>LEKTOR_LOGO_PATH</code>
+if there's no localized version.</p>
 
 
 

@@ -409,6 +409,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#automated-gitlab-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated GitLab deployments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated GitLab deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       Installation
@@ -439,6 +449,20 @@
     </nav>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#triggering-a-build-on-gitlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triggering a build on GitLab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#github-deployments" class="md-nav__link">
@@ -448,6 +472,16 @@
   </a>
   
     <nav class="md-nav" aria-label="GitHub deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-github-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated GitHub deployments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated GitHub deployments">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -472,6 +506,38 @@
   <a href="#deployment_1" class="md-nav__link">
     <span class="md-ellipsis">
       Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-repository-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual repository creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triggering-a-build-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triggering a build on GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-mirror-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up a mirror on GitHub
     </span>
   </a>
   
@@ -567,6 +633,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#automated-gitlab-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated GitLab deployments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated GitLab deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       Installation
@@ -597,6 +673,20 @@
     </nav>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#triggering-a-build-on-gitlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triggering a build on GitLab
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#github-deployments" class="md-nav__link">
@@ -606,6 +696,16 @@
   </a>
   
     <nav class="md-nav" aria-label="GitHub deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-github-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated GitHub deployments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated GitHub deployments">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -639,6 +739,38 @@
     </nav>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-repository-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual repository creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triggering-a-build-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triggering a build on GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-mirror-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up a mirror on GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -657,9 +789,11 @@
 
 <h1 id="deploying">Deploying<a class="headerlink" href="#deploying" title="Permanent link">&para;</a></h1>
 <h2 id="gitlab-deployments">GitLab deployments<a class="headerlink" href="#gitlab-deployments" title="Permanent link">&para;</a></h2>
+<h3 id="automated-gitlab-deployments">Automated GitLab deployments<a class="headerlink" href="#automated-gitlab-deployments" title="Permanent link">&para;</a></h3>
 <p>The <code>deploy-onion-launchpad-on-gitlab</code> allows for a semi-automated deployment
-procedure on GitLab.</p>
-<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+procedure on GitLab. It works both for the official
+<a href="https://gitlab.com">GitLab.com</a> and other instances.</p>
+<h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Setup a GitLab account for the deployments. Make sure that this account is
    validated to run CI/CD jobs.</li>
@@ -669,7 +803,7 @@ procedure on GitLab.</p>
 <li><a href="https://python-gitlab.readthedocs.io/en/stable/cli-usage.html?highlight=configuration#configuration-files">Configure python-gitlab</a> by creating a <code>~/.python-gitlab.cfg</code> file. Use the provided
    <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/configs/deploy/.python-gitlab.cfg.sample">.python-gitlab.cfg.sample</a> as example.</li>
 </ol>
-<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h4>
 <p>Copy from the example provided by <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad">Onion Launchpad</a>:</p>
 <pre><code>cp /path/to/onion-launchpad/configs/deploy/onion-launchpad-test.gitlab.io.ini
    gitlab/$somesite.gitlab.io.ini
@@ -677,39 +811,121 @@ procedure on GitLab.</p>
 <p>Or copy from an existing configuration:</p>
 <pre><code>cp gitlab/$agency/$someothersite.ini gitlab/$somesite.ini
 </code></pre>
-<p>Then ajust the settings:</p>
+<p>Then adjust the settings:</p>
 <pre><code>$EDITOR gitlab/$somesite.ini
 </code></pre>
-<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
+<h4 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h4>
 <p>First, manually create a new group on GitLab. Due to <a href="https://gitlab.com/gitlab-org/gitlab/-/issues/244345#note_1021388399">abuse in the automated
 group creation</a>, this step cannot be automated.</p>
 <p>Then use the GitLab deployment script provided by <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad">Onion Launchpad</a>:</p>
 <pre><code>/path/to/onion-launchpad/scripts/deploy-onion-launchpad-on-gitlab \
   gitlab/$somesite.gitlab.io.ini
 </code></pre>
-<h2 id="github-deployments">GitHub deployments<a class="headerlink" href="#github-deployments" title="Permanent link">&para;</a></h2>
-<p>The <code>deploy-onion-launchpad-on-github</code> allows for a semi-automated deployment
-procedure on GitHub.</p>
-<h3 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">&para;</a></h3>
+<h3 id="triggering-a-build-on-gitlab">Triggering a build on GitLab<a class="headerlink" href="#triggering-a-build-on-gitlab" title="Permanent link">&para;</a></h3>
+<p>Follow these steps to manually trigger an Onion Launchpad pipeline at some
+GitLab mirror (requires privileges at the mirror repository):</p>
 <ol>
-<li>Setup a GitHub account for the deployments.</li>
+<li>Go to the mirror repository, like <code>https://gitlab.com/${group}/${group}.gitlab.io</code>.</li>
+<li>Then go to CI/CD -&gt; Pipelines, <code>https://gitlab.com/${group}/${group}.gitlab.io/-/pipelines</code>.</li>
+<li>Click on "Run pipeline" or go directly to <code>https://gitlab.com/${group}/${group}.gitlab.io/-/pipelines/new</code>.</li>
+<li>Click on "Run pipeline" again to execute.</li>
+</ol>
+<p>Then you can follow the build log for unexpected errors, but in general the
+build should be successful and the landing page will be updated at
+[<code>https://${group}.gitlab.io</code>.</p>
+<h2 id="github-deployments">GitHub deployments<a class="headerlink" href="#github-deployments" title="Permanent link">&para;</a></h2>
+<p>Onion Launchpad comes with a <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.github/workflows/gh-pages.yml">GitHub action for landing page deployment</a> that
+triggers on repository changes and also maintains a scheduled rebuild.</p>
+<h3 id="automated-github-deployments">Automated GitHub deployments<a class="headerlink" href="#automated-github-deployments" title="Permanent link">&para;</a></h3>
+<p>The <code>deploy-onion-launchpad-on-github</code> allows for a semi-automated deployment
+procedure on <a href="https://github.com">GitHub</a>.</p>
+<h4 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Setup a <a href="https://github.com">GitHub</a> account for the deployments.</li>
 <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Setup GitHub access token</a> for this account with the <code>repo</code> and <code>admin:org</code> scopes.</li>
 <li>Install <a href="https://tracker.debian.org/pygithub">PyGithub</a> (the Debian package is <a href="https://tracker.debian.org/pygithub">pygithub</a>) and <a href="https://gitpython.readthedocs.io/en/stable/index.html">GitPython</a>
    (<a href="https://tracker.debian.org/python-git">python3-git</a> Debian package).</li>
 <li>Create a <code>~/.pygithub.cfg</code> file. Use the the provided <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/configs/deploy/.pygithub.cfg.sample">.pygithub.cfg.sample</a> as example.</li>
 </ol>
-<h3 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h3>
-<p>Configuration is analogous to the GitLab procedure, but use the provided GitHub config sample instead:</p>
+<h4 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h4>
+<p>Configuration is analogous to the GitLab procedure, but use the provided <a href="https://github.com">GitHub</a> config sample instead:</p>
 <pre><code>cp /path/to/onion-launchpad/configs/deploy/onion-launchpad-test.github.io.ini \
    gitlab/$somesite.github.io.ini
 </code></pre>
-<h3 id="deployment_1">Deployment<a class="headerlink" href="#deployment_1" title="Permanent link">&para;</a></h3>
-<p>First, manually create a new organization on GitHub, as this step currently
+<h4 id="deployment_1">Deployment<a class="headerlink" href="#deployment_1" title="Permanent link">&para;</a></h4>
+<p>First, manually create a new organization on <a href="https://github.com">GitHub</a>, as this step currently
 cannot be automated.</p>
 <p>Then use the GitLab deployment script provided by <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad">Onion Launchpad</a>:</p>
 <pre><code>/path/to/onion-launchpad/scripts/deploy-onion-launchpad-on-github \
   gitlab/$somesite.github.io.ini
 </code></pre>
+<h3 id="manual-repository-creation">Manual repository creation<a class="headerlink" href="#manual-repository-creation" title="Permanent link">&para;</a></h3>
+<p>If you prefer to manually create an Onion Launchpad repository fork on
+<a href="https://github.com">GitHub</a>, proceed as follows:</p>
+<ul>
+<li>Log into <a href="https://github.com">GitHub</a> using your project's user.</li>
+<li><a href="https://github.com/organizations/plan">Create a free organization</a>.</li>
+<li>Create an empty repository under this organization:</li>
+<li>At <code>https://github.com/organizations/${organization}/repositories/new</code>,
+    where <code>${organization</code> is the organization name you just created.</li>
+<li>Named as <code>${organization}.github.io</code>.</li>
+<li>Make sure to let the repository visibility set to "public".</li>
+<li>Do not initialize the repository.</li>
+</ul>
+<p>Now you just need to push Onion Launchpad code to this remote:</p>
+<pre><code>cd /path/to/onion-launchpad
+git remote add organization git@github.com:${organization}/${organization}.github.io.git
+git push organization main
+</code></pre>
+<h3 id="triggering-a-build-on-github">Triggering a build on GitHub<a class="headerlink" href="#triggering-a-build-on-github" title="Permanent link">&para;</a></h3>
+<p>Follow these steps to manually trigger an Onion Launchpad pipeline at some
+GitHub mirror (requires privileges at the mirror repository):</p>
+<ol>
+<li>Go to the mirror repository, like <code>https://github.com/${organization}/${organization}.github.io</code>.</li>
+<li>Then go to Actions, <code>https://github.com/${organization}/${organization}.github.io/actions</code>.</li>
+<li>Select the "GitHub Pages" action.</li>
+<li>Click on the "Run workflow" button and click again the inner "Run workflow" button.</li>
+</ol>
+<p>Then you can follow the build log for unexpected errors, but in general the
+build should be successful and the landing page will be updated at
+<code>https://${organization}.github.io</code>.</p>
+<h3 id="setting-up-a-mirror-on-github">Setting up a mirror on GitHub<a class="headerlink" href="#setting-up-a-mirror-on-github" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.github/workflows/gh-pages.yml">GitHub action for landing page deployment</a> can also be used together
+with GitLab to <a href="https://github.com">GitHub</a> mirroring, triggering landing page builds for all
+commits added to the <code>main</code> branch.</p>
+<p>The following example assumes you have admin access at the [Onion Launchpad
+upstream repository][], but you can easily adapt to whatever GitLab repository
+you're using as the Onion Launchpad mirror origin.</p>
+<p>[Onion Launchpad upstream repository][]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/</p>
+<ul>
+<li>Start by adding a new mirror on the <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/settings/repository">GitLab repository settings</a>:</li>
+<li>Git repository URL: <code>ssh://git@github.com/${organization}/${organization}.github.io.git</code>.</li>
+<li>Mirror direction: push.</li>
+<li>Input or detect host keys.</li>
+<li>Authentication method: SSH public key.</li>
+<li>Mirror only protected branches.</li>
+<li>Click on "Mirror repository".</li>
+<li>The mirror will appear in a listing below the form. Click on the clipboard
+    icon to copy the generate SSH public key for this mirror into your
+    clipboard.</li>
+<li>On <a href="https://github.com/settings/keys">GitHub keys config page</a>:</li>
+<li>Add a new SSH key, pasting the SSH public key into the form.</li>
+<li>On <code>https://github.com/${organization}/${organization}.github.io/settings/secrets/actions</code>:</li>
+<li>Add a new repository secrets for each environment variable.</li>
+<li>Again on <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/settings/repository">GitLab repository settings</a>:</li>
+<li>Click on the refresh button of this mirror to do the initial push into the
+    remote <a href="https://github.com">GitHub</a> repository.</li>
+<li>On <code>https://github.com/${organization}/${organization}.github.io/actions</code>:</li>
+<li>Manually trigger the "<a href="https://github.com">GitHub</a> Pages" workflow to build the landing page for
+    the first time.</li>
+<li>Check that the <a href="https://github.com">GitHub</a> page branch (<code>gh-pages</code>) is automatically built after
+    the workflow runs.</li>
+<li>On <code>https://github.com/${organization}/${organization}.github.io/settings/pages</code>:</li>
+<li>Set the pages source branch to <code>gh-pages</code>.</li>
+<li>Again on <code>https://github.com/${organization}/${organization}.github.io/actions</code>:</li>
+<li>Watch for the <code>pages-build-deployment</code> workflow.</li>
+</ul>
+<p>Now your landing page mirror should be accessible via <code>http://${organization}.github.io</code>.</p>
 
 
 
