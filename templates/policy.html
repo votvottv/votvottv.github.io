@@ -6,12 +6,16 @@
       <div id="page-content">
         <h2>{{ this.title }}</h2>
 
-        {{ md(this.intro) }}
+        {% if envvars('ANALYTICS') != '' %}
+        {{ md(this.analytics_intro) }}
+        {% endif %}
 
         <h3>{{ this.collection }}</h3>
 
         <ul>
+          {% if envvars('ANALYTICS') != '' %}
           <li>{{ md(this.collection_visits) }}</li>
+          {% endif %}
 
           <li>{{ md(this.collection_ip) }}</li>
         </ul>
@@ -19,7 +23,9 @@
         <h3>{{ this.retention }}</h3>
 
         <ul>
+          {% if envvars('ANALYTICS') != '' %}
           <li>{{ md(this.retention_period) }}</li>
+          {% endif %}
 
           <li>{{ md(this.retention_ip) }}</li>
         </ul>
