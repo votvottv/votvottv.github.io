@@ -615,16 +615,28 @@
   privacy policy, as per <a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>. It can
   be an e-mail address or URL.</li>
 <li><code>LEKTOR_ANALYTICS_BACKGROUND_COLOR</code>: the background color for the <a href="https://okthanks.com/blog/2021/5/14/clean-consent-ux">consent UX</a>,
-  in hexadecimal format (<code>ffffff</code>).</li>
+  in hexadecimal format (<code>FFFFFF</code>).</li>
 </ul>
 <p>Check Matomo's <a href="https://developer.matomo.org/api-reference/tracking-javascript">JavaScript Tracking Client</a> documentation for details.</p>
 <h2 id="privacy-policy">Privacy Policy<a class="headerlink" href="#privacy-policy" title="Permanent link">&para;</a></h2>
 <p>Onion Launchpad comes with a <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/content/policy/contents.lr">hard-coded Privacy Policy text</a> following the
-<a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a> and ready to be used with <a href="https://cleaninsights.org">Clean
-Insights</a>.</p>
-<p>Currently there's no way to customize this policy, and we recommend that
-you use a <a href="https://cleaninsights.org">Clean Insights</a> instance if you plan to collect analytics
-in a way that respects the user's privacy.</p>
+<a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>. This text is automatically compiled
+in a <code>/policy</code> link.</p>
+<p>The policy comes in two flavours:</p>
+<ol>
+<li>
+<p>The default, covering the basic use-case of Onion Launchpad being deployed
+   in a third party service provider that may collect IP addresses.</p>
+</li>
+<li>
+<p>A special policy version when analytics is enabled, and ready to be used
+   with <a href="https://cleaninsights.org">Clean Insights</a>.</p>
+</li>
+</ol>
+<p>Currently there's no way to customize this policy beyond these two flavors.</p>
+<p>If you plan to collect analytics, we recommend that you use a <a href="https://cleaninsights.org">Clean
+Insights</a> instance if you plan to collect analytics in a way that respects
+the user's privacy.</p>
 
 
 
