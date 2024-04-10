@@ -20,8 +20,8 @@
           {% endif %}
         </ul>
 
-        {{ _("To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our") }}
-        <a href="policy" target="_blank">{{ _("full privacy policy") }}</a>.
+        {% macro render_policy_link() %}<a href="policy" target="_blank">{{ _("full privacy policy") }}</a>{% endmacro %}
+        {{ _("To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our %(link_to_policy)s.")|format(link_to_policy=render_policy_link())|safe }}
 
         <div class="consent-buttons">
           <a class="button" id="consent-ok">{{ md(_("Accept")) }}</a>
