@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(44%) sepia(35%) saturate(5030%) hue-rotate(18deg) brightness(98%) contrast(102%);
+       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -939,6 +939,86 @@ Ahhoz, hogy többet megtudhasson az Onion szolgáltatásokról, látogassa meg a
 </footer>
     
         
+    <div class="consent-banner page-content">
+        <p>Is it OK to collect the following information of your visit?</p>
+
+
+        <ul>
+          <li>
+            <p>The pages you visit.</p>
+
+          </li>
+
+          
+
+          
+        </ul>
+
+        
+        To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our <a href="policy" target="_blank">full privacy policy</a>.
+
+        <div class="consent-buttons">
+          <a class="button" id="consent-ok"><p>Elfogad</p>
+</a>
+          <a class="button" id="consent-cancel"><p>Elutasítás</p>
+</a>
+        </div>
+    </div>
+
+    <script>
+      // See https://developer.matomo.org/api-reference/tracking-javascript
+      function loadMatomo() {
+        var _paq = window._paq = window._paq || [];
+
+        _paq.push(['trackPageView']);
+
+        
+
+        
+        _paq.push(['disableBrowserFeatureDetection']);
+        
+
+        _paq.push(['disablePerformanceTracking']);
+        _paq.push(['setDoNotTrack', true]);
+
+        (function() {
+          var u='https://metrics.cleaninsights.org/';
+
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId',     '28']);
+
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      }
+
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const consent = document.getElementById('consent-ok')
+      const cancel  = document.getElementById('consent-cancel')
+
+      consent.onclick = () => {
+        banner.style.display = 'none'
+
+        loadMatomo()
+      }
+
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Always display the banner except if Do Not Track is enabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+    
 
   </body>
 </html>
