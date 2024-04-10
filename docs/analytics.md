@@ -58,19 +58,29 @@ The analytics functionality is controlled by these environment variables:
   privacy policy, as per [best practices on analytics gathering][]. It can
   be an e-mail address or URL.
 * `LEKTOR_ANALYTICS_BACKGROUND_COLOR`: the background color for the [consent UX][],
-  in hexadecimal format (`ffffff`).
+  in hexadecimal format (`FFFFFF`).
 
 Check Matomo's [JavaScript Tracking Client][] documentation for details.
 
 ## Privacy Policy
 
 Onion Launchpad comes with a [hard-coded Privacy Policy text][] following the
-[best practices on analytics gathering][] and ready to be used with [Clean
-Insights][].
+[best practices on analytics gathering][]. This text is automatically compiled
+in a `/policy` link.
 
-Currently there's no way to customize this policy, and we recommend that
-you use a [Clean Insights][] instance if you plan to collect analytics
-in a way that respects the user's privacy.
+The policy comes in two flavours:
+
+1. The default, covering the basic use-case of Onion Launchpad being deployed
+   in a third party service provider that may collect IP addresses.
+
+2. A special policy version when analytics is enabled, and ready to be used
+   with [Clean Insights][].
+
+Currently there's no way to customize this policy beyond these two flavors.
+
+If you plan to collect analytics, we recommend that you use a [Clean
+Insights][] instance if you plan to collect analytics in a way that respects
+the user's privacy.
 
 [Matomo]: https://matomo.org
 [consent UX]: https://okthanks.com/blog/2021/5/14/clean-consent-ux
