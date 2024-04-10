@@ -134,7 +134,6 @@ class OnionLaunchpadGithubDeployer():
                         'has_issues'      : False,
                         'has_projects'    : False,
                         'has_wiki'        : False,
-                        'has_downloads'   : False,
                         }
 
         try:
