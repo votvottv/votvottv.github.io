@@ -613,11 +613,11 @@
 <li><code>LEKTOR_ANALYTICS_LINK_TRACKING</code>: when set to 1, activates Matomo's
   <code>enableLinkTracking</code> setting, otherwise keep it off.
   Ignored when using the <a href="https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version">CleanInsights JS SDK</a>.</li>
-<li><code>LEKTOR_ANALYTICS_BROWSER_DETECTION</code>: when set to 1, use Matomo's
-  browser feature detection, otherwise enforces <code>disableBrowserFeatureDetection</code>.
+<li><code>LEKTOR_ANALYTICS_BROWSER_DETECTION</code>: when set to 1, enables
+  browser feature detection. For the Matomo backend, keeping this
+  setting off will enforce the <code>disableBrowserFeatureDetection</code> option.
   You might want to turn this on if your Matomo backend is too
-  old, since <a href="https://github.com/matomo-org/matomo/pull/18599">disabling of browser detection was implemented only recently</a>.
-  Ignored when using the <a href="https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version">CleanInsights JS SDK</a>.</li>
+  old, since <a href="https://github.com/matomo-org/matomo/pull/18599">disabling of browser detection was implemented only recently</a>.</li>
 <li><code>LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT</code>: the contact information for the
   privacy policy, as per <a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>. It can
   be an e-mail address or URL.</li>
