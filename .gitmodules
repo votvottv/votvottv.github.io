@@ -4,3 +4,6 @@
 [submodule "vendors/onion-mkdocs"]
 	path = vendors/onion-mkdocs
 	url = https://gitlab.torproject.org/tpo/web/onion-mkdocs.git
+[submodule "vendors/clean-insights-js-sdk"]
+	path = vendors/clean-insights-js-sdk
+	url = https://gitlab.com/cleaninsights/clean-insights-js-sdk

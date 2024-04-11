@@ -1,0 +1,25 @@
+    <script src="{{ '/clean-insights-auto-tracker.js' | asseturl }}"></script>
+    <script>
+      // CleanInsights SDK
+      const ci = CleanInsightsAutoTracker("{{ envvars('ANALYTICS_BACKEND') }}/ci/cleaninsights.php", {{ envvars('ANALYTICS_SITE_ID') }})
+
+      // The 'Accept' button
+      const consent = document.getElementById('consent-ok')
+
+      // Handle the 'Accept' button
+      consent.onclick = () => {
+        // Hide the Consent UX
+        banner.style.display = 'none'
+
+        // Setup the campaign
+        ci.grantCampaign('visits')
+        ci.grantFeature(CleanInsightsFeature.ua)
+        ci.grantFeature(CleanInsightsFeature.lang)
+
+        // Measure a page visit, e.g. in `#onload`:
+        ci.measureVisit(["Main"], "visits")
+
+        // Make sure to persist the locally cached data. E.g. `onunload`.
+        ci.persist()
+      }
+    </script>

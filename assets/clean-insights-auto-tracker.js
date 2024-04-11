@@ -1,0 +1,1 @@
+../vendors/clean-insights-js-sdk/clean-insights-auto-tracker.js

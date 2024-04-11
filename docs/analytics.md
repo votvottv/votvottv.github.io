@@ -42,25 +42,35 @@ It's also worth noting that adversaries could attack the analytics system by:
 The analytics functionality is controlled by these environment variables:
 
 * `LEKTOR_ANALYTICS`: when set to `1`, enables the analytics collection.
-* `LEKTOR_ANALYTICS_BACKEND`: contains the base URL of the Matomo instance.
+* `LEKTOR_ANALYTICS_SDK`: set to `cleaninsights` to use the [CleanInsights JS SDK][]
+  instead of the default Matomo's [Javascript Tracking Client][]. The [CleanInsights JS SDK][]
+  is more robust and privacy-aware, but have a few caveats. Refer to [tpo/onion-services/onion-launchpad#87][]
+  for details.
+* `LEKTOR_ANALYTICS_BACKEND`: contains the base URL of the Analytics instance.
   Example: `https://myanalytics.example.org/`. Onion Launchpad will then point
    to both `https://myanalytics.example.org/matomo.js` and
   `https://myanalytics.example.org/matomo.php`.
-* `LEKTOR_ANALYTICS_SITE_ID`: should be set to the Matomo `siteId` configured
+* `LEKTOR_ANALYTICS_SITE_ID`: should be set to the Analytics `siteId` configured
    in the backend.
 * `LEKTOR_ANALYTICS_LINK_TRACKING`: when set to 1, activates Matomo's
   `enableLinkTracking` setting, otherwise keep it off.
+  Ignored when using the [CleanInsights JS SDK][].
 * `LEKTOR_ANALYTICS_BROWSER_DETECTION`: when set to 1, use Matomo's
   browser feature detection, otherwise enforces `disableBrowserFeatureDetection`.
   You might want to turn this on if your Matomo backend is too
   old, since [disabling of browser detection was implemented only recently][].
+  Ignored when using the [CleanInsights JS SDK][].
 * `LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT`: the contact information for the
   privacy policy, as per [best practices on analytics gathering][]. It can
   be an e-mail address or URL.
 * `LEKTOR_ANALYTICS_BACKGROUND_COLOR`: the background color for the [consent UX][],
   in hexadecimal format (`FFFFFF`).
 
-Check Matomo's [JavaScript Tracking Client][] documentation for details.
+Check Matomo's [JavaScript Tracking Client][] and the [CleanInsight JS SDK][]
+documentations for details.
+
+[CleanInsights JS SDK]: https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version
+[tpo/onion-services/onion-launchpad#87]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/issues/87
 
 ## Privacy Policy
 
@@ -74,13 +84,16 @@ The policy comes in two flavours:
    in a third party service provider that may collect IP addresses.
 
 2. A special policy version when analytics is enabled, and ready to be used
-   with [Clean Insights][].
+   with [Matomo][] or [Clean Insights][].
 
 Currently there's no way to customize this policy beyond these two flavors.
 
-If you plan to collect analytics, we recommend that you use a [Clean
-Insights][] instance if you plan to collect analytics in a way that respects
-the user's privacy.
+If you plan to collect analytics, we recommend that you use a
+[Matomo][]-compatible instance that does not log IP addresses if you plan to
+collect analytics in a way that respects the user's privacy.
+
+In any case, please check if the Privacy Policy text matches your analytics
+platform.
 
 [Matomo]: https://matomo.org
 [consent UX]: https://okthanks.com/blog/2021/5/14/clean-consent-ux
