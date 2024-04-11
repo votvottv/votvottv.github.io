@@ -30,44 +30,11 @@
     </div>
 
     <script>
-      // See https://developer.matomo.org/api-reference/tracking-javascript
-      function loadMatomo() {
-        var _paq = window._paq = window._paq || [];
-
-        _paq.push(['trackPageView']);
-
-        {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
-        _paq.push(['enableLinkTracking']);
-        {% endif %}
-
-        {% if envvars('ANALYTICS_BROWSER_DETECTION') != '1' %}
-        _paq.push(['disableBrowserFeatureDetection']);
-        {% endif %}
-
-        _paq.push(['disablePerformanceTracking']);
-        _paq.push(['setDoNotTrack', true]);
-
-        (function() {
-          var u='{{ envvars('ANALYTICS_BACKEND') }}';
-
-          _paq.push(['setTrackerUrl', u+'matomo.php']);
-          _paq.push(['setSiteId',     '{{ envvars('ANALYTICS_SITE_ID') }}']);
-
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-      }
-
+      // Consent UX and "Decline" button
       const banner  = document.getElementsByClassName('consent-banner')[0]
-      const consent = document.getElementById('consent-ok')
       const cancel  = document.getElementById('consent-cancel')
 
-      consent.onclick = () => {
-        banner.style.display = 'none'
-
-        loadMatomo()
-      }
-
+      // Handle the "Decline" button
       cancel.onclick = () => {
         banner.style.display = 'none'
       }
@@ -77,11 +44,17 @@
                   navigator.doNotTrack   === "1"   ||
                   navigator.msDoNotTrack === "1";
 
-      // Always display the banner except if Do Not Track is enabled
+      // Only display the consent banner if Do Not Track is disabled
       // We're respecting the DNT setting even if it's deprecated
       // Check the Onion Launchpad Analytics documentation for details
       if (!isDNT) {
         banner.style.display = 'block'
       }
     </script>
+
+    {% if envvars('ANALYTICS_SDK') == 'cleaninsights' %}
+      {% include 'macros/clean-insights.html' %}
+    {% else %}
+      {% include 'macros/matomo.html' %}
+    {% endif %}
     {% endif %}
