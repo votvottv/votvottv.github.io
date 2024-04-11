@@ -44,7 +44,8 @@ The analytics functionality is controlled by these environment variables:
 * `LEKTOR_ANALYTICS`: when set to `1`, enables the analytics collection.
 * `LEKTOR_ANALYTICS_SDK`: set to `cleaninsights` to use the [CleanInsights JS SDK][]
   instead of the default Matomo's [Javascript Tracking Client][]. The [CleanInsights JS SDK][]
-  is more robust and privacy-aware, but have a few caveats. Refer to [tpo/onion-services/onion-launchpad#87][]
+  is more robust and privacy-aware, but have a few caveats, has experimental support
+  and might now work well. Refer to [tpo/onion-services/onion-launchpad#87][]
   for details.
 * `LEKTOR_ANALYTICS_BACKEND`: contains the base URL of the Analytics instance.
   Example: `https://myanalytics.example.org/`. Onion Launchpad will then point
