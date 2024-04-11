@@ -13,8 +13,11 @@
 
         // Setup the campaign
         ci.grantCampaign('visits')
+
+        {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
         ci.grantFeature(CleanInsightsFeature.ua)
         ci.grantFeature(CleanInsightsFeature.lang)
+        {% endif %}
 
         // Measure a page visit, e.g. in `#onload`:
         ci.measureVisit(["Main"], "visits")

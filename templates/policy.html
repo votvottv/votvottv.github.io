@@ -13,18 +13,26 @@
         <h3>{{ this.collection }}</h3>
 
         <ul>
-          {% if envvars('ANALYTICS') != '' %}
+          {% if envvars('ANALYTICS') == '1' %}
           <li>{{ md(this.collection_visits) }}</li>
           {% endif %}
 
+          {% if envvars('ANALYTICS') == '1' and envvars('ANALYTICS_SDK') != 'cleaninsights' %}
           <li>{{ md(this.collection_ip) }}</li>
+          {% else %}
+          <li>{{ md(this.collection_no_ip) }}</li>
+          {% endif %}
         </ul>
 
         <h3>{{ this.retention }}</h3>
 
         <ul>
-          {% if envvars('ANALYTICS') != '' %}
-          <li>{{ md(this.retention_period) }}</li>
+          {% if envvars('ANALYTICS') == '1' %}
+          {% if envvars('ANALYTICS_SDK') != 'cleaninsights' %}
+          <li>{{ md(this.retention_period_ip) }}</li>
+          {% else %}
+          <li>{{ md(this.retention_period_no_ip) }}</li>
+          {% endif %}
           {% endif %}
 
           <li>{{ md(this.retention_ip) }}</li>
