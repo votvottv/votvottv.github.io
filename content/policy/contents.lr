@@ -2,7 +2,7 @@ _model: policy
 ---
 title: Privacy Policy
 ---
-analytics_intro: We are using [Clean Insights](https://cleaninsights.org) to gather simple analytics from this landing page, the purpose of which is to improve the website based on insights gained from visits and usage patterns.
+analytics_intro: We are using an analytics platform to gather simple analytics from this landing page, the purpose of which is to improve the website based on insights gained from visits and usage patterns.
 ---
 collection: Data collection
 ---
@@ -10,9 +10,13 @@ retention: Data retention
 ---
 collection_visits: We collect and aggregate page visit data to count how many people visit this website, and which countries they come from. There's no way for us to tell who you are from this data, we cannot tie your visit one day to another visit you make on a different day.
 ---
-collection_ip: _While we do not register IP addresses, we must note that your IP address may be collected by this website's provider depending on where it's hosted._
+collection_ip: _We register the first two octects of your IP addresss, and your IP address may also be collected by this website's provider depending on where it's hosted._
 ---
-retention_period: Since the data collected is limited to page visits, we retain this data indefinitely on our servers.
+collection_no_ip: _While we do not register IP addresses, we must note that your IP address may be collected by this website's provider depending on where it's hosted._
+---
+retention_period_no_ip: Since the data collected is limited to page visits, we retain this data indefinitely on our servers.
+---
+retention_period_ip: We retain this data indefinitely on our servers.
 ---
 retention_ip: _Do note that if this website's provider does indeed collect IP addresses and other personally identifiable data, then this data's retention depends on the hosting provider's data protection policy._
 ---

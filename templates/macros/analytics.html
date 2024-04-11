@@ -7,7 +7,13 @@
             {{ md(_("The pages you visit.")) }}
           </li>
 
-          {% if envvars('ANALYTICS_LINK_TRACKING') == '1' %}
+          {% if envvars('ANALYTICS_SDK') != 'cleaninsights' %}
+          <li>
+            {{ md(_("The first 2 octets of your current IP address.")) }}
+          </li>
+          {% endif %}
+
+          {% if envvars('ANALYTICS_SDK') != 'cleaninsights' and envvars('ANALYTICS_LINK_TRACKING') == '1' %}
           <li>
             {{ md(_("Which links you click, including download links.")) }}
           </li>
@@ -15,7 +21,7 @@
 
           {% if envvars('ANALYTICS_BROWSER_DETECTION') == '1' %}
           <li>
-            {{ md(_("Information about the browser you're using.")) }}
+            {{ md(_("Information about the browser you're using and the language in use.")) }}
           </li>
           {% endif %}
         </ul>

@@ -56,11 +56,11 @@ The analytics functionality is controlled by these environment variables:
 * `LEKTOR_ANALYTICS_LINK_TRACKING`: when set to 1, activates Matomo's
   `enableLinkTracking` setting, otherwise keep it off.
   Ignored when using the [CleanInsights JS SDK][].
-* `LEKTOR_ANALYTICS_BROWSER_DETECTION`: when set to 1, use Matomo's
-  browser feature detection, otherwise enforces `disableBrowserFeatureDetection`.
+* `LEKTOR_ANALYTICS_BROWSER_DETECTION`: when set to 1, enables
+  browser feature detection. For the Matomo backend, keeping this
+  setting off will enforce the `disableBrowserFeatureDetection` option.
   You might want to turn this on if your Matomo backend is too
   old, since [disabling of browser detection was implemented only recently][].
-  Ignored when using the [CleanInsights JS SDK][].
 * `LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT`: the contact information for the
   privacy policy, as per [best practices on analytics gathering][]. It can
   be an e-mail address or URL.
