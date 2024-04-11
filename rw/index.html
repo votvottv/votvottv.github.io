@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(48%) sepia(73%) saturate(7390%) hue-rotate(46deg) brightness(121%) contrast(123%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -686,7 +686,7 @@
         <ul id="nav-list">
           
       <li><a href="#step1">Download</a></li>
-      <li><a href="#step2">Connect</a></li>
+      <li><a href="#step2">Huza</a></li>
       <li><a href="#step3">Access</a></li>
       <li><a href="#support-footer">Support</a></li>
       <li><a href="policy">Privacy Policy</a></li>
@@ -715,7 +715,7 @@
       <ul id="nav-list-mobile">
         
       <li><a href="#step1">Download</a></li>
-      <li><a href="#step2">Connect</a></li>
+      <li><a href="#step2">Huza</a></li>
       <li><a href="#step3">Access</a></li>
       <li><a href="#support-footer">Support</a></li>
       <li><a href="policy">Privacy Policy</a></li>
@@ -958,7 +958,7 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our <a href="policy" target="_blank">full privacy policy</a>.
 
         <div class="consent-buttons">
-          <a class="button" id="consent-ok"><p>Accept</p>
+          <a class="button" id="consent-ok"><p>Emeza</p>
 </a>
           <a class="button" id="consent-cancel"><p>Decline</p>
 </a>
@@ -966,6 +966,31 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
     </div>
 
     <script>
+      // Consent UX and "Decline" button
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Handle the "Decline" button
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Only display the consent banner if Do Not Track is disabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+
+    
+          <script>
+      // Loads Matomo
       // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
@@ -992,32 +1017,19 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         })();
       }
 
-      const banner  = document.getElementsByClassName('consent-banner')[0]
+      // The 'Accept' button
       const consent = document.getElementById('consent-ok')
-      const cancel  = document.getElementById('consent-cancel')
 
+      // Handle the 'Accept' button
       consent.onclick = () => {
+        // Hide the Consent UX
         banner.style.display = 'none'
 
+        // Load Matomo
         loadMatomo()
       }
-
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Always display the banner except if Do Not Track is enabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
     </script>
+    
     
 
   </body>

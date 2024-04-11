@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(48%) sepia(73%) saturate(7390%) hue-rotate(46deg) brightness(121%) contrast(123%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -689,7 +689,7 @@
       <li><a href="#step2">Jiunganishe</a></li>
       <li><a href="#step3">Jipatie</a></li>
       <li><a href="#support-footer">saidia</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">Sera ya Faragha</a></li>
 
         </ul>
         
@@ -718,7 +718,7 @@
       <li><a href="#step2">Jiunganishe</a></li>
       <li><a href="#step3">Jipatie</a></li>
       <li><a href="#support-footer">saidia</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">Sera ya Faragha</a></li>
 
       </ul>
       
@@ -822,15 +822,15 @@ GetTor is a service that automatically responds to messages with links to the la
     <h2>Step 2: Connect to Tor</h2>
 <p>When you run Tor Browser for the first time, you will see the Connect to Tor window.
 Hii inakupelekea wewe chaguo kuunganisha moja kwa moja kwenye mtandao wa Tor, au kupangilia Tor Kivinjari kwenye muunganisho wako.
-There's a checkbox which asks whether you always want to get automatically connected to the Tor network, if this is the case, check the box.</p>
-<p>You should be able to start browsing the web using Tor Browser shortly after running the program, and clicking the “Connect” button if you are using it for the first time.</p>
+Kuna uhakiki ambao utakuuliza kama unahitaji kujiunga mojakwamoja katika mtandao wa Tor, kama ndivyo, angalia.</p>
+<p>Unatakiwa kuanza kuperuzi tovuti kwa kutumia Tor Browser smuda mfupi baada ya kutumia programu, na bofya kitufe cha “Connect” kama unatumia kwa mara ya kwanza.</p>
 
     
     
       <details class="collapsible-text">
         <summary class="no-marker">Facing trouble connecting to Tor?<i class="chevron-down"></i></summary>
         <div class="details-container">
-          <p>Direct access to the Tor network may sometimes be blocked by your Internet Service Provider or by a government.
+          <p>Upatikanaji wa mojakwamoja wa mtandao wa Tor wakati mwingine unaweza kuzuiliwa na mtoa huduma wako wa mtandao au serikali.
 Tor Browser includes some circumvention tools for getting around these blocks.
 In such scenarios, simply configuring your browser to connect through a bridge should suffice.
 Bridges are simply relays that are private and harder to block.</p>
@@ -878,7 +878,7 @@ As of 22 December 2021, bridges bundled directly into Tor Browser are blocked in
   <div class="child step-text">
     <h2></h2>
     <h2>Step 3: Access the Onion Service</h2>
-<p>Onion services (formerly known as "hidden services") are services (like websites) that are only accessible through the Tor network.
+<p>( Mara ya kwanza) Onion services zilifahamika kama "huduma zilizofichwa") ni huduma (kama tovuti) ambazo hupatikana tu kupitia Tor network.
 Just like any other website, you will need to know the address of an onion service in order to connect to it.
 An onion address is a string of 56 mostly random letters and numbers, followed by ".onion".
 To learn more about Onion Services, visit the <a href="https://tb-manual.torproject.org/onion-services">Tor Browser Manual</a>.</p>
@@ -966,6 +966,31 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
     </div>
 
     <script>
+      // Consent UX and "Decline" button
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Handle the "Decline" button
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Only display the consent banner if Do Not Track is disabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+
+    
+          <script>
+      // Loads Matomo
       // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
@@ -992,32 +1017,19 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         })();
       }
 
-      const banner  = document.getElementsByClassName('consent-banner')[0]
+      // The 'Accept' button
       const consent = document.getElementById('consent-ok')
-      const cancel  = document.getElementById('consent-cancel')
 
+      // Handle the 'Accept' button
       consent.onclick = () => {
+        // Hide the Consent UX
         banner.style.display = 'none'
 
+        // Load Matomo
         loadMatomo()
       }
-
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Always display the banner except if Do Not Track is enabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
     </script>
+    
     
 
   </body>

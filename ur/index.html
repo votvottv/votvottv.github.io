@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(48%) sepia(73%) saturate(7390%) hue-rotate(46deg) brightness(121%) contrast(123%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -691,7 +691,7 @@
       <li><a href="#step2">رابطہ کریں</a></li>
       <li><a href="#step3">Access</a></li>
       <li><a href="#support-footer">حمایت کیجئے</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">رازداری کی پالیسی</a></li>
 
         </ul>
         
@@ -720,7 +720,7 @@
       <li><a href="#step2">رابطہ کریں</a></li>
       <li><a href="#step3">Access</a></li>
       <li><a href="#support-footer">حمایت کیجئے</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">رازداری کی پالیسی</a></li>
 
       </ul>
       
@@ -741,13 +741,13 @@ This page details how you can circumvent the censorship.</p>
     <i class="onion-url-lock"></i>
     <span class="onion-url-span">https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion</span>
     <span class="onion-url-span-uncopied">Copy the onion address</span>
-    <span class="onion-url-span-copied">Copied!</span>
+    <span class="onion-url-span-copied">کاپی کیا گیا!</span>
   </a>
   <a href="https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-mobile onion-url-container" data-urlbg="#EA6903ff">
     <i class="onion-url-lock"></i>
     <span class="onion-url-span">Visit the VotVot .onion site</span>
     <span class="onion-url-span-uncopied">Copy the onion address</span>
-    <span class="onion-url-span-copied">Copied!</span>
+    <span class="onion-url-span-copied">کاپی کیا گیا!</span>
   </a>
 </div>
           </div>
@@ -776,7 +776,7 @@ This page details how you can circumvent the censorship.</p>
 
     
       <div id="download-tor-button">
-  <a href="https://www.torproject.org/download/" class="button"><i class="onion-glyph-download rtl-hide"></i>Download Tor Browser<i class="onion-glyph-download rtl-show"></i></a>
+  <a href="https://www.torproject.org/download/" class="button"><i class="onion-glyph-download rtl-hide"></i>ٹور براؤزر ڈاؤن لوڈ کریں<i class="onion-glyph-download rtl-show"></i></a>
 </div>
     
     
@@ -891,13 +891,13 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
     <i class="onion-url-lock"></i>
     <span class="onion-url-span">https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion</span>
     <span class="onion-url-span-uncopied">Copy the onion address</span>
-    <span class="onion-url-span-copied">Copied!</span>
+    <span class="onion-url-span-copied">کاپی کیا گیا!</span>
   </a>
   <a href="https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-mobile onion-url-container" data-urlbg="#EA6903ff">
     <i class="onion-url-lock"></i>
     <span class="onion-url-span">Visit the VotVot .onion site</span>
     <span class="onion-url-span-uncopied">Copy the onion address</span>
-    <span class="onion-url-span-copied">Copied!</span>
+    <span class="onion-url-span-copied">کاپی کیا گیا!</span>
   </a>
 </div>
     
@@ -960,14 +960,39 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our <a href="policy" target="_blank">full privacy policy</a>.
 
         <div class="consent-buttons">
-          <a class="button" id="consent-ok"><p>Accept</p>
+          <a class="button" id="consent-ok"><p>قبول</p>
 </a>
-          <a class="button" id="consent-cancel"><p>Decline</p>
+          <a class="button" id="consent-cancel"><p>رد</p>
 </a>
         </div>
     </div>
 
     <script>
+      // Consent UX and "Decline" button
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Handle the "Decline" button
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Only display the consent banner if Do Not Track is disabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+
+    
+          <script>
+      // Loads Matomo
       // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
@@ -994,32 +1019,19 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         })();
       }
 
-      const banner  = document.getElementsByClassName('consent-banner')[0]
+      // The 'Accept' button
       const consent = document.getElementById('consent-ok')
-      const cancel  = document.getElementById('consent-cancel')
 
+      // Handle the 'Accept' button
       consent.onclick = () => {
+        // Hide the Consent UX
         banner.style.display = 'none'
 
+        // Load Matomo
         loadMatomo()
       }
-
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Always display the banner except if Do Not Track is enabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
     </script>
+    
     
 
   </body>

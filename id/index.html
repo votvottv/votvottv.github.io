@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(48%) sepia(73%) saturate(7390%) hue-rotate(46deg) brightness(121%) contrast(123%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -689,7 +689,7 @@
       <li><a href="#step2">Sambung</a></li>
       <li><a href="#step3">Akses</a></li>
       <li><a href="#support-footer">Dukungan</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">Kebijakan Privasi</a></li>
 
         </ul>
         
@@ -718,7 +718,7 @@
       <li><a href="#step2">Sambung</a></li>
       <li><a href="#step3">Akses</a></li>
       <li><a href="#support-footer">Dukungan</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">Kebijakan Privasi</a></li>
 
       </ul>
       
@@ -958,14 +958,39 @@ Untuk memepelajari lebih lanjut mengenai layanan Onion, kunjungi <a href="https:
         To learn more about why we're collecting this information, for how long, and with whom we share this information with, please visit our <a href="policy" target="_blank">full privacy policy</a>.
 
         <div class="consent-buttons">
-          <a class="button" id="consent-ok"><p>Accept</p>
+          <a class="button" id="consent-ok"><p>Terima</p>
 </a>
-          <a class="button" id="consent-cancel"><p>Decline</p>
+          <a class="button" id="consent-cancel"><p>Tolak</p>
 </a>
         </div>
     </div>
 
     <script>
+      // Consent UX and "Decline" button
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Handle the "Decline" button
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Only display the consent banner if Do Not Track is disabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+
+    
+          <script>
+      // Loads Matomo
       // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
@@ -992,32 +1017,19 @@ Untuk memepelajari lebih lanjut mengenai layanan Onion, kunjungi <a href="https:
         })();
       }
 
-      const banner  = document.getElementsByClassName('consent-banner')[0]
+      // The 'Accept' button
       const consent = document.getElementById('consent-ok')
-      const cancel  = document.getElementById('consent-cancel')
 
+      // Handle the 'Accept' button
       consent.onclick = () => {
+        // Hide the Consent UX
         banner.style.display = 'none'
 
+        // Load Matomo
         loadMatomo()
       }
-
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Always display the banner except if Do Not Track is enabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
     </script>
+    
     
 
   </body>

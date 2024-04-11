@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(48%) sepia(73%) saturate(7390%) hue-rotate(46deg) brightness(121%) contrast(123%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -689,7 +689,7 @@
       <li><a href="#step2">Kết nối</a></li>
       <li><a href="#step3">Truy cập</a></li>
       <li><a href="#support-footer">Hỗ trợ</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">Chính sách bảo mật</a></li>
 
         </ul>
         
@@ -718,7 +718,7 @@
       <li><a href="#step2">Kết nối</a></li>
       <li><a href="#step3">Truy cập</a></li>
       <li><a href="#support-footer">Hỗ trợ</a></li>
-      <li><a href="policy">Privacy Policy</a></li>
+      <li><a href="policy">Chính sách bảo mật</a></li>
 
       </ul>
       
@@ -782,7 +782,7 @@ This page details how you can circumvent the censorship.</p>
         <summary class="no-marker">Facing trouble downloading Tor Browser?<i class="chevron-down"></i></summary>
         <div class="details-container">
           <p>There may be times when you cannot access the Tor Project website: for example, it could be blocked on your network.
-If this happens, you can use one of the alternative download methods listed below.</p>
+Nếu điều này xảy ra, bạn có thể sử dụng một trong những phương pháp tải xuống dự phòng được liệt kê bên dưới.</p>
 <h3>Mirrors</h3>
 <p>You can try downloading Tor Browser from one of the official mirrors, either through:</p>
 <ul>
@@ -821,8 +821,8 @@ GetTor is a service that automatically responds to messages with links to the la
     <h2></h2>
     <h2>Step 2: Connect to Tor</h2>
 <p>When you run Tor Browser for the first time, you will see the Connect to Tor window.
-This offers you the option to either connect directly to the Tor network, or to configure Tor Browser for your connection.
-There's a checkbox which asks whether you always want to get automatically connected to the Tor network, if this is the case, check the box.</p>
+Điều này cung cấp cho bạn tùy chọn hoặc kết nối trực tiếp tới mạng lưới Tor Network, hoặc là định cấu hình Trình duyệt Tor Browser cho kết nối của bạn.
+Có một hộp checkbox hỏi xem rằng bạn có luôn muốn tự động kết nối tới mạng lưới Tor Network hay không, nếu đúng như vậy, hãy chọn tích hộp này.</p>
 <p>Bạn nên có thể bắt đầu lướt web bằng Trình duyệt Tor ngay sau khi chạy chương trình đó, và kích vào nút "Kết nối" nếu bạn đang dùng nó lần đầu tiên.</p>
 
     
@@ -830,7 +830,7 @@ There's a checkbox which asks whether you always want to get automatically conne
       <details class="collapsible-text">
         <summary class="no-marker">Facing trouble connecting to Tor?<i class="chevron-down"></i></summary>
         <div class="details-container">
-          <p>Direct access to the Tor network may sometimes be blocked by your Internet Service Provider or by a government.
+          <p>Truy cập trực tiếp vào mạng lưới Tor Network đôi khi có thể bị chặn bởi Nhà cung cấp dịch vụ Internet của bạn hoặc bởi chính phủ.
 Tor Browser includes some circumvention tools for getting around these blocks.
 In such scenarios, simply configuring your browser to connect through a bridge should suffice.
 Bridges are simply relays that are private and harder to block.</p>
@@ -878,7 +878,7 @@ As of 22 December 2021, bridges bundled directly into Tor Browser are blocked in
   <div class="child step-text">
     <h2></h2>
     <h2>Step 3: Access the Onion Service</h2>
-<p>Onion services (formerly known as "hidden services") are services (like websites) that are only accessible through the Tor network.
+<p>Dịch vụ Onion (trước đây gọi là "các dịch vụ ẩn") là các dịch vụ (như trang web) chỉ có thể truy cập được qua mạng lưới Tor Network.
 Just like any other website, you will need to know the address of an onion service in order to connect to it.
 An onion address is a string of 56 mostly random letters and numbers, followed by ".onion".
 To learn more about Onion Services, visit the <a href="https://tb-manual.torproject.org/onion-services">Tor Browser Manual</a>.</p>
@@ -966,6 +966,31 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
     </div>
 
     <script>
+      // Consent UX and "Decline" button
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Handle the "Decline" button
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Only display the consent banner if Do Not Track is disabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+
+    
+          <script>
+      // Loads Matomo
       // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
@@ -992,32 +1017,19 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         })();
       }
 
-      const banner  = document.getElementsByClassName('consent-banner')[0]
+      // The 'Accept' button
       const consent = document.getElementById('consent-ok')
-      const cancel  = document.getElementById('consent-cancel')
 
+      // Handle the 'Accept' button
       consent.onclick = () => {
+        // Hide the Consent UX
         banner.style.display = 'none'
 
+        // Load Matomo
         loadMatomo()
       }
-
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Always display the banner except if Do Not Track is enabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
     </script>
+    
     
 
   </body>

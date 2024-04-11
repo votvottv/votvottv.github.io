@@ -599,25 +599,33 @@
 <p>The analytics functionality is controlled by these environment variables:</p>
 <ul>
 <li><code>LEKTOR_ANALYTICS</code>: when set to <code>1</code>, enables the analytics collection.</li>
-<li><code>LEKTOR_ANALYTICS_BACKEND</code>: contains the base URL of the Matomo instance.
+<li><code>LEKTOR_ANALYTICS_SDK</code>: set to <code>cleaninsights</code> to use the <a href="https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version">CleanInsights JS SDK</a>
+  instead of the default Matomo's <a href="https://developer.matomo.org/api-reference/tracking-javascript">Javascript Tracking Client</a>. The <a href="https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version">CleanInsights JS SDK</a>
+  is more robust and privacy-aware, but have a few caveats, has experimental support
+  and might now work well. Refer to <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/issues/87">tpo/onion-services/onion-launchpad#87</a>
+  for details.</li>
+<li><code>LEKTOR_ANALYTICS_BACKEND</code>: contains the base URL of the Analytics instance.
   Example: <code>https://myanalytics.example.org/</code>. Onion Launchpad will then point
    to both <code>https://myanalytics.example.org/matomo.js</code> and
   <code>https://myanalytics.example.org/matomo.php</code>.</li>
-<li><code>LEKTOR_ANALYTICS_SITE_ID</code>: should be set to the Matomo <code>siteId</code> configured
+<li><code>LEKTOR_ANALYTICS_SITE_ID</code>: should be set to the Analytics <code>siteId</code> configured
    in the backend.</li>
 <li><code>LEKTOR_ANALYTICS_LINK_TRACKING</code>: when set to 1, activates Matomo's
-  <code>enableLinkTracking</code> setting, otherwise keep it off.</li>
+  <code>enableLinkTracking</code> setting, otherwise keep it off.
+  Ignored when using the <a href="https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version">CleanInsights JS SDK</a>.</li>
 <li><code>LEKTOR_ANALYTICS_BROWSER_DETECTION</code>: when set to 1, use Matomo's
   browser feature detection, otherwise enforces <code>disableBrowserFeatureDetection</code>.
   You might want to turn this on if your Matomo backend is too
-  old, since <a href="https://github.com/matomo-org/matomo/pull/18599">disabling of browser detection was implemented only recently</a>.</li>
+  old, since <a href="https://github.com/matomo-org/matomo/pull/18599">disabling of browser detection was implemented only recently</a>.
+  Ignored when using the <a href="https://gitlab.com/cleaninsights/clean-insights-js-sdk#easy-tracking-of-websites-with-the-autotracker-version">CleanInsights JS SDK</a>.</li>
 <li><code>LEKTOR_ANALYTICS_PRIVACY_POLICY_CONTACT</code>: the contact information for the
   privacy policy, as per <a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>. It can
   be an e-mail address or URL.</li>
 <li><code>LEKTOR_ANALYTICS_BACKGROUND_COLOR</code>: the background color for the <a href="https://okthanks.com/blog/2021/5/14/clean-consent-ux">consent UX</a>,
   in hexadecimal format (<code>FFFFFF</code>).</li>
 </ul>
-<p>Check Matomo's <a href="https://developer.matomo.org/api-reference/tracking-javascript">JavaScript Tracking Client</a> documentation for details.</p>
+<p>Check Matomo's <a href="https://developer.matomo.org/api-reference/tracking-javascript">JavaScript Tracking Client</a> and the [CleanInsight JS SDK][]
+documentations for details.</p>
 <h2 id="privacy-policy">Privacy Policy<a class="headerlink" href="#privacy-policy" title="Permanent link">&para;</a></h2>
 <p>Onion Launchpad comes with a <a href="https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/content/policy/contents.lr">hard-coded Privacy Policy text</a> following the
 <a href="https://matomo.org/blog/2018/04/how-should-i-write-my-privacy-notice-for-matomo-analytics-under-gdpr/">best practices on analytics gathering</a>. This text is automatically compiled
@@ -630,13 +638,15 @@ in a <code>/policy</code> link.</p>
 </li>
 <li>
 <p>A special policy version when analytics is enabled, and ready to be used
-   with <a href="https://cleaninsights.org">Clean Insights</a>.</p>
+   with <a href="https://matomo.org">Matomo</a> or <a href="https://cleaninsights.org">Clean Insights</a>.</p>
 </li>
 </ol>
 <p>Currently there's no way to customize this policy beyond these two flavors.</p>
-<p>If you plan to collect analytics, we recommend that you use a <a href="https://cleaninsights.org">Clean
-Insights</a> instance if you plan to collect analytics in a way that respects
-the user's privacy.</p>
+<p>If you plan to collect analytics, we recommend that you use a
+<a href="https://matomo.org">Matomo</a>-compatible instance that does not log IP addresses if you plan to
+collect analytics in a way that respects the user's privacy.</p>
+<p>In any case, please check if the Privacy Policy text matches your analytics
+platform.</p>
 
 
 

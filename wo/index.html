@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7500%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(48%) sepia(73%) saturate(7390%) hue-rotate(46deg) brightness(121%) contrast(123%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -729,10 +729,10 @@
       <div id="header-container">
         <header class="parent">
           <div class="child" id="site-intro">
-            <h1>Tips for Bypassing Blocking of VotVot</h1>
+            <h1>Tegtal ngir jàll taxawal bu VotVot</h1>
             <div id="site-description">
-              <p>Unable to access <a href="https://www.votvot.tv">www.votvot.tv</a>?
-This page details how you can circumvent the censorship.</p>
+              <p>Mënunu ci dugg <a href="https://www.votvot.tv">www.votvot.tv</a>?
+Xët bi dafay leeral naka nga mën a moytoo jumtukaay buy ubbi ay pexe.</p>
 
             </div>
             <div class="onion-url"><a href="https://www.votvot23gcn32pr24mkfypuct2vv45n6uu7i64grwgzvt3wcfefwo3ad.onion" class="onion-url-desktop onion-url-container" data-urlbg="#EA6903ff">
@@ -770,7 +770,7 @@ This page details how you can circumvent the censorship.</p>
   <div class="child step-text">
     <h2>Step 1: Download Tor Browser</h2>
     <p>The safest and simplest way to download Tor Browser is from the official Tor Project website.
-<span id="os-span">For your operating system</span>, you can download <span id="browser-span">Tor Browser</span> from the link below:</p>
+<span id="os-span">Ngir sa nosteg doxin</span>, mën nga yebbi <span id="browser-span">Tor Browser</span>ci buumu jokkoo bi ci suuf:</p>
 
     
       <div id="download-tor-button">
@@ -819,7 +819,7 @@ GetTor is a service that automatically responds to messages with links to the la
 <div id="step2" class="parent">
   <div class="child step-text">
     <h2></h2>
-    <h2>Step 2: Connect to Tor</h2>
+    <h2>Jéego 2: Lëkkalool ak Tor</h2>
 <p>When you run Tor Browser for the first time, you will see the Connect to Tor window.
 Lii dalay may tannéefu lonku ci xuusukaayu Tor ci saasa wala tëral Xuusukaayu Tor ngir sa lonku.
 Am na benn boyét buy laac ndax daga bëgg batay lonku ci saasa ci Xuusukaayu Tor, bu fékée lolu la, saytul boyét bi.</p>
@@ -877,10 +877,10 @@ As of 22 December 2021, bridges bundled directly into Tor Browser are blocked in
 <div id="step3" class="parent">
   <div class="child step-text">
     <h2></h2>
-    <h2>Step 3: Access the Onion Service</h2>
+    <h2>Jéego 3: Duggal ci Onion Service bi</h2>
 <p>Sarwiisu onion (ñu xamòonléen ci "sarwii yi nëbu") ay sarwiis lañu (yu mélni xuusukaay) yunu mënë jot ludul jaar ci mbàllum Tor.
 Just like any other website, you will need to know the address of an onion service in order to connect to it.
-An onion address is a string of 56 mostly random letters and numbers, followed by ".onion".
+Ab onion address nekk na ab liiñu 56 araf aki lim yunu jël noonu, toftal ci ".onion".
 To learn more about Onion Services, visit the <a href="https://tb-manual.torproject.org/onion-services">Tor Browser Manual</a>.</p>
 <p>To access VotVot's onion service, simply copy and paste the following URL onto Tor Browser:</p>
 
@@ -966,6 +966,31 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
     </div>
 
     <script>
+      // Consent UX and "Decline" button
+      const banner  = document.getElementsByClassName('consent-banner')[0]
+      const cancel  = document.getElementById('consent-cancel')
+
+      // Handle the "Decline" button
+      cancel.onclick = () => {
+        banner.style.display = 'none'
+      }
+
+      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
+      var isDNT = navigator.doNotTrack   === "yes" ||
+                  navigator.doNotTrack   === "1"   ||
+                  navigator.msDoNotTrack === "1";
+
+      // Only display the consent banner if Do Not Track is disabled
+      // We're respecting the DNT setting even if it's deprecated
+      // Check the Onion Launchpad Analytics documentation for details
+      if (!isDNT) {
+        banner.style.display = 'block'
+      }
+    </script>
+
+    
+          <script>
+      // Loads Matomo
       // See https://developer.matomo.org/api-reference/tracking-javascript
       function loadMatomo() {
         var _paq = window._paq = window._paq || [];
@@ -992,32 +1017,19 @@ To learn more about Onion Services, visit the <a href="https://tb-manual.torproj
         })();
       }
 
-      const banner  = document.getElementsByClassName('consent-banner')[0]
+      // The 'Accept' button
       const consent = document.getElementById('consent-ok')
-      const cancel  = document.getElementById('consent-cancel')
 
+      // Handle the 'Accept' button
       consent.onclick = () => {
+        // Hide the Consent UX
         banner.style.display = 'none'
 
+        // Load Matomo
         loadMatomo()
       }
-
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Always display the banner except if Do Not Track is enabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
     </script>
+    
     
 
   </body>
