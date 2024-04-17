@@ -48,6 +48,7 @@ docs:
 
 release_job:
   image: registry.gitlab.com/gitlab-org/release-cli:latest
+  stage: .post
   rules:
     # Run this job when a tag is created
     - if: $CI_COMMIT_TAG
