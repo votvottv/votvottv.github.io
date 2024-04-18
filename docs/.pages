@@ -7,3 +7,4 @@ nav:
  - Deploying: deploy.md
  - Security: security.md
  - Analytics: analytics.md
+ - ChangeLog: changelog.md
