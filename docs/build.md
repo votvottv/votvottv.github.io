@@ -57,8 +57,10 @@ For [GitLab CI/CD][] we provide two configurations:
 ## Using [Docker][] and [Docker Compose][]
 
 Make sure you have [Docker][] and [Docker Compose][] properly installed.
-The [provision-docker-compose](scripts/provision-docker-compose) script serves
+The [provision-docker-compose][] script serves
 as an example in how to do that.
+
+[provision-docker-compose]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision-docker-compose?ref_type=heads
 
 Then proceed as usual:
 

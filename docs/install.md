@@ -15,8 +15,9 @@ This project relies on [Lektor](https://www.getlektor.com/)
 and some dependencies detailed at the
 [TPA CI templates](https://gitlab.torproject.org/tpo/tpa/ci-templates) project.
 
-A [provision script](scripts/provision) is available as an example of dependency
+A [provision script][] is available as an example of dependency
 installation from a [Debian][] stable system, and can be adapted to your own environment
 and needs.
 
-[Debian](https://www.debian.org)
+[provision script]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision?ref_type=heads
+[Debian]: https://www.debian.org
