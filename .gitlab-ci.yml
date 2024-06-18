@@ -29,7 +29,8 @@ include:
       - pages-deploy.yml
 
   - project: tpo/web/onion-mkdocs
-     file: .gitlab-ci-base.yml
+    file:
+      - .gitlab-ci-base.yml
 
 docs:
   extends: .onion-mkdocs-clone
