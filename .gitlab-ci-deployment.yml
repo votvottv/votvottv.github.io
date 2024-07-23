@@ -70,9 +70,11 @@ build:
 pages:
   stage: build
   image: debian:bookworm
-  #needs:
-  #  - job: docs
-  #    artifacts: true
+  needs:
+    #- job: docs
+    #  artifacts: true
+    - job: build
+      artifacts: true
   variables:
     GIT_STRATEGY: none
   script:
