@@ -125,11 +125,17 @@ jobs:
       - name: Build
         run: scripts/build
 
-      - name: Provision Docs
-        run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
-
-      - name: Docs
-        run: vendors/onion-mkdocs/scripts/onion-mkdocs-build
+      # The following tasks would add Onion Launchpad docs to all sites, but it's
+      # currently disabled by the following reasons:
+      #
+      # 1. It increases build time.
+      # 2. Currently Onion MkDocs is not shipped as a submodule, so
+      #    it's build scripts aren't available.
+      #- name: Provision Docs
+      #  run: vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
+      #
+      #- name: Docs
+      #  run: vendors/onion-mkdocs/scripts/onion-mkdocs-build
 
       #
       # GitHub Action: Deploy to GitHub Pages
