@@ -42,38 +42,37 @@ build:
   only:
     - main
 
-docs:
-  image: debian:bookworm
-  stage: build
-  needs:
-    - job: build
-      artifacts: true
-  script:
-    - apt-get update
-    - apt-get install -y git
-    - git submodule sync
-    - git submodule update --init --recursive --depth 1
-
-    # The following tasks would add Onion Launchpad docs to all sites, but it's
-    # currently disabled by the following reasons:
-    #
-    # 1. It increases build time.
-    # 2. Currently Onion MkDocs is not shipped as a submodule, so
-    #    it's build scripts aren't available.
-    #
-    #- vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
-    #- vendors/onion-mkdocs/scripts/onion-mkdocs-build
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - public
+# The following job would add Onion Launchpad docs to all sites, but it's
+# currently disabled by the following reasons:
+#
+# 1. It increases build time.
+# 2. Currently Onion MkDocs is not shipped as a submodule, so
+#    it's build scripts aren't available.
+#
+#docs:
+#  image: debian:bookworm
+#  stage: build
+#  needs:
+#    - job: build
+#      artifacts: true
+#  script:
+#    - apt-get update
+#    - apt-get install -y git
+#    - git submodule sync
+#    - git submodule update --init --recursive --depth 1
+#    - vendors/onion-mkdocs/scripts/onion-mkdocs-provision-build
+#    - vendors/onion-mkdocs/scripts/onion-mkdocs-build
+#  artifacts:
+#    expire_in: 1 week
+#    paths:
+#      - public
 
 pages:
   stage: build
   image: debian:bookworm
-  needs:
-    - job: docs
-      artifacts: true
+  #needs:
+  #  - job: docs
+  #    artifacts: true
   variables:
     GIT_STRATEGY: none
   script:
