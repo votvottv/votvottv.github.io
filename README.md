@@ -9,4 +9,4 @@ Service.
 
 * Live demo: https://tpo.pages.torproject.net/onion-services/onion-launchpad/
 * Documentation: in the [docs/](docs) folder or at
-  https://community.torproject.org/onion-services/ecosystem/apps/web/onion-launchpad
+  https://onionservices.torproject.org/apps/web/onion-launchpad
