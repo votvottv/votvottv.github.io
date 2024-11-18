@@ -14,8 +14,8 @@ packaging==24.1 \
     --hash=sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124
     # via marshmallow
 pyparsing==3.2.0 \
-    --hash=sha256:a6a7ee4235a3f944aa1fa2249307708f893fe5717dc603503c6c7969c070fb7c \
-    --hash=sha256:f86ec8d1a83f11977c9a6ea7598e8c27fc5cddfa5b07ea2241edbbde1d7bc032
+    --hash=cbf74e27246d595d9a74b186b810f6fbb86726dbf3b9532efb343f6d7294fe9c \
+    --hash=93d9577b88da0bbea8cc8334ee8b918ed014968fd2ec383e868fb8afb1ccef84
     # via packaging
 python-dotenv==1.0.1 \
     --hash=sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca \
