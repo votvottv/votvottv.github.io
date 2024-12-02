@@ -1,6 +1,8 @@
 # Onion Launchpad ChangeLog
 
-## 1.0.2 - Unreleased
+## 1.0.2 - 2024-12-02
+
+* Various dependencies updates.
 
 * Disabled the automatic GitLab releases due to an issue:
   somehow this is failing to include CI Templates, and hence
