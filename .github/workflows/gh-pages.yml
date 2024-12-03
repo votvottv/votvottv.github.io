@@ -106,7 +106,7 @@ jobs:
 
     container:
       # Right now we're sticking to Python 3.8 due to dependency issues.
-      image: python:3.13-bullseye
+      image: python:bookworm
 
     concurrency:
       group: ci-${{ github.ref }}
