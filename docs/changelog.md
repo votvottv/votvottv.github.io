@@ -1,5 +1,12 @@
 # Onion Launchpad ChangeLog
 
+## 1.0.3 - Unreleased
+
+* Build with standalone GitLab Runner [has been
+  deprecated][gitlab-exec-deprecated].
+
+[gitlab-exec-deprecated]: https://gitlab.com/gitlab-org/gitlab/-/issues/385235
+
 ## 1.0.2 - 2024-12-02
 
 * Various dependencies updates.

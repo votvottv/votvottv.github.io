@@ -78,6 +78,10 @@ for serving a statically built landing page.
 
 ## Using [GitLab Runner][]
 
+!!! note Deprecation notice
+
+    This method [has been deprecated][gitlab-exec-deprecated].
+
 The [GitLab Runner][] approach is aimed to test the [CI configuration for
 deployment][] directly through a [GitLab Runner][]
 instance locally installed in your computer.
@@ -95,6 +99,7 @@ listens on [http://localhost:5000][]:
 
     scripts/server-public
 
+[gitlab-exec-deprecated]: https://gitlab.com/gitlab-org/gitlab/-/issues/385235
 [GitLab Runner]: https://docs.gitlab.com/runner
 [provision-gitlab-runner]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/scripts/provision-gitlab-runner
 [CI configuration for deployment]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/.gitlab-ci-deployment.yml

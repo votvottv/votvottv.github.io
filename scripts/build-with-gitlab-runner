@@ -3,6 +3,9 @@
 # Build the Landing Page using GitLab Runner.
 # Makes the compiled page available at the ./public folder.
 #
+# This has been deprecated by GitLab:
+# https://gitlab.com/gitlab-org/gitlab/-/issues/385235
+#
 
 # Parameters
 DIRNAME="`dirname $0`"
@@ -11,6 +14,18 @@ BASEPATH="$DIRNAME/../"
 # Check for an existing GitLab Runner installation
 if ! which gitlab-runner &> /dev/null; then
   echo "Please install gitlab-runner first"
+  exit 1
+fi
+
+# Get GitLab Runner version
+GR_VERSION="`gitlab-runner --version | grep "^Version:" | cut -d ':' -f 2 | sed -e 's/ //g'`"
+GR_MAJOR_VERSION="`echo $GR_VERSION | cut -d '.' -f 1`"
+
+# Check for GitLab Runner version
+if (( $GR_MAJOR_VERSION >= 16 )); then
+  echo "You're running GitLab Runner version $GR_VERSION."
+  echo "Since version 16.0, running standalone jobs is no longer supported :("
+  echo "For details, check https://gitlab.com/gitlab-org/gitlab/-/issues/385235"
   exit 1
 fi
 
