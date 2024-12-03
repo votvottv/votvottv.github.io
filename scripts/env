@@ -60,6 +60,12 @@ mkdir -p "$(dirname "$VENV")"
 $PYTHON -m venv $VENV || exit 1
 source $VENV/bin/activate || exit 1
 
+# Ensure setuptools is up-to-date, avoiding issues such as
+# https://stackoverflow.com/questions/77364550/attributeerror-module-pkgutil-has-no-attribute-impimporter-did-you-mean
+# https://github.com/pypa/pip/issues/12179
+$PYTHON -m ensurepip   --upgrade
+$PYTHON -m pip install --upgrade setuptools
+
 $PYTHON -m pip install --require-hashes -r lego/lektor-requirements.txt || exit 1
 $PYTHON -m pip install --require-hashes -r requirements.txt || exit 1
 
