@@ -4,7 +4,7 @@
 # ".gitlab-ci-test.yml" in the "CI/CD configuration file" field under the
 # "General pipelines" section.
 ---
-image: python:bookworm
+image: python:3.11-bullseye
 
 variables:
   TRANSLATION_BRANCH: onion-launchpad
