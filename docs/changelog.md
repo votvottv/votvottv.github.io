@@ -2,8 +2,6 @@
 
 ## 1.0.3 - Unreleased
 
-* Migrate Onion Launchpad CI to Debian Bookworm ([#90][]).
-
 * Building with standalone GitLab Runner [has been
   deprecated][gitlab-exec-deprecated].
 
