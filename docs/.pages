@@ -8,4 +8,5 @@ nav:
   - Security: security.md
   - Analytics: analytics.md
   - ChangeLog: changelog.md
+  - Development: development.md
   - Contact and bug reporting: contact.md

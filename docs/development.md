@@ -37,25 +37,23 @@ Once a tag is pushed, a [GitLab release][] is created.
 
 Announce the new release:
 
-* Post a message to the [Tor Forum][], using the [onion-launchpad-announce tag][].
+* Post a message to the [Tor Forum][], using the [onion-services-announce tag][].
 * Send a message to the [tor-announce][] mailing list ONLY in special cases,
-  like important security issues.
+  like important security issues (severity `HIGH` or `CRITICAL`).
 
 Template:
 
 ```
-Subject: [RELEASE] Onion Launchpad [security] release $ONION_LAUNCHPAD_VERSION
+Subject: [RELEASE] [Onion Launchpad][] [security] release $ONION_LAUNCHPAD_VERSION
 
 Greetings,
 
-We just released Onion Launchpad $ONION_LAUNCHPAD_VERSION, a tool for testing and
-monitoring the status of Onion Services:
-https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/docs/upgrading.md
+We just released [Onion Launchpad][] $ONION_LAUNCHPAD_VERSION, a landing page
+to advertise Onion Services.
 
 [This release fixes a security issue. Please upgrade as soon as possible!]
 
-[This release requires a database migration for those using the monitoring node:]
-[https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/blob/main/docs/upgrading.md]
+[Onion Launchpad]: https://onionservices.torproject.org/apps/web/onion-launchpad
 
 # ChangeLog
 
@@ -64,4 +62,4 @@ $CHANGELOG
 
 [tor-announce]: https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-announce
 [Tor Forum]: https://forum.torproject.org
-[onion-launchpad-announce tag]: https://forum.torproject.org/tag/onion-launchpad-announce
+[onion-services-announce tag]: https://forum.torproject.org/tag/onion-services-announce
