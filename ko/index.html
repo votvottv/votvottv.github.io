@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7484%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(29%) sepia(73%) saturate(7483%) hue-rotate(27deg) brightness(104%) contrast(96%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -939,105 +939,6 @@ Tor 브라우저에는 이러한 차단을 우회하기 위한 도구가 포함�
 </footer>
     
         
-    <div class="consent-banner page-content">
-        <p>방문하실 때 다음 정보를 수집해도 될까요?</p>
-
-
-        <ul>
-          <li>
-            <p>방문하는 페이지.</p>
-
-          </li>
-
-          
-          <li>
-            <p>현재 IP 주소의 첫 옥텟 2자리.</p>
-
-          </li>
-          
-
-          
-
-          
-        </ul>
-
-        
-        정보의 수집 이유, 보관 기간 및 공유 대상에 대해 자세히 알아보려면 <a href="policy" target="_blank">전체 개인정보처리방침</a>를 방문하세요.
-
-        <div class="consent-buttons">
-          <a class="button" id="consent-ok"><p>수락</p>
-</a>
-          <a class="button" id="consent-cancel"><p>거절</p>
-</a>
-        </div>
-    </div>
-
-    <script>
-      // Consent UX and "Decline" button
-      const banner  = document.getElementsByClassName('consent-banner')[0]
-      const cancel  = document.getElementById('consent-cancel')
-
-      // Handle the "Decline" button
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Only display the consent banner if Do Not Track is disabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
-    </script>
-
-    
-          <script>
-      // Loads Matomo
-      // See https://developer.matomo.org/api-reference/tracking-javascript
-      function loadMatomo() {
-        var _paq = window._paq = window._paq || [];
-
-        _paq.push(['trackPageView']);
-
-        
-
-        
-        _paq.push(['disableBrowserFeatureDetection']);
-        
-
-        _paq.push(['disablePerformanceTracking']);
-        _paq.push(['setDoNotTrack', true]);
-
-        (function() {
-          var u='https://metrics.cleaninsights.org/';
-
-          _paq.push(['setTrackerUrl', u+'matomo.php']);
-          _paq.push(['setSiteId',     '28']);
-
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-      }
-
-      // The 'Accept' button
-      const consent = document.getElementById('consent-ok')
-
-      // Handle the 'Accept' button
-      consent.onclick = () => {
-        // Hide the Consent UX
-        banner.style.display = 'none'
-
-        // Load Matomo
-        loadMatomo()
-      }
-    </script>
-    
-    
 
   </body>
 </html>

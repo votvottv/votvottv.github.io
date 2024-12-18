@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(38%) sepia(65%) saturate(7484%) hue-rotate(29deg) brightness(103%) contrast(103%);
+       filter: invert(29%) sepia(73%) saturate(7483%) hue-rotate(27deg) brightness(104%) contrast(96%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -939,105 +939,6 @@ Pour en savoir plus sur les services en onion, consultez le <a href="https://tb-
 </footer>
     
         
-    <div class="consent-banner page-content">
-        <p>Est-il possible de recueillir les informations suivantes sur votre utilisation ?</p>
-
-
-        <ul>
-          <li>
-            <p>Les pages que vous consultez.</p>
-
-          </li>
-
-          
-          <li>
-            <p>Les 2 premiers octets de votre adresse IP actuelle.</p>
-
-          </li>
-          
-
-          
-
-          
-        </ul>
-
-        
-        Pour en savoir plus sur les raisons pour lesquelles nous collectons ces informations, sur la durée de cette collecte et sur les personnes avec lesquelles nous partageons ces informations, veuillez consulter nos <a href="policy" target="_blank">politique de confidentialité</a>.
-
-        <div class="consent-buttons">
-          <a class="button" id="consent-ok"><p>Accepter</p>
-</a>
-          <a class="button" id="consent-cancel"><p>Refusé</p>
-</a>
-        </div>
-    </div>
-
-    <script>
-      // Consent UX and "Decline" button
-      const banner  = document.getElementsByClassName('consent-banner')[0]
-      const cancel  = document.getElementById('consent-cancel')
-
-      // Handle the "Decline" button
-      cancel.onclick = () => {
-        banner.style.display = 'none'
-      }
-
-      // Thanks https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript
-      var isDNT = navigator.doNotTrack   === "yes" ||
-                  navigator.doNotTrack   === "1"   ||
-                  navigator.msDoNotTrack === "1";
-
-      // Only display the consent banner if Do Not Track is disabled
-      // We're respecting the DNT setting even if it's deprecated
-      // Check the Onion Launchpad Analytics documentation for details
-      if (!isDNT) {
-        banner.style.display = 'block'
-      }
-    </script>
-
-    
-          <script>
-      // Loads Matomo
-      // See https://developer.matomo.org/api-reference/tracking-javascript
-      function loadMatomo() {
-        var _paq = window._paq = window._paq || [];
-
-        _paq.push(['trackPageView']);
-
-        
-
-        
-        _paq.push(['disableBrowserFeatureDetection']);
-        
-
-        _paq.push(['disablePerformanceTracking']);
-        _paq.push(['setDoNotTrack', true]);
-
-        (function() {
-          var u='https://metrics.cleaninsights.org/';
-
-          _paq.push(['setTrackerUrl', u+'matomo.php']);
-          _paq.push(['setSiteId',     '28']);
-
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-      }
-
-      // The 'Accept' button
-      const consent = document.getElementById('consent-ok')
-
-      // Handle the 'Accept' button
-      consent.onclick = () => {
-        // Hide the Consent UX
-        banner.style.display = 'none'
-
-        // Load Matomo
-        loadMatomo()
-      }
-    </script>
-    
-    
 
   </body>
 </html>
