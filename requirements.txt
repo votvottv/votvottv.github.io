@@ -5,9 +5,9 @@ environs==11.2.1 \
     --hash=sha256:e068ae3174cef52ba4b95ead22e639056a02465f616e62323e04ae08e86a75a4
     # via lektor-envvars
 
-marshmallow==3.23.2 \
-    --hash=sha256:bcaf2d6fd74fb1459f8450e85d994997ad3e70036452cbfa4ab685acb19479b3 \
-    --hash=sha256:c448ac6455ca4d794773f00bae22c2f351d62d739929f761dce5eacb5c468d7f
+marshmallow==3.25.1 \
+    --hash=sha256:ec5d00d873ce473b7f2ffcb7104286a376c354cab0c2fa12f5573dab03e87210 \
+    --hash=sha256:f4debda3bb11153d81ac34b0d582bf23053055ee11e791b54b4b35493468040a
     # via environs
 packaging==24.2 \
     --hash=sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759 \
