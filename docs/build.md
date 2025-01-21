@@ -17,6 +17,7 @@ The procedures can also be executed inside a virtual machine, preferably using
 [Debian][].
 
 [GitLab CI/CD]: https://docs.gitlab.com/ee/ci/
+[Debian]: https://www.debian.org/
 
 ## Environment file
 
