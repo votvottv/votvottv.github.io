@@ -43,20 +43,14 @@ docs:
     paths:
       - public
 
-# Somehow this is failing to include CI Templates, and hence
-# unable to find some jobs.
-#
-# Example: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/-/pipelines/161094
-#
-# Leaving this disabled as it's not a criticial feature.
-#release:
-#  image: registry.gitlab.com/gitlab-org/release-cli:latest
-#  stage: .post
-#  rules:
-#    # Run this job when a tag is created
-#    - if: $CI_COMMIT_TAG
-#  script:
-#    - echo "Running release_job..."
-#  release:
-#    tag_name: '$CI_COMMIT_TAG'
-#    description: '$CI_COMMIT_TAG'
+release:
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  stage: .post
+  rules:
+    # Run this job when a tag is created
+    - if: $CI_COMMIT_TAG
+  script:
+    - echo "Running release_job..."
+  release:
+    tag_name: '$CI_COMMIT_TAG'
+    description: '$CI_COMMIT_TAG'
