@@ -1,4 +1,4 @@
-# Customizing
+# Customizing Onion Launchpad
 
 Several parts of the site are configured through environment variables during
 the Lektor build.

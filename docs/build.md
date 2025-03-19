@@ -1,4 +1,4 @@
-# Building
+# Building Onion Launchpad
 
 There are some documented ways in how to setup your development or deployment
 environment for this project:

@@ -1,4 +1,4 @@
-# Security
+# Onion Launchpad security
 
 ## Threat model
 

@@ -1,4 +1,4 @@
-# Installation
+# Onion Launchpad installation
 
 ## Getting the code
 

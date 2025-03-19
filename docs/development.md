@@ -1,4 +1,4 @@
-# Development
+# Onion Launchpad development
 
 Onion Launchpad development guidelines and workflow are listed here.
 

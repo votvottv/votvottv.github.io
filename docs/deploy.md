@@ -1,4 +1,4 @@
-# Deploying
+# Deploying Onion Launchpad
 
 ## GitLab deployments
 
