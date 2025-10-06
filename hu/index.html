@@ -183,7 +183,7 @@
      }
      .onion-url-lock {
        transform: translateY(4px);
-       filter: invert(36%) sepia(15%) saturate(5181%) hue-rotate(700deg) brightness(107%) contrast(107%);
+       filter: invert(44%) sepia(35%) saturate(2453%) hue-rotate(18deg) brightness(101%) contrast(99%);
        display: inline-block;
        background-image: url(../onion-site-lock.svg?h=b66d07d8);
        width: 32px;
@@ -761,7 +761,7 @@ Ez az oldal részletesen bemutatja, hogyan tudja megkerülni a cenzúrát.</p>
         <h2>A cenzúra megkerülése Tor-ral</h2>
         <p>A Tor lehetőséget biztosít az anonim internetet böngészésre, segíti a felhasználókat, hogy <strong>elkerüljék a cenzúrát és a megfigyelést</strong>. A Tor Böngésző olyan mint a többi böngésző amit használ - Chrome, Firefox, Safari, Yandex - azzal a különbséggel, hogy a helyett, hogy minden böngészési szokását megosztaná az internet szolgáltatójával és mindenkivel, aki figyeli a forgalmat, ez <strong>elrejti a forgalmat</strong> titkosítással és azzal, hogy áttereli három véletlenül kiválasztott önkéntes által futtatott csomóponton (ezeket hívjuk "reléknek"). Ez a folyamat eltakarja, hogy ki Ön és hogy hova megy (azaz melyik oldalt látogatja meg).</p>
 
-        <p>A Tor emberi jogokat védők, aktivisták, és olyan személyek által használt világszerte, akiknek <strong>szabadulnia kell a cenzúrától és a megfigyeléstől</strong>. Ha többet szeretne megtudni a Tor-ról és arról, hogyan működik, tekintse meg a <a href="https://tb-manual.torproject.org">Tor Böngésző kézikönyvét</a>.</p>
+        <p>A Tor emberi jogokat védők, aktivisták, és olyan személyek által használt világszerte, akik <strong>menekülnek a cenzúra és a megfigyelés elől</strong>. Ha többet szeretne megtudni a Tor-ról és arról, hogyan működik, tekintse meg a <a href="https://tb-manual.torproject.org">Tor Böngésző kézikönyvét</a>.</p>
 
       </div>
 
@@ -769,8 +769,8 @@ Ez az oldal részletesen bemutatja, hogyan tudja megkerülni a cenzúrát.</p>
         <div id="step1" class="parent">
   <div class="child step-text">
     <h2>1. lépés: Töltse le a Tor Böngészőt</h2>
-    <p>A Tor Browser letöltésének legbiztonságosabb és legegyszerűbb módja a hivatalos Tor Project webhelyről letöltés.
-<span id="os-span">Az operációs rendszerére</span> letöltheti a <span id="browser-span">Tor Browser</span>-t az alábbi linkről:</p>
+    <p>A Tor Böngésző letöltésének legbiztonságosabb és legegyszerűbb módja a hivatalos Tor Projekt webhelyről letöltés.
+<span id="os-span">Az operációs rendszerére</span> letöltheti a <span id="browser-span">Tor Böngésző</span>-t az alábbi linkről:</p>
 
     
       <div id="download-tor-button">
@@ -835,33 +835,33 @@ A Tor Böngésző tartalmaz néhány olyan cenzúra elhárítási eszközt, amel
 Ezekben az esetekben, a böngészője beállítása hidak használatára elég szokott lenni.
 A hidak olyan relék, ami privátak és így nehezebb őket blokkolni.</p>
 <h3>Lépések arról, hogyan aktiválja a hidakat egy asztali gépen:</h3>
-<p>You can use a bridge in Tor Browser for desktop by going to: Settings &gt; Connection &gt; Bridges &gt; Select a Built-In Bridge.
+<p>A következő módon használhat hidakat az asztali Tor Böngészőben: Beállítások ikon &gt; Híd konfigurálása &gt; Híd használata.
 2021 december 22-én a Tor Böngészőhöz csomagolt hidak blokkolásra kerültek Oroszországban.</p>
 <p>A felhasználók a következő módon tudnak egy hidat kérni:</p>
 <ul>
 <li>Requesting a bridge from within Tor Browser on desktop: Settings &gt; Connection &gt; Bridges &gt; Request a bridge from torproject.org &gt; Solve the CAPTCHA</li>
-<li>Sending "/bridges" to the dedicated Telegram channel <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> and then adding the bridge address received manually via copy and paste in Tor Browser: Settings &gt; Connection &gt; Bridges &gt; Enter a bridge address you already know</li>
+<li>A "/bridges" üzenet küldésével a dedikált Telegram csatornára <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> és a megkapott híd sorok kézi másolásával és beillesztésével a Tor Browserbe [Híd konfiguráció &gt; Megadok egy hidat amit Én tudok]</li>
 <li>Látogasson el a <a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> webhelyre, és kövesse az utasításokat</li>
-<li>Requesting a bridge via email: bridges@torproject.org from a Gmail or Riseup email address; and then adding the bridge address received manually via copy and paste in Tor Browser: Settings &gt; Connection &gt; Bridges &gt; Enter a bridge address you already know</li>
-<li>Connecting through Snowflake from within Tor Browser: Settings &gt; Connection &gt; Bridges &gt; Select a built-in bridge &gt; Snowflake</li>
+<li>Híd kérésével emailen keresztül a bridges@torproject.org címről Gmail vagy Riseup email címről; majd a megkapott híd sorok kézi másolásával és beillesztésével a Tor Böngészőbe [Híd konfiguráció &gt; Megadok egy hidat amit Én tudok]</li>
+<li>Kapcsolódás "Snowflake"-en keresztül a Tor Browserből [Tor hálózati beállítások &gt; Tor &gt; Hidak &gt; Válasszon ki egy beépített hidat &gt; Snowflake]</li>
 </ul>
 <h3>Lépések a hidak Android-on aktiválásához:</h3>
 <p>A felhasználók ide navigálva használhatnak hidakat Android-on: Beálltások ikon &gt; Híd konfigurálása &gt; Híd használata.</p>
 <p>Abban az esetben, ha a Tor Böngészővel együtt csomagolt hidak blokkoltak, akkor szükséges beszerezni egy hidat a következő módok valamelyikével:</p>
 <ul>
-<li>A "/bridges" üzenet küldésével a dedikált Telegram csatornára <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> és a megkapott híd sorok kézi másolásával és beillesztésével a Tor Browserbe [Híd konfiguráció &gt; Megadok egy hidat amit Én tudok]</li>
+<li>A "/bridges" üzenet küldésével a dedikált Telegram csatornára <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> és a megkapott híd sorok kézi másolásával és beillesztésével a Tor Böngészőbe: Híd konfiguráció &gt; Megadok egy hidat amit Én tudok</li>
 <li>Látogasson el a <a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> webhelyre, és kövesse az utasításokat</li>
-<li>Híd kérésével emailen keresztül a bridges@torproject.org címről Gmail vagy Riseup email címről; majd a megkapott híd sorok kézi másolásával és beillesztésével a Tor Browserbe [Híd konfiguráció &gt; Megadok egy hidat amit Én tudok]</li>
-<li>Kapcsolódás "Snowflake"-en keresztül a Tor Browserből [Híd konfigurálása &gt; Snowflake]</li>
+<li>Híd kérésével emailen keresztül a bridges@torproject.org címről Gmail vagy Riseup email címről; majd a megkapott híd sorok kézi másolásával és beillesztésével a Tor Böngészőbe: Híd konfiguráció &gt; Megadok egy hidat amit Én tudok</li>
+<li>Kapcsolódás Snowflake-en keresztül a Tor Böngészőből Híd konfigurálása &gt; Snowflake</li>
 </ul>
 <h3>Lépések a hidak bekapcsolásához iOS-en:</h3>
 <p>A felhasználók ide navigálva használhatnak hidakat iOS-en: Onion (hagyma) ikon egy weboldal megtekintésekor &gt; Híd konfiguráció.</p>
 <p>Abban az esetben, ha Tor Böngészőbe a beépített hidak blokkoltak, a következő módok egyikén kérhet egy hidat:</p>
 <ul>
-<li>A "/bridges" üzenet küldésével a dedikált Telegram csatornára <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> és a megkapott híd sorok kézi másolásával és beillesztésével a Tor Browserbe [Híd konfiguráció &gt; Egyéni hidak]</li>
+<li>A "/bridges" üzenet küldésével a dedikált Telegram csatornára <a href="https://t.me/GetBridgesBot">@GetBridgesBot</a> és a megkapott híd sorok kézi másolásával és beillesztésével a Tor Böngészőbe [Híd konfiguráció &gt; Egyéni hidak]</li>
 <li>Látogasson el a <a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a> webhelyre, és kövesse az utasításokat</li>
-<li>Híd kérésével emailen keresztül a bridges@torproject.org címről Gmail vagy Riseup email címről; majd a megkapott híd sorok kézi másolásával és beillesztésével a Tor Browserbe [Híd konfiguráció &gt; Egyéni hidak]</li>
-<li>Connecting through Snowflake from within Tor Browser: Bridge Configuration &gt; Snowflake</li>
+<li>Híd kérésével emailen keresztül a bridges@torproject.org címről Gmail vagy Riseup email címről; majd a megkapott híd sorok kézi másolásával és beillesztésével a Tor Böngészőbe: Híd konfiguráció &gt; Egyéni hidak</li>
+<li>Kapcsolódás a Snowflake-en keresztül a Tor Browser-ból [Híd konfiguráció &gt; Snowflake]</li>
 </ul>
 
         </div>
@@ -924,7 +924,7 @@ Ahhoz, hogy többet megtudhasson az Onion szolgáltatásokról, látogassa meg a
       </div>
 
       <div class="social-button">
-        <a href="https://forum.torproject.net/" class="button"><img src="../discourse-brands.svg?h=3587ce10" class="rtl-hide">Tor Project forum<img src="../discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
+        <a href="https://forum.torproject.net/" class="button"><img src="../discourse-brands.svg?h=3587ce10" class="rtl-hide">Tor Projekt fórum<img src="../discourse-brands.svg?h=3587ce10" class="rtl-show"></a>
       </div>
 
       <div class="social-button">
