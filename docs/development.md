@@ -53,7 +53,10 @@ to advertise Onion Services.
 
 [This release fixes a security issue. Please upgrade as soon as possible!]
 
+Found a bug or have a fix? Please [report to us][contact] so it can be solved.
+
 [Onion Launchpad]: https://onionservices.torproject.org/apps/web/onion-launchpad
+[contact]: https://onionservices.torproject.org/apps/web/onion-launchpad/contact/
 
 # ChangeLog
 
