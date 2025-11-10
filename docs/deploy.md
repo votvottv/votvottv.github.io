@@ -63,7 +63,7 @@ GitLab mirror (requires privileges at the mirror repository):
 
 Then you can follow the build log for unexpected errors, but in general the
 build should be successful and the landing page will be updated at
-[`https://${group}.gitlab.io`.
+`https://${group}.gitlab.io`.
 
 ## GitHub deployments
 
@@ -155,34 +155,34 @@ The following example assumes you have admin access at the [Onion Launchpad
 upstream repository][], but you can easily adapt to whatever GitLab repository
 you're using as the Onion Launchpad mirror origin.
 
-[Onion Launchpad upstream repository][]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/
+[Onion Launchpad upstream repository]: https://gitlab.torproject.org/tpo/onion-services/onion-launchpad/
 
 * Start by adding a new mirror on the [GitLab repository settings][]:
-  * Git repository URL: `ssh://git@github.com/${organization}/${organization}.github.io.git`.
-  * Mirror direction: push.
-  * Input or detect host keys.
-  * Authentication method: SSH public key.
-  * Mirror only protected branches.
-  * Click on "Mirror repository".
-  * The mirror will appear in a listing below the form. Click on the clipboard
-    icon to copy the generate SSH public key for this mirror into your
-    clipboard.
+    * Git repository URL: `ssh://git@github.com/${organization}/${organization}.github.io.git`.
+    * Mirror direction: push.
+    * Input or detect host keys.
+    * Authentication method: SSH public key.
+    * Mirror only protected branches.
+    * Click on "Mirror repository".
+    * The mirror will appear in a listing below the form. Click on the clipboard
+      icon to copy the generate SSH public key for this mirror into your
+      clipboard.
 * On [GitHub keys config page](https://github.com/settings/keys):
-  * Add a new SSH key, pasting the SSH public key into the form.
+    * Add a new SSH key, pasting the SSH public key into the form.
 * On `https://github.com/${organization}/${organization}.github.io/settings/secrets/actions`:
-  * Add a new repository secrets for each environment variable.
+    * Add a new repository secrets for each environment variable.
 * Again on [GitLab repository settings][]:
-  * Click on the refresh button of this mirror to do the initial push into the
-    remote [GitHub][] repository.
+    * Click on the refresh button of this mirror to do the initial push into the
+      remote [GitHub][] repository.
 * On `https://github.com/${organization}/${organization}.github.io/actions`:
-  * Manually trigger the "[GitHub][] Pages" workflow to build the landing page for
-    the first time.
-  * Check that the [GitHub][] page branch (`gh-pages`) is automatically built after
-    the workflow runs.
+    * Manually trigger the "[GitHub][] Pages" workflow to build the landing page for
+      the first time.
+    * Check that the [GitHub][] page branch (`gh-pages`) is automatically built after
+      the workflow runs.
 * On `https://github.com/${organization}/${organization}.github.io/settings/pages`:
-  * Set the pages source branch to `gh-pages`.
+    * Set the pages source branch to `gh-pages`.
 * Again on `https://github.com/${organization}/${organization}.github.io/actions`:
-  * Watch for the `pages-build-deployment` workflow.
+    * Watch for the `pages-build-deployment` workflow.
 
 Now your landing page mirror should be accessible via `http://${organization}.github.io`.
 
