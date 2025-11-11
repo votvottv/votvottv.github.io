@@ -51,6 +51,16 @@ Then use the GitLab deployment script provided by [Onion Launchpad][]:
 
 [abuse in the automated group creation]: https://gitlab.com/gitlab-org/gitlab/-/issues/244345#note_1021388399
 
+### Setting up a mirror on GitLab
+
+Mirroring to GitLab is described at
+
+* [Repository mirroring | GitLab Docs][].
+* [Deploy keys | GitLab Docs][].
+
+[Repository mirroring | GitLab Docs]: https://docs.gitlab.com/user/project/repository/mirror/
+[Deploy keys | GitLab Docs]: https://docs.gitlab.com/user/project/deploy_keys/
+
 ### Triggering a build on GitLab
 
 Follow these steps to manually trigger an Onion Launchpad pipeline at some
