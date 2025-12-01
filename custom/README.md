@@ -1,4 +1,4 @@
-# Assets for Sponsor 123
+# Assets for Project 145
 
 ## Naming conventions
 
